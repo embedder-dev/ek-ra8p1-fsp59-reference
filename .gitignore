@@ -1,0 +1,11 @@
+# Local assistant state, configuration, and research caches are not challenge inputs.
+/.codex/
+/.embedder/*
+!/.embedder/pin-model/
+/.firecrawl/
+/.gstack/
+
+# Host-generated files.
+.DS_Store
+__pycache__/
+*.py[cod]

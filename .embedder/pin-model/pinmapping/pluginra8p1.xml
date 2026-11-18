@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="com.tasking.pinmapper.mapping">
+    <vendor caption="Renesas" id="renesas" />
+    <group caption="Renesas RA" id="renesas.ra" />
+    <family caption="Renesas RA8P1" id="renesas.ra8p1" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_nomipi_ac" package="renesas.289bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1AxxCAC.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_nomipi_ab" package="renesas.224bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1AxxCAB.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_nomipi_ac" package="renesas.289bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1JxxCAC.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_nomipi_ab" package="renesas.224bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1JxxCAB.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_mipi_ac" package="renesas.289bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1BxxCAC.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_mipi_ab" package="renesas.224bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1BxxCAB.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_mipi_ac" package="renesas.289bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1KxxCAC.xml" />
+    <mapping vendor="renesas" group="renesas.ra" family="renesas.ra8p1" device="renesas.ra8p1_mipi_ab" package="renesas.224bga" path="platform:/base/../internal/projectgen/ra/${version}/pinmapping/PinCfgR7KA8P1KxxCAB.xml" />
+  </extension>
+</plugin>
