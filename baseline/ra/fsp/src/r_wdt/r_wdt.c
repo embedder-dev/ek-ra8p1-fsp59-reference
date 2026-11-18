@@ -17,8 +17,20 @@
 
 #define WDT_OPEN    (0X00574454ULL)
 
+#if BSP_FEATURE_WDT_PER_CORE
+ #define WDT_PRV_REG    ((R_WDT0_Type *) ((uintptr_t) R_WDT0 + (0x100U * BSP_CFG_CPU_CORE)))
+ #if BSP_CFG_CPU_CORE == 1
+  #define WDT_PRV_OFS    BSP_CFG_ROM_REG_OFS3
+ #else
+  #define WDT_PRV_OFS    BSP_CFG_ROM_REG_OFS0
+ #endif
+#else
+ #define WDT_PRV_REG    R_WDT
+ #define WDT_PRV_OFS    BSP_CFG_ROM_REG_OFS0
+#endif
+
 /* Lookup functions for WDT settings.  Using function like macro for stringification. */
-#define WDT_PRV_OFS0_SETTING_GET(setting)    (((uint32_t) BSP_CFG_ROM_REG_OFS0 >> \
+#define WDT_PRV_OFS0_SETTING_GET(setting)    (((uint32_t) WDT_PRV_OFS >> \
                                                WDT_PRV_OFS0_ ## setting ## _BIT) & WDT_PRV_OFS0_ ## setting ## _MASK);
 #define WDT_PRV_WDTCR_SETTING_GET(setting,                                                    \
                                   wdtcr)     (((wdtcr >> WDT_PRV_WDTCR_ ## setting ## _BIT) & \
@@ -65,14 +77,14 @@
 #define WDT_PRV_WDTCR_WINDOW_START_MASK      (0x3U) // Bits 12-13
 
 /* Macros for start mode and NMI support. */
-#if (BSP_CFG_ROM_REG_OFS0 >> WDT_PRV_OFS0_AUTO_START_BIT) & WDT_PRV_OFS0_AUTO_START_MASK
+#if (WDT_PRV_OFS >> WDT_PRV_OFS0_AUTO_START_BIT) & WDT_PRV_OFS0_AUTO_START_MASK
  #define WDT_PRV_REGISTER_START_MODE         (1)
  #define WDT_PRV_NMI_SUPPORTED               (WDT_CFG_REGISTER_START_NMI_SUPPORTED)
 #else
 
 /* Auto start mode */
  #define WDT_PRV_REGISTER_START_MODE         (0)
- #if (BSP_CFG_ROM_REG_OFS0 >> WDT_PRV_OFS0_NMI_REQUEST_BIT) & WDT_PRV_OFS0_NMI_REQUEST_MASK
+ #if (WDT_PRV_OFS >> WDT_PRV_OFS0_NMI_REQUEST_BIT) & WDT_PRV_OFS0_NMI_REQUEST_MASK
   #define WDT_PRV_NMI_SUPPORTED              (0)
  #else
   #define WDT_PRV_NMI_SUPPORTED              (1)
@@ -189,15 +201,38 @@ const wdt_api_t g_wdt_on_wdt =
  * @retval FSP_SUCCESS              WDT successfully configured.
  * @retval FSP_ERR_ASSERTION        Null pointer, or one or more configuration options is invalid.
  * @retval FSP_ERR_ALREADY_OPEN     Module is already open.  This module can only be opened once.
- * @retval FSP_ERR_INVALID_STATE    The security state of the NMI and the module do not match.
+ * @retval FSP_ERR_INVALID_STATE    The security state of the NMI and the module do not match, or CPU1 cannot verify
+ *                                 that the effective option-memory WDT configuration matches its compiled settings.
  *
  * @note In auto start mode the only valid configuration option is for registering the callback for the NMI ISR if
  *       NMI output has been selected.
+ * @note A per-core CPU1 non-secure build is rejected because the secure option selector is not accessible.
  **********************************************************************************************************************/
 fsp_err_t R_WDT_Open (wdt_ctrl_t * const p_ctrl, wdt_cfg_t const * const p_cfg)
 {
     wdt_instance_ctrl_t * p_instance_ctrl = (wdt_instance_ctrl_t *) p_ctrl;
     fsp_err_t             err;
+
+#if BSP_FEATURE_WDT_PER_CORE && (BSP_CFG_CPU_CORE == 1)
+ #if defined(BSP_TZ_NONSECURE_BUILD) && BSP_TZ_NONSECURE_BUILD
+
+    /* Non-secure code cannot read the secure option selector to establish the effective configuration. */
+    return FSP_ERR_INVALID_STATE;
+ #else
+
+    /* HM 7.2.6-7.2.7: CPU0 owns these read-only option words; selection is per field. */
+    uint32_t ofs3_sec = *((volatile uint32_t const *) 0x02C9F0C4UL);
+    uint32_t ofs3_ns  = *((volatile uint32_t const *) 0x12C9F4C4UL);
+    uint32_t ofs3_sel = *((volatile uint32_t const *) 0x02C9F124UL);
+    uint32_t ofs3     = (ofs3_sec & ~ofs3_sel) | (ofs3_ns & ofs3_sel);
+
+    /* Admit the compile-time mode only after all WDT fields match, before modifying driver or hardware state. */
+    if (0U != ((ofs3 ^ (uint32_t) WDT_PRV_OFS) & 0x5FFE0000UL))
+    {
+        return FSP_ERR_INVALID_STATE;
+    }
+ #endif
+#endif
 
     /* Check validity of the parameters */
     err = r_wdt_parameter_checking(p_instance_ctrl, p_cfg);
@@ -222,15 +257,15 @@ fsp_err_t R_WDT_Open (wdt_ctrl_t * const p_ctrl, wdt_cfg_t const * const p_cfg)
  #endif
 
     /* Set the configuration registers in register start mode. */
-    R_WDT->WDTRCR = (uint8_t) (p_cfg->reset_control << WDT_PRV_WDTRCR_RESET_CONTROL_BIT);
+    WDT_PRV_REG->WDTRCR = (uint8_t) (p_cfg->reset_control << WDT_PRV_WDTRCR_RESET_CONTROL_BIT);
 
     uint32_t wdtcr = WDT_PRV_WDTCR_SETTING_SET(TIMEOUT, (uint16_t) g_wdtcr_timeout[p_cfg->timeout]);
     wdtcr |= WDT_PRV_WDTCR_SETTING_SET(CLOCK_DIVISION, (uint16_t) p_cfg->clock_division);
     wdtcr |= WDT_PRV_WDTCR_SETTING_SET(WINDOW_START, (uint16_t) p_cfg->window_start);
     wdtcr |= WDT_PRV_WDTCR_SETTING_SET(WINDOW_END, (uint16_t) p_cfg->window_end);
 
-    R_WDT->WDTCR    = (uint16_t) wdtcr;
-    R_WDT->WDTCSTPR = (uint8_t) (p_cfg->stop_control << WDT_PRV_WDTCSTPR_STOP_CONTROL_BIT);
+    WDT_PRV_REG->WDTCR    = (uint16_t) wdtcr;
+    WDT_PRV_REG->WDTCSTPR = (uint8_t) (p_cfg->stop_control << WDT_PRV_WDTCSTPR_STOP_CONTROL_BIT);
 #else
 
     /* Auto start mode. */
@@ -274,7 +309,7 @@ fsp_err_t R_WDT_TimeoutGet (wdt_ctrl_t * const p_ctrl, wdt_timeout_values_t * co
 #if WDT_PRV_REGISTER_START_MODE
 
     /* Read the configuration of the watchdog */
-    uint32_t wdtcr = R_WDT->WDTCR;
+    uint32_t wdtcr = WDT_PRV_REG->WDTCR;
     clock_division = (wdt_clock_division_t) WDT_PRV_WDTCR_SETTING_GET(CLOCK_DIVISION, wdtcr);
     timeout        = WDT_PRV_WDTCR_SETTING_GET(TIMEOUT, wdtcr);
 #else                                  /* Auto start mode */
@@ -325,8 +360,8 @@ fsp_err_t R_WDT_Refresh (wdt_ctrl_t * const p_ctrl)
     FSP_ERROR_RETURN(WDT_OPEN == p_instance_ctrl->wdt_open, FSP_ERR_NOT_OPEN);
 #endif
 
-    R_WDT->WDTRR = WDT_PRV_REFRESH_STEP_1;
-    R_WDT->WDTRR = WDT_PRV_REFRESH_STEP_2;
+    WDT_PRV_REG->WDTRR = WDT_PRV_REFRESH_STEP_1;
+    WDT_PRV_REG->WDTRR = WDT_PRV_REFRESH_STEP_2;
 
     return FSP_SUCCESS;
 }
@@ -361,7 +396,7 @@ fsp_err_t R_WDT_StatusGet (wdt_ctrl_t * const p_ctrl, wdt_status_t * const p_sta
  #endif
 
     /* Check for refresh or underflow errors. */
-    *p_status = (wdt_status_t) (R_WDT->WDTSR >> 14);
+    *p_status = (wdt_status_t) (WDT_PRV_REG->WDTSR >> 14);
 
     return FSP_SUCCESS;
 #else
@@ -413,8 +448,8 @@ fsp_err_t R_WDT_StatusClear (wdt_ctrl_t * const p_ctrl, const wdt_status_t statu
     /* Flags cannot be cleared until the clock cycle after they are set.  */
     do
     {
-        R_WDT->WDTSR = value;
-        read_value   = R_WDT->WDTSR;
+        WDT_PRV_REG->WDTSR = value;
+        read_value   = WDT_PRV_REG->WDTSR;
 
         /* Isolate flags to clear. */
         read_value &= (uint16_t) ((uint16_t) status << 14);
@@ -451,7 +486,7 @@ fsp_err_t R_WDT_CounterGet (wdt_ctrl_t * const p_ctrl, uint32_t * const p_count)
     FSP_PARAMETER_NOT_USED(p_ctrl);
 #endif
 
-    *p_count  = (uint32_t) R_WDT->WDTSR;
+    *p_count  = (uint32_t) WDT_PRV_REG->WDTSR;
     *p_count &= WDT_PRV_WDTSR_COUNTER_MASK;
 
     return FSP_SUCCESS;
@@ -617,9 +652,14 @@ static void r_wdt_nmi_initialize (wdt_instance_ctrl_t * const p_instance_ctrl, w
     p_instance_ctrl->p_context         = p_cfg->p_context;
     p_instance_ctrl->p_callback_memory = NULL;
 
+ #if BSP_FEATURE_ICU_NMIER_MAX_INDEX > 15
+    /* Preserve ordinary writable NMI enables in the extended ICU register. */
+    R_ICU->NMIER |= R_ICU_NMIER_WDTEN_Msk;
+ #else
     /* Enable the WDT underflow/refresh error interrupt (will generate an NMI). NMIER bits cannot be cleared after reset,
      * so no need to read-modify-write. */
     R_ICU->NMIER = R_ICU_NMIER_WDTEN_Msk;
+ #endif
 }
 
 #endif
@@ -644,6 +684,19 @@ static fsp_err_t r_wdt_parameter_checking (wdt_instance_ctrl_t * const p_instanc
     FSP_ASSERT(NULL != p_instance_ctrl);
     FSP_ERROR_RETURN(WDT_OPEN != p_instance_ctrl->wdt_open, FSP_ERR_ALREADY_OPEN);
 
+ #if BSP_FEATURE_WDT_PER_CORE && WDT_PRV_REGISTER_START_MODE
+    FSP_ASSERT((p_cfg->clock_division == WDT_CLOCK_DIVISION_4) ||
+               (p_cfg->clock_division == WDT_CLOCK_DIVISION_64) ||
+               (p_cfg->clock_division == WDT_CLOCK_DIVISION_128) ||
+               (p_cfg->clock_division == WDT_CLOCK_DIVISION_512) ||
+               (p_cfg->clock_division == WDT_CLOCK_DIVISION_2048) ||
+               (p_cfg->clock_division == WDT_CLOCK_DIVISION_8192));
+    FSP_ASSERT((uint32_t) p_cfg->window_start <= (uint32_t) WDT_WINDOW_START_100);
+    FSP_ASSERT((uint32_t) p_cfg->window_end <= (uint32_t) WDT_WINDOW_END_0);
+    FSP_ASSERT((uint32_t) p_cfg->reset_control <= (uint32_t) WDT_RESET_CONTROL_RESET);
+    FSP_ASSERT((uint32_t) p_cfg->stop_control <= (uint32_t) WDT_STOP_CONTROL_ENABLE);
+ #endif
+
     /* Ensure this module is in the same security state as the NMI */
  #if defined(BSP_TZ_NONSECURE_BUILD) && BSP_TZ_NONSECURE_BUILD
     FSP_ERROR_RETURN(SCB->AIRCR & SCB_AIRCR_BFHFNMINS_Msk, FSP_ERR_INVALID_STATE);
@@ -651,12 +704,14 @@ static fsp_err_t r_wdt_parameter_checking (wdt_instance_ctrl_t * const p_instanc
     FSP_ERROR_RETURN(!(SCB->AIRCR & SCB_AIRCR_BFHFNMINS_Msk), FSP_ERR_INVALID_STATE);
  #endif
 
+ #if !BSP_FEATURE_WDT_PER_CORE || WDT_PRV_REGISTER_START_MODE
     /* Check timeout parameter is supported by WDT. */
 
     /* Enum checking is done here because some enums in wdt_timeout_t are not supported by the WDT peripheral (they are
      * included for other implementations of the watchdog interface). */
     FSP_ASSERT((p_cfg->timeout == WDT_TIMEOUT_1024) || (p_cfg->timeout == WDT_TIMEOUT_4096) || \
                (p_cfg->timeout == WDT_TIMEOUT_8192) || (p_cfg->timeout == WDT_TIMEOUT_16384));
+ #endif
 
  #if WDT_PRV_REGISTER_START_MODE
 

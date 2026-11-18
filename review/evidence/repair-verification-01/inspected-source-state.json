@@ -1,0 +1,29 @@
+{
+  "captured_utc": "2026-11-17T09:17:44.731427+00:00",
+  "paths": {
+    "baseline/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+      "sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+      "size": 43098
+    },
+    "baseline/ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+      "sha256": "8245b9a718386e5af38adcb3967b44e4df537771395b3d192ee3c2419ad21cf3",
+      "size": 29941
+    },
+    "tools/ra8p1/verify_candidate.py": {
+      "sha256": "06989f1d4e51fba64f6f13289cb2682e8539b435ef223138d43ab462d9906c61",
+      "size": 41573
+    },
+    "tools/ra8p1/rtos_compatibility.py": {
+      "sha256": "b0a583c4a590abc19e239de9ca31415b2f5aed370bebb2fa275f906e65ab1adf",
+      "size": 14995
+    },
+    "tools/ra8p1/stock_regression.py": {
+      "sha256": "d7e085e8d8c5098bccad5747b6b85b791147c82e1c02d5db21d8f8ac2e906448",
+      "size": 42129
+    },
+    "tools/ra8p1/compatibility.py": {
+      "sha256": "922822f647c448220223ae449fc35bc5679926dcf28617910ec56671332dcf4c",
+      "size": 23351
+    }
+  }
+}

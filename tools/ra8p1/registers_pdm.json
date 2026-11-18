@@ -1,0 +1,1423 @@
+{
+  "types": [
+    {
+      "name": "R_PDM_CH_Type",
+      "size": "0x100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.1, p.3202\u20133206",
+      "members": [
+        {
+          "name": "PDSTRTR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "STRTRG",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.12, p.3213",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/12-50.2.12-pdstrtrchn-software-start-trigger-regist.md"
+        },
+        {
+          "name": "PDSTPTR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "STPTRG",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.13, p.3214",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/13-50.2.13-pdstptrchn-software-stop-trigger-registe.md"
+        },
+        {
+          "name": "PDCHGTR",
+          "offset": "0x8",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CHGTRG",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.14, p.3214",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/14-50.2.14-pdchgtrchn-software-change-trigger-regis.md"
+        },
+        {
+          "name": "PDICR",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ISDE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDRE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IEDE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.15, p.3215",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/15-50.2.15-pdicrchn-interrupt-control-register-chan.md"
+        },
+        {
+          "name": "PDSDCR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCDE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVLDE",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVUDE",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BFOWDE",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.16, p.3215",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/16-50.2.16-pdsdcrchn-status-detection-control-regis.md"
+        },
+        {
+          "name": "PDSR",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "STATE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DRF",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SCDF",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OVLDF",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OVUDF",
+              "pos": 18,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BFOWDF",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.17, p.3216",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/17-50.2.17-pdsrchn-status-register-channel-n-n-0-to.md"
+        },
+        {
+          "name": "PDSCR",
+          "offset": "0x18",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SDFC",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SCDFC",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "OVLDFC",
+              "pos": 17,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "OVUDFC",
+              "pos": 18,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BFOWDFC",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.18, p.3218",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/18-50.2.18-pdscrchn-status-clear-register-channel-n.md"
+        },
+        {
+          "name": "PDMDSR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "INPSEL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SFMD",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "HFIS",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CFIS",
+              "pos": 12,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "LFIS",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "SDMAMD",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "DBIS",
+              "pos": 28,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.19, p.3218",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/19-50.2.19-pdmdsrchn-mode-setting-register-channel.md"
+        },
+        {
+          "name": "PDSFCR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CKDIV",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "SINCDEC",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "SINCRNG",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.20, p.3220",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/20-50.2.20-pdsfcrchn-sinc-filter-control-register-c.md"
+        },
+        {
+          "name": "PDHFCS0R",
+          "offset": "0x28",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HFS",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.21, p.3221",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/21-50.2.21-pdhfcs0rchn-high-pass-filter-coefficient.md"
+        },
+        {
+          "name": "PDHFCK1R",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HFK",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.22, p.3222",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/22-50.2.22-pdhfck1rchn-high-pass-filter-coefficient.md"
+        },
+        {
+          "name": "PDHFCH0R",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HFH",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.23, p.3222",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/23-50.2.23-pdhfch0rchn-high-pass-filter-coefficient.md"
+        },
+        {
+          "name": "PDHFCH1R",
+          "offset": "0x34",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HFH",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.24, p.3222",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/24-50.2.24-pdhfch1rchn-high-pass-filter-coefficient.md"
+        },
+        {
+          "name": "PDCFCH00R",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.25, p.3223",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/25-50.2.25-pdcfch00rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH01R",
+          "offset": "0x3c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.26, p.3223",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/26-50.2.26-pdcfch01rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH02R",
+          "offset": "0x40",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.27, p.3223",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/27-50.2.27-pdcfch02rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH03R",
+          "offset": "0x44",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.28, p.3224",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/28-50.2.28-pdcfch03rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH04R",
+          "offset": "0x48",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.29, p.3224",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/29-50.2.29-pdcfch04rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH05R",
+          "offset": "0x4c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.30, p.3224",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/30-50.2.30-pdcfch05rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH06R",
+          "offset": "0x50",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.31, p.3225",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/31-50.2.31-pdcfch06rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH07R",
+          "offset": "0x54",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.32, p.3225",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/32-50.2.32-pdcfch07rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH08R",
+          "offset": "0x58",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.33, p.3225",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/33-50.2.33-pdcfch08rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH09R",
+          "offset": "0x5c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.34, p.3226",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/34-50.2.34-pdcfch09rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDCFCH10R",
+          "offset": "0x60",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CFH",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.35, p.3226",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/35-50.2.35-pdcfch10rchn-compensation-filter-coeffic.md"
+        },
+        {
+          "name": "PDLFCH010R",
+          "offset": "0x64",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH0",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.36, p.3226",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/36-50.2.36-pdlfch010rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH100R",
+          "offset": "0x68",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.37, p.3227",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/37-50.2.37-pdlfch100rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH101R",
+          "offset": "0x6c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.38, p.3227",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/38-50.2.38-pdlfch101rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH102R",
+          "offset": "0x70",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.39, p.3227",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/39-50.2.39-pdlfch102rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH103R",
+          "offset": "0x74",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.40, p.3228",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/40-50.2.40-pdlfch103rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH104R",
+          "offset": "0x78",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.41, p.3228",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/41-50.2.41-pdlfch104rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH105R",
+          "offset": "0x7c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.42, p.3229",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/42-50.2.42-pdlfch105rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH106R",
+          "offset": "0x80",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.43, p.3229",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/43-50.2.43-pdlfch106rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH107R",
+          "offset": "0x84",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.44, p.3229",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/44-50.2.44-pdlfch107rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH108R",
+          "offset": "0x88",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.45, p.3230",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/45-50.2.45-pdlfch108rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH109R",
+          "offset": "0x8c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.46, p.3230",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/46-50.2.46-pdlfch109rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH110R",
+          "offset": "0x90",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.47, p.3231",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/47-50.2.47-pdlfch110rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH111R",
+          "offset": "0x94",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.48, p.3231",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/48-50.2.48-pdlfch111rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH112R",
+          "offset": "0x98",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.49, p.3231",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/49-50.2.49-pdlfch112rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH113R",
+          "offset": "0x9c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.50, p.3232",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/50-50.2.50-pdlfch113rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH114R",
+          "offset": "0xa0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.51, p.3232",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/51-50.2.51-pdlfch114rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH115R",
+          "offset": "0xa4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.52, p.3233",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/52-50.2.52-pdlfch115rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH116R",
+          "offset": "0xa8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.53, p.3233",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/53-50.2.53-pdlfch116rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH117R",
+          "offset": "0xac",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.54, p.3233",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/54-50.2.54-pdlfch117rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH118R",
+          "offset": "0xb0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.55, p.3234",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/55-50.2.55-pdlfch118rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDLFCH119R",
+          "offset": "0xb4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LFH1",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.56, p.3234",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/56-50.2.56-pdlfch119rchn-low-pass-filter-coefficien.md"
+        },
+        {
+          "name": "PDSDLTR",
+          "offset": "0xb8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDETL",
+              "pos": 0,
+              "bits": 20,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.57, p.3234",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/57-50.2.57-pdsdltrchn-sound-detection-lower-thresho.md"
+        },
+        {
+          "name": "PDSDUTR",
+          "offset": "0xbc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDETU",
+              "pos": 0,
+              "bits": 20,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.58, p.3235",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/58-50.2.58-pdsdutrchn-sound-detection-upper-thresho.md"
+        },
+        {
+          "name": "PDDBCR",
+          "offset": "0xc0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATRITHR",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.59, p.3235",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/59-50.2.59-pddbcrchn-data-buffer-control-register-c.md"
+        },
+        {
+          "name": "PDSCTSR",
+          "offset": "0xc4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SCDL",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            },
+            {
+              "name": "SCDH",
+              "pos": 16,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.60, p.3236",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/60-50.2.60-pdsctsrchn-short-circuit-threshold-setti.md"
+        },
+        {
+          "name": "PDOVLTR",
+          "offset": "0xc8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OVDL",
+              "pos": 0,
+              "bits": 20,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.61, p.3236",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/61-50.2.61-pdovltrchn-overvoltage-lower-threshold-r.md"
+        },
+        {
+          "name": "PDOVUTR",
+          "offset": "0xcc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OVDU",
+              "pos": 0,
+              "bits": 20,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.62, p.3236",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/62-50.2.62-pdovutrchn-overvoltage-upper-threshold-r.md"
+        },
+        {
+          "name": "PDDRCR",
+          "offset": "0xe0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATRE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.63, p.3237",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/63-50.2.63-pddrcrchn-data-read-control-register-cha.md"
+        },
+        {
+          "name": "PDDCR",
+          "offset": "0xe4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "DATC",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.64, p.3237",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/64-50.2.64-pddcrchn-data-clear-register-channel-n-n.md"
+        },
+        {
+          "name": "PDDRR",
+          "offset": "0xe8",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DAT",
+              "pos": 0,
+              "bits": 20,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.65, p.3237",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/65-50.2.65-pddrrchn-data-read-register-channel-n-n.md"
+        },
+        {
+          "name": "PDDSR",
+          "offset": "0xec",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATNUM",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.66, p.3238",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/66-50.2.66-pddsrchn-data-status-register-channel-n.md"
+        }
+      ]
+    },
+    {
+      "name": "R_PDM_Type",
+      "size": "0x400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.1, p.3202\u20133206",
+      "members": [
+        {
+          "name": "PDCSTRTR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "STRTRG0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "STRTRG1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "STRTRG2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.2, p.3206",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/02-50.2.2-pdcstrtr-channel-software-start-trigger-r.md"
+        },
+        {
+          "name": "PDCSTPTR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "STPTRG0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "STPTRG1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "STPTRG2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.3, p.3207",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/03-50.2.3-pdcstptr-channel-software-stop-trigger-re.md"
+        },
+        {
+          "name": "PDCCHGTR",
+          "offset": "0x8",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CHGTRG0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CHGTRG1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CHGTRG2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.4, p.3207",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/04-50.2.4-pdcchgtr-channel-software-change-trigger.md"
+        },
+        {
+          "name": "PDCICR",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ISDE0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ISDE1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ISDE2",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDRE0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDRE1",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDRE2",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IEDE0",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IEDE1",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IEDE2",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.5, p.3208",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/05-50.2.5-pdcicr-channel-interrupt-control-register.md"
+        },
+        {
+          "name": "PDCSR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "STATE0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "STATE1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "STATE2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDF0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDF1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDF2",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DRF0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DRF1",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DRF2",
+              "pos": 18,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "EDF0",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "EDF1",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "EDF2",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.6, p.3209",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/06-50.2.6-pdcsr-channel-status-register.md"
+        },
+        {
+          "name": "PDCSCR",
+          "offset": "0x14",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SDFC0",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SDFC1",
+              "pos": 9,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SDFC2",
+              "pos": 10,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.7, p.3211",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/07-50.2.7-pdcscr-channel-status-clear-register.md"
+        },
+        {
+          "name": "PDCSDCR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDE0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDE1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDE2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.8, p.3211",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/08-50.2.8-pdcsdcr-channel-sound-detection-control-r.md"
+        },
+        {
+          "name": "PDCDRCR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATRE0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DATRE1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DATRE2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.9, p.3212",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/09-50.2.9-pdcdrcr-channel-data-read-control-registe.md"
+        },
+        {
+          "name": "PDCDCR",
+          "offset": "0x28",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "DATC0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DATC1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DATC2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.10, p.3212",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/10-50.2.10-pdcdcr-channel-data-clear-register.md"
+        },
+        {
+          "name": "PDVR",
+          "offset": "0x80",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "VER",
+              "pos": 0,
+              "bits": 12,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.11, p.3213",
+          "manual_path": "57-50.-pulse-density-modulation-interface-pdm-if/02-50.2-register-description/11-50.2.11-pdvr-version-register.md"
+        },
+        {
+          "name": "CH",
+          "offset": "0x100",
+          "type": "R_PDM_CH_Type",
+          "count": 3,
+          "element_size": 256,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.1, p.3202\u20133206"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_PDM",
+      "type": "R_PDM_Type",
+      "secure": "0x40256000",
+      "nonsecure": "0x50256000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a750.2.12, p.3213"
+    }
+  ]
+}

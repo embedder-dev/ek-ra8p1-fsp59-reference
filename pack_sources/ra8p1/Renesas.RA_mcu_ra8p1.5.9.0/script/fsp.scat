@@ -1,0 +1,783 @@
+#! armclang -mcpu=cortex-m85 --target=arm-arm-none-eabi -E -x c -I.
+#include "memory_regions.scat"
+
+; RA8P1 HM 5.1: pack-owned, disjoint flat allocations.
+#undef FLASH_START
+#define FLASH_START 0x2000000
+#undef FLASH_LENGTH
+#define FLASH_LENGTH 0x80000
+#undef RAM_START
+#define RAM_START 0x22000000
+#undef RAM_LENGTH
+#define RAM_LENGTH 0xd0000
+#undef ITCM_START
+#define ITCM_START 0x0
+#undef ITCM_LENGTH
+#define ITCM_LENGTH 0x20000
+#undef DTCM_START
+#define DTCM_START 0x20000000
+#undef DTCM_LENGTH
+#define DTCM_LENGTH 0x20000
+#undef ITCM_BUS_ALIAS
+#define ITCM_BUS_ALIAS 0x28000000
+#undef DTCM_BUS_ALIAS
+#define DTCM_BUS_ALIAS 0x28020000
+#undef FLASH_S_START
+#define FLASH_S_START FLASH_START
+#undef RAM_S_START
+#define RAM_S_START RAM_START
+#if defined(PROJECT_NONSECURE) || defined(PROJECT_SECURE)
+#error RA8P1 flat CPU0/CPU1 allocation only
+#endif
+
+
+; This scatter-file places the vector table, application code, data, stacks and heap at suitable addresses in the memory map.
+
+#define ROM_REGISTERS_START 0x400
+; Uncomment and set XIP_SECONDARY_SLOT_IMAGE to 1 below for the secondary XIP application image.
+; #define XIP_SECONDARY_SLOT_IMAGE 1
+
+#ifdef FLASH_BOOTLOADER_LENGTH
+
+#define BL_FLASH_IMAGE_START        (FLASH_APPLICATION_IMAGE_NUMBER == 1 ? FLASH_START + FLASH_BOOTLOADER_LENGTH + FLASH_BOOTLOADER_HEADER_LENGTH : \
+                                    (defined(BOOTLOADER_SECONDARY_USE_QSPI)) ? FLASH_START + FLASH_BOOTLOADER_LENGTH + FLASH_BOOTLOADER_SCRATCH_LENGTH + FLASH_BOOTLOADER_HEADER_LENGTH : \
+                                    (defined(BOOTLOADER_SECONDARY_USE_OSPI_B)) ? FLASH_START + FLASH_BOOTLOADER_LENGTH + FLASH_BOOTLOADER_SCRATCH_LENGTH + FLASH_BOOTLOADER_HEADER_LENGTH : \
+                                    FLASH_START + FLASH_BOOTLOADER_LENGTH + FLASH_BOOTLOADER_SCRATCH_LENGTH + FLASH_APPLICATION_S_LENGTH + FLASH_BOOTLOADER_HEADER_LENGTH)
+#define BL_FLASH_IMAGE_END          (BL_FLASH_IMAGE_START + FLASH_APPLICATION_S_LENGTH - FLASH_BOOTLOADER_HEADER_LENGTH)
+#define BL_XIP_SECONDARY_FLASH_IMAGE_START    (FLASH_START + FLASH_BOOTLOADER_LENGTH + FLASH_APPLICATION_S_LENGTH + FLASH_BOOTLOADER_HEADER_LENGTH)
+#define BL_XIP_SECONDARY_FLASH_IMAGE_END      (BL_XIP_SECONDARY_FLASH_IMAGE_START + FLASH_APPLICATION_S_LENGTH - FLASH_BOOTLOADER_HEADER_LENGTH)
+
+#if defined BOOT_IMAGE_FROM_MMF_REGION
+#define BL_FLASH_IMAGE_START_FROM_MMF_REGION (BOOT_IMAGE_FROM_MMF_REGION == 1 ? 1 : 0)
+#define BL_MEMORY_MIRROR_REGION_START (MMF_REGION_START_ADDR)
+#else
+#define BL_FLASH_IMAGE_START_FROM_MMF_REGION (0)
+#define BL_MEMORY_MIRROR_REGION_START (0)
+#endif
+
+#define BL_FLASH_NS_START           (FLASH_APPLICATION_NS_LENGTH == 0 ? BL_FLASH_IMAGE_END : \
+                                    BL_FLASH_IMAGE_START - FLASH_BOOTLOADER_HEADER_LENGTH + FLASH_APPLICATION_S_LENGTH)
+#define BL_FLASH_NSC_START          (FLASH_APPLICATION_NS_LENGTH == 0 ? BL_FLASH_IMAGE_END : \
+                                    BL_FLASH_NS_START - FLASH_APPLICATION_NSC_LENGTH)
+#define BL_FLASH_NS_IMAGE_START     (FLASH_APPLICATION_NS_LENGTH == 0 ? BL_FLASH_IMAGE_END : \
+                                    BL_FLASH_NS_START + FLASH_BOOTLOADER_HEADER_LENGTH_2)
+#define BL_RAM_NS_START             (FLASH_APPLICATION_NS_LENGTH == 0 ? RAM_START + RAM_LENGTH : \
+                                    RAM_START + RAM_LENGTH - RAM_APPLICATION_NS_LENGTH)
+#define BL_RAM_NSC_START            (FLASH_APPLICATION_NS_LENGTH == 0 ? RAM_START + RAM_LENGTH : \
+                                    BL_RAM_NS_START - RAM_APPLICATION_NSC_LENGTH)
+#define BLN_FLASH_IMAGE_START       (BL_FLASH_NS_IMAGE_START)
+#define BLN_FLASH_IMAGE_END         (FLASH_APPLICATION_NS_LENGTH == 0 ? BL_FLASH_IMAGE_END : \
+                                    BL_FLASH_NS_IMAGE_START + FLASH_APPLICATION_NS_LENGTH - FLASH_BOOTLOADER_HEADER_LENGTH_2)
+
+#define FLASH_ORIGIN FLASH_START
+#define LIMITED_FLASH_LENGTH FLASH_LENGTH
+
+#elif defined FLASH_IMAGE_START
+
+#if defined XIP_SECONDARY_SLOT_IMAGE
+#define FLASH_ORIGIN FLASH_START
+#elif defined FLASH_IMAGE_START_FROM_MMF_REGION
+#define FLASH_ORIGIN FLASH_START
+#else
+#define FLASH_ORIGIN FLASH_START
+#endif
+
+
+#ifdef FLASH_NS_START
+#define LIMITED_FLASH_LENGTH FLASH_LENGTH
+#else
+#define LIMITED_FLASH_LENGTH FLASH_LENGTH
+#endif
+
+#else
+
+#define FLASH_ORIGIN FLASH_START
+#define LIMITED_FLASH_LENGTH FLASH_LENGTH
+
+#endif
+
+; If a flat project has defined RAM_NS_BUFFER_LENGTH, then emit IDAU symbols to allocate non-secure RAM.
+#if !defined(PROJECT_NONSECURE) && defined(RAM_NS_BUFFER_LENGTH) && (OPTION_SETTING_LENGTH != 0)
+#define __RESERVE_NS_RAM (1)
+; Allocate required RAM and align to 32K boundary
+#define RAM_NS_BUFFER_START     ((RAM_START + RAM_LENGTH - RAM_NS_BUFFER_LENGTH) AND 0xFFFFFFE0)
+#else
+#define __RESERVE_NS_RAM (0)
+#endif
+
+#ifndef FLASH_S_START
+#define FLASH_S_START      0
+#endif
+
+#ifndef RAM_S_START
+#define RAM_S_START        RAM_START
+#endif
+
+#ifndef DATA_FLASH_S_START
+#define DATA_FLASH_S_START DATA_FLASH_START
+#endif
+#ifndef OPTION_SETTING_DATA_FLASH_S_START
+#define OPTION_SETTING_DATA_FLASH_S_START   0
+#endif
+
+#ifndef OPTION_SETTING_DATA_FLASH_S_LENGTH
+#define OPTION_SETTING_DATA_FLASH_S_LENGTH  0
+#endif
+
+#if __RESERVE_NS_RAM
+
+#ifndef RAM_NSC_START
+#define RAM_NSC_START       RAM_NS_BUFFER_START AND 0xFFFFE000
+#endif
+
+#ifndef RAM_NS_START
+#define RAM_NS_START        RAM_NS_BUFFER_START AND 0xFFFFE000
+#endif
+
+#ifndef DATA_FLASH_NS_START
+#define DATA_FLASH_NS_START DATA_FLASH_START + DATA_FLASH_LENGTH
+#endif
+
+#ifndef FLASH_NSC_START
+#define FLASH_NSC_START     FLASH_ORIGIN + LIMITED_FLASH_LENGTH
+#endif
+
+#ifndef FLASH_NS_START
+#define FLASH_NS_START      FLASH_ORIGIN + LIMITED_FLASH_LENGTH
+#endif
+
+#else
+
+#ifndef RAM_NSC_START
+#ifdef PROJECT_SECURE
+#define RAM_NSC_START       +0 ALIGN 1024
+#else
+#define RAM_NSC_START       RAM_START + RAM_LENGTH
+#endif
+#endif
+
+#ifndef RAM_NS_START
+#ifdef PROJECT_SECURE
+#define RAM_NS_START        +0 ALIGN 8192
+#else
+#define RAM_NS_START        RAM_START + RAM_LENGTH
+#endif
+#endif
+
+#ifndef DATA_FLASH_NS_START
+#define DATA_FLASH_NS_START +0 ALIGN 1024
+#endif
+
+#ifndef FLASH_NSC_START
+#define FLASH_NSC_START     (AlignExpr(ImageLength(LOAD_REGION_FLASH) + ImageBase(LOAD_REGION_FLASH), 1024))
+#endif
+
+#ifndef FLASH_NS_START
+#define FLASH_NS_START       AlignExpr(+0, 32768)
+#endif
+
+#endif
+
+#ifndef QSPI_FLASH_S_START
+#define QSPI_FLASH_S_START QSPI_FLASH_START
+#endif
+
+#ifndef QSPI_FLASH_NS_START
+#define QSPI_FLASH_NS_START +0
+#endif
+
+#ifndef OSPI_DEVICE_0_S_START
+#define OSPI_DEVICE_0_S_START OSPI_DEVICE_0_START
+#endif
+
+#ifndef OSPI_DEVICE_0_NS_START
+#define OSPI_DEVICE_0_NS_START +0
+#endif
+
+#ifndef OSPI_DEVICE_1_S_START
+#define OSPI_DEVICE_1_S_START OSPI_DEVICE_1_START
+#endif
+
+#ifndef OSPI_DEVICE_1_NS_START
+#define OSPI_DEVICE_1_NS_START +0
+#endif
+
+#ifndef SDRAM_S_START
+#define SDRAM_S_START SDRAM_START
+#endif
+
+#ifndef SDRAM_NS_START
+#define SDRAM_NS_START +0
+#endif
+
+#ifdef QSPI_FLASH_SIZE
+#define QSPI_FLASH_PRV_LENGTH QSPI_FLASH_SIZE
+#else
+#define QSPI_FLASH_PRV_LENGTH QSPI_FLASH_LENGTH
+#endif
+
+#ifdef OSPI_DEVICE_0_SIZE
+#define OSPI_DEVICE_0_PRV_LENGTH OSPI_DEVICE_0_SIZE
+#else
+#define OSPI_DEVICE_0_PRV_LENGTH OSPI_DEVICE_0_LENGTH
+#endif
+
+#ifdef OSPI_DEVICE_1_SIZE
+#define OSPI_DEVICE_1_PRV_LENGTH OSPI_DEVICE_1_SIZE
+#else
+#define OSPI_DEVICE_1_PRV_LENGTH OSPI_DEVICE_1_LENGTH
+#endif
+
+#ifdef PROJECT_NONSECURE
+#define OPTION_SETTING_START_NS (OPTION_SETTING_START)
+#else
+#define OPTION_SETTING_START_NS (OPTION_SETTING_START + 0x80)
+#endif
+
+#define ID_CODE_OVERLAP   ((ID_CODE_START > OPTION_SETTING_START) && (ID_CODE_START < OPTION_SETTING_START + OPTION_SETTING_LENGTH))
+
+LOAD_REGION_FLASH FLASH_ORIGIN ALIGN 0x80 LIMITED_FLASH_LENGTH
+{
+  __tz_FLASH_S +0 EMPTY 0
+  {
+  }
+
+  VECTORS +0 FIXED PADVALUE 0xFFFFFFFF   ; maximum of 256 exceptions (256*4 bytes == 0x400)
+  {
+    *(.fixed_vectors, +FIRST)
+    *(.application_vectors)
+  }
+
+  ; MCUs with the OPTION_SETTING region do not use the ROM registers at 0x400.
+#if (OPTION_SETTING_LENGTH == 0) && (FLASH_ORIGIN == FLASH_START)
+
+  ; Some devices have a gap of code flash between the vector table and ROM Registers.
+  ; The flash gap section allows applications to place code and data in this section.
+  ROMGAP +0 FIXED
+  {
+    *(.flash_gap)
+  }
+
+  ROMGAP_FILL +0 FIXED FILL 0xFFFFFFFF (0x400 - ImageLength(VECTORS) - ImageLength(ROMGAP))
+  {
+  }
+
+  ROM_REGISTERS FLASH_START+0x400 FIXED PADVALUE 0xFFFFFFFF
+  {
+    bsp_rom_registers.o (.rom_registers)
+  }
+
+#endif
+
+  MCUBOOT_SCE9_KEY +0 FIXED
+  {
+    *(.mcuboot_sce9_key)
+  }
+
+
+  INIT_ARRAY +0 FIXED
+  {
+    *(.init_array)
+  }
+
+  USB_DESC_FS +0 FIXED
+  {
+    *(.usb_device_desc_fs*)
+    *(.usb_config_desc_fs*)
+    *(.usb_interface_desc_fs*)
+  }
+
+  UNSUPPORTED_OPTION_SETTINGS +0
+  {
+    *(.option_setting*)
+  }
+  ScatterAssert(ImageLength(UNSUPPORTED_OPTION_SETTINGS) == 0)
+
+  RO_CODE_DATA +0 FIXED
+  {
+    *(.text*,.rodata*,.constdata*)
+    .ANY(+RO)
+  }
+
+  __tz_RAM_S RAM_S_START EMPTY 0
+  {
+  }
+
+  DTC_VECTOR_TABLE RAM_START UNINIT NOCOMPRESS RAM_LENGTH
+  {
+    ; If DTC is used, put the DTC vector table at the start of SRAM.
+    ; This avoids memory holes due to 1K alignment required by it.
+    *(.bss.fsp_dtc_vector_table)
+  }
+
+  DATA +0 NOCOMPRESS
+  {
+    ; Do not use *(.data*) because it will place data meant for .data_flash in this section.
+    *(.data.*)
+    *(.data)
+    *(.code_in_ram)
+
+#if !__RESERVE_NS_RAM
+    *(.ns_buffer*)
+#endif
+
+    .ANY(+RW)
+  }
+
+  BSS +0 NOCOMPRESS
+  {
+    *(+ZI)
+  }
+
+  NOINIT +0 UNINIT NOCOMPRESS
+  {
+    *(.bss.noinit)
+  }
+
+  NOCACHE +0 UNINIT NOCOMPRESS ALIGN 32
+  {
+    *(.bss.nocache)
+  }
+
+  ; The required minimum ending alignment is a 32 byte boundary for Armv8-M MPU requirements.
+  ; There is no way to control the ending alignment of NOCACHE, so this dedicated section acts as padding and as the true execution section limit of NOCACHE.
+  NOCACHE_PAD (ImageLimit(NOCACHE)) EMPTY NOCOMPRESS (AlignExpr(ImageLength(NOCACHE), 32) - ImageLength(NOCACHE))
+  {
+  }
+
+  ARM_LIB_HEAP +0 ALIGN 8 UNINIT NOCOMPRESS
+  {
+    *(.bss.heap)
+  }
+
+  ; ARM_LIB_STACK is not used in FSP, but it must be in the scatter file to avoid a linker error
+  ARM_LIB_STACK +0 ALIGN 8 UNINIT NOCOMPRESS EMPTY 0
+  {
+  }
+
+  STACK +0 ALIGN 8 UNINIT NOCOMPRESS
+  {
+    *(.bss.stack)
+    *(.bss.stack.thread)
+  }
+
+  /* This is the end of RAM used in the application. */
+  RAM_END +0 EMPTY 4
+  {
+  }
+  __RAM_NSC_START RAM_NSC_START EMPTY 0
+  {
+  }
+
+  __tz_RAM_N RAM_NS_START EMPTY 0
+  {
+  }
+
+  ; Support for OctaRAM
+  OSPI_DEVICE_0_NO_LOAD OSPI_DEVICE_0_START UNINIT NOCOMPRESS OSPI_DEVICE_0_PRV_LENGTH
+  {
+    *(.ospi_device_0_no_load*)
+  }
+
+  ; Support for OctaRAM
+  OSPI_DEVICE_1_NO_LOAD OSPI_DEVICE_1_START UNINIT NOCOMPRESS OSPI_DEVICE_1_PRV_LENGTH
+  {
+    *(.ospi_device_1_no_load*)
+  }
+
+#ifdef FLASH_BOOTLOADER_LENGTH
+
+  __bl_FLASH_IMAGE_START BL_FLASH_IMAGE_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_flash_image_start)
+  }
+
+  __bl_XIP_SECONDARY_FLASH_IMAGE_START BL_XIP_SECONDARY_FLASH_IMAGE_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_xip_secondary_flash_image_start)
+  }
+
+
+#if FLASH_APPLICATION_NS_LENGTH == 0
+
+  __bl_FLASH_IMAGE_END BL_FLASH_IMAGE_END OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_flash_image_end)
+  }
+
+  __bl_XIP_SECONDARY_FLASH_IMAGE_END BL_XIP_SECONDARY_FLASH_IMAGE_END OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_xip_secondary_flash_image_end)
+  }
+
+#else
+
+  __bl_FLASH_NS_START BL_FLASH_NS_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_flash_ns_start)
+  }
+
+  __bl_FLASH_NSC_START BL_FLASH_NSC_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_flash_nsc_start)
+  }
+
+  __bl_FLASH_NS_IMAGE_START BL_FLASH_NS_IMAGE_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_flash_ns_image_start)
+  }
+
+  __bln_FLASH_IMAGE_START BLN_FLASH_IMAGE_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bln_flash_image_start)
+  }
+
+  __bln_FLASH_IMAGE_END BLN_FLASH_IMAGE_END OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bln_flash_image_end)
+  }
+
+  __bl_RAM_NS_START BL_RAM_NS_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_ram_ns_start)
+  }
+
+  __bl_RAM_NSC_START BL_RAM_NSC_START OVERLAY UNINIT 4
+  {
+    *(.bl_boundary.bl_ram_nsc_start)
+  }
+
+#endif
+
+#endif
+
+#if __RESERVE_NS_RAM
+  RAM_NS_BUFFER RAM_NS_BUFFER_START
+  {
+    *(.ns_buffer*)
+  }
+#endif
+
+  RAM_LIMIT RAM_START + RAM_LENGTH EMPTY 0
+  {
+  }
+
+#if ITCM_LENGTH > 0
+  ; ALIGN will align both the load address and execution address.
+  ; The required minimum execution address alignment is an 8 byte boundary for ECC compatibility.
+  ; Aligning instead to a 16 byte boundary meets the above requirement and also aligns the load address to FCACHE2 for RA8 to optimize copying.
+  __tz_ITCM_S ITCM_START ALIGN 16 EMPTY 0
+  {
+  }
+
+  ITCM_DATA +0 NOCOMPRESS ITCM_LENGTH
+  {
+    *(.itcm_data*)
+  }
+
+  ; The required minimum ending alignment is an 8 byte boundary for ECC compatibility.
+  ; There is no way to control the ending alignment of ITCM_DATA, so this dedicated section acts as padding and as the true load and execution section limit of ITCM_DATA.
+  ; "Load Addr" will show "-" in the map file making it seem as if no padding is actually in the binary, but "Load base:" will show otherwise.
+  ITCM_PAD (ImageLimit(ITCM_DATA)) FILL 0 NOCOMPRESS (AlignExpr(ImageLength(ITCM_DATA), 8) - ImageLength(ITCM_DATA))
+  {
+  }
+
+#ifndef ITCM_NS_START
+#define ITCM_NS_START AlignExpr(+0, 8192)
+#endif
+  __tz_ITCM_N ITCM_NS_START ALIGN 8 EMPTY 0
+  {
+  }
+
+  ScatterAssert((ITCM_START AND 0xF) == 0)
+  ScatterAssert((ITCM_LENGTH AND 0x7) == 0)
+  ScatterAssert(((LoadLength(ITCM_DATA) + LoadLength(ITCM_PAD)) AND 0x7) == 0)
+  ScatterAssert(LoadLimit(ITCM_DATA) == LoadBase(ITCM_PAD))
+  ScatterAssert(ImageLimit(ITCM_DATA) == ImageBase(ITCM_PAD))
+
+#endif
+
+
+
+#if DTCM_LENGTH > 0
+  ; ALIGN will align both the load address and execution address.
+  ; The required minimum execution address alignment is an 8 byte boundary for ECC compatibility.
+  ; Aligning instead to a 16 byte boundary meets the above requirement and also aligns the load address to FCACHE2 for RA8 to optimize copying.
+  __tz_DTCM_S DTCM_START ALIGN 16 EMPTY 0
+  {
+  }
+
+  DTCM_DATA +0 NOCOMPRESS DTCM_LENGTH
+  {
+    *(.dtcm_data*)
+  }
+
+  ; The required minimum ending alignment is an 8 byte boundary for ECC compatibility.
+  ; There is no way to control the ending alignment of DTCM_DATA, so this dedicated section acts as padding and as the true load and execution section limit of DTCM_DATA.
+  ; "Load Addr" will show "-" in the map file making it seem as if no padding is actually in the binary, but "Load base:" will show otherwise.
+  DTCM_PAD (ImageLimit(DTCM_DATA)) FILL 0 NOCOMPRESS (AlignExpr(ImageLength(DTCM_DATA), 8) - ImageLength(DTCM_DATA))
+  {
+  }
+
+  DTCM_BSS (ImageLimit(DTCM_PAD)) UNINIT NOCOMPRESS (DTCM_LENGTH - ImageLength(DTCM_DATA) - ImageLength(DTCM_PAD))
+  {
+    ; .bss prefix is required for AC6 to not create a load image data for this section.
+    ; Only .bss prefixed sections can be ZI.
+    ; Only ZI sections with UNINIT can be uninitialized.
+    *(.bss.dtcm_bss)
+  }
+
+  ; The required minimum ending alignment is an 8 byte boundary for ECC compatibility.
+  ; There is no way to control the ending alignment of DTCM_BSS, so this dedicated section acts as padding and as the true execution section limit of DTCM_BSS.
+  DTCM_BSS_PAD (ImageLimit(DTCM_BSS)) EMPTY NOCOMPRESS (AlignExpr(ImageLength(DTCM_BSS), 8) - ImageLength(DTCM_BSS))
+  {
+  }
+
+#ifndef DTCM_NS_START
+#define DTCM_NS_START AlignExpr(+0, 8192)
+#endif
+  __tz_DTCM_N DTCM_NS_START ALIGN 8 EMPTY 0
+  {
+  }
+
+  ScatterAssert((DTCM_START AND 0xF) == 0)
+  ScatterAssert((DTCM_LENGTH AND 0x7) == 0)
+  ScatterAssert(((LoadLength(DTCM_DATA) + LoadLength(DTCM_PAD)) AND 0x7) == 0)
+  ScatterAssert(((ImageLength(DTCM_BSS) + ImageLength(DTCM_BSS_PAD)) AND 0x7) == 0)
+  ScatterAssert(LoadLimit(DTCM_DATA) == LoadBase(DTCM_PAD))
+  ScatterAssert(LoadLimit(DTCM_PAD) == LoadBase(DTCM_BSS))
+  ScatterAssert(LoadLimit(DTCM_BSS) == LoadBase(DTCM_BSS_PAD))
+  ScatterAssert(ImageLimit(DTCM_DATA) == ImageBase(DTCM_PAD))
+  ScatterAssert(ImageLimit(DTCM_PAD) == ImageBase(DTCM_BSS))
+  ScatterAssert(ImageLimit(DTCM_BSS) == ImageBase(DTCM_BSS_PAD))
+
+#endif
+  QSPI_NON_RETENTIVE ImageLimit(QSPI_FLASH) NOCOMPRESS (QSPI_FLASH_PRV_LENGTH - ImageLength(QSPI_FLASH))
+  {
+    *(.qspi_non_retentive*)
+  }
+  OSPI_DEVICE_0_NON_RETENTIVE ImageLimit(OSPI_DEVICE_0) NOCOMPRESS (OSPI_DEVICE_0_PRV_LENGTH - ImageLength(OSPI_DEVICE_0))
+  {
+    *(.ospi_device_0_non_retentive*)
+  }
+  OSPI_DEVICE_1_NON_RETENTIVE ImageLimit(OSPI_DEVICE_1) NOCOMPRESS (OSPI_DEVICE_1_PRV_LENGTH - ImageLength(OSPI_DEVICE_1))
+  {
+    *(.ospi_device_1_non_retentive*)
+  }
+}
+
+LOAD_REGION_NSC_FLASH FLASH_NSC_START
+{
+  __FLASH_NSC_START FLASH_NSC_START EMPTY 0
+  {
+  }
+
+  EXEC_NSCR FLASH_NSC_START FIXED
+  {
+    *(Veneer$$CMSE)
+  }
+
+  __tz_FLASH_N FLASH_NS_START EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_ID_CODE ID_CODE_START ID_CODE_LENGTH
+{
+  __tz_ID_CODE_S ID_CODE_START EMPTY 0
+  {
+  }
+  __tz_ID_CODE_N ID_CODE_START EMPTY 0
+  {
+  }
+  ID_CODE ID_CODE_START FIXED ID_CODE_LENGTH
+  {
+    *(.id_code*)
+  }
+}
+
+LOAD_REGION_OPTION_BOUNDARIES 0x02c9f000
+{
+  __tz_OPTION_SETTING_S 0x02c9f000 EMPTY 0
+  {
+  }
+  __tz_OPTION_SETTING_N 0x02c9f400 EMPTY 0
+  {
+  }
+  __tz_OPTION_SETTING_S_S 0x02c9f000 EMPTY 0
+  {
+  }
+  __tz_OPTION_SETTING_S_N 0x02c9f400 EMPTY 0
+  {
+  }
+  __tz_OPTION_SETTING_DATA_FLASH_S_S 0 EMPTY 0
+  {
+  }
+  __tz_OPTION_SETTING_DATA_FLASH_S_N 0 EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS0 0x02c9f040 4
+{
+  OPTION_SETTING_OFS0 0x02c9f040 FIXED 4
+  {
+    *(.option_setting_ofs0)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS2 0x02c9f044 4
+{
+  OPTION_SETTING_OFS2 0x02c9f044 FIXED 4
+  {
+    *(.option_setting_ofs2)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_SAS 0x02c9f074 4
+{
+  OPTION_SETTING_SAS 0x02c9f074 FIXED 4
+  {
+    *(.option_setting_sas)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS1_SEC 0x02c9f0c0 4
+{
+  OPTION_SETTING_OFS1_SEC 0x02c9f0c0 FIXED 4
+  {
+    *(.option_setting_ofs1_sec)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS3_SEC 0x02c9f0c4 4
+{
+  OPTION_SETTING_OFS3_SEC 0x02c9f0c4 FIXED 4
+  {
+    *(.option_setting_ofs3_sec)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS1_SEL 0x02c9f120 4
+{
+  OPTION_SETTING_OFS1_SEL 0x02c9f120 FIXED 4
+  {
+    *(.option_setting_ofs1_sel)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS3_SEL 0x02c9f124 4
+{
+  OPTION_SETTING_OFS3_SEL 0x02c9f124 FIXED 4
+  {
+    *(.option_setting_ofs3_sel)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS1 0x12c9f4c0 4
+{
+  OPTION_SETTING_OFS1 0x12c9f4c0 FIXED 4
+  {
+    *(.option_setting_ofs1)
+  }
+}
+
+LOAD_REGION_OPTION_SETTING_OFS3 0x12c9f4c4 4
+{
+  OPTION_SETTING_OFS3 0x12c9f4c4 FIXED 4
+  {
+    *(.option_setting_ofs3)
+  }
+}
+
+LOAD_REGION_DATA_FLASH DATA_FLASH_START DATA_FLASH_LENGTH
+{
+  __tz_DATA_FLASH_S DATA_FLASH_S_START EMPTY 0
+  {
+  }
+  DATA_FLASH +0
+  {
+    *(.data_flash*)
+  }
+  __tz_DATA_FLASH_N DATA_FLASH_NS_START EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_QSPI_FLASH QSPI_FLASH_START QSPI_FLASH_PRV_LENGTH
+{
+  __tz_QSPI_FLASH_S QSPI_FLASH_S_START EMPTY 0
+  {
+  }
+  QSPI_FLASH +0 FIXED
+  {
+    *(.qspi_flash*)
+    *(.code_in_qspi*)
+  }
+  __tz_QSPI_FLASH_N QSPI_FLASH_NS_START EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_OSPI_DEVICE_0 OSPI_DEVICE_0_START OSPI_DEVICE_0_PRV_LENGTH
+{
+  __tz_OSPI_DEVICE_0_S OSPI_DEVICE_0_S_START EMPTY 0
+  {
+  }
+  OSPI_DEVICE_0 +0 FIXED
+  {
+    *(.ospi_device_0*)
+    *(.code_in_ospi_device_0*)
+  }
+  __tz_OSPI_DEVICE_0_N OSPI_DEVICE_0_NS_START EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_OSPI_DEVICE_1 OSPI_DEVICE_1_START OSPI_DEVICE_1_PRV_LENGTH
+{
+  __tz_OSPI_DEVICE_1_S OSPI_DEVICE_1_S_START EMPTY 0
+  {
+  }
+  OSPI_DEVICE_1 +0 FIXED
+  {
+    *(.ospi_device_1*)
+    *(.code_in_ospi_device_1*)
+  }
+  __tz_OSPI_DEVICE_1_N OSPI_DEVICE_1_NS_START EMPTY 0
+  {
+  }
+}
+
+LOAD_REGION_SDRAM SDRAM_START SDRAM_LENGTH
+{
+  __tz_SDRAM_S SDRAM_S_START EMPTY 0
+  {
+  }
+
+  SDRAM +0 UNINIT NOCOMPRESS SDRAM_LENGTH
+  {
+    *(.sdram*)
+    *(.bss.sdram)
+    *(.frame*)
+  }
+
+  NOCACHE_SDRAM +0 UNINIT NOCOMPRESS ALIGN 32
+  {
+    *(.bss.nocache_sdram)
+  }
+
+  ; The required minimum ending alignment is a 32 byte boundary for Armv8-M MPU requirements.
+  ; There is no way to control the ending alignment of NOCACHE_SDRAM, so this dedicated section acts as padding and as the true execution section limit of NOCACHE_SDRAM.
+  NOCACHE_SDRAM_PAD (ImageLimit(NOCACHE_SDRAM)) EMPTY NOCOMPRESS (AlignExpr(ImageLength(NOCACHE_SDRAM), 32) - ImageLength(NOCACHE_SDRAM))
+  {
+  }
+
+  __tz_SDRAM_N SDRAM_NS_START EMPTY 0
+  {
+  }
+}
+ScatterAssert(ImageLimit(RAM_END) <= RAM_START + RAM_LENGTH)
+ScatterAssert(ImageLimit(ITCM_PAD) <= ITCM_START + ITCM_LENGTH)
+ScatterAssert(ImageLimit(DTCM_BSS_PAD) <= DTCM_START + DTCM_LENGTH)
+ScatterAssert(ImageLimit(NOCACHE_SDRAM_PAD) <= SDRAM_START + SDRAM_LENGTH)

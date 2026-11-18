@@ -1,0 +1,9 @@
+ok build …a8p1/review-drivers/review_r015_pdm_cpu0 (2.1 s)
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_pdm_cpu0/Debug/review_r015_pdm_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_pdm_cpu0/Debug/review_r015_pdm_cpu0.elf 361200 B 12:13:37, .srec 26054 B 12:13:37, .map 138646 B 12:13:37, .sbd 5494 B 12:13:38
+clean: ok, 0 errors, 0 warnings (81ms)
+full: ok, 0 errors, 0 warnings (646ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794914016475-review_r015_pdm_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install edce92, install 54776c, the rest stock; journalled)

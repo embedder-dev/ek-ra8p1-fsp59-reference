@@ -1119,6 +1119,7 @@ This file is generated using: scripts/jinja/mdf_render.sh
         <constraint display="Requires CANFD peripheral">
             "${interface.mcu.canfd.external}" === "1"
         </constraint>
+        <constraint display="RA8P1 CANFD use requires PCLKE:PCLKA = 2:1 (HM table 9.2).">!testExists("${interface.mcu.ra8p1.clock_limits}") || ((Number("${board.clock.peripheral.ra8p1.pclka}") &gt; 0) &amp;&amp; (Number("${board.clock.peripheral.ra8p1.pclke}") === 2 * Number("${board.clock.peripheral.ra8p1.pclka}")))</constraint>
         <constraint display="Requires CANFD to be enabled on the Clocks tab.">
             testExists("${board.clock.peripheral.canfd}") &amp;&amp; (${board.clock.peripheral.canfd} &gt; 0)
         </constraint>

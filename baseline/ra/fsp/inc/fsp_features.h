@@ -115,6 +115,7 @@ typedef enum e_fsp_ip
     FSP_IP_TML    = 82,                ///< 32-bit Interval Timer
     FSP_IP_MACL   = 83,                ///< 32-bit Multiply-Accumulator
     FSP_IP_USBCC  = 84,                ///< USB Type-C Controller
+    FSP_IP_PDM    = 85,                ///< Pulse Density Modulation Interface
 } fsp_ip_t;
 
 /** Signals that can be mapped to an interrupt. */

@@ -131,7 +131,12 @@
             !((${module.driver.ospi_b.command_set_table_length} &gt; 0) &amp;&amp; ("${module.driver.ospi_b.command_set_table}".trim().length == 0))
         </constraint>
         <constraint display="DOTF end address must be larger than start address">
-            testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp; testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &gt; ${module.driver.ospi_b.dotf.start_address})
+            (testExists("${interface.mcu.ospi_b.1}") &amp;&amp; ("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled")) ||
+            (testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp; testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &gt; ${module.driver.ospi_b.dotf.start_address}))
+        </constraint>
+        <constraint display="OSPI_B DOTF crypto/register binding is not qualified for this variant">
+            !testExists("${interface.mcu.ospi_b.1}") ||
+            ("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled")
         </constraint>
         <requires id="module.driver.ospi_on_ospi_b.requires.ospi_b" interface="interface.mcu.ospi_b.external" visible="false" display="Requires OSPI peripheral"/>
         <requires id="module.driver.ospi_on_ospi_b.requires.rsip7" interface="interface.driver.rsip.dotf" visible="true" display="[Optional] Add crypto engine for DOTF" find="false" optional="true"/>
@@ -152,6 +157,7 @@
         </requires>
         <provides interface="interface.driver.ospi_b" />
         <provides interface="interface.driver.ospi_on_ospi_b" />
+        <provides interface="interface.peripheral.ospi_b${module.driver.ospi_b.unit}" />
         <provides interface="interface.driver.ospi_b.${module.driver.ospi_b.name}" />
         <provides interface="interface.driver.spi_flash" />
         <provides interface="interface.driver.rm_mcuboot_external_memory_ospi" />
@@ -336,19 +342,37 @@
             <select enum="enum.mcu.dotf.key_format" />
         </property>
         <property default="0x90000000" description="OSPI decryption start address" display="DOTF|Decryption start address" id="module.driver.ospi_b.dotf.start_address">
-            <constraint display="Value must be an integer between 0x80000000 and 0x9FFFFFFF">testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp;
-            (("${module.driver.ospi_b.dotf.start_address}" &gt;= 0x80000000) &amp;&amp;("${module.driver.ospi_b.dotf.start_address}" &lt;= 0x9FFFFFFF))
+            <constraint display="DOTF start address must be within the selected unit's decryption area">
+            (!testExists("${interface.mcu.ospi_b.1}") &amp;&amp; (testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp;
+            (("${module.driver.ospi_b.dotf.start_address}" &gt;= 0x80000000) &amp;&amp;("${module.driver.ospi_b.dotf.start_address}" &lt;= 0x9FFFFFFF)))) ||
+            (testExists("${interface.mcu.ospi_b.1}") &amp;&amp;
+            (("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled") ||
+            (testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp;
+            ((("${module.driver.ospi_b.unit}" === "module.driver.ospi_b.unit.0") &amp;&amp; (${module.driver.ospi_b.dotf.start_address} &gt;= 0x80000000) &amp;&amp; (${module.driver.ospi_b.dotf.start_address} &lt;= 0x9FFFFFFF)) ||
+            (("${module.driver.ospi_b.unit}" === "module.driver.ospi_b.unit.1") &amp;&amp; (${module.driver.ospi_b.dotf.start_address} &gt;= 0x70000000) &amp;&amp; (${module.driver.ospi_b.dotf.start_address} &lt;= 0x7FFFFFFF))))))
             </constraint>
-            <constraint display="Value must be an integer multiple of 4096 bytes">testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp;
-            ((${module.driver.ospi_b.dotf.start_address}) % 4096 == 0)
+            <constraint display="Value must be an integer multiple of 4096 bytes">
+            (testExists("${interface.mcu.ospi_b.1}") &amp;&amp; ("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled")) ||
+            (testInteger("${module.driver.ospi_b.dotf.start_address}") &amp;&amp;
+            ((${module.driver.ospi_b.dotf.start_address}) % 4096 == 0))
             </constraint>
         </property>
         <property default="0x90001FFF" description="OSPI decryption end address" display="DOTF|Decryption end address" id="module.driver.ospi_b.dotf.end_address">
-            <constraint display="Value must be an integer between 0x80000000 and 0x9FFFFFFF">testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp;
-            (("${module.driver.ospi_b.dotf.end_address}" &gt;= 0x80000000) &amp;&amp;("${module.driver.ospi_b.dotf.end_address}" &lt;= 0x9FFFFFFF))
+            <constraint display="DOTF end address must be within the selected unit's decryption area">
+            (!testExists("${interface.mcu.ospi_b.1}") &amp;&amp; (testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp;
+            (("${module.driver.ospi_b.dotf.end_address}" &gt;= 0x80000000) &amp;&amp;("${module.driver.ospi_b.dotf.end_address}" &lt;= 0x9FFFFFFF)))) ||
+            (testExists("${interface.mcu.ospi_b.1}") &amp;&amp;
+            (("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled") ||
+            (testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp;
+            ((("${module.driver.ospi_b.unit}" === "module.driver.ospi_b.unit.0") &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &gt;= 0x80000000) &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &lt;= 0x9FFFFFFF)) ||
+            (("${module.driver.ospi_b.unit}" === "module.driver.ospi_b.unit.1") &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &gt;= 0x70000000) &amp;&amp; (${module.driver.ospi_b.dotf.end_address} &lt;= 0x7FFFFFFF))))))
             </constraint>
-            <constraint display="Value must be an integer multiple of 4095 bytes. ">testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp;
-            ((${module.driver.ospi_b.dotf.end_address}) % 4095 == 0)
+            <constraint display="DOTF end address must be the inclusive last byte of a 4096-byte page">
+            (!testExists("${interface.mcu.ospi_b.1}") &amp;&amp; (testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp;
+            ((${module.driver.ospi_b.dotf.end_address}) % 4095 == 0))) ||
+            (testExists("${interface.mcu.ospi_b.1}") &amp;&amp;
+            (("${config.driver.ospi_b.dotf_support}" === "config.driver.ospi_b.dotf_support.disabled") ||
+            (testInteger("${module.driver.ospi_b.dotf.end_address}") &amp;&amp; ((${module.driver.ospi_b.dotf.end_address}) % 4096 == 4095))))
             </constraint>
         </property>
 

@@ -1,0 +1,287 @@
+{
+  "types": [
+    {
+      "name": "R_CRC_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.1–49.2.5, p.3191–3194",
+      "manual_path": "56-49.-cyclic-redundancy-check-crc/02-49.2-register-descriptions.md",
+      "members": [
+        {
+          "name": "CRCCR0",
+          "offset": "0x00",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "GPS", "pos": 0, "bits": 3, "access": "R/W"},
+            {"name": "LMS", "pos": 6, "bits": 1, "access": "R/W"},
+            {"name": "DORCLR", "pos": 7, "bits": 1, "access": "W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.1, p.3191"
+        },
+        {
+          "name": "CRCCR1",
+          "offset": "0x01",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "CRCSWR", "pos": 6, "bits": 1, "access": "R/W"},
+            {"name": "CRCSEN", "pos": 7, "bits": 1, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.2, p.3191–3192"
+        },
+        {
+          "name": "CRCDIR",
+          "offset": "0x04",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {"name": "CRCDIR", "pos": 0, "bits": 32, "access": "R/W"}
+          ],
+          "views": [
+            {
+              "name": "CRCDIR_BY",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {"name": "CRCDIR_BY", "pos": 0, "bits": 8, "access": "R/W"}
+              ]
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.3, p.3192",
+          "note": "Both access widths use the documented offset 0x04. The manual calls the byte data CRCDIR[31:24]; this does not specify a separate byte address at offset 0x07."
+        },
+        {
+          "name": "CRCDOR",
+          "offset": "0x08",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {"name": "CRCDOR", "pos": 0, "bits": 32, "access": "R/W"}
+          ],
+          "views": [
+            {
+              "name": "CRCDOR_HA",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {"name": "CRCDOR_HA", "pos": 0, "bits": 16, "access": "R/W"}
+              ]
+            },
+            {
+              "name": "CRCDOR_BY",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {"name": "CRCDOR_BY", "pos": 0, "bits": 8, "access": "R/W"}
+              ]
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.4, p.3192–3193",
+          "note": "All three access widths use the documented offset 0x08. CRCDOR[31:16]/[31:24] describe the narrow data paths, not separately documented addresses at offsets 0x0A/0x0B."
+        },
+        {
+          "name": "CRCSAR",
+          "offset": "0x0C",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {"name": "CRCSA", "pos": 0, "bits": 14, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.5, p.3193–3194"
+        }
+      ]
+    },
+    {
+      "name": "R_CAC_Type",
+      "size": "0x0C",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.1–10.2.8, p.422–427",
+      "manual_path": "17-10.-clock-frequency-accuracy-measurement-circuit/02-10.2-register-descriptions.md",
+      "members": [
+        {
+          "name": "CACR0",
+          "offset": "0x00",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "CFME", "pos": 0, "bits": 1, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.1, p.422"
+        },
+        {
+          "name": "CACR1",
+          "offset": "0x01",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "CACREFE", "pos": 0, "bits": 1, "access": "R/W"},
+            {"name": "FMCS", "pos": 1, "bits": 3, "access": "R/W"},
+            {"name": "TCSS", "pos": 4, "bits": 2, "access": "R/W"},
+            {"name": "EDGES", "pos": 6, "bits": 2, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.2, p.423"
+        },
+        {
+          "name": "CACR2",
+          "offset": "0x02",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "RPS", "pos": 0, "bits": 1, "access": "R/W"},
+            {"name": "RSCS", "pos": 1, "bits": 3, "access": "R/W"},
+            {"name": "RCDS", "pos": 4, "bits": 2, "access": "R/W"},
+            {"name": "DFS", "pos": 6, "bits": 2, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.3, p.424"
+        },
+        {
+          "name": "CAICR",
+          "offset": "0x03",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "FERRIE", "pos": 0, "bits": 1, "access": "R/W"},
+            {"name": "MENDIE", "pos": 1, "bits": 1, "access": "R/W"},
+            {"name": "OVFIE", "pos": 2, "bits": 1, "access": "R/W"},
+            {"name": "FERRFCL", "pos": 4, "bits": 1, "access": "W"},
+            {"name": "MENDFCL", "pos": 5, "bits": 1, "access": "W"},
+            {"name": "OVFFCL", "pos": 6, "bits": 1, "access": "W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.4, p.425"
+        },
+        {
+          "name": "CASTR",
+          "offset": "0x04",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {"name": "FERRF", "pos": 0, "bits": 1, "access": "R"},
+            {"name": "MENDF", "pos": 1, "bits": 1, "access": "R"},
+            {"name": "OVFF", "pos": 2, "bits": 1, "access": "R"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.5, p.426"
+        },
+        {
+          "name": "CAULVR",
+          "offset": "0x06",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {"name": "CAULVR", "pos": 0, "bits": 16, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.6, p.427"
+        },
+        {
+          "name": "CALLVR",
+          "offset": "0x08",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {"name": "CALLVR", "pos": 0, "bits": 16, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.7, p.427"
+        },
+        {
+          "name": "CACNTBR",
+          "offset": "0x0A",
+          "width": 16,
+          "access": "R",
+          "fields": [
+            {"name": "CACNTBR", "pos": 0, "bits": 16, "access": "R"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.8, p.427"
+        }
+      ]
+    },
+    {
+      "name": "R_DOC_B_Type",
+      "size": "0x18",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.1–58.2.6, p.3529–3532",
+      "manual_path": "65-58.-data-operation-circuit-doc/02-58.2-doc-register-descriptions.md",
+      "note": "DOC_B layout only; no legacy R_DOC/DOCR.DOPCFCL/DODSR aliases. Stock r_doc selects this block with BSP_FEATURE_DOC_VERSION != 1.",
+      "members": [
+        {
+          "name": "DOCR",
+          "offset": "0x00",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {"name": "OMS", "pos": 0, "bits": 2, "access": "R/W"},
+            {"name": "DOBW", "pos": 3, "bits": 1, "access": "R/W"},
+            {"name": "DCSEL", "pos": 4, "bits": 3, "access": "R/W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.1, p.3529–3530"
+        },
+        {
+          "name": "DOSR",
+          "offset": "0x04",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {"name": "DOPCF", "pos": 0, "bits": 1, "access": "R"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.2, p.3530"
+        },
+        {
+          "name": "DOSCR",
+          "offset": "0x08",
+          "width": 8,
+          "access": "W",
+          "fields": [
+            {"name": "DOPCFCL", "pos": 0, "bits": 1, "access": "W"}
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.3, p.3531"
+        },
+        {
+          "name": "DODIR",
+          "offset": "0x0C",
+          "width": 32,
+          "access": "R/W",
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.4, p.3531",
+          "note": "The manual requires the access width to match DOCR.DOBW (16 or 32 bits). The original FSP 5.9 type exposes the 32-bit register only."
+        },
+        {
+          "name": "DODSR0",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.5, p.3531",
+          "note": "The manual requires the access width to match DOCR.DOBW (16 or 32 bits). The original FSP 5.9 type exposes the 32-bit register only."
+        },
+        {
+          "name": "DODSR1",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.6, p.3532",
+          "note": "The manual requires the access width to match DOCR.DOBW (16 or 32 bits). The original FSP 5.9 type exposes the 32-bit register only."
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_CRC",
+      "type": "R_CRC_Type",
+      "secure": "0x40310000",
+      "nonsecure": "0x50310000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §49.2.1, p.3191; Appendix §3.1 Table A3.1, p.4286"
+    },
+    {
+      "name": "R_CAC",
+      "type": "R_CAC_Type",
+      "secure": "0x40202400",
+      "nonsecure": "0x50202400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §10.2.1, p.422; Appendix §3.1 Table A3.1, p.4285"
+    },
+    {
+      "name": "R_DOC_B",
+      "type": "R_DOC_B_Type",
+      "secure": "0x40311000",
+      "nonsecure": "0x50311000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §58.2.1, p.3529; Appendix §3.1 Table A3.1, p.4286"
+    }
+  ]
+}

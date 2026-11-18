@@ -1,0 +1,40 @@
+{
+  "only_ra8p1_changed": true,
+  "unchanged_pack_count": 36,
+  "delta": {
+    "Renesas.RA_mcu_ra8p1.5.9.0.pack": {
+      "Renesas.RA_mcu_ra8p1.pdsc": {
+        "before": "090901a1c2e20c057b187d6d9a2f3f21ceacc2b3b3d522d8fdd02e3995e3782a",
+        "after": "5aeb4b141b0ef08659ab73053c07e556f11585341c196a50261adba2c6758ea3"
+      },
+      "script/ac6/fsp_keep.via": {
+        "before": null,
+        "after": "752b987eb4787619a5be05e8702b7b999fa3e68c06fc3c77612bb510ffb6d4cf"
+      },
+      "script/fsp.icf": {
+        "before": null,
+        "after": "75fde7909e8154a02e25d63c26295d7d95a09edfc0c96df073ec4361ddba11a5"
+      },
+      "script/fsp.lld": {
+        "before": null,
+        "after": "dfb65fecf739c3811ca3c74cdb91927dc7c3d03cee47ec5bdc51f546ef48338c"
+      },
+      "script/fsp.scat": {
+        "before": null,
+        "after": "9cbfa665177222c38de380afcf885d5b6c6f8ef9c056d1acf2ac1b130b7c7d91"
+      },
+      "script/fsp_cpu1.icf": {
+        "before": null,
+        "after": "5c32d5f530360ea66dadf14b99c1dcaf365ed2a5b156ad6e09982133e67ff1c1"
+      },
+      "script/fsp_cpu1.lld": {
+        "before": null,
+        "after": "fcf5550a1f3e082c91b4e7176cfb7e6613c6b0c5d613480ec193c87799b3d67a"
+      },
+      "script/fsp_cpu1.scat": {
+        "before": null,
+        "after": "551e9fcc4db47bf89c632d849ca62e5fa6ebec4791cc344a8100ac3188b5071a"
+      }
+    }
+  }
+}

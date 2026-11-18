@@ -144,7 +144,35 @@ void * _tx_port_wait_thread_ready (void)
         }
 
         /* Save LPM Mode */
- #if BSP_FEATURE_LPM_HAS_SBYCR_SSBY
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+        volatile uint8_t  * p_lpscr;
+        volatile uint16_t * p_prcr;
+  #if BSP_TZ_NONSECURE_BUILD
+        /* LPMSAR is readable from either security state. Never access a Secure-owned LPSCR from Non-secure. */
+        if (0U == (R_SYSTEM->LPMSAR & R_SYSTEM_LPMSAR_NONSEC1_Msk))
+        {
+            /* WFI could otherwise enter a Secure-selected standby mode that this port cannot override. */
+            __enable_irq();
+            R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MICROSECONDS);
+            continue;
+        }
+
+        p_lpscr = &R_SYSTEM->LPSCR;
+        p_prcr  = &R_SYSTEM->PRCR_NS;
+  #else
+        if (R_SYSTEM->LPMSAR & R_SYSTEM_LPMSAR_NONSEC1_Msk)
+        {
+            p_lpscr = &R_SYSTEM_NS->LPSCR;
+            p_prcr  = &R_SYSTEM_NS->PRCR_NS;
+        }
+        else
+        {
+            p_lpscr = &R_SYSTEM->LPSCR;
+            p_prcr  = &R_SYSTEM->PRCR_S;
+        }
+  #endif
+        g_saved_lpm_state = *p_lpscr;
+ #elif BSP_FEATURE_LPM_HAS_SBYCR_SSBY
         g_saved_lpm_state = R_SYSTEM->SBYCR;
  #elif BSP_FEATURE_LPM_HAS_LPSCR
         g_saved_lpm_state = R_SYSTEM->LPSCR;
@@ -170,14 +198,31 @@ void * _tx_port_wait_thread_ready (void)
  #elif BSP_FEATURE_LPM_HAS_LPSCR
         if (R_SYSTEM_LPSCR_LPMD_Msk & g_saved_lpm_state)
         {
+   #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+            g_prcr = *p_prcr;
+            *p_prcr = (uint16_t) (RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS | g_prcr);
+   #elif BSP_FEATURE_BSP_HAS_PRCR_S
+    #if BSP_TZ_NONSECURE_BUILD
+            g_prcr = R_SYSTEM->PRCR_NS;
+            R_SYSTEM->PRCR_NS = RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS;
+    #else
+            g_prcr = R_SYSTEM->PRCR_S;
+            R_SYSTEM->PRCR_S = RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS;
+    #endif
+   #else
             /* Save register protect value */
             g_prcr = R_SYSTEM->PRCR;
 
             /* Unlock LPM peripheral registers */
             R_SYSTEM->PRCR = RM_THREADX_PORT_PRCR_UNLOCK_LPM_REGISTER_ACCESS;
+   #endif
 
             /* Clear to set to sleep low power mode (not standby or deep standby) */
+   #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+            *p_lpscr = 0U;
+   #else
             R_SYSTEM->LPSCR = 0U;
+   #endif
         }
  #endif
 
@@ -213,10 +258,23 @@ void * _tx_port_wait_thread_ready (void)
         if (R_SYSTEM_LPSCR_LPMD_Msk & g_saved_lpm_state)
         {
             /* Restore LPM Mode */
+   #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+            *p_lpscr = (uint8_t) g_saved_lpm_state;
+            *p_prcr  = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
+   #else
             R_SYSTEM->LPSCR = (uint8_t) g_saved_lpm_state;
 
+    #if BSP_FEATURE_BSP_HAS_PRCR_S
+     #if BSP_TZ_NONSECURE_BUILD
+            R_SYSTEM->PRCR_NS = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
+     #else
+            R_SYSTEM->PRCR_S = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
+     #endif
+    #else
             /* Restore register lock */
             R_SYSTEM->PRCR = (uint16_t) (RM_THREADX_PORT_PRCR_LOCK_LPM_REGISTER_ACCESS | g_prcr);
+    #endif
+   #endif
         }
  #endif
 

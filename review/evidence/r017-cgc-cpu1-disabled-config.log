@@ -1,0 +1,8 @@
+ok config set …a8p1/review-drivers/review_r015_cgc_cpu1 (1.1 s)
+applied the given settings to review_r015_cgc_cpu1; saved, content generated (no separate generate needed)
+  bsp config.bsp.common.checking: config.bsp.common.checking.enabled -> config.bsp.common.checking.disabled (configuration.xml: config.bsp.common.checking.disabled)
+configuration.xml: saved; read back from the file: bsp checking config.bsp.common.checking.disabled
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_cfg.h (BSP_CFG_PARAM_CHECKING_ENABLE (1) -> (0))
+e2 bookkeeping, safe to ignore: changed: ra_cfg.txt (+1 -1 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ra8p1/review-drivers/review_r015_cgc_cpu1

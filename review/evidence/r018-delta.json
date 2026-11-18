@@ -1,0 +1,9 @@
+{
+  "delta": {
+    "Renesas.RA_mcu_ra8p1.5.9.0.pack": [
+      ".module_descriptions/Renesas##BSP##ra8p1##device####5.9.0.xml",
+      ".module_descriptions/Renesas##BSP##ra8p1##fsp####5.9.0.xml"
+    ]
+  },
+  "all_emitted_templates_clocks_and_sdk_sources_identical": true
+}

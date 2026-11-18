@@ -1,0 +1,244 @@
+
+<repo>/review/evidence/tcm-codegen/O0.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.SystemInit:
+
+00000000 <SystemInit>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	4b2e      	ldr	r3, [pc, #184]	@ (c0 <SystemInit+0xc0>)
+   8:	f44f 0270 	mov.w	r2, #15728640	@ 0xf00000
+   c:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+  10:	4b2b      	ldr	r3, [pc, #172]	@ (c0 <SystemInit+0xc0>)
+  12:	4a2c      	ldr	r2, [pc, #176]	@ (c4 <SystemInit+0xc4>)
+  14:	609a      	str	r2, [r3, #8]
+  16:	f7ff fffe 	bl	0 <SystemInit>
+			16: R_ARM_THM_CALL	bsp_init_ctcm
+  1a:	2000      	movs	r0, #0
+  1c:	f7ff fffe 	bl	0 <SystemInit>
+			1c: R_ARM_THM_CALL	R_BSP_WarmStart
+  20:	f7ff fffe 	bl	0 <bsp_clock_freq_var_init>
+			20: R_ARM_THM_CALL	bsp_clock_freq_var_init
+  24:	4b28      	ldr	r3, [pc, #160]	@ (c8 <SystemInit+0xc8>)
+  26:	685b      	ldr	r3, [r3, #4]
+  28:	2b00      	cmp	r3, #0
+  2a:	d1fb      	bne.n	24 <SystemInit+0x24>
+  2c:	4a26      	ldr	r2, [pc, #152]	@ (c8 <SystemInit+0xc8>)
+  2e:	6853      	ldr	r3, [r2, #4]
+  30:	f043 0301 	orr.w	r3, r3, #1
+  34:	6053      	str	r3, [r2, #4]
+  36:	4b24      	ldr	r3, [pc, #144]	@ (c8 <SystemInit+0xc8>)
+  38:	685b      	ldr	r3, [r3, #4]
+  3a:	2b00      	cmp	r3, #0
+  3c:	d1fb      	bne.n	36 <SystemInit+0x36>
+  3e:	4b22      	ldr	r3, [pc, #136]	@ (c8 <SystemInit+0xc8>)
+  40:	2201      	movs	r2, #1
+  42:	601a      	str	r2, [r3, #0]
+  44:	2001      	movs	r0, #1
+  46:	f7ff fffe 	bl	0 <SystemInit>
+			46: R_ARM_THM_CALL	R_BSP_WarmStart
+  4a:	4b1e      	ldr	r3, [pc, #120]	@ (c4 <SystemInit+0xc4>)
+  4c:	681b      	ldr	r3, [r3, #0]
+  4e:	f5a3 6380 	sub.w	r3, r3, #1024	@ 0x400
+  52:	607b      	str	r3, [r7, #4]
+  54:	687b      	ldr	r3, [r7, #4]
+  56:	f383 880a 	msr	MSPLIM, r3
+  5a:	bf00      	nop
+  5c:	4a1b      	ldr	r2, [pc, #108]	@ (cc <SystemInit+0xcc>)
+  5e:	4b1c      	ldr	r3, [pc, #112]	@ (d0 <SystemInit+0xd0>)
+  60:	1ad3      	subs	r3, r2, r3
+  62:	461a      	mov	r2, r3
+  64:	2100      	movs	r1, #0
+  66:	481a      	ldr	r0, [pc, #104]	@ (d0 <SystemInit+0xd0>)
+  68:	f7ff fffe 	bl	0 <memset>
+			68: R_ARM_THM_CALL	memset
+  6c:	4a19      	ldr	r2, [pc, #100]	@ (d4 <SystemInit+0xd4>)
+  6e:	4b1a      	ldr	r3, [pc, #104]	@ (d8 <SystemInit+0xd8>)
+  70:	1ad3      	subs	r3, r2, r3
+  72:	461a      	mov	r2, r3
+  74:	4919      	ldr	r1, [pc, #100]	@ (dc <SystemInit+0xdc>)
+  76:	4818      	ldr	r0, [pc, #96]	@ (d8 <SystemInit+0xd8>)
+  78:	f7ff fffe 	bl	0 <memcpy>
+			78: R_ARM_THM_CALL	memcpy
+  7c:	4a18      	ldr	r2, [pc, #96]	@ (e0 <SystemInit+0xe0>)
+  7e:	4b19      	ldr	r3, [pc, #100]	@ (e4 <SystemInit+0xe4>)
+  80:	1ad3      	subs	r3, r2, r3
+  82:	109b      	asrs	r3, r3, #2
+  84:	60bb      	str	r3, [r7, #8]
+  86:	2300      	movs	r3, #0
+  88:	60fb      	str	r3, [r7, #12]
+  8a:	e007      	b.n	9c <SystemInit+0x9c>
+  8c:	4a15      	ldr	r2, [pc, #84]	@ (e4 <SystemInit+0xe4>)
+  8e:	68fb      	ldr	r3, [r7, #12]
+  90:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+  94:	4798      	blx	r3
+  96:	68fb      	ldr	r3, [r7, #12]
+  98:	3301      	adds	r3, #1
+  9a:	60fb      	str	r3, [r7, #12]
+  9c:	68fa      	ldr	r2, [r7, #12]
+  9e:	68bb      	ldr	r3, [r7, #8]
+  a0:	429a      	cmp	r2, r3
+  a2:	dbf3      	blt.n	8c <SystemInit+0x8c>
+  a4:	f7ff fffe 	bl	0 <SystemCoreClockUpdate>
+			a4: R_ARM_THM_CALL	SystemCoreClockUpdate
+  a8:	2002      	movs	r0, #2
+  aa:	f7ff fffe 	bl	0 <SystemInit>
+			aa: R_ARM_THM_CALL	R_BSP_WarmStart
+  ae:	f7ff fffe 	bl	0 <bsp_irq_cfg>
+			ae: R_ARM_THM_CALL	bsp_irq_cfg
+  b2:	2000      	movs	r0, #0
+  b4:	f7ff fffe 	bl	0 <bsp_init>
+			b4: R_ARM_THM_CALL	bsp_init
+  b8:	bf00      	nop
+  ba:	3710      	adds	r7, #16
+  bc:	46bd      	mov	sp, r7
+  be:	bd80      	pop	{r7, pc}
+  c0:	e000ed00 	.word	0xe000ed00
+  c4:	00000000 	.word	0x00000000
+			c4: R_ARM_ABS32	__Vectors
+  c8:	4001c000 	.word	0x4001c000
+	...
+			cc: R_ARM_ABS32	__bss_end__
+			d0: R_ARM_ABS32	__bss_start__
+			d4: R_ARM_ABS32	__data_end__
+			d8: R_ARM_ABS32	__data_start__
+			dc: R_ARM_ABS32	__etext
+			e0: R_ARM_ABS32	__init_array_end
+			e4: R_ARM_ABS32	__init_array_start
+
+Disassembly of section .text.bsp_init_ctcm:
+
+00000000 <bsp_init_ctcm>:
+   0:	b480      	push	{r7}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	f3bf 8f5f 	dmb	sy
+   a:	bf00      	nop
+   c:	4b38      	ldr	r3, [pc, #224]	@ (f0 <bsp_init_ctcm+0xf0>)
+   e:	f24a 5201 	movw	r2, #42241	@ 0xa501
+  12:	801a      	strh	r2, [r3, #0]
+  14:	4b36      	ldr	r3, [pc, #216]	@ (f0 <bsp_init_ctcm+0xf0>)
+  16:	2208      	movs	r2, #8
+  18:	741a      	strb	r2, [r3, #16]
+  1a:	4b35      	ldr	r3, [pc, #212]	@ (f0 <bsp_init_ctcm+0xf0>)
+  1c:	2208      	movs	r2, #8
+  1e:	751a      	strb	r2, [r3, #20]
+  20:	f3bf 8f5f 	dmb	sy
+  24:	bf00      	nop
+  26:	2300      	movs	r3, #0
+  28:	60fb      	str	r3, [r7, #12]
+  2a:	e00b      	b.n	44 <bsp_init_ctcm+0x44>
+  2c:	68fb      	ldr	r3, [r7, #12]
+  2e:	2200      	movs	r2, #0
+  30:	601a      	str	r2, [r3, #0]
+  32:	68fb      	ldr	r3, [r7, #12]
+  34:	f103 5300 	add.w	r3, r3, #536870912	@ 0x20000000
+  38:	461a      	mov	r2, r3
+  3a:	2300      	movs	r3, #0
+  3c:	6013      	str	r3, [r2, #0]
+  3e:	68fb      	ldr	r3, [r7, #12]
+  40:	3304      	adds	r3, #4
+  42:	60fb      	str	r3, [r7, #12]
+  44:	68fb      	ldr	r3, [r7, #12]
+  46:	f5b3 3f80 	cmp.w	r3, #65536	@ 0x10000
+  4a:	d3ef      	bcc.n	2c <bsp_init_ctcm+0x2c>
+  4c:	f3bf 8f5f 	dmb	sy
+  50:	bf00      	nop
+  52:	4b27      	ldr	r3, [pc, #156]	@ (f0 <bsp_init_ctcm+0xf0>)
+  54:	220f      	movs	r2, #15
+  56:	f8a3 2048 	strh.w	r2, [r3, #72]	@ 0x48
+  5a:	4b25      	ldr	r3, [pc, #148]	@ (f0 <bsp_init_ctcm+0xf0>)
+  5c:	221c      	movs	r2, #28
+  5e:	741a      	strb	r2, [r3, #16]
+  60:	4b23      	ldr	r3, [pc, #140]	@ (f0 <bsp_init_ctcm+0xf0>)
+  62:	221c      	movs	r2, #28
+  64:	751a      	strb	r2, [r3, #20]
+  66:	f3bf 8f5f 	dmb	sy
+  6a:	bf00      	nop
+  6c:	4b20      	ldr	r3, [pc, #128]	@ (f0 <bsp_init_ctcm+0xf0>)
+  6e:	f44f 4225 	mov.w	r2, #42240	@ 0xa500
+  72:	801a      	strh	r2, [r3, #0]
+  74:	f3bf 8f4f 	dsb	sy
+  78:	bf00      	nop
+  7a:	4b1e      	ldr	r3, [pc, #120]	@ (f4 <bsp_init_ctcm+0xf4>)
+  7c:	60bb      	str	r3, [r7, #8]
+  7e:	4b1e      	ldr	r3, [pc, #120]	@ (f8 <bsp_init_ctcm+0xf8>)
+  80:	607b      	str	r3, [r7, #4]
+  82:	e007      	b.n	94 <bsp_init_ctcm+0x94>
+  84:	68ba      	ldr	r2, [r7, #8]
+  86:	1d13      	adds	r3, r2, #4
+  88:	60bb      	str	r3, [r7, #8]
+  8a:	687b      	ldr	r3, [r7, #4]
+  8c:	1d19      	adds	r1, r3, #4
+  8e:	6079      	str	r1, [r7, #4]
+  90:	6812      	ldr	r2, [r2, #0]
+  92:	601a      	str	r2, [r3, #0]
+  94:	68bb      	ldr	r3, [r7, #8]
+  96:	4a19      	ldr	r2, [pc, #100]	@ (fc <bsp_init_ctcm+0xfc>)
+  98:	4293      	cmp	r3, r2
+  9a:	d3f3      	bcc.n	84 <bsp_init_ctcm+0x84>
+  9c:	4b18      	ldr	r3, [pc, #96]	@ (100 <bsp_init_ctcm+0x100>)
+  9e:	60bb      	str	r3, [r7, #8]
+  a0:	4b18      	ldr	r3, [pc, #96]	@ (104 <bsp_init_ctcm+0x104>)
+  a2:	607b      	str	r3, [r7, #4]
+  a4:	e007      	b.n	b6 <bsp_init_ctcm+0xb6>
+  a6:	68ba      	ldr	r2, [r7, #8]
+  a8:	1d13      	adds	r3, r2, #4
+  aa:	60bb      	str	r3, [r7, #8]
+  ac:	687b      	ldr	r3, [r7, #4]
+  ae:	1d19      	adds	r1, r3, #4
+  b0:	6079      	str	r1, [r7, #4]
+  b2:	6812      	ldr	r2, [r2, #0]
+  b4:	601a      	str	r2, [r3, #0]
+  b6:	68bb      	ldr	r3, [r7, #8]
+  b8:	4a13      	ldr	r2, [pc, #76]	@ (108 <bsp_init_ctcm+0x108>)
+  ba:	4293      	cmp	r3, r2
+  bc:	d3f3      	bcc.n	a6 <bsp_init_ctcm+0xa6>
+  be:	4b13      	ldr	r3, [pc, #76]	@ (10c <bsp_init_ctcm+0x10c>)
+  c0:	607b      	str	r3, [r7, #4]
+  c2:	e004      	b.n	ce <bsp_init_ctcm+0xce>
+  c4:	687b      	ldr	r3, [r7, #4]
+  c6:	1d1a      	adds	r2, r3, #4
+  c8:	607a      	str	r2, [r7, #4]
+  ca:	2200      	movs	r2, #0
+  cc:	601a      	str	r2, [r3, #0]
+  ce:	687b      	ldr	r3, [r7, #4]
+  d0:	4a0f      	ldr	r2, [pc, #60]	@ (110 <bsp_init_ctcm+0x110>)
+  d2:	4293      	cmp	r3, r2
+  d4:	d3f6      	bcc.n	c4 <bsp_init_ctcm+0xc4>
+  d6:	f3bf 8f4f 	dsb	sy
+  da:	bf00      	nop
+  dc:	f3bf 8f6f 	isb	sy
+  e0:	bf00      	nop
+  e2:	bf00      	nop
+  e4:	3714      	adds	r7, #20
+  e6:	46bd      	mov	sp, r7
+  e8:	f85d 7b04 	ldr.w	r7, [sp], #4
+  ec:	4770      	bx	lr
+  ee:	bf00      	nop
+  f0:	4001c800 	.word	0x4001c800
+	...
+			f4: R_ARM_ABS32	__itcm_data_init_start
+			f8: R_ARM_ABS32	__itcm_data_start
+			fc: R_ARM_ABS32	__itcm_data_init_end
+			100: R_ARM_ABS32	__dtcm_data_init_start
+			104: R_ARM_ABS32	__dtcm_data_start
+			108: R_ARM_ABS32	__dtcm_data_init_end
+			10c: R_ARM_ABS32	__dtcm_bss_start
+			110: R_ARM_ABS32	__dtcm_bss_end
+
+Disassembly of section .text.R_BSP_WarmStart:
+
+00000000 <R_BSP_WarmStart>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	4603      	mov	r3, r0
+   8:	71fb      	strb	r3, [r7, #7]
+   a:	bf00      	nop
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr

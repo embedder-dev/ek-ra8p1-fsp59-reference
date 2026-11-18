@@ -1,0 +1,1625 @@
+{
+  "baseline_original_variants": [
+    {
+      "checkout_sha256": "db0f767fd96f6660e353b89412adf5cdc0e0823bfd421ddc6ba8f9addba4e8cd",
+      "entry": "ra/fsp/src/rm_threadx_port/tx_port_vendor.h",
+      "pack": "Microsoft.ThreadX.6.4.0+fsp.5.9.0.pack",
+      "pack_entry_sha256": "60eae286d0a336b0047308c3e5e234647f286043b64ad0e2df0cf60b02216d5a"
+    }
+  ],
+  "baseline_sources": 3692,
+  "manifest_packs": 37,
+  "physical_disjoint": true,
+  "projects": {
+    "CM33": {
+      "boot": {
+        "checked_handlers": 11,
+        "entry": "0x2080a91",
+        "initial_sp": "0x220d04c0",
+        "reset": "0x2080a91",
+        "stack_limit": "0x220d00c0",
+        "stack_top": "0x220d04c0",
+        "status": "checked",
+        "vector_address": "0x2080000",
+        "vector_end": "0x2080040"
+      },
+      "checked_sources": 57,
+      "compile_commands": {
+        "checked_entries": 25,
+        "entries": [
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/board/ra8p1_ek/board_init.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/board/ra8p1_ek/board_leds.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_common.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_delay.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_guard.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_io.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_irq.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_macl.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_sdram.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/bsp/mcu/all/bsp_security.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/r_dac_b/r_dac_b.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra/fsp/src/r_ioport/r_ioport.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra_gen/common_data.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra_gen/hal_data.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra_gen/main.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra_gen/pin_data.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/ra_gen/vector_data.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/src/hal_entry.c",
+            "flags": {
+              "mcpu": "cortex-m33",
+              "mfloat-abi": "hard",
+              "mfpu": "fpv5-sp-d16"
+            }
+          }
+        ],
+        "omitted_noncompilation_entries": [
+          {
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/Debug/memory_regions.ld",
+            "reason": "non-compilation linker-script record (.ld)"
+          },
+          {
+            "file": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/script/fsp_cpu1.ld",
+            "reason": "non-compilation linker-script record (.ld)"
+          }
+        ],
+        "path": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/Debug/compile_commands.json",
+        "sha256": "3b6f365c42eb4b08afc84c82d925e67959c865283801436283aa4d70431b765f",
+        "status": "checked"
+      },
+      "elf": "<repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu1/Debug/review_r015_dac_b_cpu1.elf",
+      "elf_identity": {
+        "Class": "ELF32",
+        "Data": "2's complement, little endian",
+        "Entry point address": "0x2080a91",
+        "Machine": "ARM",
+        "Tag_ABI_FP_denormal": "Needed",
+        "Tag_ABI_FP_exceptions": "Needed",
+        "Tag_ABI_FP_number_model": "IEEE 754",
+        "Tag_ABI_HardFP_use": "SP only",
+        "Tag_ABI_PCS_wchar_t": "4",
+        "Tag_ABI_VFP_args": "VFP registers",
+        "Tag_ABI_align_needed": "8-byte",
+        "Tag_ABI_enum_size": "small",
+        "Tag_CPU_arch": "v8-M.mainline",
+        "Tag_CPU_arch_profile": "Microcontroller",
+        "Tag_CPU_name": "8-M.MAIN",
+        "Tag_CPU_unaligned_access": "v6",
+        "Tag_DSP_extension": "Allowed",
+        "Tag_FP_arch": "FPv5/FP-D16 for ARMv8",
+        "Tag_THUMB_ISA_use": "Yes"
+      },
+      "elf_sha256": "da877e58a46226052c29a23a3cd4e22adb43794a903062ec34deb10a8e0e112a",
+      "ignored_empty_load_segments": [
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 1,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 2,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 3,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 4,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 6,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 7,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 8,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 9,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 10,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 11,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 12,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 13,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 14,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 15,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 16,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 18,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 20,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 22,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 23,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 24,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 25,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 26,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 27,
+          "memsz": 0,
+          "offset": 948,
+          "physical": 0,
+          "virtual": 0
+        }
+      ],
+      "packs": [
+        "Renesas.RA.5.9.0.pack",
+        "Renesas.RA_board_ra8p1_ek.5.9.0.pack",
+        "Renesas.RA_mcu_ra8p1.5.9.0.pack"
+      ],
+      "physical_ranges": [
+        [
+          "0x2080000",
+          "0x2080ce8"
+        ],
+        [
+          "0x2080ce8",
+          "0x2080cf0"
+        ],
+        [
+          "0x220d0000",
+          "0x220d0008"
+        ],
+        [
+          "0x220d0008",
+          "0x220d0038"
+        ],
+        [
+          "0x220d0038",
+          "0x220d00c0"
+        ],
+        [
+          "0x220d00c0",
+          "0x220d04c0"
+        ]
+      ],
+      "reconciled_original_source_owners": []
+    },
+    "CM85": {
+      "boot": {
+        "checked_handlers": 11,
+        "entry": "0x2000fe9",
+        "initial_sp": "0x220004c8",
+        "reset": "0x2000fe9",
+        "stack_limit": "0x220000c8",
+        "stack_top": "0x220004c8",
+        "status": "checked",
+        "vector_address": "0x2000000",
+        "vector_end": "0x2000040"
+      },
+      "checked_sources": 54,
+      "compile_commands": {
+        "checked_entries": 24,
+        "entries": [
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/board/ra8p1_ek/board_init.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/board/ra8p1_ek/board_leds.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_common.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_delay.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_group_irq.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_guard.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_io.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_irq.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_macl.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_register_protection.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_sbrk.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_sdram.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/bsp/mcu/all/bsp_security.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra/fsp/src/r_ioport/r_ioport.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra_gen/common_data.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra_gen/hal_data.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra_gen/main.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra_gen/pin_data.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/ra_gen/vector_data.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          },
+          {
+            "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+            "effective_fpu": {
+              "compiler": "<e2studio>/toolchains/arm-gnu-toolchain-13.2.Rel1-darwin-arm64-arm-none-eabi/bin/arm-none-eabi-gcc",
+              "observed_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "policy": "effective compiler default",
+              "reference_macros": {
+                "__ARM_FP": 14,
+                "__ARM_PCS_VFP": 1,
+                "__SOFTFP__": 0
+              },
+              "reference_mfpu": "fpv5-d16",
+              "target_flags": [
+                "-mthumb",
+                "-mfloat-abi=hard",
+                "-mcpu=cortex-m85+nopacbti"
+              ]
+            },
+            "file": "<repo>/validation/ra8p1/review-r015/src/hal_entry.c",
+            "flags": {
+              "mcpu": "cortex-m85+nopacbti",
+              "mfloat-abi": "hard",
+              "mfpu": null
+            }
+          }
+        ],
+        "omitted_noncompilation_entries": [
+          {
+            "file": "<repo>/validation/ra8p1/review-r015/Debug/memory_regions.ld",
+            "reason": "non-compilation linker-script record (.ld)"
+          },
+          {
+            "file": "<repo>/validation/ra8p1/review-r015/script/fsp.ld",
+            "reason": "non-compilation linker-script record (.ld)"
+          }
+        ],
+        "path": "<repo>/validation/ra8p1/review-r015/Debug/compile_commands.json",
+        "sha256": "0c74f0ff40620c7db1e9f739f13022bacb85d5275b1274c661a4c1778d5c07c5",
+        "status": "checked"
+      },
+      "elf": "<repo>/validation/ra8p1/review-r015/Debug/review_r015_cpu0.elf",
+      "elf_identity": {
+        "Class": "ELF32",
+        "Data": "2's complement, little endian",
+        "Entry point address": "0x2000fe9",
+        "Machine": "ARM",
+        "Tag_ABI_FP_16bit_format": "IEEE 754",
+        "Tag_ABI_FP_denormal": "Needed",
+        "Tag_ABI_FP_exceptions": "Needed",
+        "Tag_ABI_FP_number_model": "IEEE 754",
+        "Tag_ABI_PCS_wchar_t": "4",
+        "Tag_ABI_VFP_args": "VFP registers",
+        "Tag_ABI_align_needed": "8-byte",
+        "Tag_ABI_enum_size": "small",
+        "Tag_CPU_arch": "v8.1-M.mainline",
+        "Tag_CPU_arch_profile": "Microcontroller",
+        "Tag_CPU_name": "cortex-m85",
+        "Tag_CPU_unaligned_access": "v6",
+        "Tag_DSP_extension": "Allowed",
+        "Tag_FP_arch": "FPv5/FP-D16 for ARMv8",
+        "Tag_MVE_arch": "MVE Integer and FP",
+        "Tag_THUMB_ISA_use": "Yes"
+      },
+      "elf_sha256": "b62826d287c5b1d35d02773d2f3e251b34e844b24ce281b7f8ffc288ea16a0fc",
+      "ignored_empty_load_segments": [
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 1,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 2,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 3,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 4,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 6,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 7,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 8,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 9,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 10,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 11,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 12,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 13,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 14,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 15,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 16,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 18,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 22,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 23,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 24,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 25,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 26,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 29,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 34,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 35,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        },
+        {
+          "alignment": 4096,
+          "filesz": 0,
+          "flags": "",
+          "index": 36,
+          "memsz": 0,
+          "offset": 1236,
+          "physical": 0,
+          "virtual": 0
+        }
+      ],
+      "packs": [
+        "Renesas.RA.5.9.0.pack",
+        "Renesas.RA_board_ra8p1_ek.5.9.0.pack",
+        "Renesas.RA_mcu_ra8p1.5.9.0.pack"
+      ],
+      "physical_ranges": [
+        [
+          "0x2000000",
+          "0x2001664"
+        ],
+        [
+          "0x2001664",
+          "0x200166c"
+        ],
+        [
+          "0x2c9f040",
+          "0x2c9f044"
+        ],
+        [
+          "0x2c9f044",
+          "0x2c9f048"
+        ],
+        [
+          "0x2c9f0c0",
+          "0x2c9f0c4"
+        ],
+        [
+          "0x2c9f0c4",
+          "0x2c9f0c8"
+        ],
+        [
+          "0x2c9f120",
+          "0x2c9f124"
+        ],
+        [
+          "0x2c9f124",
+          "0x2c9f128"
+        ],
+        [
+          "0x22000000",
+          "0x22000008"
+        ],
+        [
+          "0x22000008",
+          "0x22000038"
+        ],
+        [
+          "0x22000038",
+          "0x220000c4"
+        ],
+        [
+          "0x220000c4",
+          "0x220000c8"
+        ],
+        [
+          "0x220000c8",
+          "0x220004c8"
+        ]
+      ],
+      "reconciled_original_source_owners": []
+    }
+  },
+  "scope": "File/source identity, recorded compile flags and ELF boot/allocation; not build execution or hardware verification",
+  "success": true
+}

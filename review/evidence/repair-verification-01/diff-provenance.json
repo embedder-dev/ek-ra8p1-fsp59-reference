@@ -1,0 +1,16 @@
+[
+  {
+    "path": "baseline/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c",
+    "initial_sha256": "19f63b15633347a18e0f1646e90e7174f6a87a55524e3e8d3ec04d49079a7b8c",
+    "initial_snapshot_reconstruction": "exact hash match",
+    "current_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+    "diff_lines": 128
+  },
+  {
+    "path": "baseline/ra/fsp/src/bsp/mcu/all/bsp_common.h",
+    "initial_sha256": "557e2c22d3c086910d9fc21046f4768038f3bc57a6b522d76231123d4a71f276",
+    "initial_snapshot_reconstruction": "exact hash match",
+    "current_sha256": "8245b9a718386e5af38adcb3967b44e4df537771395b3d192ee3c2419ad21cf3",
+    "diff_lines": 20
+  }
+]

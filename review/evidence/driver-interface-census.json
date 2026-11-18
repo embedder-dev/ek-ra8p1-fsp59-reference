@@ -1,0 +1,194 @@
+[
+  {
+    "driver": "r_adc_b",
+    "interface_vtables": [
+      {
+        "type": "adc_api_t",
+        "instance": "g_adc_on_adc_b"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_adc_b/r_adc_b.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_agt",
+    "interface_vtables": [
+      {
+        "type": "timer_api_t",
+        "instance": "g_timer_on_agt"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_agt/r_agt.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_cgc",
+    "interface_vtables": [
+      {
+        "type": "cgc_api_t",
+        "instance": "g_cgc_on_cgc"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_cgc/r_cgc.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_dac_b",
+    "interface_vtables": [
+      {
+        "type": "dac_api_t",
+        "instance": "g_dac_on_dac_b"
+      }
+    ],
+    "source_status": "new",
+    "source": "baseline/ra/fsp/src/r_dac_b/r_dac_b.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_glcdc",
+    "interface_vtables": [
+      {
+        "type": "display_api_t",
+        "instance": "g_display_on_glcdc"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_glcdc/r_glcdc.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_gpt",
+    "interface_vtables": [
+      {
+        "type": "timer_api_t",
+        "instance": "g_timer_on_gpt"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_gpt/r_gpt.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_i3c",
+    "interface_vtables": [
+      {
+        "type": "i3c_api_t",
+        "instance": "g_i3c_on_i3c"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_i3c/r_i3c.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_icu",
+    "interface_vtables": [
+      {
+        "type": "external_irq_api_t",
+        "instance": "g_external_irq_on_icu"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_icu/r_icu.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_lpm",
+    "interface_vtables": [
+      {
+        "type": "lpm_api_t",
+        "instance": "g_lpm_on_lpm"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_lpm/r_lpm.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_mipi_dsi",
+    "interface_vtables": [
+      {
+        "type": "mipi_dsi_api_t",
+        "instance": "g_mipi_dsi"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_mipi_dsi/r_mipi_dsi.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_mipi_phy",
+    "interface_vtables": [
+      {
+        "type": "mipi_phy_api_t",
+        "instance": "g_mipi_phy"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_mipi_phy/r_mipi_phy.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_mram",
+    "interface_vtables": [
+      {
+        "type": "flash_api_t",
+        "instance": "g_flash_on_mram"
+      }
+    ],
+    "source_status": "new",
+    "source": "baseline/ra/fsp/src/r_mram/r_mram.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_ospi_b",
+    "interface_vtables": [
+      {
+        "type": "spi_flash_api_t",
+        "instance": "g_ospi_b_on_spi_flash"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_ospi_b/r_ospi_b.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_pdm",
+    "interface_vtables": [
+      {
+        "type": "pdm_api_t",
+        "instance": "g_pdm_on_pdm"
+      }
+    ],
+    "source_status": "new",
+    "source": "baseline/ra/fsp/src/r_pdm/r_pdm.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_sci_b_spi",
+    "interface_vtables": [
+      {
+        "type": "spi_api_t",
+        "instance": "g_spi_on_sci_b"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_sci_b_spi/r_sci_b_spi.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  },
+  {
+    "driver": "r_wdt",
+    "interface_vtables": [
+      {
+        "type": "wdt_api_t",
+        "instance": "g_wdt_on_wdt"
+      }
+    ],
+    "source_status": "changed",
+    "source": "baseline/ra/fsp/src/r_wdt/r_wdt.c",
+    "scope": "Actual owning vtable declaration; full signature and generated-instance compatibility verified by compile/link gates, not inferred from the type name alone"
+  }
+]

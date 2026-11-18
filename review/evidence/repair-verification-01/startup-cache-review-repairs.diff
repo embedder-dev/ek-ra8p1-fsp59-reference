@@ -1,0 +1,148 @@
+--- initial-review/baseline/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c
++++ current/baseline/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c
+@@ -361,22 +361,31 @@
+     bsp_init_uninitialized_vars();
+ #endif
+ 
+-#if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
+     /* Call pre clock initialization hook. */
+     R_BSP_WarmStart(BSP_WARM_START_RESET);
+-#endif
+ 
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 1)
+ 
+     /* CPU0 owns the global clocks. CPU1 only reconstructs its local frequency table. */
+     bsp_clock_freq_var_init();
++
++ #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 2
++  #if !BSP_TZ_CFG_SKIP_INIT && !BSP_CFG_SKIP_INIT
++
++    /* Cold C-Cache enable: flush and await completion before ENC (HM 2.16.3.3). */
++    FSP_HARDWARE_REGISTER_WAIT(R_CACHE->CCAFCT, 0U);
++    R_CACHE->CCAFCT_b.FC = 1U;
++  #endif
++    FSP_HARDWARE_REGISTER_WAIT(R_CACHE->CCAFCT, 0U);
++    R_CACHE->CCACTL = 1U;
++ #endif
+ #else
+ #if BSP_TZ_CFG_SKIP_INIT || BSP_CFG_SKIP_INIT
+ 
+     /* Initialize clock variables to be used with R_BSP_SoftwareDelay. */
+     bsp_clock_freq_var_init();
+ 
+- #if BSP_CFG_SKIP_INIT && (defined(R_CACHE) || BSP_FEATURE_BSP_FLASH_CACHE)
++ #if BSP_CFG_SKIP_INIT && (defined(R_CACHE) || BSP_FEATURE_BSP_FLASH_CACHE) && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+ 
+     /* Flush cache before enabling */
+     R_CACHE->CCAFCT_b.FC = 1;
+@@ -397,10 +406,10 @@
+     bsp_reset_trng_circuit();
+  #endif
+ #endif
++#endif
+ 
+     /* Call post clock initialization hook. */
+     R_BSP_WarmStart(BSP_WARM_START_POST_CLOCK);
+-#endif
+ 
+ #if BSP_FEATURE_BSP_HAS_SP_MON
+ 
+@@ -602,10 +611,10 @@
+     bsp_internal_prv_enable_extra_power_domain();
+ #endif
+ #endif
++#endif
+ 
+     /* Call Post C runtime initialization hook. */
+     R_BSP_WarmStart(BSP_WARM_START_POST_C);
+-#endif
+ 
+     /* Initialize ELC events that will be used to trigger NVIC interrupts. */
+     bsp_irq_cfg();
+@@ -826,7 +835,11 @@
+     }
+ 
+     extern bsp_grp_irq_cb_t g_bsp_group_irq_sources[];
++ #if BSP_FEATURE_ICU_NMIER_MAX_INDEX > 15U
++    for (uint32_t i = 0; i <= BSP_FEATURE_ICU_NMIER_MAX_INDEX; i++)
++ #else
+     for (uint32_t i = 0; i < 16; i++)
++ #endif
+     {
+         g_bsp_group_irq_sources[i] = 0;
+     }
+@@ -1026,6 +1039,18 @@
+         ARM_MPU_ATTR(ARM_MPU_ATTR_NON_CACHEABLE, ARM_MPU_ATTR_NON_CACHEABLE)
+     };
+ 
++ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
++
++    /* Preserve exclusive linker bounds until their size and alignment have been checked. */
++    const uint32_t bsp_mpu_regions[][2] =
++    {
++        {nocache_start, nocache_end},
++  #if BSP_FEATURE_SDRAM_START_ADDRESS
++        {nocache_sdram_start, nocache_sdram_end}
++  #endif
++    };
++ #else
++
+     /* Maximum of eight regions. */
+     /* A region start address and end address must each be aligned to 32 bytes. A region must be a minimum of 32 bytes to be valid. */
+     /* A region end address is inclusive. */
+@@ -1046,6 +1071,8 @@
+  #endif
+     };
+ 
++ #endif
++
+     /* Initialize MPU_MAIR0 and MPU_MAIR1 from attributes table. */
+     uint8_t num_attr = (sizeof(bsp_mpu_mair_attributes) / sizeof(bsp_mpu_mair_attributes[0]));
+     for (uint8_t i = 0; i < num_attr; i++)
+@@ -1057,6 +1084,18 @@
+     uint8_t num_regions = (sizeof(bsp_mpu_regions) / sizeof(bsp_mpu_regions[0]));
+     for (uint8_t i = 0; i < num_regions; i++)
+     {
++ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
++        uint32_t start = bsp_mpu_regions[i][0];
++        uint32_t end   = bsp_mpu_regions[i][1];
++
++        /* Encoding an empty section ending at zero would wrap the limit to all-address XN. */
++        if ((end > start) && ((end - start) >= ARMV8_MPU_REGION_MIN_SIZE) &&
++            (0U == ((start | end) & (ARMV8_MPU_REGION_MIN_SIZE - 1U))))
++        {
++            ARM_MPU_SetRegion(i, ARM_MPU_RBAR(start, ARM_MPU_SH_NON, 0U, 0U, 1U),
++                              ARM_MPU_RLAR((end - ARMV8_MPU_REGION_MIN_SIZE), 0U));
++        }
++ #else
+         uint32_t rbar = bsp_mpu_regions[i].RBAR;
+         uint32_t rlar = bsp_mpu_regions[i].RLAR;
+ 
+@@ -1066,6 +1105,7 @@
+         {
+             ARM_MPU_SetRegion(i, rbar, rlar);
+         }
++ #endif
+     }
+ 
+     /*
+--- initial-review/baseline/ra/fsp/src/bsp/mcu/all/bsp_common.h
++++ current/baseline/ra/fsp/src/bsp/mcu/all/bsp_common.h
+@@ -650,7 +650,7 @@
+     R_FCACHE->FCACHEE = 0U;
+ #endif
+ 
+-#ifdef R_CACHE
++#if defined(R_CACHE) && (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_FEATURE_BSP_CODE_CACHE_VERSION != 0))
+  #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 2
+ 
+     /* Writeback and flush cache when disabling
+@@ -689,7 +689,7 @@
+     R_FCACHE->FCACHEE = 1U;
+ #endif
+ 
+-#ifdef R_CACHE
++#if defined(R_CACHE) && (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_FEATURE_BSP_CODE_CACHE_VERSION != 0))
+  #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 1
+ 
+     /* Configure the C-Cache line size. */

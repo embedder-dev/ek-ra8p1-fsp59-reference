@@ -11,6 +11,8 @@
  **********************************************************************************************************************/
 
 #ifndef BSP_FEATURE_H
+#define BSP_FEATURE_BSP_HAS_CTCM                                              (0UL)
+#define BSP_FEATURE_BSP_HAS_SECONDARY_CORE                                    (0UL)
 #define BSP_FEATURE_H
 
 /***********************************************************************************************************************
@@ -581,6 +583,60 @@
 #define BSP_FEATURE_USB_REG_USBMC_VDCEN                           (0UL)             // Indicates the USBMC.VDCEN bit field is available.
 #define BSP_FEATURE_USB_REG_USBMC_VDDUSBE                         (0UL)             // Indicates the USBMC.VDDUSBE bit field is available.
 
+#define BSP_FEATURE_WDT_PER_CORE                                              (0UL)
+
 // *UNCRUSTIFY-ON*
+
+#define BSP_FEATURE_ICU_HAS_COMMON_REGS                                       (0UL)
+
+#define BSP_FEATURE_BSP_MSTP_ADC_MSTPD21                                      (0UL)
+
+#define BSP_FEATURE_BSP_MSTP_PER_CORE_DMAC_DTC                                (0UL)
+
+#define BSP_FEATURE_BSP_HAS_PRCR_S                                            (0UL)
+
+#define BSP_FEATURE_PDM_CHANNELS                                              (0UL)
+
+#define BSP_FEATURE_MRAM_IS_AVAILABLE                                         (0UL)
+
+#define BSP_FEATURE_DAC_B_CHANNEL_MASK                                        (0UL)
+
+#define BSP_FEATURE_ADC_B_REGISTER_TYPE                                       (0UL)
+
+#define BSP_FEATURE_BSP_VBATT_HAS_VBTBPCR1                                    (0UL)
+
+#define BSP_FEATURE_SDRAM_SDTR_HAS_RAI                                        (0UL)
+
+#define BSP_FEATURE_BSP_POWER_DOMAIN_TYPE                                     (0UL)
+
+#define BSP_FEATURE_BSP_HAS_BCLKA_CLOCK                                       (0UL)
+
+#define BSP_FEATURE_BSP_HAS_ESW_CLOCK                                         (0UL)
+
+#define BSP_FEATURE_LPM_LPSCR_TYPE                                            (0UL)
+
+#define BSP_FEATURE_I3C_HAS_HOT_JOIN                                          (BSP_FEATURE_I3C_IS_AVAILABLE)
+
+#define BSP_FEATURE_I3C_HAS_TRANSITION_STALL                                  (BSP_FEATURE_I3C_IS_AVAILABLE)
+
+#define BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH                             (0UL)
+
+#define BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL                               (BSP_FEATURE_I3C_IS_AVAILABLE)
+
+#define BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE                                (0UL)
+
+#define BSP_FEATURE_SCI_SPI_HAS_SCKSEL                                        (BSP_FEATURE_SCI_VERSION == 2UL)
+
+#define BSP_FEATURE_AGT_REGISTER_TYPE                                         (0UL)
+
+#define BSP_FEATURE_CGC_HAS_MRAM_CLOCKS                                       (0UL)
+
+#define BSP_FEATURE_GPT_ODC_REGISTER_TYPE                                     (0UL)
+
+#define BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP                               (0UL)
+
+#define BSP_FEATURE_OSPI_B_DEVICE_START_ADDRESS(unit,channel)                 (0UL)
+
+#define BSP_FEATURE_OSPI_B_DEVICE_SIZE(unit)                                  (0UL)
 
 #endif

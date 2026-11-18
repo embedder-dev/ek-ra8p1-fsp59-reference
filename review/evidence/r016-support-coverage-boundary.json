@@ -1,0 +1,189 @@
+{
+  "support_records_checked": 2736,
+  "matching_records": 2667,
+  "excluded_shared_debug_svd_records": [
+    {
+      "pack": "Renesas.RA_mcu_ra0e1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA0E107.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA0E107.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA0E107.svd",
+      "expectedSha": "3ce7279b05a917e1e69ab5001fd3569fb7470f7d0b9719be88931c1252a4eaa1",
+      "actualSha": "03a4ba9fbaeea0b93155d8edf7b6dd3de20bdf98ef41c245da8c7e9ed8d307cf"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra0e2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA0E209.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA0E209.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA0E209.svd",
+      "expectedSha": "2c7c95b2640b366e4b418a20d4379133268fb7b9c62b2389fc403c63dbcb8525",
+      "actualSha": "6e96ea192389681f1464dd79cc50764ea5aa44125c5fd22466ae1f935df6bb27"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2a2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2A2AD.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2A2AD.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2A2AD.svd",
+      "expectedSha": "98217b74551f7e7d0ce023472c1b1d0ed7152266cad65a4d73ddfede2bf0da38",
+      "actualSha": "766a16d3b27f5d1082ed5a788db660412afea6b690b8c63dddd2a6b52ced9e4e"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2e1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2E1A9.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E1A9.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2E1A9.svd",
+      "expectedSha": "05838ba7d83d685816127e0b1b4dd2d2a019fb1324ad7c3fa50745b4a22cd313",
+      "actualSha": "9b143adefc63bda8f7b4b6d11cf59c97b3d1bcdf3743832ce643f43246aa43a8"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2e2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2E2A7.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E2A7.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2E2A7.svd",
+      "expectedSha": "2b2e825f934ff82be2e7d691d5cc236dea2047af0c4b1951d47f1d9798ea0bfd",
+      "actualSha": "7bf1901762785ba5ad8e11c74631e0ad95a3955865edb41afcb70b030829d092"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2e3.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2E307.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E307.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2E307.svd",
+      "expectedSha": "ef63b460b36328b1ec81ba2d43f8b30c4c06f794d42097db3e363c8bee47ba7f",
+      "actualSha": "c505ad72cb15bf96a193e8e66744995f722c78db075fdec17d15bf127ae04e4f"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2l1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2L1AB.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2L1AB.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2L1AB.svd",
+      "expectedSha": "eacad9964bf3c98df9702f991cdec81e39677fe239f7647db6be4a6dc94e231e",
+      "actualSha": "74495930afaf0714c87f59a1c92345d0fc42ca00643738a8ae15c33bf1dca665"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra2l2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA2L209.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2L209.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA2L209.svd",
+      "expectedSha": "9b4a25e8134cbbca9d21a505004bb24d87876ad29d4ddb77873e9de3eee9872f",
+      "actualSha": "904e52b41881d762f5757e5a20a432d1a07d1e2731f1f7771895b228d10d36f2"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra4e2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA4E2B9.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4E2B9.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA4E2B9.svd",
+      "expectedSha": "2701ebbd28f98c2ea4aab046d584f2ad7e7d48d8b2deb7caa98954b65e56fed3",
+      "actualSha": "e167c0ba68a2c50282ca47dfd20245fa1ad7233363dc0168217e5dc63a109a48"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra4l1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA4L1BD.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4L1BD.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA4L1BD.svd",
+      "expectedSha": "4a912206f290e38a2e255a2067e4805f645aa4c9e193a1aec6c7f567eb524e2f",
+      "actualSha": "67eeba7850a781323994d0bf5bdb05c9f3772e5d615a68c1316e0d83ee8a1c24"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra4m2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA4M2AD.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4M2AD.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA4M2AD.svd",
+      "expectedSha": "f602a6e6d51f6d948291f11f89da402960ba55657b8c355b9959cda4fcf3d5f8",
+      "actualSha": "9683830d9ce8457c711d7609c7581ed43668a6b43b7c48f82c7f4df8991bf0f2"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra4m3.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA4M3AF.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4M3AF.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA4M3AF.svd",
+      "expectedSha": "2bd6b112829487bef6a88557379e6af566c29f19b963c6b4201d730eb0e745ed",
+      "actualSha": "b2cfcb24489157d2bd8ad90dd88c826203bc0825b45bd05a9e04156a3dc3fb55"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra4t1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA4T1BB.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4T1BB.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA4T1BB.svd",
+      "expectedSha": "8cfa0ef186b9db23742de9e0f21400e68e5f1a59a6db8c8e45c652bd385bf39c",
+      "actualSha": "dc31925af941c0b5d258e5287cda024773e7699545d356c88ed8a438677c2113"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6e1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6E10F.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6E10F.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6E10F.svd",
+      "expectedSha": "7e44ee807662f48f948e355e7782d6327dc3ed1c8ab69b3ad7f9bc7e15a1c6c9",
+      "actualSha": "2ce9dbe39a40979eb13a3d86741c4e07254d3b694279b1dfcfc1a25fbddea757"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6e2.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6E2BB.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6E2BB.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6E2BB.svd",
+      "expectedSha": "985ba0d0fae07a51a4d0272d145c55573f0897cf2544628a948ada339a0ae2ef",
+      "actualSha": "35f0378519f9bbda9ea8765d112156f918356a23dd210843c00b0ec7bc9269b7"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6m4.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6M4AF.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M4AF.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6M4AF.svd",
+      "expectedSha": "b1cbb14967af35b5df7c94c23064fdcbb53592428d7471b87c0b87ca37eecfe4",
+      "actualSha": "40d8ea904d55568eb872ee58a40a872d4e7b0d28e8cb630aeb60ca65100b28cc"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6M5BH.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M5BH.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6M5BH.svd",
+      "expectedSha": "4bd7437bbc712aa1781142e36833c8d492448b985a16e65d95574e037be6554b",
+      "actualSha": "7e11743cf0f7b102cda11dcd0904848ea1c7ac15d31a9251bdb59a1db7711977"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6M5ZH.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M5ZH.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6M5ZH.svd",
+      "expectedSha": "7e947831400413d595ca81a47a75cc9ecdcd68acd3348f49ebc0a91a9a584305",
+      "actualSha": "f9d9dc70f8e68bdd69b488ef21914bbc18f1810526ea7548050d8918d0e7f3e3"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra6t3.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA6T3BB.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6T3BB.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA6T3BB.svd",
+      "expectedSha": "b7b95d33d054fd3a597ac07e1b3a5ff533e032b302cb1b2abb87d1a4e9fe2969",
+      "actualSha": "a57c4890cbeada482250a1b54435b0a890ef93dee712e8d336ef969f5448a3cd"
+    },
+    {
+      "pack": "Renesas.RA_mcu_ra8d1.5.9.0.pack",
+      "state": "shared",
+      "source": ".mcu/.iofiles/R7FA8D1AF.svd",
+      "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA8D1AF.svd",
+      "relative": "DebugComp/RA/IoFiles/R7FA8D1AF.svd",
+      "expectedSha": "5c5ef72972f0e844f1f401f1cb21be03bbf9399d2e5eec971982f42182aa7505",
+      "actualSha": "b48f498bbab94ad4e342bb0c2dcaf0d53c5acf0c15710687a54b06205fbdda5f"
+    }
+  ],
+  "untracked_record_count": 49,
+  "changed_mdf_records_excluded": [],
+  "scope": "Checked pack/support/project layers match. Shared older-MCU debug SVDs and unchanged untracked resources are outside tool hash coverage; no repair or target debugging was attempted."
+}

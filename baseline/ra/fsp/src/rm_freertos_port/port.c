@@ -134,9 +134,11 @@
  #define RM_FREERTOS_PORT_SPMON_PRESENT                (1)
 #endif
 
-/* Determine the memory size added to PSP in PendSV_Handler. */
-#define RM_FREERTOS_PORT_REGS_ON_PSP                   (8)
-
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+ #define RM_FREERTOS_PORT_REGS_ON_PSP                  (8 + (16 * __FPU_USED) + !BSP_TZ_NONSECURE_BUILD)
+#else
+ #define RM_FREERTOS_PORT_REGS_ON_PSP                  (8)
+#endif
 #if BSP_TZ_NONSECURE_BUILD
  #define RM_FREERTOS_PORT_CONTROL_ON_PSP               (1)
  #define RM_FREERTOS_PORT_EXTRA_LR_ON_PSP              (1)
@@ -147,13 +149,11 @@
  #define RM_FREERTOS_PORT_SECURE_ID_ON_PSP             (0)
 #endif
 #define RM_FREERTOS_PORT_PSPLIM_ON_PSP                 (RM_FREERTOS_PORT_PSPLIM_PRESENT)
-
 #define RM_FREERTOS_PORT_PENDSV_PSP_WORDS              (RM_FREERTOS_PORT_REGS_ON_PSP + RM_FREERTOS_PORT_CONTROL_ON_PSP + \
                                                         RM_FREERTOS_PORT_EXTRA_LR_ON_PSP +                               \
                                                         RM_FREERTOS_PORT_SECURE_ID_ON_PSP +                              \
                                                         RM_FREERTOS_PORT_PSPLIM_ON_PSP)
 
-/* Round up to nearest multiple of 8 bytes (2 words). */
 #define RM_FREERTOS_PORT_PENDSV_PSPLIM_OFFSET_BYTES    ((RM_FREERTOS_PORT_PENDSV_PSP_WORDS + \
                                                          (RM_FREERTOS_PORT_PENDSV_PSP_WORDS & 1)) * 4)
 
@@ -233,20 +233,24 @@ static void prvTaskExitError(void);
 void rm_freertos_port_restore_task_stackless(void) RM_FREERTOS_PORT_NAKED_FUNCTION;
 void rm_freertos_port_stack_monitor_cfg(uint32_t psp);
 void rm_freertos_port_sleep_preserving_lpm(uint32_t xExpectedIdleTime);
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+static void rm_freertos_port_setup_timer(void);
+ #if configUSE_IDLE_HOOK || configUSE_TICKLESS_IDLE
+static void rm_freertos_port_wait(void);
+ #endif
+ #if (configUSE_TICKLESS_IDLE == 1)
+static void rm_freertos_port_suppress_ticks(TickType_t expected);
+ #endif
+#endif
 
-/*-----------------------------------------------------------*/
-
-/* Each task maintains its own interrupt status in the critical nesting
- * variable. */
+/* Critical nesting is maintained per task. */
 static UBaseType_t uxCriticalNesting = 0U;
 
-/* The mask level is saved before disabling interrupts so it can be restored
- * when the critical section exits. */
+/* Restore the mask level on critical-section exit. */
 static uint32_t g_mask_level_before_disable = 0U;
 
-/* This stores the reload value calculated for the SysTick when tickless idle
- * is used. */
-#if (configUSE_TICKLESS_IDLE == 1)
+/* Legacy tickless reload state. */
+#if (configUSE_TICKLESS_IDLE == 1) && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 static uint32_t g_reset_systick = 0U;
 #endif
 
@@ -479,13 +483,13 @@ void PendSV_Handler (void)
         "_save_ns_context:                       \n"
 #endif
 
-#if __FPU_USED
-
-        /* Check to see if the current thread is using the FPU. If so, stack S16-S31. */
+#if __FPU_USED || BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+ #if __FPU_USED
+        /* Save the optional high FP registers before the integer context. */
         "TST       LR, #0x10                     \n"
         "IT        EQ                            \n"
         "VSTMDBEQ  R2!, {S16-S31}                \n"
-
+ #endif
  #if BSP_TZ_NONSECURE_BUILD
 
         /* Stack R4-R11 on the process stack.*/
@@ -545,7 +549,7 @@ void PendSV_Handler (void)
         "MSR     PSP, R2                         \n"
 #endif
 
-#if !__FPU_USED
+#if !__FPU_USED && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
         /* CM23 stack frame (higher addresses on top):
          * Task saved R2/PSP ->  R11
@@ -742,7 +746,7 @@ void rm_freertos_port_restore_task_stackless (void)
         "_restore_ns_context:                    \n"
 #endif
 
-#if __FPU_USED
+#if __FPU_USED || BSP_FEATURE_BSP_HAS_SECONDARY_CORE
  #if BSP_TZ_NONSECURE_BUILD
 
         /* Restore R4-R11 from the process stack. */
@@ -753,12 +757,12 @@ void rm_freertos_port_restore_task_stackless (void)
         "LDMIA   R2!, {R4-R11, LR}               \n"
  #endif
 
-        /* Check to see if the thread being restored is using the FPU. If so, restore S16-S31. */
+ #if __FPU_USED
         "TST       LR, #0x10                     \n"
         "IT        EQ                            \n"
         "VLDMIAEQ  R2!, {S16-S31}                \n"
+ #endif
 #else
-
         /* Move R2 up past where R4-R7 are stored to where R8-R11 are stored and pop them to R4-R7, then move them to
          * R8-R11. */
         "ADDS    R2, R2, #16                     \n"
@@ -783,7 +787,7 @@ void rm_freertos_port_restore_task_stackless (void)
         "MSR     PSP, R2                         \n"
 #endif
 
-#if !__FPU_USED
+#if !__FPU_USED && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
         /* Move R2 back to where R4-R7 are stored and restore R4-R7. */
         "SUBS    R2, R2, #32                     \n"
@@ -807,9 +811,9 @@ void rm_freertos_port_restore_task_stackless (void)
  #endif
 #endif
 
-#if __FPU_USED
+#if __FPU_USED || BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
-        /** Return to the thread using the process stack and saved FPU setting. */
+        /** Return with the saved EXC_RETURN, including the security state. */
         "BX     LR                               \n"
 #else
 
@@ -824,7 +828,7 @@ void rm_freertos_port_restore_task_stackless (void)
         );
 }
 
-#if configUSE_TICKLESS_IDLE
+#if configUSE_TICKLESS_IDLE && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
 /***********************************************************************************************************************
  * Subroutine to reset the SysTick. It first sets the SysTick to the tick fraction remaining, then restores the load
@@ -857,7 +861,7 @@ static void rm_freertos_port_reset_systick (uint32_t tick_fraction_remaining, ui
  **********************************************************************************************************************/
 void SysTick_Handler (void)
 {
-#if configUSE_TICKLESS_IDLE
+#if configUSE_TICKLESS_IDLE && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
     /* Reset the SysTick reload value if it was reconfigured for a long sleep in tickless idle. */
     if (g_reset_systick)
@@ -932,11 +936,9 @@ void vPortSVCHandler_C (uint32_t * pulCallerStackAddress) /* PRIVILEGED_FUNCTION
             {
                 /* Read the CONTROL register value. */
                 ulControl = __get_CONTROL();
-
                 /* The task that raised the SVC is privileged if Bit[0]
                  * in the CONTROL register is 0. */
                 ulIsTaskPrivileged = ((ulControl & portCONTROL_PRIVILEGED_MASK) == 0);
-
                 /* Allocate and load a context for the secure task. */
                 xSecureMemoryId = TZ_AllocModuleContext_S(ulIsTaskPrivileged);
             }
@@ -946,9 +948,7 @@ void vPortSVCHandler_C (uint32_t * pulCallerStackAddress) /* PRIVILEGED_FUNCTION
                 xSecureMemoryId = TZ_AllocModuleContext_S(0U);
             }
  #endif
-
  #if (configASSERT_DEFINED == 1)
-
             /* If this assert fails then a secure context was not available. The application will need to
              * either increase the value of the "Process Stack Slots" Property in the rm_tz_context module in the
              * secure project or decrease the number of threads in the non-secure project that are allocating
@@ -1056,7 +1056,7 @@ StackType_t * pxPortInitialiseStack(StackType_t * pxTopOfStack, TaskFunction_t p
     pxTopOfStack -= 5;                                               /* R12, R3, R2 and R1. */
     *pxTopOfStack = (StackType_t) pvParameters;                      /* R0 */
 
-#if __FPU_USED && !BSP_TZ_NONSECURE_BUILD
+#if (__FPU_USED || BSP_FEATURE_BSP_HAS_SECONDARY_CORE) && !BSP_TZ_NONSECURE_BUILD
 
     /* A save method is being used that requires each task to maintain its own exec return value. This is done after
      * stacking R4-R11 in non-secure TrustZone projects. */
@@ -1259,14 +1259,14 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
         if (R_SYSTEM_LPSCR_LPMD_Msk & saved_lpm_state)
         {
    #if BSP_TZ_NONSECURE_BUILD
-
             /* Save register protect value */
             uint32_t saved_prcr = R_SYSTEM->PRCR_NS;
-
             /* Unlock LPM peripheral registers */
             R_SYSTEM->PRCR_NS = RM_FREERTOS_PORT_UNLOCK_LPM_REGISTER_ACCESS;
+   #elif BSP_FEATURE_BSP_HAS_PRCR_S
+            uint32_t saved_prcr = R_SYSTEM->PRCR_S;
+            R_SYSTEM->PRCR_S = RM_FREERTOS_PORT_UNLOCK_LPM_REGISTER_ACCESS;
    #else
-
             /* Save register protect value */
             uint32_t saved_prcr = R_SYSTEM->PRCR;
 
@@ -1278,11 +1278,11 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
             R_SYSTEM->LPSCR = 0U;
 
    #if BSP_TZ_NONSECURE_BUILD
-
             /* Restore register lock */
             R_SYSTEM->PRCR_NS = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
+   #elif BSP_FEATURE_BSP_HAS_PRCR_S
+            R_SYSTEM->PRCR_S = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
    #else
-
             /* Restore register lock */
             R_SYSTEM->PRCR = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
    #endif
@@ -1299,9 +1299,12 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
          * http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0552a/BABHHGEB.html
          * Note that interrupt will bring the CPU out of the low power mode.  After exiting from low power mode,
          * interrupt will be re-enabled. */
+  #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+        /* SCR and CPU0 transition prerequisites are independent of LPSCR. */
+        rm_freertos_port_wait();
+  #else
         __WFI();
-
-        /* Instruction Synchronization Barrier. */
+  #endif
         __ISB();
  #else
 
@@ -1312,14 +1315,12 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
         }
  #endif                                /* !defined(BSP_CFG_RTOS_IDLE_SLEEP) || BSP_CFG_RTOS_IDLE_SLEEP */
 
-        /* Re-enable interrupts to allow the interrupt that brought the MCU
-         * out of sleep mode to execute immediately. This will not cause a
-         * context switch because all tasks are currently suspended. */
+  #if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+        /* The target restores SysTick and LPM before servicing pending interrupts. */
         __enable_irq();
         __ISB();
-
-        /* Disable interrupts again to restore the LPM state. */
         __disable_irq();
+  #endif
     }
 
     configPOST_SLEEP_PROCESSING(xExpectedIdleTime);
@@ -1348,14 +1349,14 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
     if (R_SYSTEM_LPSCR_LPMD_Msk & saved_lpm_state)
     {
    #if BSP_TZ_NONSECURE_BUILD
-
         /* Save register protect value */
         uint32_t saved_prcr = R_SYSTEM->PRCR_NS;
-
         /* Unlock LPM peripheral registers */
         R_SYSTEM->PRCR_NS = RM_FREERTOS_PORT_UNLOCK_LPM_REGISTER_ACCESS;
+   #elif BSP_FEATURE_BSP_HAS_PRCR_S
+        uint32_t saved_prcr = R_SYSTEM->PRCR_S;
+        R_SYSTEM->PRCR_S = RM_FREERTOS_PORT_UNLOCK_LPM_REGISTER_ACCESS;
    #else
-
         /* Save register protect value */
         uint32_t saved_prcr = R_SYSTEM->PRCR;
 
@@ -1367,11 +1368,11 @@ void rm_freertos_port_sleep_preserving_lpm (uint32_t xExpectedIdleTime)
         R_SYSTEM->LPSCR = (uint8_t) saved_lpm_state;
 
    #if BSP_TZ_NONSECURE_BUILD
-
         /* Restore register lock */
         R_SYSTEM->PRCR_NS = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
+   #elif BSP_FEATURE_BSP_HAS_PRCR_S
+        R_SYSTEM->PRCR_S = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
    #else
-
         /* Restore register lock */
         R_SYSTEM->PRCR = (uint16_t) (RM_FREERTOS_PORT_LOCK_LPM_REGISTER_ACCESS | saved_prcr);
    #endif
@@ -1426,6 +1427,9 @@ __attribute__((weak)) void vApplicationIdleHook (void)
  **********************************************************************************************************************/
 __attribute__((weak)) void vPortSuppressTicksAndSleep (TickType_t xExpectedIdleTime)
 {
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+    rm_freertos_port_suppress_ticks(xExpectedIdleTime);
+ #else
     uint32_t ulReloadValue;
     uint32_t ulCompleteTickPeriods;
     uint32_t ulCompletedSysTickDecrements;
@@ -1436,9 +1440,7 @@ __attribute__((weak)) void vPortSuppressTicksAndSleep (TickType_t xExpectedIdleT
         xExpectedIdleTime = xMaximumPossibleSuppressedTicks;
     }
 
-    /* Calculate the reload value required to wait xExpectedIdleTime
-     * tick periods.  -1 is used because this code will execute part way
-     * through one of the tick periods. */
+    /* Account for the partially elapsed current tick. */
     ulReloadValue = ulTimerCountsForOneTick * (xExpectedIdleTime - 1UL);
 
     /* Enter a critical section but don't use the taskENTER_CRITICAL()
@@ -1486,31 +1488,29 @@ __attribute__((weak)) void vPortSuppressTicksAndSleep (TickType_t xExpectedIdleT
         rm_freertos_port_reset_systick(tick_fraction_remaining, ulCompleteTickPeriods);
     }
 
-    /* Exit with interrupts enabled. */
     __enable_irq();
+ #endif
 }
 
 #endif
-
 /***********************************************************************************************************************
  * Setup the systick timer to generate the tick interrupts at the required frequency.
  **********************************************************************************************************************/
 __attribute__((weak)) void vPortSetupTimerInterrupt (void)
 {
-    /* Calculate the constants required to configure the tick interrupt. */
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+    rm_freertos_port_setup_timer();
+#else
 #if (configUSE_TICKLESS_IDLE == 1)
     {
         ulTimerCountsForOneTick         = (configSYSTICK_CLOCK_HZ / configTICK_RATE_HZ);
         xMaximumPossibleSuppressedTicks = portMAX_24_BIT_NUMBER / ulTimerCountsForOneTick;
     }
 #endif
-
-    /* Configure SysTick to interrupt at the requested rate. */
     SysTick_Config(SystemCoreClock / configTICK_RATE_HZ);
+#endif
 }
-
 #if (configASSERT_DEFINED == 1)
-
 void vPortValidateInterruptPriority (void)
 {
     IRQn_Type ulCurrentInterrupt;
@@ -1622,4 +1622,195 @@ void vResetPrivilege (void)            /* __attribute__ (( naked )) */
 
  #endif
 
+#endif
+
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+
+/***********************************************************************************************************************
+ * Configure only the documented CPU clock or 1 MHz SysTick source (HM 2.12). A bad timebase must not start the scheduler.
+ **********************************************************************************************************************/
+static void rm_freertos_port_setup_timer (void)
+{
+    uint32_t counts = 0U;
+    uint32_t rate = configTICK_RATE_HZ;
+    uint32_t source_hz = configSYSTICK_CLOCK_HZ;
+    bool valid = (rate > 0U);
+    if (valid)
+    {
+        counts = source_hz / rate;
+        valid = (counts > 1U) && (counts <= (portMAX_24_BIT_NUMBER + 1UL));
+    }
+
+    if (0U == portNVIC_SYSTICK_CLK_BIT)
+    {
+        valid = valid && (1000000UL == source_hz) && (SystemCoreClock >= 2000000UL);
+    }
+    else
+    {
+        valid = valid && (source_hz == SystemCoreClock);
+    }
+
+    if (!valid)
+    {
+        SysTick->CTRL = 0U;
+        BSP_CFG_HANDLE_UNRECOVERABLE_ERROR(0);
+        while (1)
+        {
+            __NOP();
+        }
+    }
+
+ #if (configUSE_TICKLESS_IDLE == 1)
+    ulTimerCountsForOneTick = counts;
+    xMaximumPossibleSuppressedTicks = (portMAX_24_BIT_NUMBER + 1UL) / counts;
+ #endif
+    SysTick->CTRL = 0U;
+    SysTick->LOAD = counts - 1UL;
+    SysTick->VAL = 0U;
+    NVIC_SetPriority(SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL);
+    SysTick->CTRL = portNVIC_SYSTICK_CLK_BIT | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
+}
+
+ #if configUSE_IDLE_HOOK || configUSE_TICKLESS_IDLE
+
+/***********************************************************************************************************************
+ * HM 2.7.1 and 11.8.10, figures 11.7/11.8. Never take ownership of the NPU just to idle CPU0.
+ **********************************************************************************************************************/
+static void rm_freertos_port_wait (void)
+{
+    uint32_t saved_scr = SCB->SCR;
+    SCB->SCR = saved_scr & ~SCB_SCR_SLEEPDEEP_Msk;
+  #if BSP_CFG_CPU_CORE == 0
+    /* 600 MHz is the lowest CPU0 maximum across voltage ranges/product groups (datasheet 2.3.1).
+     * Use its half-frequency threshold and the longer DCDC wait also for External VDD. */
+    bool needs_wait = (SystemCoreClock > 300000000UL);
+    if (needs_wait)
+    {
+        if (0U == (R_MSTP->MSTPCRA & R_MSTP_MSTPCRA_MSTPA16_Msk))
+        {
+            SCB->SCR = saved_scr;
+            return;
+        }
+
+        /* One NOP per loop, rounded up: loop overhead only lengthens the required 30 us wait.
+         * PRIMASK remains set throughout both waits, as required for an uninterrupted measurement. */
+        uint32_t cycles = ((SystemCoreClock + 999999UL) / 1000000UL) * 30UL;
+        for (uint32_t i = 0U; i < cycles; i++)
+        {
+            __NOP();
+        }
+
+        /* An independently controlled NPU must still be stopped immediately before entry. */
+        if (0U == (R_MSTP->MSTPCRA & R_MSTP_MSTPCRA_MSTPA16_Msk))
+        {
+            SCB->SCR = saved_scr;
+            return;
+        }
+    }
+  #endif
+    __DSB();
+    __WFI();
+  #if BSP_CFG_CPU_CORE == 0
+    if (needs_wait)
+    {
+        uint32_t cycles = ((SystemCoreClock + 999999UL) / 1000000UL) * 30UL;
+        for (uint32_t i = 0U; i < cycles; i++)
+        {
+            __NOP();
+        }
+    }
+  #endif
+    __ISB();
+    SCB->SCR = saved_scr;
+}
+
+ #endif
+ #if (configUSE_TICKLESS_IDLE == 1)
+
+/***********************************************************************************************************************
+ * Keep PRIMASK set until SysTick and kernel time agree. VAL writes reload on a subsequent timer clock, not immediately.
+ **********************************************************************************************************************/
+static void rm_freertos_port_suppress_ticks (TickType_t expected)
+{
+    uint32_t ctrl = portNVIC_SYSTICK_CLK_BIT | SysTick_CTRL_TICKINT_Msk;
+    if (0U == expected)
+    {
+        return;
+    }
+
+    if (expected > xMaximumPossibleSuppressedTicks)
+    {
+        expected = xMaximumPossibleSuppressedTicks;
+    }
+
+    __disable_irq();
+    __DSB();
+    __ISB();
+    if ((eTaskConfirmSleepModeStatus() == eAbortSleep) || (0U != (SCB->ICSR & SCB_ICSR_PENDSTSET_Msk)))
+    {
+        __enable_irq();
+        return;
+    }
+
+    /* Do not read CTRL during the stop write: reading it clears COUNTFLAG. */
+    SysTick->CTRL = ctrl;
+    uint32_t initial = SysTick->VAL;
+    if ((0U != (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)) ||
+        (0U != (SCB->ICSR & SCB_ICSR_PENDSTSET_Msk)))
+    {
+        SysTick->CTRL = ctrl | SysTick_CTRL_ENABLE_Msk;
+        __enable_irq();
+        return;
+    }
+
+    if (0U == initial)
+    {
+        initial = ulTimerCountsForOneTick;
+    }
+
+    uint32_t budget = initial + ulTimerCountsForOneTick * (expected - 1UL);
+    SysTick->LOAD = budget - 1UL;
+    SysTick->VAL = 0U;
+    SysTick->CTRL = ctrl | SysTick_CTRL_ENABLE_Msk;
+    rm_freertos_port_sleep_preserving_lpm(expected);
+    SysTick->CTRL = ctrl;
+    uint32_t status = SysTick->CTRL;
+    uint32_t current = SysTick->VAL;
+    uint32_t complete;
+    uint32_t remaining;
+    if ((0U != (status & SysTick_CTRL_COUNTFLAG_Msk)) || (0U != (SCB->ICSR & SCB_ICSR_PENDSTSET_Msk)))
+    {
+        /* The pending interrupt supplies the final tick; vTaskStepTick must not cross the unblock time. */
+        complete = expected - 1UL;
+        uint32_t after_expiry = (0U == current) ? 0U : (budget - 1UL - current);
+        remaining = (after_expiry < ulTimerCountsForOneTick) ?
+                    (ulTimerCountsForOneTick - after_expiry) : ulTimerCountsForOneTick;
+    }
+    else
+    {
+        /* Include progress before suppression; zero with no COUNTFLAG means reload has not happened yet. */
+        uint32_t elapsed = ulTimerCountsForOneTick - initial + ((0U == current) ? 0U : (budget - current));
+        complete = elapsed / ulTimerCountsForOneTick;
+        remaining = ulTimerCountsForOneTick - (elapsed % ulTimerCountsForOneTick);
+    }
+
+    /* LOAD=0 cannot count down to zero; round a one-clock remainder up by one source clock. */
+    SysTick->LOAD = (remaining > 1UL) ? remaining - 1UL : 1UL;
+    SysTick->VAL = 0U;
+    SysTick->CTRL = ctrl | SysTick_CTRL_ENABLE_Msk;
+    /* Wait until the fractional LOAD is actually consumed before publishing the normal reload value. */
+    while ((0U == SysTick->VAL) && (0U == (SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)))
+    {
+    }
+
+    SysTick->LOAD = ulTimerCountsForOneTick - 1UL;
+    vTaskStepTick(complete);
+    __enable_irq();
+}
+
+ #endif
+#endif
+
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && RM_FREERTOS_PORT_CFG_HW_STACK_MONITOR_ENABLE && !BSP_FEATURE_BSP_HAS_SP_MON
+ #error "Renesas SPMON is unavailable; use the CPU stack limit support on this device"
 #endif

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <raModuleDescription>
     <config id="config.driver.mipi_dsi" path="fsp_cfg/r_mipi_dsi_cfg.h" version="0">
         <property default="config.driver.mipi_dsi.param_checking_enable.bsp" display="Parameter Checking" id="config.driver.mipi_dsi.param_checking_enable" description="If selected code for parameter checking is included in the build.">
@@ -25,11 +25,20 @@
         </constraint>
 
         <constraint display="Requires MIPI DSI peripheral">
-            ("${interface.mcu.mipi_dsi.external}" === "1") &amp;&amp; ("${interface.mcu.feature_set.b}" === "1")
+            ("${interface.mcu.mipi_dsi.external}" === "1") &amp;&amp;
+            ((testExists("${interface.mcu.feature_set.b}") &amp;&amp; ("${interface.mcu.feature_set.b}" === "1")) ||
+             (testExists("${interface.mcu.mipi_dsi}") &amp;&amp; ("${interface.mcu.mipi_dsi}" === "1") &amp;&amp;
+              testExists("${interface.mcu.dphycnt}") &amp;&amp; ("${interface.mcu.dphycnt}" === "1")))
         </constraint>
         <constraint display="LCD External Clock Hz should be non-zero only when display clock source is not Internal.">
             (("${module.driver.mipi_dsi.display.clksrc}" == "GLCDC_CLK_SRC_INTERNAL") &amp;&amp; ("${module.driver.mipi_dsi.display.ext_clk_freq}" == 0)) ||
             (("${module.driver.mipi_dsi.display.clksrc}" == "GLCDC_CLK_SRC_EXTERNAL") &amp;&amp; ("${module.driver.mipi_dsi.display.ext_clk_freq}" &gt; 0))
+        </constraint>
+
+        <constraint display="ULPS wakeup duration must be representable and strictly greater than 1 ms.">
+            !testExists("${interface.mcu.mipi_csi}") ||
+            ("${interface.mcu.mipi_csi}" !== "1") ||
+            ("${module.driver.mipi_dsi.ulps_wakeup_count}" !== "MIPI_DSI_ULPS_WAKEUP_OUT_OF_RANGE")
         </constraint>
 
         <constraint id="module.driver.mipi_dsi.constraint.ulps_wakeup_period">
@@ -92,7 +101,6 @@
         </constraint>
         <requires id="module.driver.mipi_dsi.requires.mipi_phy" interface="interface.driver.mipi_phy" visible="true" display="MIPI physical layer"/>
         <requires id="module.driver.mipi_dsi.requires.mipi_phy_hw" interface="interface.mcu.mipi_dsi.external" visible="false" display="MIPI DSI capable MCU"/>
-        <requires id="module.driver.mipi_dsi.requires.mipi_feature_set_hw" interface="interface.mcu.feature_set.b" visible="false" display="MIPI DSI capable MCU"/>
         <provides interface="interface.driver.mipi_dsi" />
 
         <!-- Name and Channel -->
@@ -138,6 +146,16 @@
                     '} \n' +
                     'output')]]>
             </export>
+        </property>
+
+        <!-- The CSI-capable PHY/DSI variant requires TWAKEUP strictly above 1 ms (HM 66.2.5). -->
+        <property default="" id="module.driver.mipi_dsi.ulps_wakeup_count">
+            <export><![CDATA[eval('\n' +
+                    'var ulps_temp = ${module.driver.mipi_dsi.ulps_wakeup_period}; \n' +
+                    'var lp_mhz = (${module.driver.mipi_dsi.requires.mipi_phy::module.driver.mipi_phy.pll_mhz} / 16) / ${module.driver.mipi_dsi.requires.mipi_phy::module.driver.mipi_phy.lp_divisor}; \n' +
+                    'var count = Math.max(Math.ceil(ulps_temp * lp_mhz / 128), Math.floor(1000 * lp_mhz / 128) + 1); \n' +
+                    'output = (isFinite(count) && count > 0 && count <= 255) ? count : "MIPI_DSI_ULPS_WAKEUP_OUT_OF_RANGE"; \n' +
+                    'output')]]></export>
         </property>
 
         <!-- Clock Lane -->
@@ -347,27 +365,8 @@
             <interrupt event="event.mipidsi.ppi" isr="mipi_dsi_ppi_isr"/>
         </property>
 
-        <property display="Interrupts|Receive Interrupt Enable" default="module.driver.mipi_dsi.rxie.btarend,module.driver.mipi_dsi.rxie.lrxhto,module.driver.mipi_dsi.rxie.tato,module.driver.mipi_dsi.rxie.rxresp,module.driver.mipi_dsi.rxie.rxeotp_msk,module.driver.mipi_dsi.rxie.rxte,module.driver.mipi_dsi.rxie.rxack,module.driver.mipi_dsi.rxie.extedet,module.driver.mipi_dsi.rxie.mlferr,module.driver.mipi_dsi.rxie.eccerrm,module.driver.mipi_dsi.rxie.unexerr,module.driver.mipi_dsi.rxie.wcerr,module.driver.mipi_dsi.rxie.crcerr,module.driver.mipi_dsi.rxie.iberr,module.driver.mipi_dsi.rxie.rxovferr,module.driver.mipi_dsi.rxie.prtoerr,module.driver.mipi_dsi.rxie.noreserr,module.driver.mipi_dsi.rxie.rsizeerr,module.driver.mipi_dsi.rxie.eccerrs,module.driver.mipi_dsi.rxie.rxake" id="module.driver.mipi_dsi.rxie" description="Enable receive interrupts." bitmapPrefix="">
-            <option display="BTA Request End" id="module.driver.mipi_dsi.rxie.btarend" value="R_DSILINK_RXIER_BTAREND_Msk"/>
-            <option display="LP-RX Host Processor Timeout" id="module.driver.mipi_dsi.rxie.lrxhto" value="R_DSILINK_RXIER_LRXHTO_Msk"/>
-            <option display="Turnaround Acknowledge Timeout" id="module.driver.mipi_dsi.rxie.tato" value="R_DSILINK_RXIER_TATO_Msk"/>
-            <option display="Response Packet Receive" id="module.driver.mipi_dsi.rxie.rxresp" value="R_DSILINK_RXIER_RXRESP_Msk"/>
-            <option display="EoTp Receive" id="module.driver.mipi_dsi.rxie.rxeotp_msk" value="R_DSILINK_RXIER_RXEOTP_Msk"/>
-            <option display="Tearing Effect Trigger Receive" id="module.driver.mipi_dsi.rxie.rxte" value="R_DSILINK_RXIER_RXTE_Msk"/>
-            <option display="ACK Trigger Receive" id="module.driver.mipi_dsi.rxie.rxack" value="R_DSILINK_RXIER_RXACK_Msk"/>
-            <option display="External Tearing Effect Detect" id="module.driver.mipi_dsi.rxie.extedet" value="R_DSILINK_RXIER_EXTEDET_Msk"/>
-            <option display="Malform Error" id="module.driver.mipi_dsi.rxie.mlferr" value="R_DSILINK_RXIER_MLFERR_Msk"/>
-            <option display="Multi Bit ECC Error" id="module.driver.mipi_dsi.rxie.eccerrm" value="R_DSILINK_RXIER_ECCERRM_Msk"/>
-            <option display="Unexpected Packet Error" id="module.driver.mipi_dsi.rxie.unexerr" value="R_DSILINK_RXIER_UNEXERR_Msk"/>
-            <option display="Word Count Error" id="module.driver.mipi_dsi.rxie.wcerr" value="R_DSILINK_RXIER_WCERR_Msk"/>
-            <option display="CRC Error" id="module.driver.mipi_dsi.rxie.crcerr" value="R_DSILINK_RXIER_CRCERR_Msk"/>
-            <option display="Internal Bus Error" id="module.driver.mipi_dsi.rxie.iberr" value="R_DSILINK_RXIER_IBERR_Msk"/>
-            <option display="Receive Buffer Overflow Error" id="module.driver.mipi_dsi.rxie.rxovferr" value="R_DSILINK_RXIER_RXOVFERR_Msk"/>
-            <option display="Peripheral Response Timeout Error" id="module.driver.mipi_dsi.rxie.prtoerr" value="R_DSILINK_RXIER_PRTOERR_Msk"/>
-            <option display="No Response Error" id="module.driver.mipi_dsi.rxie.noreserr" value="R_DSILINK_RXIER_NORESERR_Msk"/>
-            <option display="Retrun Packet Size Error" id="module.driver.mipi_dsi.rxie.rsizeerr" value="R_DSILINK_RXIER_RSIZEERR_Msk"/>
-            <option display="Single Bit ECC Error" id="module.driver.mipi_dsi.rxie.eccerrs" value="R_DSILINK_RXIER_ECCERRS_Msk"/>
-            <option display="Acknowledge and Error Report Receive" id="module.driver.mipi_dsi.rxie.rxake" value="R_DSILINK_RXIER_RXAKE_Msk"/>
+        <property display="Interrupts|Receive Interrupt Enable" default="module.driver.mipi_dsi.rxie.btarend,module.driver.mipi_dsi.rxie.lrxhto,module.driver.mipi_dsi.rxie.tato,module.driver.mipi_dsi.rxie.rxresp,module.driver.mipi_dsi.rxie.rxeotp_msk,module.driver.mipi_dsi.rxie.rxte,module.driver.mipi_dsi.rxie.rxack,module.driver.mipi_dsi.rxie.extedet,module.driver.mipi_dsi.rxie.mlferr,module.driver.mipi_dsi.rxie.eccerrm,module.driver.mipi_dsi.rxie.unexerr,module.driver.mipi_dsi.rxie.wcerr,module.driver.mipi_dsi.rxie.crcerr,module.driver.mipi_dsi.rxie.iberr,module.driver.mipi_dsi.rxie.rxovferr,module.driver.mipi_dsi.rxie.prtoerr,module.driver.mipi_dsi.rxie.noreserr,module.driver.mipi_dsi.rxie.rsizeerr,module.driver.mipi_dsi.rxie.eccerrs,module.driver.mipi_dsi.rxie.rxake" id="module.driver.mipi_dsi.rxie" description="Enable receive interrupts. Tearing Effect Trigger Receive (RXTE) has no effect on hardware where RXIER reserves that bit; External Tearing Effect Detect remains supported." bitmapPrefix="">
+            <select enum="enum.driver.mipi_dsi.rxie"/>
         </property>
 
         <property display="Interrupts|Fatal Error Interrupt Enable" default="module.driver.mipi_dsi.ferrie.htxto,module.driver.mipi_dsi.ferrie.lrxhto,module.driver.mipi_dsi.ferrie.tato,module.driver.mipi_dsi.ferrie.escent,module.driver.mipi_dsi.ferrie.syncesc,module.driver.mipi_dsi.ferrie.ctrl,module.driver.mipi_dsi.ferrie.clp0,module.driver.mipi_dsi.ferrie.clp1" id="module.driver.mipi_dsi.ferrie" description="Enable Fatal Error interrupts." bitmapPrefix="">
@@ -646,14 +645,22 @@
             .vertical_active_lines    = ${module.driver.mipi_dsi.display.vertical_active_lines},
             .vertical_sync_lines      = ${module.driver.mipi_dsi.display.vertical_sync_lines},
             .vertical_back_porch      = (${module.driver.mipi_dsi.display.vtiming.back_porch} - ${module.driver.mipi_dsi.display.vertical_sync_lines}),
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+            .vertical_front_porch     = (${module.driver.mipi_dsi.display.vtiming.total_cyc} - ${module.driver.mipi_dsi.display.vtiming.display_cyc} - ${module.driver.mipi_dsi.display.vtiming.back_porch}),
+#else
             .vertical_front_porch     = (${module.driver.mipi_dsi.display.vtiming.total_cyc} - ${module.driver.mipi_dsi.display.vtiming.display_cyc} - ${module.driver.mipi_dsi.display.vtiming.back_porch} - ${module.driver.mipi_dsi.display.vertical_sync_lines}),
+#endif
             .vertical_sync_polarity   = ${module.driver.mipi_dsi.display.vertical_sync_polarity},
 
 
             .horizontal_active_lines  = ${module.driver.mipi_dsi.display.horizontal_active_lines},
             .horizontal_sync_lines    = ${module.driver.mipi_dsi.display.horizontal_sync_lines},
             .horizontal_back_porch    = (${module.driver.mipi_dsi.display.htiming.back_porch} - ${module.driver.mipi_dsi.display.horizontal_sync_lines}),
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+            .horizontal_front_porch   = (${module.driver.mipi_dsi.display.htiming.total_cyc} - ${module.driver.mipi_dsi.display.htiming.display_cyc} - ${module.driver.mipi_dsi.display.htiming.back_porch}),
+#else
             .horizontal_front_porch   = (${module.driver.mipi_dsi.display.htiming.total_cyc} - ${module.driver.mipi_dsi.display.htiming.display_cyc} - ${module.driver.mipi_dsi.display.htiming.back_porch} - ${module.driver.mipi_dsi.display.horizontal_sync_lines}),
+#endif
             .horizontal_sync_polarity = ${module.driver.mipi_dsi.display.horizontal_sync_polarity},
 
             .video_mode_delay         = ${module.driver.mipi_dsi.dly},
@@ -663,7 +670,11 @@
             .hfp_no_lp                = ((${module.driver.mipi_dsi.no_lp} 0x0) &amp; R_DSILINK_VMSET0R_HFPNOLP_Msk),
 
             .num_lanes                = ${module.driver.mipi_dsi.num_lanes},
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+            .ulps_wakeup_period       = ${module.driver.mipi_dsi.ulps_wakeup_count},
+#else
             .ulps_wakeup_period       = ${module.driver.mipi_dsi.ulps_wakeup_period},
+#endif
             .continuous_clock         = ${module.driver.mipi_dsi.continuous_clock},
 
 

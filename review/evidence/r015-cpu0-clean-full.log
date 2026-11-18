@@ -1,0 +1,9 @@
+ok build validation/ra8p1/review-r015 (1.5 s)
+verified: yes — <repo>/validation/ra8p1/review-r015/Debug/review_r015_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review-r015/Debug/review_r015_cpu0.elf 282904 B 11:35:38, .srec 17454 B 11:35:38, .map 134987 B 11:35:38, .sbd 5476 B 11:33:09 (earlier build)
+full: ok, 0 errors, 0 warnings (538ms)
+note: e2 rewrote review_r015_cpu0.sbd with identical contents; kept its earlier mtime so review_r015_cpu1 stays up to date
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: changed: .cproject (+1 -0 lines); rewritten with identical content: .api_xml, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794911737142-review_r015_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 54776c, the rest stock; journalled)

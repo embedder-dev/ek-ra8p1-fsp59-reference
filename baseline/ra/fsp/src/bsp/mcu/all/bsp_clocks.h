@@ -456,7 +456,12 @@ FSP_HEADER
 #if BSP_FEATURE_CGC_HAS_FLL && BSP_CFG_FLL_ENABLE && BSP_CLOCK_CFG_SUBCLOCK_POPULATED
  #define BSP_PRV_HOCO_USE_FLL                   (1)
  #ifndef BSP_PRV_FLL_STABILIZATION_TIME_US
-  #define BSP_PRV_FLL_STABILIZATION_TIME_US     (1800)
+  #if (6U == BSP_FEATURE_CGC_PLLCCR_TYPE)
+   /* Datasheet Table 2.50: 1920 us standard, 2150 us SiP. Cover both product types. */
+   #define BSP_PRV_FLL_STABILIZATION_TIME_US    (2150)
+  #else
+   #define BSP_PRV_FLL_STABILIZATION_TIME_US     (1800)
+  #endif
  #endif
 #else
  #define BSP_PRV_HOCO_USE_FLL                   (0)
@@ -1662,7 +1667,7 @@ typedef enum e_cgc_pll_mul
 /* Public functions defined in bsp.h */
 void bsp_clock_init(void);             // Used internally by BSP
 
-#if BSP_TZ_NONSECURE_BUILD || BSP_ALT_BUILD
+#if BSP_TZ_NONSECURE_BUILD || BSP_ALT_BUILD || (BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 1))
 void bsp_clock_freq_var_init(void);    // Used internally by BSP
 
 #endif

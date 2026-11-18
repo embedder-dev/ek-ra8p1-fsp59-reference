@@ -1,0 +1,3 @@
+error config set validation/ra8p1/compatibility/defaults/r018/r018_def_mram85 (1 ms): E2_PROJECT_UNKNOWN
+No Eclipse project (.project) in <repo>/validation/ra8p1/compatibility/defaults/r018/r018_def_mram85.
+next: embedder e2 project create <name> --location <repo>/validation/ra8p1/compatibility/defaults/r018 --fsp <v> --board <b>

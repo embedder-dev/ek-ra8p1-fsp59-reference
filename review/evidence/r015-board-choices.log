@@ -1,0 +1,9 @@
+ok discover board EK-RA8P1 (1.1 s)
+board EK-RA8P1 on FSP 5.9.0: device R7KA8P1KFLCAC
+cores: CM85, CM33
+templates: Bare Metal - Blinky, Bare Metal - Minimal
+rtos: No RTOS, Azure RTOS ThreadX, FreeRTOS
+project types: FLAT, NONSECURE, SECURE
+toolchains: GNU ARM Embedded, LLVM Embedded Toolchain for Arm; GNU versions: 13.2.1.arm-13-7
+debuggers listed: E2 Lite (ARM) (com.renesas.hardwaredebug.arm.e2lite), J-Link ARM (com.renesas.hardwaredebug.rz.jlink), E2 (ARM) (com.renesas.hardwaredebug.arm.e2)
+next: embedder e2 project create <name> --fsp 5.9.0 --board EK-RA8P1 --core <core> --template "<template>"

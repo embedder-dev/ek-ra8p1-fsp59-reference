@@ -1,0 +1,16 @@
+ok config set validation/ra8p1/compatibility/defaults/r018 (2.3 s)
+applied the given settings to r018_def_mram85; saved, content generated (no separate generate needed)
+created g_mram0 (module.driver.flash_on_mram.1611034346 — MRAM (r_mram))
+generated: ra_gen/hal_data.c defines g_mram0 (flash_instance_t), g_mram0_ctrl, g_mram0_ext_cfg, g_mram0_cfg; ra_gen/hal_data.h declares g_mram0_ctrl, g_mram0_cfg, g_mram0
+configuration.xml: saved; read back from the file: g_mram0 (module.driver.flash_on_mram.1611034346, r_mram)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_mram_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_flash_api.h, ra/fsp/inc/instances/r_mram.h, ra/fsp/src/r_mram/r_mram.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -0 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/compatibility/defaults/r018/Debug/r018_def_mram85.elf (0 errors, 1 warnings, relinked now, Debug)
+artifacts (stat from disk): r018/Debug/r018_def_mram85.elf 322760 B 14:52:48, .srec 22100 B 14:52:48, .map 138380 B 14:52:48, .sbd 5476 B 14:52:49
+build: full: ok, 0 errors, 1 warnings (477ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794923567951-r018_def_mram85-full.log

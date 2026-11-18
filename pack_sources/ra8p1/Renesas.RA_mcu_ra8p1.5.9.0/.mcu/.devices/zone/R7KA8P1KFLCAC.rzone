@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rzone>
+  <device Dname="R7KA8P1KF" Dvendor="Renesas">
+    <processor Dclock="1000000000" Dcore="Cortex-M85" DcoreVersion="r1p1" Ddsp="1" Dendian="Little-endian" Dfpu="1" Dmpu="1" DnumInterrupts="96" DnumSauRegions="8" Dtz="TZ" Pname="CM85" />
+    <processor Dclock="250000000" Dcore="Cortex-M33" DcoreVersion="r0p4" Ddsp="1" Dendian="Little-endian" Dfpu="1" Dmpu="1" DnumInterrupts="96" DnumSauRegions="8" Dtz="TZ" Pname="CM33" />
+  </device>
+  <resources>
+    <memories>
+      <memory name="FLASH" start="0x02000000" size="0x00080000" type="ROM" security="" />
+      <memory name="FLASH_NS" start="0x12000000" size="0x00080000" type="ROM" security="n" physical="0x02000000" />
+      <memory name="RAM" start="0x22000000" size="0x000d0000" type="RAM" security="" />
+      <memory name="RAM_NS" start="0x32000000" size="0x000d0000" type="RAM" security="n" physical="0x22000000" />
+      <memory name="ITCM" start="0x00000000" size="0x00020000" type="ROM" security="" />
+      <memory name="ITCM_NS" start="0x10000000" size="0x00020000" type="ROM" security="n" physical="0x00000000" />
+      <memory name="DTCM" start="0x20000000" size="0x00020000" type="RAM" security="" />
+      <memory name="DTCM_NS" start="0x30000000" size="0x00020000" type="RAM" security="n" physical="0x20000000" />
+      <memory name="FLASH_CPU1" start="0x02080000" size="0x00080000" type="ROM" security="" />
+      <memory name="RAM_CPU1" start="0x220d0000" size="0x000d0000" type="RAM" security="" />
+      <memory name="CTCM_CPU1" start="0x2a000000" size="0x00010000" type="RAM" security="" />
+      <memory name="STCM_CPU1" start="0x2a010000" size="0x00010000" type="RAM" security="" />
+      <memory name="OPTION_SETTING" start="0x02c9f000" size="0x400" type="ROM" security="" />
+      <memory name="OPTION_SETTING_S" start="0x02c9f000" size="0x400" type="ROM" security="" physical="0x02c9f000" />
+      <memory name="OPTION_SETTING_NS" start="0x12c9f400" size="0x400" type="ROM" security="" />
+      <memory name="DATA_FLASH" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="OPTION_SETTING_DATA_FLASH_S" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="ID_CODE" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="SDRAM" start="0x0" size="0x0" type="RAM" security="" />
+      <memory name="QSPI_FLASH" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="OSPI_DEVICE_0" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="OSPI_DEVICE_1" start="0x0" size="0x0" type="ROM" security="" />
+      <memory name="NS_OFFSET" start="0x10000000" size="0x0" type="ROM" security="" />
+    </memories>
+    <peripherals />
+  </resources>
+</rzone>

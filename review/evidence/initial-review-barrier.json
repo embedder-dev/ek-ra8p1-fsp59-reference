@@ -1,0 +1,65 @@
+{
+  "phase": "initial-review-report-barrier",
+  "time_utc": "2026-11-17T07:57:48.480167+00:00",
+  "findings": 228,
+  "severity_counts": {
+    "High": 99,
+    "Medium": 121,
+    "Low": 6,
+    "Unrated source/compiler risk": 1,
+    "Unrated source discrepancy": 1
+  },
+  "areas": {
+    "1": {
+      "High": 12,
+      "Medium": 23,
+      "Low": 2,
+      "Unrated source discrepancy": 1
+    },
+    "2": {
+      "High": 2,
+      "Medium": 1
+    },
+    "3": {
+      "High": 13,
+      "Medium": 13
+    },
+    "4": {
+      "Medium": 2,
+      "Unrated source/compiler risk": 1
+    },
+    "5": {
+      "High": 62,
+      "Medium": 67,
+      "Low": 3
+    },
+    "6": {
+      "Medium": 8,
+      "Low": 1,
+      "High": 4
+    },
+    "7": {
+      "Medium": 1
+    },
+    "8": {
+      "High": 6,
+      "Medium": 6
+    }
+  },
+  "dispositions": {
+    "Untriaged": 223,
+    "Untriaged; conditional CPU1 nonsecure use": 1,
+    "Untriaged; reviewer explicitly unconfirmed": 1,
+    "Untriaged; exact original CMSIS source requested": 1,
+    "Untriaged source discrepancy; no candidate reset-value consumer identified": 1,
+    "Untriaged; clarification corrects reviewer's mistaken duplicate claim": 1
+  },
+  "fixes": 0,
+  "freeze": {
+    "records": 4473,
+    "changed": 0
+  },
+  "exhaustive_coverage": false,
+  "coverage_gaps": "review/coverage.md",
+  "ledger_sha256": "4cea014c4f0117a9510c8157710eada17074725161ecf0260cf8f109e8c23f7a"
+}

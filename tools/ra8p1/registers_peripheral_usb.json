@@ -1,0 +1,4258 @@
+{
+  "schema": 1,
+  "device": "R7KA8P1KF",
+  "types": [
+    {
+      "name": "R_USB_FS0_PIPE_TR_Type",
+      "size": "0x4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.37, p.2023",
+      "members": [
+        {
+          "name": "E",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRCLR",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRENB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.37, p.2023"
+        },
+        {
+          "name": "N",
+          "offset": "0x2",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRNCNT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.38, p.2024"
+        }
+      ]
+    },
+    {
+      "name": "R_USB_FS0_Type",
+      "size": "0x408",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2 pp.1977–2028",
+      "members": [
+        {
+          "name": "SYSCFG",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DPRPU",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DRPD",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCFM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCKE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.1, p.1977"
+        },
+        {
+          "name": "SYSSTS0",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R",
+          "fields": [
+            {
+              "name": "LNST",
+              "pos": 0,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "IDMON",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SOFEA",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "HTACT",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OVCMON",
+              "pos": 14,
+              "bits": 2,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.2, p.1978"
+        },
+        {
+          "name": "DVSTCTR0",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RHST",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "UACT",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RESUME",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USBRST",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RWUPE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WKUP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBUSEN",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXICEN",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HNPBTOA",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.3, p.1979"
+        },
+        {
+          "name": "CFIFO",
+          "offset": "0x14",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.4, p.1982–1983",
+          "manual_path": "44-37.-usb-2.0-full-speed-module-usbfs/02-37.2-register-descriptions/04-37.2.4-cfifo-cfifol-cfifo-port-register.md",
+          "note": "Original FSP5.9 r_usb_reg_access.h names the 16-bit access CFIFOL and the 8-bit access CFIFOLL. HM Tables37.5–6 permit 16-bit access or low-byte-only access at this same address for either BIGEND value; no upper-byte or 32-bit access view is provided.",
+          "views": [
+            {
+              "name": "CFIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "CFIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "D0FIFO",
+          "offset": "0x18",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.5, p.1983–1984",
+          "manual_path": "44-37.-usb-2.0-full-speed-module-usbfs/02-37.2-register-descriptions/05-37.2.5-dnfifo-dnfifol-dnfifo-port-register-n-0-1.md",
+          "note": "Original FSP5.9 r_usb_reg_access.h names the 16-bit access D0FIFOL and the 8-bit access D0FIFOLL. HM Tables37.7–8 permit 16-bit access or low-byte-only access at this same address for either BIGEND value; no upper-byte or 32-bit access view is provided.",
+          "views": [
+            {
+              "name": "D0FIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D0FIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "D1FIFO",
+          "offset": "0x1c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.5, p.1983–1984",
+          "manual_path": "44-37.-usb-2.0-full-speed-module-usbfs/02-37.2-register-descriptions/05-37.2.5-dnfifo-dnfifol-dnfifo-port-register-n-0-1.md",
+          "note": "Original FSP5.9 r_usb_reg_access.h names the 16-bit access D1FIFOL and the 8-bit access D1FIFOLL. HM Tables37.7–8 permit 16-bit access or low-byte-only access at this same address for either BIGEND value; no upper-byte or 32-bit access view is provided.",
+          "views": [
+            {
+              "name": "D1FIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D1FIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "CFIFOSEL",
+          "offset": "0x20",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ISEL",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.6, p.1984"
+        },
+        {
+          "name": "CFIFOCTR",
+          "offset": "0x22",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 9,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.8, p.1987"
+        },
+        {
+          "name": "D0FIFOSEL",
+          "offset": "0x28",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DREQE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCLRM",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.7, p.1986"
+        },
+        {
+          "name": "D0FIFOCTR",
+          "offset": "0x2a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 9,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.9, p.1989"
+        },
+        {
+          "name": "D1FIFOSEL",
+          "offset": "0x2c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DREQE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCLRM",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.7, p.1986"
+        },
+        {
+          "name": "D1FIFOCTR",
+          "offset": "0x2e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 9,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.9, p.1989"
+        },
+        {
+          "name": "INTENB0",
+          "offset": "0x30",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BRDYE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NRDYE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BEMPE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CTRE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVSE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SOFE",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSME",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBSE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.10, p.1990"
+        },
+        {
+          "name": "INTENB1",
+          "offset": "0x32",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SACKE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SIGNE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EOFERRE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATTCHE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTCHE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCHGE",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRCRE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.11, p.1991"
+        },
+        {
+          "name": "BRDYENB",
+          "offset": "0x36",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0BRDYE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1BRDYE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2BRDYE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3BRDYE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4BRDYE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5BRDYE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6BRDYE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7BRDYE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8BRDYE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9BRDYE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.12, p.1992"
+        },
+        {
+          "name": "NRDYENB",
+          "offset": "0x38",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0NRDYE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1NRDYE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2NRDYE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3NRDYE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4NRDYE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5NRDYE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6NRDYE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7NRDYE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8NRDYE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9NRDYE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.13, p.1993"
+        },
+        {
+          "name": "BEMPENB",
+          "offset": "0x3a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0BEMPE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1BEMPE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2BEMPE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3BEMPE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4BEMPE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5BEMPE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6BEMPE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7BEMPE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8BEMPE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9BEMPE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.14, p.1994"
+        },
+        {
+          "name": "SOFCFG",
+          "offset": "0x3c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EDGESTS",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BRDYM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRNENSEL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.15, p.1995"
+        },
+        {
+          "name": "INTSTS0",
+          "offset": "0x40",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CTSQ",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "VALID",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVSQ",
+              "pos": 4,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "VBSTS",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BRDY",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "NRDY",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BEMP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CTRT",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVST",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SOFR",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RESM",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBINT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.16, p.1996"
+        },
+        {
+          "name": "INTSTS1",
+          "offset": "0x42",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SACK",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SIGN",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EOFERR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATTCH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTCH",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCHG",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRCR",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.17, p.1998"
+        },
+        {
+          "name": "BRDYSTS",
+          "offset": "0x46",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0BRDY",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1BRDY",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2BRDY",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3BRDY",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4BRDY",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5BRDY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6BRDY",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7BRDY",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8BRDY",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9BRDY",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.18, p.2001"
+        },
+        {
+          "name": "NRDYSTS",
+          "offset": "0x48",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0NRDY",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1NRDY",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2NRDY",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3NRDY",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4NRDY",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5NRDY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6NRDY",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7NRDY",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8NRDY",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9NRDY",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.19, p.2002"
+        },
+        {
+          "name": "BEMPSTS",
+          "offset": "0x4a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPE0BEMP",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE1BEMP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE2BEMP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE3BEMP",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE4BEMP",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE5BEMP",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE6BEMP",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE7BEMP",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE8BEMP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIPE9BEMP",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.20, p.2002"
+        },
+        {
+          "name": "FRMNUM",
+          "offset": "0x4c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FRNM",
+              "pos": 0,
+              "bits": 11,
+              "access": "R"
+            },
+            {
+              "name": "CRCE",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRN",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.21, p.2003"
+        },
+        {
+          "name": "DVCHGR",
+          "offset": "0x4e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DVCHG",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.22, p.2004"
+        },
+        {
+          "name": "USBADDR",
+          "offset": "0x50",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBADDR",
+              "pos": 0,
+              "bits": 7,
+              "access": "R/W"
+            },
+            {
+              "name": "STSRECOV",
+              "pos": 8,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.23, p.2004"
+        },
+        {
+          "name": "USBREQ",
+          "offset": "0x54",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BMREQUESTTYPE",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "BREQUEST",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.24, p.2005"
+        },
+        {
+          "name": "USBVAL",
+          "offset": "0x56",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WVALUE",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.25, p.2006"
+        },
+        {
+          "name": "USBINDX",
+          "offset": "0x58",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WINDEX",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.26, p.2007"
+        },
+        {
+          "name": "USBLENG",
+          "offset": "0x5a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WLENTUH",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.27, p.2007"
+        },
+        {
+          "name": "DCPCFG",
+          "offset": "0x5c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DIR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SHTNAK",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.28, p.2008"
+        },
+        {
+          "name": "DCPMAXP",
+          "offset": "0x5e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MXPS",
+              "pos": 0,
+              "bits": 7,
+              "access": "R/W"
+            },
+            {
+              "name": "DEVSEL",
+              "pos": 12,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.29, p.2009"
+        },
+        {
+          "name": "DCPCTR",
+          "offset": "0x60",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PID",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CCPL",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PBUSY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQMON",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQSET",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SQCLR",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SUREQCLR",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SUREQ",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSTS",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.30, p.2009"
+        },
+        {
+          "name": "PIPESEL",
+          "offset": "0x64",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPESEL",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.31, p.2012"
+        },
+        {
+          "name": "PIPECFG",
+          "offset": "0x68",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EPNUM",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DIR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SHTNAK",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBLB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BFRE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TYPE",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.32, p.2013"
+        },
+        {
+          "name": "PIPEMAXP",
+          "offset": "0x6c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MXPS",
+              "pos": 0,
+              "bits": 9,
+              "access": "R/W"
+            },
+            {
+              "name": "DEVSEL",
+              "pos": 12,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.33, p.2015"
+        },
+        {
+          "name": "PIPEPERI",
+          "offset": "0x6e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IITV",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "IFIS",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.34, p.2016"
+        },
+        {
+          "name": "PIPE_CTR",
+          "offset": "0x70",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PID",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PBUSY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQMON",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ACLRM",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSTS",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.35, p.2017",
+          "count": 9,
+          "views": [
+            {
+              "name": "PIPE1CTR",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ATREPM",
+                  "pos": 10,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "INBUFM",
+                  "pos": 14,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE2CTR",
+              "offset": 2,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ATREPM",
+                  "pos": 10,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "INBUFM",
+                  "pos": 14,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE3CTR",
+              "offset": 4,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ATREPM",
+                  "pos": 10,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "INBUFM",
+                  "pos": 14,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE4CTR",
+              "offset": 6,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ATREPM",
+                  "pos": 10,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "INBUFM",
+                  "pos": 14,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE5CTR",
+              "offset": 8,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "ATREPM",
+                  "pos": 10,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "INBUFM",
+                  "pos": 14,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE6CTR",
+              "offset": 10,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE7CTR",
+              "offset": 12,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE8CTR",
+              "offset": 14,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            },
+            {
+              "name": "PIPE9CTR",
+              "offset": 16,
+              "width": 16,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "PID",
+                  "pos": 0,
+                  "bits": 2,
+                  "access": "R/W"
+                },
+                {
+                  "name": "PBUSY",
+                  "pos": 5,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQMON",
+                  "pos": 6,
+                  "bits": 1,
+                  "access": "R"
+                },
+                {
+                  "name": "SQSET",
+                  "pos": 7,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "SQCLR",
+                  "pos": 8,
+                  "bits": 1,
+                  "access": "W"
+                },
+                {
+                  "name": "ACLRM",
+                  "pos": 9,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "BSTS",
+                  "pos": 15,
+                  "bits": 1,
+                  "access": "R"
+                }
+              ]
+            }
+          ],
+          "vocabulary": "Raw canonical 9-element pipe array exposes only shared bitfields. Individual PIPE1CTR..PIPE9CTR views preserve the documented differences between pipes1..5 and6..9 (HM37.2.35–36)."
+        },
+        {
+          "name": "PIPE_TR",
+          "offset": "0x90",
+          "type": "R_USB_FS0_PIPE_TR_Type",
+          "element_size": 4,
+          "count": 5,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.37, p.2023"
+        },
+        {
+          "name": "DEVADD",
+          "offset": "0xd0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBSPD",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.39, p.2025",
+          "count": 6,
+          "individual_names": [
+            "DEVADD0",
+            "DEVADD1",
+            "DEVADD2",
+            "DEVADD3",
+            "DEVADD4",
+            "DEVADD5"
+          ]
+        },
+        {
+          "name": "DPUSR0R_FS",
+          "offset": "0x400",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SRPC0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RPUE0",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DRPD0",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FIXPHY0",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DP0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DM0",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVCA0",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVCB0",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DVBSTS0",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.40, p.2025",
+          "vocabulary": "Stock _FS suffix distinguishes this USBFS standby register at +0x400/+0x404 from USBHS standby registers at +0x160."
+        },
+        {
+          "name": "DPUSR1R_FS",
+          "offset": "0x404",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DPINTE0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DMINTE0",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DOVRCRAE0",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DOVRCRBE0",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVBSE0",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DPINT0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DMINT0",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVRCRA0",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVRCRB0",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DVBINT0",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.41, p.2027",
+          "vocabulary": "Stock _FS suffix distinguishes this USBFS standby register at +0x400/+0x404 from USBHS standby registers at +0x160."
+        }
+      ]
+    },
+    {
+      "name": "R_USB_HS0_PIPE_TR_Type",
+      "size": "0x4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.39, p.2117",
+      "members": [
+        {
+          "name": "E",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRCLR",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRENB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.39, p.2117"
+        },
+        {
+          "name": "N",
+          "offset": "0x2",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRNCNT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.40, p.2118"
+        }
+      ]
+    },
+    {
+      "name": "R_USB_HS0_Type",
+      "size": "0x16c",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2 pp.2071–2129",
+      "members": [
+        {
+          "name": "SYSCFG",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DPRPU",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DRPD",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCFM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HSE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CNEN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.1, p.2071"
+        },
+        {
+          "name": "BUSWAIT",
+          "offset": "0x2",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BWAIT",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.2, p.2073"
+        },
+        {
+          "name": "SYSSTS0",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R",
+          "fields": [
+            {
+              "name": "LNST",
+              "pos": 0,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "IDMON",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SOFEA",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "HTACT",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OVCMON",
+              "pos": 14,
+              "bits": 2,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.3, p.2073"
+        },
+        {
+          "name": "PLLSTA",
+          "offset": "0x6",
+          "width": 16,
+          "access": "R",
+          "fields": [
+            {
+              "name": "PLLLOCK",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.4, p.2075"
+        },
+        {
+          "name": "DVSTCTR0",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RHST",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "UACT",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RESUME",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USBRST",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RWUPE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WKUP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBUSEN",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXICEN",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HNPBTOA",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.5, p.2075"
+        },
+        {
+          "name": "TESTMODE",
+          "offset": "0xc",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "UTST",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.6, p.2078"
+        },
+        {
+          "name": "CFIFO",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.7, p.2079",
+          "views": [
+            {
+              "name": "CFIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "CFIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "CFIFOH",
+              "offset": 2,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "CFIFOHH",
+              "offset": 3,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "D0FIFO",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.7, p.2079",
+          "views": [
+            {
+              "name": "D0FIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D0FIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "D0FIFOH",
+              "offset": 2,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D0FIFOHH",
+              "offset": 3,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "D1FIFO",
+          "offset": "0x1c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIFOPORT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.7, p.2079",
+          "views": [
+            {
+              "name": "D1FIFOL",
+              "offset": 0,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D1FIFOLL",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "D1FIFOH",
+              "offset": 2,
+              "width": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "D1FIFOHH",
+              "offset": 3,
+              "width": 8,
+              "access": "R/W"
+            }
+          ]
+        },
+        {
+          "name": "CFIFOSEL",
+          "offset": "0x20",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ISEL",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.8, p.2081"
+        },
+        {
+          "name": "CFIFOCTR",
+          "offset": "0x22",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 12,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.10, p.2084"
+        },
+        {
+          "name": "D0FIFOSEL",
+          "offset": "0x28",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "DREQE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCLRM",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.9, p.2082"
+        },
+        {
+          "name": "D0FIFOCTR",
+          "offset": "0x2a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 12,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.10, p.2084"
+        },
+        {
+          "name": "D1FIFOSEL",
+          "offset": "0x2c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CURPIPE",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "BIGEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MBW",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "DREQE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCLRM",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "REW",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCNT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.9, p.2082"
+        },
+        {
+          "name": "D1FIFOCTR",
+          "offset": "0x2e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTLN",
+              "pos": 0,
+              "bits": 12,
+              "access": "R"
+            },
+            {
+              "name": "FRDY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCLR",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BVAL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.10, p.2084"
+        },
+        {
+          "name": "INTENB0",
+          "offset": "0x30",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BRDYE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NRDYE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BEMPE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CTRE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVSE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SOFE",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSME",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBSE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.11, p.2086"
+        },
+        {
+          "name": "INTENB1",
+          "offset": "0x32",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PDDETINTE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SACKE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SIGNE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EOFERRE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LPMENDE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "L1RSMENDE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATTCHE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTCHE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCHGE",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRCRE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.12, p.2087"
+        },
+        {
+          "name": "BRDYENB",
+          "offset": "0x36",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPEBRDYE",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.13, p.2088"
+        },
+        {
+          "name": "NRDYENB",
+          "offset": "0x38",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPENRDYE",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.14, p.2088"
+        },
+        {
+          "name": "BEMPENB",
+          "offset": "0x3a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPEBEMPE",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.15, p.2089"
+        },
+        {
+          "name": "SOFCFG",
+          "offset": "0x3c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EDGESTS",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "INTL",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BRDYM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRNENSEL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.16, p.2089"
+        },
+        {
+          "name": "PHYSET",
+          "offset": "0x3e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DIRPD",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PLLRESET",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CDPEN",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLKSEL",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "REPSEL",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "REPSTART",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HSEB",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.17, p.2090"
+        },
+        {
+          "name": "INTSTS0",
+          "offset": "0x40",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CTSQ",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "VALID",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVSQ",
+              "pos": 4,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "VBSTS",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BRDY",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "NRDY",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BEMP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CTRT",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVST",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SOFR",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RESM",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBINT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.18, p.2091"
+        },
+        {
+          "name": "INTSTS1",
+          "offset": "0x42",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PDDETINT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SACK",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SIGN",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EOFERR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LPMEND",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "L1RSMEND",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATTCH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTCH",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCHG",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRCR",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.19, p.2093"
+        },
+        {
+          "name": "BRDYSTS",
+          "offset": "0x46",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPEBRDY",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.20, p.2096"
+        },
+        {
+          "name": "NRDYSTS",
+          "offset": "0x48",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPENRDY",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.21, p.2097"
+        },
+        {
+          "name": "BEMPSTS",
+          "offset": "0x4a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPEBEMP",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.22, p.2097"
+        },
+        {
+          "name": "FRMNUM",
+          "offset": "0x4c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FRNM",
+              "pos": 0,
+              "bits": 11,
+              "access": "R"
+            },
+            {
+              "name": "CRCE",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OVRN",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.23, p.2098"
+        },
+        {
+          "name": "UFRMNUM",
+          "offset": "0x4e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "UFRNM",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "DVCHG",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.24, p.2098"
+        },
+        {
+          "name": "USBADDR",
+          "offset": "0x50",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBADDR",
+              "pos": 0,
+              "bits": 7,
+              "access": "R"
+            },
+            {
+              "name": "STSRECOV0",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.25, p.2099"
+        },
+        {
+          "name": "USBREQ",
+          "offset": "0x54",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BMREQUESTTYPE",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "BREQUEST",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.26, p.2100"
+        },
+        {
+          "name": "USBVAL",
+          "offset": "0x56",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WVALUE",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.27, p.2100"
+        },
+        {
+          "name": "USBINDX",
+          "offset": "0x58",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WINDEX",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.28, p.2101"
+        },
+        {
+          "name": "USBLENG",
+          "offset": "0x5a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WLENTUH",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.29, p.2101"
+        },
+        {
+          "name": "DCPCFG",
+          "offset": "0x5c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DIR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SHTNAK",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CNTMD",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.30, p.2102"
+        },
+        {
+          "name": "DCPMAXP",
+          "offset": "0x5e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MXPS",
+              "pos": 0,
+              "bits": 7,
+              "access": "R/W"
+            },
+            {
+              "name": "DEVSEL",
+              "pos": 12,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.31, p.2102"
+        },
+        {
+          "name": "DCPCTR",
+          "offset": "0x60",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PID",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CCPL",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PINGE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PBUSY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQMON",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQSET",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SQCLR",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SUREQCLR",
+              "pos": 11,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CSSTS",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CSCLR",
+              "pos": 13,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SUREQ",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSTS",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.32, p.2103"
+        },
+        {
+          "name": "PIPESEL",
+          "offset": "0x64",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PIPESEL",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.33, p.2107"
+        },
+        {
+          "name": "PIPECFG",
+          "offset": "0x68",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EPNUM",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DIR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SHTNAK",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CNTMD",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBLB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BFRE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TYPE",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.34, p.2107"
+        },
+        {
+          "name": "PIPEBUF",
+          "offset": "0x6a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BUFNMB",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "BUFSIZE",
+              "pos": 10,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.35, p.2110"
+        },
+        {
+          "name": "PIPEMAXP",
+          "offset": "0x6c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MXPS",
+              "pos": 0,
+              "bits": 11,
+              "access": "R/W"
+            },
+            {
+              "name": "DEVSEL",
+              "pos": 12,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.36, p.2111"
+        },
+        {
+          "name": "PIPEPERI",
+          "offset": "0x6e",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IITV",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "IFIS",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.37, p.2112"
+        },
+        {
+          "name": "PIPE_CTR",
+          "offset": "0x70",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PID",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PBUSY",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQMON",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQSET",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SQCLR",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ACLRM",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATREPM",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSSTS",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CSCLR",
+              "pos": 13,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "INBUFM",
+              "pos": 14,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BSTS",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.38, p.2113",
+          "count": 9,
+          "individual_names": [
+            "PIPE1CTR",
+            "PIPE2CTR",
+            "PIPE3CTR",
+            "PIPE4CTR",
+            "PIPE5CTR",
+            "PIPE6CTR",
+            "PIPE7CTR",
+            "PIPE8CTR",
+            "PIPE9CTR"
+          ]
+        },
+        {
+          "name": "PIPE_TR",
+          "offset": "0x90",
+          "type": "R_USB_HS0_PIPE_TR_Type",
+          "element_size": 4,
+          "count": 5,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.39, p.2117"
+        },
+        {
+          "name": "DEVADD",
+          "offset": "0xd0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBSPD",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "HUBPORT",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "UPPHUB",
+              "pos": 11,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.41, p.2119",
+          "count": 10,
+          "individual_names": [
+            "DEVADD0",
+            "DEVADD1",
+            "DEVADD2",
+            "DEVADD3",
+            "DEVADD4",
+            "DEVADD5",
+            "DEVADD6",
+            "DEVADD7",
+            "DEVADD8",
+            "DEVADD9"
+          ]
+        },
+        {
+          "name": "DEVADDA",
+          "offset": "0xe4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USBSPD",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "HUBPORT",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "UPPHUB",
+              "pos": 11,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.41, p.2119"
+        },
+        {
+          "name": "LPCTRL",
+          "offset": "0x100",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HWUPM",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.42, p.2120"
+        },
+        {
+          "name": "LPSTS",
+          "offset": "0x102",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SUSPENDM",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.43, p.2121"
+        },
+        {
+          "name": "BCCTRL",
+          "offset": "0x140",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IDPSRCE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDMSINKE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VDPSRCE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDPSINKE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VDMSRCE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCPMODE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CHGDETSTS",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PDDETSTS",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.44, p.2122"
+        },
+        {
+          "name": "PL1CTRL1",
+          "offset": "0x144",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "L1RESPEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "L1RESPMD",
+              "pos": 1,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "L1NEGOMD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVSQ",
+              "pos": 4,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "HIRDTHR",
+              "pos": 8,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "L1EXTMD",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.45, p.2123"
+        },
+        {
+          "name": "PL1CTRL2",
+          "offset": "0x146",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HIRDMON",
+              "pos": 8,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "RWEMON",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.46, p.2124"
+        },
+        {
+          "name": "HL1CTRL1",
+          "offset": "0x148",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "L1REQ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "L1STATUS",
+              "pos": 1,
+              "bits": 2,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.47, p.2125"
+        },
+        {
+          "name": "HL1CTRL2",
+          "offset": "0x14a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "L1ADDR",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "HIRD",
+              "pos": 8,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "L1RWE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BESL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.48, p.2126"
+        },
+        {
+          "name": "DPUSR0R",
+          "offset": "0x160",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DOVCAHM",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVCBHM",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DVBSTSHM",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.49, p.2127"
+        },
+        {
+          "name": "DPUSR1R",
+          "offset": "0x164",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DOVCAHE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DOVCBHE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DVBSTSHE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DOVCAH",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DOVCBH",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DVBSTSH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.50, p.2128"
+        },
+        {
+          "name": "DPUSR2R",
+          "offset": "0x168",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMINT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DPINT",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DPVAL",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DMVAL",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DMINTE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DPINTE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.51, p.2128"
+        },
+        {
+          "name": "DPUSRCR",
+          "offset": "0x16a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FIXPHY",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FIXPHYPD",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2.52, p.2129"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_USB_FS0",
+      "type": "R_USB_FS0_Type",
+      "secure": "0x40250000",
+      "nonsecure": "0x50250000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2 pp.1977–2028"
+    },
+    {
+      "name": "R_USB_HS0",
+      "type": "R_USB_HS0_Type",
+      "secure": "0x40351000",
+      "nonsecure": "0x50351000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §38.2 pp.2071–2129"
+    }
+  ],
+  "integration": "Integrated manual-derived peripheral inventory. Existing-type extensions reside in their original owning inventories; this fragment is consumed by generate_device_header.py.",
+  "differences": [
+    {
+      "module": "r_usb_basic",
+      "status": "configuration-required",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §37.2.39 p.2025; §38.2.41 pp.2119–2120",
+      "reason": "USBFS has DEVADD0..5 only. USBHS has DEVADD0..9 and noncontiguous DEVADDA at0xE4. FS FIFO access is16/8-bit; HS supports32/16/8-bit. Keep the actual channel capabilities and register layouts, not sibling superset fields/registers."
+    }
+  ]
+}

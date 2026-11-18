@@ -16,7 +16,7 @@
  **********************************************************************************************************************/
 
 #define LPM_LPSCR_SYSTEM_ACTIVE                  (0x0U)
-#if BSP_MCU_GROUP_NEPTUNE
+#if (BSP_FEATURE_LPM_LPSCR_TYPE == 1) || BSP_MCU_GROUP_NEPTUNE
  #define LPM_LPSCR_SOFTWARE_STANDBY_MODE         (0x5U)
 #else
  #define LPM_LPSCR_SOFTWARE_STANDBY_MODE         (0x4U)
@@ -104,6 +104,10 @@ const lpm_api_t g_lpm_on_lpm =
 /***********************************************************************************************************************
  * Private Functions
  **********************************************************************************************************************/
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+static fsp_err_t r_lpm_wake_irqs_calculate(lpm_cfg_t const * p_cfg, uint32_t * p_wake_irqs);
+
+#endif
 static fsp_err_t r_lpm_configure(lpm_cfg_t const * const p_cfg);
 static fsp_err_t r_lpm_low_power_enter(lpm_instance_ctrl_t * const p_instance_ctrl);
 
@@ -117,7 +121,7 @@ static void r_lpm_wait_for_operating_mode_flags(void);
 static uint8_t r_lpm_lpscr_calculate(lpm_cfg_t const * p_cfg);
 
 #endif
-#if LPM_CFG_PARAM_CHECKING_ENABLE
+#if LPM_CFG_PARAM_CHECKING_ENABLE || (BSP_FEATURE_LPM_LPSCR_TYPE == 1)
 static fsp_err_t r_lpm_mcu_specific_low_power_check(lpm_cfg_t const * const p_cfg);
 
 #endif
@@ -155,15 +159,22 @@ fsp_err_t R_LPM_Open (lpm_ctrl_t * const p_api_ctrl, lpm_cfg_t const * const p_c
 {
     lpm_instance_ctrl_t * p_ctrl = (lpm_instance_ctrl_t *) p_api_ctrl;
 #if LPM_CFG_PARAM_CHECKING_ENABLE
+#line 158
     FSP_ASSERT(NULL != p_api_ctrl);
     FSP_ERROR_RETURN(LPM_OPEN != p_ctrl->lpm_open, FSP_ERR_ALREADY_OPEN);
 #endif
 
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+    fsp_err_t err = r_lpm_configure(p_cfg);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    p_ctrl->p_cfg = p_cfg;
+#else
     /* Save the configuration  */
     p_ctrl->p_cfg = p_cfg;
 
     fsp_err_t err = r_lpm_configure(p_cfg);
     FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#endif
 
     p_ctrl->lpm_open = LPM_OPEN;
 
@@ -202,14 +213,23 @@ fsp_err_t R_LPM_LowPowerReconfigure (lpm_ctrl_t * const p_api_ctrl, lpm_cfg_t co
     lpm_instance_ctrl_t * p_ctrl = (lpm_instance_ctrl_t *) p_api_ctrl;
 
 #if LPM_CFG_PARAM_CHECKING_ENABLE
+#line 205
     FSP_ASSERT(NULL != p_api_ctrl);
     FSP_ERROR_RETURN(LPM_OPEN == p_ctrl->lpm_open, FSP_ERR_NOT_OPEN);
 #endif
 
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+    fsp_err_t err = r_lpm_configure(p_cfg);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    p_ctrl->p_cfg = p_cfg;
+
+    return FSP_SUCCESS;
+#else
     /* Save the configuration  */
     p_ctrl->p_cfg = p_cfg;
 
     return r_lpm_configure(p_cfg);
+#endif
 }
 
 /*******************************************************************************************************************//**
@@ -232,6 +252,7 @@ fsp_err_t R_LPM_LowPowerModeEnter (lpm_ctrl_t * const p_api_ctrl)
 {
     lpm_instance_ctrl_t * p_ctrl = (lpm_instance_ctrl_t *) p_api_ctrl;
 #if LPM_CFG_PARAM_CHECKING_ENABLE
+#line 235
     FSP_ASSERT(NULL != p_ctrl);
     FSP_ERROR_RETURN(LPM_OPEN == p_ctrl->lpm_open, FSP_ERR_NOT_OPEN);
 
@@ -344,6 +365,7 @@ fsp_err_t R_LPM_Close (lpm_ctrl_t * const p_api_ctrl)
 {
     lpm_instance_ctrl_t * p_ctrl = (lpm_instance_ctrl_t *) p_api_ctrl;
 #if LPM_CFG_PARAM_CHECKING_ENABLE
+#line 347
     FSP_ASSERT(NULL != p_api_ctrl);
     FSP_ERROR_RETURN(LPM_OPEN == p_ctrl->lpm_open, FSP_ERR_NOT_OPEN);
 #endif
@@ -357,7 +379,7 @@ fsp_err_t R_LPM_Close (lpm_ctrl_t * const p_api_ctrl)
  * @} (end addtogroup LPM)
  **********************************************************************************************************************/
 
-#if LPM_CFG_PARAM_CHECKING_ENABLE
+#if LPM_CFG_PARAM_CHECKING_ENABLE || (BSP_FEATURE_LPM_LPSCR_TYPE == 1)
 
 /*******************************************************************************************************************//**
  * Verifies all MCU specific settings related to low power modes
@@ -386,6 +408,25 @@ fsp_err_t R_LPM_Close (lpm_ctrl_t * const p_api_ctrl)
  **********************************************************************************************************************/
 fsp_err_t r_lpm_mcu_specific_low_power_check (lpm_cfg_t const * const p_cfg)
 {
+ #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+    /* Reject prohibited encodings before unlocking or modifying any registers (HM 11.2.17, 11.2.21). */
+    FSP_ERROR_RETURN((LPM_MODE_SLEEP == p_cfg->low_power_mode) ||
+                     (LPM_MODE_DEEP_SLEEP == p_cfg->low_power_mode) ||
+                     (LPM_MODE_STANDBY == p_cfg->low_power_mode) ||
+                     (LPM_MODE_DEEP == p_cfg->low_power_mode) ||
+                     (LPM_MODE_STANDBY_SNOOZE == p_cfg->low_power_mode), FSP_ERR_INVALID_MODE);
+    FSP_ERROR_RETURN(0ULL == (p_cfg->standby_wake_sources & ~BSP_FEATURE_ICU_WUPEN_MASK), FSP_ERR_INVALID_MODE);
+    if (LPM_MODE_STANDBY == p_cfg->low_power_mode)
+    {
+        uint32_t retention = p_cfg->ram_retention_cfg.ram_retention;
+        FSP_ERROR_RETURN(0U == (retention & ~0x1FFFU), FSP_ERR_INVALID_MODE);
+        for (uint32_t shift = 0U; shift < 12U; shift += 4U)
+        {
+            uint32_t group = (retention >> shift) & 0xFU;
+            FSP_ERROR_RETURN((0U == group) || (0xFU == group), FSP_ERR_INVALID_MODE);
+        }
+    }
+ #endif
  #if !BSP_FEATURE_LPM_HAS_DEEP_SLEEP
     FSP_ERROR_RETURN(LPM_MODE_DEEP_SLEEP != p_cfg->low_power_mode, FSP_ERR_UNSUPPORTED)
  #endif
@@ -417,18 +458,37 @@ fsp_err_t r_lpm_mcu_specific_low_power_check (lpm_cfg_t const * const p_cfg)
  #if BSP_FEATURE_LPM_HAS_DEEP_STANDBY
 
             /* Verify the deep software standby interrupt source is valid. */
+  #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+            FSP_ERROR_RETURN(0ULL == (~BSP_FEATURE_LPM_DPSIER_MASK & p_cfg->deep_standby_cancel_source),
+                             FSP_ERR_INVALID_MODE);
+  #else
             FSP_ERROR_RETURN(0U == (uint32_t) (~BSP_FEATURE_LPM_DPSIER_MASK & p_cfg->deep_standby_cancel_source),
                              FSP_ERR_INVALID_MODE);
+  #endif
 
             /* Verify the deep software standby interrupt edge is valid. */
+  #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+            FSP_ERROR_RETURN(0ULL == (~BSP_FEATURE_LPM_DPSIEGR_MASK & p_cfg->deep_standby_cancel_edge),
+                             FSP_ERR_INVALID_MODE);
+  #else
             FSP_ERROR_RETURN(0U == (uint32_t) (~BSP_FEATURE_LPM_DPSIEGR_MASK & p_cfg->deep_standby_cancel_edge),
                              FSP_ERR_INVALID_MODE);
+  #endif
 
             /* Verify all configured edges have a source configured. */
+  #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+            /* IRQ16..31 use DPSIEGR3/4 but DPSIER4/5 (HM 11.2.27-28, 11.2.38-39). */
+            uint64_t edge_sources = (p_cfg->deep_standby_cancel_edge & 0xFFFFFFULL) |
+                                    ((p_cfg->deep_standby_cancel_edge & 0xFFFF000000ULL) << 8U);
+            FSP_ERROR_RETURN(0U == (~p_cfg->deep_standby_cancel_source & edge_sources), FSP_ERR_INVALID_MODE);
+            FSP_ERROR_RETURN(LPM_POWER_SUPPLY_DEEP_STANDBY_MODE3 >= (uint32_t) p_cfg->power_supply_state,
+                             FSP_ERR_INVALID_MODE);
+  #else
             FSP_ERROR_RETURN(0U ==
                              (~p_cfg->deep_standby_cancel_source &
                               (lpm_deep_standby_cancel_source_t) p_cfg->deep_standby_cancel_edge),
                              FSP_ERR_INVALID_MODE);
+  #endif
  #else
 
             return FSP_ERR_UNSUPPORTED;
@@ -488,10 +548,21 @@ fsp_err_t r_lpm_mcu_specific_low_power_check (lpm_cfg_t const * const p_cfg)
  **********************************************************************************************************************/
 fsp_err_t r_lpm_configure (lpm_cfg_t const * const p_cfg)
 {
-#if LPM_CFG_PARAM_CHECKING_ENABLE
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+    /* These checks prevent prohibited MMIO encodings even with optional API checks disabled. */
+    FSP_ERROR_RETURN(NULL != p_cfg, FSP_ERR_ASSERTION);
+    fsp_err_t err = r_lpm_mcu_specific_low_power_check(p_cfg);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    uint32_t wake_irqs[3] = {0U};
+    err = r_lpm_wake_irqs_calculate(p_cfg, wake_irqs);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#else
+ #if LPM_CFG_PARAM_CHECKING_ENABLE
+#line 492
     FSP_ASSERT(NULL != p_cfg);
     fsp_err_t err = r_lpm_mcu_specific_low_power_check(p_cfg);
     FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+ #endif
 #endif
 #if BSP_FEATURE_ICU_SBYEDCR_MASK > 0
     uint32_t sbyedcr0 = 0;
@@ -502,7 +573,13 @@ fsp_err_t r_lpm_configure (lpm_cfg_t const * const p_cfg)
 #endif
     uint32_t sbycr = 0;
 #if BSP_FEATURE_LPM_HAS_DEEP_STANDBY
+ #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+    /* DCSSMODE must remain nonzero, including when configuring Sleep (HM 11.2.22). */
+    uint32_t dpsbycr = R_SYSTEM->DPSBYCR & R_SYSTEM_DPSBYCR_DCSSMODE_Msk;
+    FSP_ERROR_RETURN(0U != dpsbycr, FSP_ERR_INVALID_MODE);
+ #else
     uint32_t dpsbycr = 0;
+ #endif
 #endif
 
 #if BSP_FEATURE_LPM_HAS_LDO_SKEEP
@@ -651,7 +728,14 @@ fsp_err_t r_lpm_configure (lpm_cfg_t const * const p_cfg)
 #if BSP_FEATURE_LPM_HAS_PDRAMSCR
 
             /* Configure TCM retention settings in deep sleep or standby mode. */
+ #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+            /* PDRAMSCR1 is shared: each core owns only its TCM retention bit (HM 11.2.18). */
+            uint8_t tcm_mask = (uint8_t) (1U << BSP_CFG_CPU_CORE);
+            R_SYSTEM->PDRAMSCR1 = (uint8_t) ((R_SYSTEM->PDRAMSCR1 & (uint8_t) ~tcm_mask) |
+                                           (p_cfg->ram_retention_cfg.tcm_retention ? tcm_mask : 0U));
+ #else
             R_SYSTEM->PDRAMSCR1 = p_cfg->ram_retention_cfg.tcm_retention;
+ #endif
 #endif
         }
 
@@ -660,7 +744,12 @@ fsp_err_t r_lpm_configure (lpm_cfg_t const * const p_cfg)
 #if BSP_FEATURE_LPM_HAS_PDRAMSCR
 
             /* Configure RAM retention settings in standby mode. */
+ #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+            /* Reserved bits 14:13 must be one and bit 15 must be zero (HM 11.2.17). */
+            R_SYSTEM->PDRAMSCR0 = (uint16_t) (p_cfg->ram_retention_cfg.ram_retention | 0x6000U);
+ #else
             R_SYSTEM->PDRAMSCR0 = p_cfg->ram_retention_cfg.ram_retention;
+ #endif
 #endif
 
 #if BSP_FEATURE_LPM_HAS_LDO_SKEEP
@@ -693,6 +782,16 @@ fsp_err_t r_lpm_configure (lpm_cfg_t const * const p_cfg)
 #endif
         }
 
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+        if ((LPM_MODE_DEEP_SLEEP == p_cfg->low_power_mode) || (LPM_MODE_STANDBY == p_cfg->low_power_mode))
+        {
+            /* R_ICU is the executing core's bank; never rewrite the shared event routing. */
+            for (uint32_t word = 0U; word < 3U; word++)
+            {
+                R_ICU->DSLPWUPIRQEN[word] = wake_irqs[word];
+            }
+        }
+#endif
 #if BSP_FEATURE_ICU_WUPEN_MASK > 0
         R_ICU->WUPEN = (uint32_t) p_cfg->standby_wake_sources & UINT32_MAX;
 #endif
@@ -946,8 +1045,10 @@ fsp_err_t r_lpm_low_power_enter (lpm_instance_ctrl_t * const p_instance_ctrl)
             R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_CGC);
 
             /* Execute pre-wfi deep standby tasks */
+  #if BSP_FEATURE_LPM_LPSCR_TYPE == 0
             /* Clear the DOCDF flag to 0 before entering Deep Software Standby mode. */
             R_SYSTEM->SYOCDCR_b.DOCDF = 0U;
+  #endif
 
             /* Clear Deep Software Standby Interrupt Flag Registers. A dummy read is required before writing to DPSIFR.
              * See Section 11.2.16 "Deep Software Standby Interrupt Flag Register 0" in the
@@ -976,7 +1077,11 @@ fsp_err_t r_lpm_low_power_enter (lpm_instance_ctrl_t * const p_instance_ctrl)
         }
 
         /* Save oscillator stop detect state. */
+  #if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+        saved_ostdcr_ostde = *p_ostde & R_SYSTEM_OSTDCR_OSTDE_Msk;
+  #else
         saved_ostdcr_ostde = (*p_ostde & R_SYSTEM_OSTDCR_OSTDE_Msk) >> R_SYSTEM_OSTDCR_OSTDE_Pos;
+  #endif
         *p_ostde          &= (uint8_t) ~R_SYSTEM_OSTDCR_OSTDE_Msk;
 
  #if BSP_FEATURE_BSP_POWER_CHANGE_MSTP_REQUIRED
@@ -1173,4 +1278,113 @@ static uint8_t r_lpm_lpscr_calculate (lpm_cfg_t const * p_cfg)
     return lpscr;
 }
 
+#endif
+
+#if BSP_FEATURE_LPM_LPSCR_TYPE == 1
+
+/*******************************************************************************************************************//**
+ * Resolve WUPEN sources to the executing core's configured NVIC slots (HM 14.2.17, 14.2.19-22, Table 14.5).
+ * Peripheral drivers remain responsible for NVIC enable/priority and source operation before entry (HM 14.9).
+ **********************************************************************************************************************/
+static fsp_err_t r_lpm_wake_irqs_calculate (lpm_cfg_t const * p_cfg, uint32_t * p_wake_irqs)
+{
+    static uint16_t const wake_events[32] =
+    {
+        [0]  = ELC_EVENT_IWDT_UNDERFLOW,
+        [2]  = ELC_EVENT_LVD_LVD1,
+        [3]  = ELC_EVENT_LVD_LVD2,
+        [4]  = ELC_EVENT_VBATT_TADI,
+        [8]  = ELC_EVENT_RTC_ALARM,
+        [9]  = ELC_EVENT_RTC_PERIOD,
+        [10] = ELC_EVENT_USBHS_USB_INT_RESUME,
+        [11] = ELC_EVENT_USBFS_RESUME,
+        [12] = ELC_EVENT_AGT1_INT,
+        [13] = ELC_EVENT_AGT1_COMPARE_A,
+        [14] = ELC_EVENT_AGT1_COMPARE_B,
+        [15] = ELC_EVENT_IIC0_WUI,
+        [19] = ELC_EVENT_ACMPHS0_INT,
+        [23] = ELC_EVENT_CGC_SOSC_STOP,
+        [24] = ELC_EVENT_ULPT0_INT,
+        [25] = ELC_EVENT_ULPT0_COMPARE_A,
+        [26] = ELC_EVENT_ULPT0_COMPARE_B,
+        [27] = ELC_EVENT_I3C0_WU,
+        [28] = ELC_EVENT_ULPT1_INT,
+        [29] = ELC_EVENT_ULPT1_COMPARE_A,
+        [30] = ELC_EVENT_ULPT1_COMPARE_B,
+        [31] = ELC_EVENT_PDM_SDET,
+    };
+
+    if ((LPM_MODE_DEEP_SLEEP != p_cfg->low_power_mode) && (LPM_MODE_STANDBY != p_cfg->low_power_mode))
+    {
+        return FSP_SUCCESS;
+    }
+
+    for (uint32_t source = 0U; source < 64U; source++)
+    {
+        if (0ULL == (p_cfg->standby_wake_sources & (1ULL << source)))
+        {
+            continue;
+        }
+
+        uint32_t event;
+        if (source < 16U)
+        {
+            event = (uint32_t) ELC_EVENT_ICU_IRQ0 + source;
+        }
+        else if (source >= 48U)
+        {
+            event = (uint32_t) ELC_EVENT_ICU_IRQ16 + source - 48U;
+        }
+        else
+        {
+            event = wake_events[source - 16U];
+        }
+
+        /* An enabled NMI uses NMIER, not an IELSR slot (HM 14.9.2-3). Do not change NMIER. */
+        uint32_t nmi_mask = 0U;
+        if (LPM_STANDBY_WAKE_SOURCE_IWDT == (1ULL << source))
+        {
+            nmi_mask = 1U << BSP_GRP_IRQ_IWDT_ERROR;
+        }
+        else if (LPM_STANDBY_WAKE_SOURCE_LVD1 == (1ULL << source))
+        {
+            nmi_mask = 1U << BSP_GRP_IRQ_LVD1;
+        }
+        else if (LPM_STANDBY_WAKE_SOURCE_LVD2 == (1ULL << source))
+        {
+            nmi_mask = 1U << BSP_GRP_IRQ_LVD2;
+        }
+        else if (LPM_STANDBY_WAKE_SOURCE_SOSTD == (1ULL << source))
+        {
+            nmi_mask = 1U << BSP_GRP_IRQ_SUB_OSC_STOP;
+        }
+        else
+        {
+            /* This source has no NMI alternative. */
+        }
+
+        if (0U != (R_ICU->NMIER & nmi_mask))
+        {
+            continue;
+        }
+
+        FSP_ERROR_RETURN(0U != event, FSP_ERR_INVALID_MODE);
+        uint32_t destination = (R_ICU_COMMON->INTSELR[event / 32U] >> (event % 32U)) & 1U;
+        FSP_ERROR_RETURN(BSP_CFG_CPU_CORE == destination, FSP_ERR_INVALID_MODE);
+        bool found = false;
+        for (uint32_t slot = 0U; slot < 96U; slot++)
+        {
+            uint32_t link = R_ICU->IELSR[slot];
+            if ((event == (link & R_ICU_IELSR_IELS_Msk)) && (0U == (link & R_ICU_IELSR_DTCE_Msk)))
+            {
+                p_wake_irqs[slot / 32U] |= 1U << (slot % 32U);
+                found = true;
+            }
+        }
+
+        FSP_ERROR_RETURN(found, FSP_ERR_INVALID_MODE);
+    }
+
+    return FSP_SUCCESS;
+}
 #endif

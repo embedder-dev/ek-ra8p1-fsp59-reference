@@ -1,0 +1,1596 @@
+{
+  "ok": true,
+  "command": "packs verify",
+  "exitCode": 0,
+  "data": {
+    "fsp": "5.9.0",
+    "packsFolder": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/internal/projectgen/ra/packs",
+    "packs": {
+      "fsp": "5.9.0",
+      "reference": "stock",
+      "installed": 126,
+      "rows": [
+        {
+          "name": "Amazon.CellularInterface.1.3.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "0f6d6decc6d79ad74fe556c64221de538c6746a9bc7b58239ec676614bf2cb4e",
+          "expectedSha": "0f6d6decc6d79ad74fe556c64221de538c6746a9bc7b58239ec676614bf2cb4e",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.FreeRTOS-Kernel.11.1.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "428be3011a0ff41d57d3257d92dd113b46686d8f1abf666b66977206eca2577e",
+          "expectedSha": "428be3011a0ff41d57d3257d92dd113b46686d8f1abf666b66977206eca2577e",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Amazon.FreeRTOS-Plus-TCP.4.2.2+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "c887654c9b0c056eb3314def09d85499e72d628efd6e851dfbedc772ab796d0d",
+          "expectedSha": "c887654c9b0c056eb3314def09d85499e72d628efd6e851dfbedc772ab796d0d",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.FreeRTOS.202411.0.0+renesas.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b46f23b30d0986372307de702c61855402f3cba38b289782e177582dc5fec265",
+          "expectedSha": "b46f23b30d0986372307de702c61855402f3cba38b289782e177582dc5fec265",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.OTA.3.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5bb9529f8616ae08f7ece7a4c205540f0e0efcb128e2c65bbeac16b60b2a8ccc",
+          "expectedSha": "5bb9529f8616ae08f7ece7a4c205540f0e0efcb128e2c65bbeac16b60b2a8ccc",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.coreHTTP.3.1.1+renesas.0.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "eceddd47dd73f29db4505d0d53c2991c0229bc495ae0cc304267edde335dd601",
+          "expectedSha": "eceddd47dd73f29db4505d0d53c2991c0229bc495ae0cc304267edde335dd601",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.coreJSON.3.3.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "ccf4ef0ac0498a09bf1354f1e30c6b73f295961bfa3be7baa84a38d6bf5e91fe",
+          "expectedSha": "ccf4ef0ac0498a09bf1354f1e30c6b73f295961bfa3be7baa84a38d6bf5e91fe",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.coreMQTT.2.3.1+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "c22e138e4bcd3a57ae8c4fe00425ebc2d44999c8208187d6c6d4873333085d75",
+          "expectedSha": "c22e138e4bcd3a57ae8c4fe00425ebc2d44999c8208187d6c6d4873333085d75",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Amazon.corePKCS11.3.6.2+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "3bf430d0232d088c47ee840e3056f3dff69fba4fa247bc1a25e81b49146c3670",
+          "expectedSha": "3bf430d0232d088c47ee840e3056f3dff69fba4fa247bc1a25e81b49146c3670",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.CMSIS-DSP.1.16.2+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e5ec6c9fe5639f20f43a04bd1b0d5ef77baadeb71aeb1b5b03314966220dab80",
+          "expectedSha": "e5ec6c9fe5639f20f43a04bd1b0d5ef77baadeb71aeb1b5b03314966220dab80",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.CMSIS-NN.6.0.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "2e8c183bb0d464c559b4a72ffc03ab94fc9560f9d5f088456887c6913a4c4f8a",
+          "expectedSha": "2e8c183bb0d464c559b4a72ffc03ab94fc9560f9d5f088456887c6913a4c4f8a",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.CMSIS6.6.1.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "2b872093998e29ee7fad75e257d7b5751f33530e2417cfff774f7b1adae8ea77",
+          "expectedSha": "2b872093998e29ee7fad75e257d7b5751f33530e2417cfff774f7b1adae8ea77",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.LittleFS.2.2.1+renesas.1.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e85fb54ed65e4cf2becdc5285d147aee99f05968af0c21d0d9d5e1cef8ef2018",
+          "expectedSha": "e85fb54ed65e4cf2becdc5285d147aee99f05968af0c21d0d9d5e1cef8ef2018",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.MbedCrypto.3.6.2+renesas.1.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9135688c67ab042808558c458e18654c43ec1f412f6e54e64e98062abeb317d9",
+          "expectedSha": "9135688c67ab042808558c458e18654c43ec1f412f6e54e64e98062abeb317d9",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.MbedTLS.3.6.2+renesas.1.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "a42e039a03885881f9f0d31c3cdda2a170be500a258ba3c9649002b462028220",
+          "expectedSha": "a42e039a03885881f9f0d31c3cdda2a170be500a258ba3c9649002b462028220",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Arm.TFM.2.1.0+renesas.1.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "d49ec377f6abf5a79bf3b1874f5eac125dcab9a646092509b4acca6d41bf204d",
+          "expectedSha": "d49ec377f6abf5a79bf3b1874f5eac125dcab9a646092509b4acca6d41bf204d",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "FreeRTOS.FreeRTOS_plus_FAT.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e22ac0fe97eb7de8c21eb4245fd216e1a41d87eaf824ced9a2e39686e9de677e",
+          "expectedSha": "e22ac0fe97eb7de8c21eb4245fd216e1a41d87eaf824ced9a2e39686e9de677e",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Intel.TinyCrypt.0.2.8+renesas.2.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "61f38b70c1e4856ddad895ade13ab2a4c7b03ce4005bcc9bf1c1280af37ce5f4",
+          "expectedSha": "61f38b70c1e4856ddad895ade13ab2a4c7b03ce4005bcc9bf1c1280af37ce5f4",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Intel.tinyCBOR.0.6.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "0c1d2b95ca6e5bf7dc41e6bd284957f71d0d50c01b0b69c84965d70944d91f2e",
+          "expectedSha": "0c1d2b95ca6e5bf7dc41e6bd284957f71d0d50c01b0b69c84965d70944d91f2e",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Linaro.MCUboot.2.1.0+renesas.3.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "ea502f2139e5b72a00c5009eb244ad432129173aa4fe259f13e75ff6b9fcbf7a",
+          "expectedSha": "ea502f2139e5b72a00c5009eb244ad432129173aa4fe259f13e75ff6b9fcbf7a",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.Embedded-Wireless-Framework.1.0.0-preview.2+renesas.4.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "2dc6d888f2c837f996418bc9a497f6f5640e23bf6db59e88a0d8b784a10dc72c",
+          "expectedSha": "2dc6d888f2c837f996418bc9a497f6f5640e23bf6db59e88a0d8b784a10dc72c",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.FileX.6.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "939cd1c795be6b11e2e9009e40e21913525641b0e92bf5a91129e7bba9f4ee56",
+          "expectedSha": "939cd1c795be6b11e2e9009e40e21913525641b0e92bf5a91129e7bba9f4ee56",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.GUIX.6.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9609734277731462eb1190b4f83eaab1b991b692b3af2990034ff5afd7c2e718",
+          "expectedSha": "9609734277731462eb1190b4f83eaab1b991b692b3af2990034ff5afd7c2e718",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.LevelX.6.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "18319be9947350d483acadd3f91572d7299d79ef9563bc19402b249f7a3cf92c",
+          "expectedSha": "18319be9947350d483acadd3f91572d7299d79ef9563bc19402b249f7a3cf92c",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6e7b986c1128f7a978e65defe522a7461358d64541ad1d1d4fde19fe6fafe2f3",
+          "expectedSha": "6e7b986c1128f7a978e65defe522a7461358d64541ad1d1d4fde19fe6fafe2f3",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Microsoft.ThreadX.6.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "39b8400878ed4fae0da2ee9d6f5ef87c5fcc4e0fd9f7f13dd90e6b797d29cc79",
+          "expectedSha": "39b8400878ed4fae0da2ee9d6f5ef87c5fcc4e0fd9f7f13dd90e6b797d29cc79",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b2170458820cab47f169c237172dbd9b17665863f46535fa3ca9cee86aabee53",
+          "expectedSha": "b2170458820cab47f169c237172dbd9b17665863f46535fa3ca9cee86aabee53",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Oberon.Ocrypto.3.6.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "114135cdb30ac613cd0d2ef90ccc15a92ec55185d3bd67dfe7827761b8b00599",
+          "expectedSha": "114135cdb30ac613cd0d2ef90ccc15a92ec55185d3bd67dfe7827761b8b00599",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.Cavp.1.1.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "a30b110e6d40a80331127a111309e0028a8f205407c24ca020419f898c4ea45f",
+          "expectedSha": "a30b110e6d40a80331127a111309e0028a8f205407c24ca020419f898c4ea45f",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.DA14xxx.0.0.1+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5d633dd316d131cde0ea7ab71f435950d816c4caf46816509bda74558533f55c",
+          "expectedSha": "5d633dd316d131cde0ea7ab71f435950d816c4caf46816509bda74558533f55c",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.PTX.3.0.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "1347942910eaa68a34c98f73d018ce4e10275947929a755328a0f065db7a03df",
+          "expectedSha": "1347942910eaa68a34c98f73d018ce4e10275947929a755328a0f065db7a03df",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "46b801c73b2e435194a1329f8a01d0d3b16630bc71836aa51e4e51353c4758ec",
+          "expectedSha": "46b801c73b2e435194a1329f8a01d0d3b16630bc71836aa51e4e51353c4758ec",
+          "origin": "install edce92",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_baremetal_blinky.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e7ee9c9e46d8565978a42a7cab0ccfdfe3aed18606792e26500d92a3232452e8",
+          "expectedSha": "e7ee9c9e46d8565978a42a7cab0ccfdfe3aed18606792e26500d92a3232452e8",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_custom.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6c0bf5415ef358df5114bc7b92a980926c99dac53de4894012a66ffd677d6ffd",
+          "expectedSha": "6c0bf5415ef358df5114bc7b92a980926c99dac53de4894012a66ffd677d6ffd",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra0e1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b6829ff6e91bedfcdd396044d43b3987d8212181779b88b17006e68c0b0c6ba0",
+          "expectedSha": "b6829ff6e91bedfcdd396044d43b3987d8212181779b88b17006e68c0b0c6ba0",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra0e2_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "d8cf0f60ea9cb7dd5ebebddce013433d649640df1aa495c7afb7d3e358ab0974",
+          "expectedSha": "d8cf0f60ea9cb7dd5ebebddce013433d649640df1aa495c7afb7d3e358ab0974",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2a1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6d4544c83e5eee075fb64b9cfb2048d543ac0ddba783048a0f5b9362d464895c",
+          "expectedSha": "6d4544c83e5eee075fb64b9cfb2048d543ac0ddba783048a0f5b9362d464895c",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2a2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "a6dab3f535d16ee95e9bcfb9be3239778abdee66fcf91fde7c745f61ba6b201d",
+          "expectedSha": "a6dab3f535d16ee95e9bcfb9be3239778abdee66fcf91fde7c745f61ba6b201d",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2e1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "c7acd5f23c043ba1cac02f2f56c250542a6951cd649ead4d4f6bae8b970c5836",
+          "expectedSha": "c7acd5f23c043ba1cac02f2f56c250542a6951cd649ead4d4f6bae8b970c5836",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2e1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "7dc776278b0136b91a93f2903b6f069411f78b9d4a5659c6b3297c6955f161a1",
+          "expectedSha": "7dc776278b0136b91a93f2903b6f069411f78b9d4a5659c6b3297c6955f161a1",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2e2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "7e0e30034b68722314045f3965155386c5fce3a0d1741dc3782af35260945d03",
+          "expectedSha": "7e0e30034b68722314045f3965155386c5fce3a0d1741dc3782af35260945d03",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2e2_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "84317b8619baee693cd4f7ba27379fe7d7572493d0064c0247cd8765c74c0531",
+          "expectedSha": "84317b8619baee693cd4f7ba27379fe7d7572493d0064c0247cd8765c74c0531",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2e3_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "bc4f503fad1f68dce232245c9a9f35976b6fa25bf4781ef17d2c8c0012448fa5",
+          "expectedSha": "bc4f503fad1f68dce232245c9a9f35976b6fa25bf4781ef17d2c8c0012448fa5",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2l1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "00a845723a168f1e0c88700a62b127120c52d6fca7cde1db797abafa78ea408f",
+          "expectedSha": "00a845723a168f1e0c88700a62b127120c52d6fca7cde1db797abafa78ea408f",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2l1_rssk.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "30ef6bc44691fec5d598301575be4b4795adb6ce680cffc125553b763341122a",
+          "expectedSha": "30ef6bc44691fec5d598301575be4b4795adb6ce680cffc125553b763341122a",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2l1_voice.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "89a86ecba6b9c4ce1c3e87896f4e05552f0af05d177e9a38cc019fd08455bb49",
+          "expectedSha": "89a86ecba6b9c4ce1c3e87896f4e05552f0af05d177e9a38cc019fd08455bb49",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra2l2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "240b6f9694c1804c8b2ea0f93f08060839175ed0828b7ead9ea78f98e0c100ef",
+          "expectedSha": "240b6f9694c1804c8b2ea0f93f08060839175ed0828b7ead9ea78f98e0c100ef",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4e1_aik.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "c118b2f91ba5c1e99144f9928415318c0c8ee1587300bc004e42f14f06333f9d",
+          "expectedSha": "c118b2f91ba5c1e99144f9928415318c0c8ee1587300bc004e42f14f06333f9d",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4e1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "d9b0386a519d027b7ac9829aaa5d69feb3730c72dd810dba24b0ab296595551d",
+          "expectedSha": "d9b0386a519d027b7ac9829aaa5d69feb3730c72dd810dba24b0ab296595551d",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4e1_voice.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "16b532e9eccabbc24b6324b45f7dad8510065d5d3546248eb179d72bf3bb77a6",
+          "expectedSha": "16b532e9eccabbc24b6324b45f7dad8510065d5d3546248eb179d72bf3bb77a6",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4e2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "270a6beaa9a628ba5685d37c1f527eb7ece80e18f3fb63f61549cbfcf83ffc8a",
+          "expectedSha": "270a6beaa9a628ba5685d37c1f527eb7ece80e18f3fb63f61549cbfcf83ffc8a",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4e2_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "0e11dbb409367b07e7a9c9f9c09e1cbdd252b7f4e93d43b402fd3725c5e40825",
+          "expectedSha": "0e11dbb409367b07e7a9c9f9c09e1cbdd252b7f4e93d43b402fd3725c5e40825",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4l1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6407a6441ab3de5634683800b85f61e2ff9dcc28a90515164bebb19998ca9c62",
+          "expectedSha": "6407a6441ab3de5634683800b85f61e2ff9dcc28a90515164bebb19998ca9c62",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4l1_rssk.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "cb8cc41d1d3e290d937592e8a0026caf223a10e28487bb9f8d7cb893794f6ee1",
+          "expectedSha": "cb8cc41d1d3e290d937592e8a0026caf223a10e28487bb9f8d7cb893794f6ee1",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4m1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "333d424a8c63252332d09033f22e60e2f89f8cefc68074fbc26a7feffb38d821",
+          "expectedSha": "333d424a8c63252332d09033f22e60e2f89f8cefc68074fbc26a7feffb38d821",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4m2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "d1bc15b60f7913d52ba90427c32bbfa568df83c40cfd82775141ab95e443bb37",
+          "expectedSha": "d1bc15b60f7913d52ba90427c32bbfa568df83c40cfd82775141ab95e443bb37",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4m3_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "42a6348f586d4f7a9f89a45ff88ceac874a4da7637ed1437f11b48d860c4ef93",
+          "expectedSha": "42a6348f586d4f7a9f89a45ff88ceac874a4da7637ed1437f11b48d860c4ef93",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4t1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "38a59078661a9c1661ac6a7426bd50690434f5d4ea192c6ee74bd100f26f0cef",
+          "expectedSha": "38a59078661a9c1661ac6a7426bd50690434f5d4ea192c6ee74bd100f26f0cef",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4t1_mck.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "4d81794ba2e57ff499369a26ca4b45b09298adafc233dda0575ef406c396b8f6",
+          "expectedSha": "4d81794ba2e57ff499369a26ca4b45b09298adafc233dda0575ef406c396b8f6",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra4w1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "27bd6eb408911571e046dbea315a77ee99962608e94fa69c1ef26b21d8ef6eee",
+          "expectedSha": "27bd6eb408911571e046dbea315a77ee99962608e94fa69c1ef26b21d8ef6eee",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6e1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "17267c0c9889dd0e96c440e9e1af624ec189d9c332533b2a816a2d53ace27396",
+          "expectedSha": "17267c0c9889dd0e96c440e9e1af624ec189d9c332533b2a816a2d53ace27396",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6e1_voice.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "94d668ccd17085e9c329333c065157d8be22e2986de1a1d1777db819b001d121",
+          "expectedSha": "94d668ccd17085e9c329333c065157d8be22e2986de1a1d1777db819b001d121",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6e2_bgk.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "72adf7e4be76d2f7c268d9bf9ed9a0d753a551b04463f5da9c005bafe8b4dcdb",
+          "expectedSha": "72adf7e4be76d2f7c268d9bf9ed9a0d753a551b04463f5da9c005bafe8b4dcdb",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6e2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b23cf3b8507c0936a8d953349f1dcd2d8b8fce67823cf9701e9113e48c1cd34b",
+          "expectedSha": "b23cf3b8507c0936a8d953349f1dcd2d8b8fce67823cf9701e9113e48c1cd34b",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6e2_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "c998e8488f0c95c5c889db9022a9a7f9b4a2bbfc5607461a8546311d36fb1cd0",
+          "expectedSha": "c998e8488f0c95c5c889db9022a9a7f9b4a2bbfc5607461a8546311d36fb1cd0",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e845248d6985b578edeb5e21038aef2409d250a662255399697777080b2e4620",
+          "expectedSha": "e845248d6985b578edeb5e21038aef2409d250a662255399697777080b2e4620",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6e4262631b7ee2322d2c2b903be76755cd5776ee6768fed5d7e6fdd322da4d69",
+          "expectedSha": "6e4262631b7ee2322d2c2b903be76755cd5776ee6768fed5d7e6fdd322da4d69",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m3_aik.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "36bf9e63d44288a11b7d841ab1fb44fbe60dd1315f7b165a08a0385fae5af6a3",
+          "expectedSha": "36bf9e63d44288a11b7d841ab1fb44fbe60dd1315f7b165a08a0385fae5af6a3",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m3_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "20602d8865fd7a384719d8c202a03cd22c01c2cba24d0efc26151f02acbb510f",
+          "expectedSha": "20602d8865fd7a384719d8c202a03cd22c01c2cba24d0efc26151f02acbb510f",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m3g_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "f59ca89636b99345ec5f1ff37edc1e830d867e14fd92c41fd709d2b40a70a9df",
+          "expectedSha": "f59ca89636b99345ec5f1ff37edc1e830d867e14fd92c41fd709d2b40a70a9df",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m4_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "f84d1f3269615aae620e4bce7b06fe6b5893b365985cef8618b960d17d13b2c9",
+          "expectedSha": "f84d1f3269615aae620e4bce7b06fe6b5893b365985cef8618b960d17d13b2c9",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m5_ck.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "76b9817a288edc1ac97dd89f2f30cdcf248ae41cdc44700afb4bddef0e4201c9",
+          "expectedSha": "76b9817a288edc1ac97dd89f2f30cdcf248ae41cdc44700afb4bddef0e4201c9",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m5_ck_v2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "f75f7cbff54c38337e98096389645af5330488cad0596938033019b0f82f13e0",
+          "expectedSha": "f75f7cbff54c38337e98096389645af5330488cad0596938033019b0f82f13e0",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6m5_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "dede887dfe8766728872bd546d1fbd058b8f5ed36d8363ba57312165d92b91d1",
+          "expectedSha": "dede887dfe8766728872bd546d1fbd058b8f5ed36d8363ba57312165d92b91d1",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6t1_rssk.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "19787f857d2c09505c074db0598397b3b9f452c1f840b6033a72bfe3faac2a09",
+          "expectedSha": "19787f857d2c09505c074db0598397b3b9f452c1f840b6033a72bfe3faac2a09",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6t2_mck.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "bfd0fb74e7db48e2c5749f121fc5f5d041a9141227635c609d01761e78eed4f9",
+          "expectedSha": "bfd0fb74e7db48e2c5749f121fc5f5d041a9141227635c609d01761e78eed4f9",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6t3_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "4c083d308a35f172af013b076fb2ca89a5a063b8377084e7480cdf41ad6ab617",
+          "expectedSha": "4c083d308a35f172af013b076fb2ca89a5a063b8377084e7480cdf41ad6ab617",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra6t3_mck.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "4dc2233f92fada17ca4a25607e1cbf8b99d73ba4af269fb60b29652ddaf94056",
+          "expectedSha": "4dc2233f92fada17ca4a25607e1cbf8b99d73ba4af269fb60b29652ddaf94056",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8d1_aik.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b07b9a6eff8170a4411fbe4206125604da0d432982a6425a34effcb7a0b9187a",
+          "expectedSha": "b07b9a6eff8170a4411fbe4206125604da0d432982a6425a34effcb7a0b9187a",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8d1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5967ae968d20c55fb152bb3271f41cb363e2ad2553f0673bfa1789192e30136b",
+          "expectedSha": "5967ae968d20c55fb152bb3271f41cb363e2ad2553f0673bfa1789192e30136b",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8e1_fpb.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9b76b023d39c6ee05878d819e2cebaf1ae4f22c258476c944965d9c3e36201bf",
+          "expectedSha": "9b76b023d39c6ee05878d819e2cebaf1ae4f22c258476c944965d9c3e36201bf",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8e2_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "f87bce50f9e7325b60454df91127dce1d2f64349ae054cd1e13b9f95b8a90bdc",
+          "expectedSha": "f87bce50f9e7325b60454df91127dce1d2f64349ae054cd1e13b9f95b8a90bdc",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8m1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "42fd137bbed05125b712b4d02b2e4e2bde29e0b502aa5c7b6dcae0dcb9c924ec",
+          "expectedSha": "42fd137bbed05125b712b4d02b2e4e2bde29e0b502aa5c7b6dcae0dcb9c924ec",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8m1_vk.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "8be4a4848c6c746a6df342233b0511840634a9b8c5f08aa1558116e39a2bd61c",
+          "expectedSha": "8be4a4848c6c746a6df342233b0511840634a9b8c5f08aa1558116e39a2bd61c",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_board_ra8p1_ek.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "03740420e6fc31afedd28444c339c3463ba8a9297cbe141b622faa17c4e202ad",
+          "expectedSha": "03740420e6fc31afedd28444c339c3463ba8a9297cbe141b622faa17c4e202ad",
+          "origin": "install 54776c",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_board_ra8t1_mck.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "51b41eb7dea86a7435ec4fcb1592feb8d50a5c38771b56ebb3db41f227f3ad77",
+          "expectedSha": "51b41eb7dea86a7435ec4fcb1592feb8d50a5c38771b56ebb3db41f227f3ad77",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_freertos_blinky.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "1c22d17194d4bfe31ab95cbd1bc133ef30eb6d73cb1df7fba2bbc45a144ed766",
+          "expectedSha": "1c22d17194d4bfe31ab95cbd1bc133ef30eb6d73cb1df7fba2bbc45a144ed766",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RA_mcu_ra0e1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "f1a1ee32cda41c606dfaca7ed57e317a8e512f87d94623f7913f57a6fc2bb16f",
+          "expectedSha": "f1a1ee32cda41c606dfaca7ed57e317a8e512f87d94623f7913f57a6fc2bb16f",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra0e2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "e7d2c39c5ed95807c5a568bf27130b8ec8855ea3553d4d9212ac6b5d1fdf4b50",
+          "expectedSha": "e7d2c39c5ed95807c5a568bf27130b8ec8855ea3553d4d9212ac6b5d1fdf4b50",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2a1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "fd6ecc17b413612fa993fd0ac1b0fe8d945162ba69ac03e95029767f56ddc8fe",
+          "expectedSha": "fd6ecc17b413612fa993fd0ac1b0fe8d945162ba69ac03e95029767f56ddc8fe",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2a2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "dd6d43ac177e4c88247291459c2e9600423ba2ec9bee1af59d8ccd268d2f484f",
+          "expectedSha": "dd6d43ac177e4c88247291459c2e9600423ba2ec9bee1af59d8ccd268d2f484f",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2e1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "bb03f6ab39d614476c6d6d4fa84e1eaebcfeed3b7583a1fc3e3fa65f15ecc548",
+          "expectedSha": "bb03f6ab39d614476c6d6d4fa84e1eaebcfeed3b7583a1fc3e3fa65f15ecc548",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2e2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5ba14e2c8978fdfffb0b0180841b3ff6ab3b45a8d5bf9b7b069db0ef6de3000c",
+          "expectedSha": "5ba14e2c8978fdfffb0b0180841b3ff6ab3b45a8d5bf9b7b069db0ef6de3000c",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2e3.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "ff30b6ab06ee4699b303ee05a53f707141e14f48165d0d543fcfcfb1c84b02f8",
+          "expectedSha": "ff30b6ab06ee4699b303ee05a53f707141e14f48165d0d543fcfcfb1c84b02f8",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2l1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "482dc6fc1b279a79a1421334c376067ea2d58f2d250abacc8425ea90fea52a85",
+          "expectedSha": "482dc6fc1b279a79a1421334c376067ea2d58f2d250abacc8425ea90fea52a85",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra2l2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "3fb3cfd09ce9f66ab5414556ed957bd9203b6a2f6d33f13f9ab79ac689b93de9",
+          "expectedSha": "3fb3cfd09ce9f66ab5414556ed957bd9203b6a2f6d33f13f9ab79ac689b93de9",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4e1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9602d1e579b15f3189780e8ac62ccdc93ab8c878b57c5066824fc518f396ed71",
+          "expectedSha": "9602d1e579b15f3189780e8ac62ccdc93ab8c878b57c5066824fc518f396ed71",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4e2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "a81e6b4665d354879c006b8e4531e2110b2625c63a4606de933f49f57bc315c9",
+          "expectedSha": "a81e6b4665d354879c006b8e4531e2110b2625c63a4606de933f49f57bc315c9",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4l1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "05db9824eda362a36a6bbb614f478c603f22c3aef737256cdec25a4cf6e3e48c",
+          "expectedSha": "05db9824eda362a36a6bbb614f478c603f22c3aef737256cdec25a4cf6e3e48c",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4m1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "84076e1cba9476627e31ccd946d42c99214ad51b1fb1c1db0c5077a428336439",
+          "expectedSha": "84076e1cba9476627e31ccd946d42c99214ad51b1fb1c1db0c5077a428336439",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4m2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "95784a4fbee220045286de28ebaceb13d5cc90d12e787ec27bb35e7a3b35176e",
+          "expectedSha": "95784a4fbee220045286de28ebaceb13d5cc90d12e787ec27bb35e7a3b35176e",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4m3.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "02badee87b5790d01b23a2f19835778d6fd56f80b44589ef7137a670a9260cde",
+          "expectedSha": "02badee87b5790d01b23a2f19835778d6fd56f80b44589ef7137a670a9260cde",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4t1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "44d9650ab8206cc82924edb620d7b5a73781828de1e973605f79675ed7040057",
+          "expectedSha": "44d9650ab8206cc82924edb620d7b5a73781828de1e973605f79675ed7040057",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra4w1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "514b6a1929a7e4b69e0068d29fffddd49719bce507d37a20c634ee941d53977d",
+          "expectedSha": "514b6a1929a7e4b69e0068d29fffddd49719bce507d37a20c634ee941d53977d",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6e1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9e81b67b24e127ff689c17ea05fb7da9d93e82ed88ba1255881bc8c8eb9b6d79",
+          "expectedSha": "9e81b67b24e127ff689c17ea05fb7da9d93e82ed88ba1255881bc8c8eb9b6d79",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6e2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "bebc062045a0ac73cf19875bfbe96204e62fc0cc14ea39a548ed38929dde1ea8",
+          "expectedSha": "bebc062045a0ac73cf19875bfbe96204e62fc0cc14ea39a548ed38929dde1ea8",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6m1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "6513b21dfbf42b298de2108aab2b283a3dce95cb9dbca3b1c8e666aacee51bb2",
+          "expectedSha": "6513b21dfbf42b298de2108aab2b283a3dce95cb9dbca3b1c8e666aacee51bb2",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6m2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "751b7b0ce56bbc656ecd11210a2eb2645c7188b2acc37ee527b1f330a061fdfb",
+          "expectedSha": "751b7b0ce56bbc656ecd11210a2eb2645c7188b2acc37ee527b1f330a061fdfb",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6m3.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "592470e966dc1d1a468f09ba4281e345ac235ec0edccb8001d60818f4282b948",
+          "expectedSha": "592470e966dc1d1a468f09ba4281e345ac235ec0edccb8001d60818f4282b948",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6m4.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5c06a6eaee6d8c0df8f1dc99852fc25bd2c69f683a4a540bbb6bbfd789eebb8e",
+          "expectedSha": "5c06a6eaee6d8c0df8f1dc99852fc25bd2c69f683a4a540bbb6bbfd789eebb8e",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "0f569813d1b6e884f6b96ffe544be14f6c35321421c982b6d343c9559945ed14",
+          "expectedSha": "0f569813d1b6e884f6b96ffe544be14f6c35321421c982b6d343c9559945ed14",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6t1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "8a0d91533493d964fe04d7dd9c5b3fcae420dea93a11b336aba6651e67f9b0c1",
+          "expectedSha": "8a0d91533493d964fe04d7dd9c5b3fcae420dea93a11b336aba6651e67f9b0c1",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6t2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "abc5e23fb1c10dc7a16e736b4877e2236ec1577b901c4a0c33460143339cc9de",
+          "expectedSha": "abc5e23fb1c10dc7a16e736b4877e2236ec1577b901c4a0c33460143339cc9de",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra6t3.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "969f4e04967db10095dca92ab4ae8a3d34ff7a2aeb03289636e1486bd2214d98",
+          "expectedSha": "969f4e04967db10095dca92ab4ae8a3d34ff7a2aeb03289636e1486bd2214d98",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8d1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "85b041544148d658aab8bfe82c6d65deb7e7c79d944c62835dffea6d4da3364a",
+          "expectedSha": "85b041544148d658aab8bfe82c6d65deb7e7c79d944c62835dffea6d4da3364a",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8e1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "5d2c3c88c285f1ef9a57ac75b49c612a879d66f96d22f4d70899dfa9fc54dff5",
+          "expectedSha": "5d2c3c88c285f1ef9a57ac75b49c612a879d66f96d22f4d70899dfa9fc54dff5",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8e2.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "94f06c0a5a37e78390f8070815cb1c8a4843eff69be98aa2037a90e7392676b9",
+          "expectedSha": "94f06c0a5a37e78390f8070815cb1c8a4843eff69be98aa2037a90e7392676b9",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8m1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "4fa0ec554d6c9d2d334d267bb174bf236d5324c4215fc3cf700ee5420b92f1d9",
+          "expectedSha": "4fa0ec554d6c9d2d334d267bb174bf236d5324c4215fc3cf700ee5420b92f1d9",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8p1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "7a5558403376abcaf4677e4abd95901af7f5837abf38083d473853eb5b926b75",
+          "expectedSha": "7a5558403376abcaf4677e4abd95901af7f5837abf38083d473853eb5b926b75",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_mcu_ra8t1.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9280bbdde6ddd428120f2edf631024cf104ec12d54f5aad9518425c4feb989a8",
+          "expectedSha": "9280bbdde6ddd428120f2edf631024cf104ec12d54f5aad9518425c4feb989a8",
+          "origin": "install 433fc5",
+          "journalled": true
+        },
+        {
+          "name": "Renesas.RA_threadx_blinky.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "d3221133b2a9bb0f4b02174891e03b22c68bb37f1e04ca02ca848a9ff4f7a227",
+          "expectedSha": "d3221133b2a9bb0f4b02174891e03b22c68bb37f1e04ca02ca848a9ff4f7a227",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RSIP_E51A_Cavp.1.5.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b0b5e8c9e2edb6a3feba253d4bdde0e6b7138beda74c57785a05e743d2e58414",
+          "expectedSha": "b0b5e8c9e2edb6a3feba253d4bdde0e6b7138beda74c57785a05e743d2e58414",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "Renesas.RYZ012.3.0.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "4ed11a7f3c5e7fd889d52e0fe71884c094586690e6b3325898f6c29f5de52702",
+          "expectedSha": "4ed11a7f3c5e7fd889d52e0fe71884c094586690e6b3325898f6c29f5de52702",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "SEGGER.emWin.6.48.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "b3c3e74beede52d17b7acf7c4232032bc2b10dc74fcd548cfdedbe2dad949099",
+          "expectedSha": "b3c3e74beede52d17b7acf7c4232032bc2b10dc74fcd548cfdedbe2dad949099",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "TES.Dave2D.3.8.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "9f7665f27e600bf3c1f0c15991d111902b52b8e40e4a52ff7246e7ed9ed9122b",
+          "expectedSha": "9f7665f27e600bf3c1f0c15991d111902b52b8e40e4a52ff7246e7ed9ed9122b",
+          "origin": "stock",
+          "journalled": false
+        },
+        {
+          "name": "lwIP.lwIP.2.2.0+fsp.5.9.0.pack",
+          "state": "identical",
+          "installedSha": "da23134ed40f11f68f9626a46c05dc20abcd6997ac1c5bbaca9ff71358d7c835",
+          "expectedSha": "da23134ed40f11f68f9626a46c05dc20abcd6997ac1c5bbaca9ff71358d7c835",
+          "origin": "stock",
+          "journalled": false
+        }
+      ],
+      "counts": {
+        "identical": 126,
+        "differs": 0,
+        "extra": 0,
+        "missing": 0
+      }
+    },
+    "support": {
+      "packs": [
+        "Amazon.CellularInterface.1.3.0+fsp.5.9.0.pack",
+        "Amazon.FreeRTOS-Kernel.11.1.0+fsp.5.9.0.pack",
+        "Amazon.FreeRTOS-Plus-TCP.4.2.2+fsp.5.9.0.pack",
+        "Amazon.FreeRTOS.202411.0.0+renesas.fsp.5.9.0.pack",
+        "Amazon.OTA.3.4.0+fsp.5.9.0.pack",
+        "Amazon.coreHTTP.3.1.1+renesas.0.fsp.5.9.0.pack",
+        "Amazon.coreJSON.3.3.0+fsp.5.9.0.pack",
+        "Amazon.coreMQTT.2.3.1+fsp.5.9.0.pack",
+        "Amazon.corePKCS11.3.6.2+fsp.5.9.0.pack",
+        "Arm.CMSIS-DSP.1.16.2+fsp.5.9.0.pack",
+        "Arm.CMSIS-NN.6.0.0+fsp.5.9.0.pack",
+        "Arm.CMSIS6.6.1.0+fsp.5.9.0.pack",
+        "Arm.LittleFS.2.2.1+renesas.1.fsp.5.9.0.pack",
+        "Arm.MbedCrypto.3.6.2+renesas.1.fsp.5.9.0.pack",
+        "Arm.MbedTLS.3.6.2+renesas.1.fsp.5.9.0.pack",
+        "Arm.TFM.2.1.0+renesas.1.fsp.5.9.0.pack",
+        "FreeRTOS.FreeRTOS_plus_FAT.5.9.0.pack",
+        "Intel.TinyCrypt.0.2.8+renesas.2.fsp.5.9.0.pack",
+        "Intel.tinyCBOR.0.6.0+fsp.5.9.0.pack",
+        "Linaro.MCUboot.2.1.0+renesas.3.fsp.5.9.0.pack",
+        "Microsoft.Embedded-Wireless-Framework.1.0.0-preview.2+renesas.4.fsp.5.9.0.pack",
+        "Microsoft.FileX.6.4.0+fsp.5.9.0.pack",
+        "Microsoft.GUIX.6.4.0+fsp.5.9.0.pack",
+        "Microsoft.LevelX.6.4.0+fsp.5.9.0.pack",
+        "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+        "Microsoft.ThreadX.6.4.0+fsp.5.9.0.pack",
+        "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+        "Oberon.Ocrypto.3.6.0+fsp.5.9.0.pack",
+        "Renesas.Cavp.1.1.0+fsp.5.9.0.pack",
+        "Renesas.DA14xxx.0.0.1+fsp.5.9.0.pack",
+        "Renesas.PTX.3.0.0+fsp.5.9.0.pack",
+        "Renesas.RA.5.9.0.pack",
+        "Renesas.RA_baremetal_blinky.5.9.0.pack",
+        "Renesas.RA_board_custom.5.9.0.pack",
+        "Renesas.RA_board_ra0e1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra0e2_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra2a1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra2a2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra2e1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra2e1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra2e2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra2e2_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra2e3_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra2l1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra2l1_rssk.5.9.0.pack",
+        "Renesas.RA_board_ra2l1_voice.5.9.0.pack",
+        "Renesas.RA_board_ra2l2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4e1_aik.5.9.0.pack",
+        "Renesas.RA_board_ra4e1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra4e1_voice.5.9.0.pack",
+        "Renesas.RA_board_ra4e2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4e2_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra4l1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4l1_rssk.5.9.0.pack",
+        "Renesas.RA_board_ra4m1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4m2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4m3_ek.5.9.0.pack",
+        "Renesas.RA_board_ra4t1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra4t1_mck.5.9.0.pack",
+        "Renesas.RA_board_ra4w1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6e1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra6e1_voice.5.9.0.pack",
+        "Renesas.RA_board_ra6e2_bgk.5.9.0.pack",
+        "Renesas.RA_board_ra6e2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6e2_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra6m1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6m2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6m3_aik.5.9.0.pack",
+        "Renesas.RA_board_ra6m3_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6m3g_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6m4_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6m5_ck.5.9.0.pack",
+        "Renesas.RA_board_ra6m5_ck_v2.5.9.0.pack",
+        "Renesas.RA_board_ra6m5_ek.5.9.0.pack",
+        "Renesas.RA_board_ra6t1_rssk.5.9.0.pack",
+        "Renesas.RA_board_ra6t2_mck.5.9.0.pack",
+        "Renesas.RA_board_ra6t3_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra6t3_mck.5.9.0.pack",
+        "Renesas.RA_board_ra8d1_aik.5.9.0.pack",
+        "Renesas.RA_board_ra8d1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra8e1_fpb.5.9.0.pack",
+        "Renesas.RA_board_ra8e2_ek.5.9.0.pack",
+        "Renesas.RA_board_ra8m1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra8m1_vk.5.9.0.pack",
+        "Renesas.RA_board_ra8p1_ek.5.9.0.pack",
+        "Renesas.RA_board_ra8t1_mck.5.9.0.pack",
+        "Renesas.RA_freertos_blinky.5.9.0.pack",
+        "Renesas.RA_mcu_ra0e1.5.9.0.pack",
+        "Renesas.RA_mcu_ra0e2.5.9.0.pack",
+        "Renesas.RA_mcu_ra2a1.5.9.0.pack",
+        "Renesas.RA_mcu_ra2a2.5.9.0.pack",
+        "Renesas.RA_mcu_ra2e1.5.9.0.pack",
+        "Renesas.RA_mcu_ra2e2.5.9.0.pack",
+        "Renesas.RA_mcu_ra2e3.5.9.0.pack",
+        "Renesas.RA_mcu_ra2l1.5.9.0.pack",
+        "Renesas.RA_mcu_ra2l2.5.9.0.pack",
+        "Renesas.RA_mcu_ra4e1.5.9.0.pack",
+        "Renesas.RA_mcu_ra4e2.5.9.0.pack",
+        "Renesas.RA_mcu_ra4l1.5.9.0.pack",
+        "Renesas.RA_mcu_ra4m1.5.9.0.pack",
+        "Renesas.RA_mcu_ra4m2.5.9.0.pack",
+        "Renesas.RA_mcu_ra4m3.5.9.0.pack",
+        "Renesas.RA_mcu_ra4t1.5.9.0.pack",
+        "Renesas.RA_mcu_ra4w1.5.9.0.pack",
+        "Renesas.RA_mcu_ra6e1.5.9.0.pack",
+        "Renesas.RA_mcu_ra6e2.5.9.0.pack",
+        "Renesas.RA_mcu_ra6m1.5.9.0.pack",
+        "Renesas.RA_mcu_ra6m2.5.9.0.pack",
+        "Renesas.RA_mcu_ra6m3.5.9.0.pack",
+        "Renesas.RA_mcu_ra6m4.5.9.0.pack",
+        "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+        "Renesas.RA_mcu_ra6t1.5.9.0.pack",
+        "Renesas.RA_mcu_ra6t2.5.9.0.pack",
+        "Renesas.RA_mcu_ra6t3.5.9.0.pack",
+        "Renesas.RA_mcu_ra8d1.5.9.0.pack",
+        "Renesas.RA_mcu_ra8e1.5.9.0.pack",
+        "Renesas.RA_mcu_ra8e2.5.9.0.pack",
+        "Renesas.RA_mcu_ra8m1.5.9.0.pack",
+        "Renesas.RA_mcu_ra8p1.5.9.0.pack",
+        "Renesas.RA_mcu_ra8t1.5.9.0.pack",
+        "Renesas.RA_threadx_blinky.5.9.0.pack",
+        "Renesas.RSIP_E51A_Cavp.1.5.0+fsp.5.9.0.pack",
+        "Renesas.RYZ012.3.0.0+fsp.5.9.0.pack",
+        "SEGGER.emWin.6.48.0+fsp.5.9.0.pack",
+        "TES.Dave2D.3.8.0+fsp.5.9.0.pack",
+        "lwIP.lwIP.2.2.0+fsp.5.9.0.pack"
+      ],
+      "checked": 2736,
+      "ok": 2667,
+      "findings": [
+        {
+          "pack": "Arm.CMSIS-NN.6.0.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Arm##CMSIS##CMSIS5##NN####6.0.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Arm.CMSIS6.6.1.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Arm##CMSIS##CMSIS5##CoreM####6.1.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.FileX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##FileX##fx####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.GUIX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##GUIX##gx####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.LevelX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##LevelX##lx####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##nxd####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##azure_iot####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##nx_crypto####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Renesas##Middleware##all##rm_netx_secure_crypto_sw_port####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##nx_secure####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##nxd_servers####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.NetXDuo.6.4.0+renesas.0.fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##NetX Duo##nxd_bsd####6.4.0+renesas.0.fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##pcdc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##hcdc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##pprn####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##hprn####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##huvc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##haud####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##pmsc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##hmsc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##phid####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##hhid####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##paud####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##dfu####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##otgcdc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##otgmsc####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Microsoft.USBX.6.4.0+fsp.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Microsoft##Azure##USBX##otghid####6.4.0+fsp.5.9.0.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".module_descriptions/Renesas##HAL Drivers##all##r_doc####5.9.0.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/baremetal_blinky/baremetal_blinky.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/baremetal_blinky/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/baremetal_blinky/src/hal_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/baremetal_minimal/baremetal_minimal.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/baremetal_minimal/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_blinky/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_blinky/freertos_blinky.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_blinky/src/blinky_thread_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_blinky/src/hal_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_minimal/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_minimal/freertos_minimal.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/freertos_minimal/src/hal_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_blinky/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_blinky/threadx_blinky.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_blinky/src/blinky_thread_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_blinky/src/hal_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_minimal/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_minimal/threadx_minimal.pdpt"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/threadx_minimal/src/hal_entry.c"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/trustzone_rtos/configuration.xml"
+        },
+        {
+          "pack": "Renesas.RA.5.9.0.pack",
+          "state": "untracked",
+          "source": ".templates/trustzone_rtos/trustzone_rtos.pdpt"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra0e1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA0E107.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA0E107.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA0E107.svd",
+          "expectedSha": "3ce7279b05a917e1e69ab5001fd3569fb7470f7d0b9719be88931c1252a4eaa1",
+          "actualSha": "03a4ba9fbaeea0b93155d8edf7b6dd3de20bdf98ef41c245da8c7e9ed8d307cf"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra0e2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA0E209.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA0E209.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA0E209.svd",
+          "expectedSha": "2c7c95b2640b366e4b418a20d4379133268fb7b9c62b2389fc403c63dbcb8525",
+          "actualSha": "6e96ea192389681f1464dd79cc50764ea5aa44125c5fd22466ae1f935df6bb27"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2a2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2A2AD.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2A2AD.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2A2AD.svd",
+          "expectedSha": "98217b74551f7e7d0ce023472c1b1d0ed7152266cad65a4d73ddfede2bf0da38",
+          "actualSha": "766a16d3b27f5d1082ed5a788db660412afea6b690b8c63dddd2a6b52ced9e4e"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2e1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2E1A9.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E1A9.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2E1A9.svd",
+          "expectedSha": "05838ba7d83d685816127e0b1b4dd2d2a019fb1324ad7c3fa50745b4a22cd313",
+          "actualSha": "9b143adefc63bda8f7b4b6d11cf59c97b3d1bcdf3743832ce643f43246aa43a8"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2e2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2E2A7.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E2A7.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2E2A7.svd",
+          "expectedSha": "2b2e825f934ff82be2e7d691d5cc236dea2047af0c4b1951d47f1d9798ea0bfd",
+          "actualSha": "7bf1901762785ba5ad8e11c74631e0ad95a3955865edb41afcb70b030829d092"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2e3.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2E307.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2E307.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2E307.svd",
+          "expectedSha": "ef63b460b36328b1ec81ba2d43f8b30c4c06f794d42097db3e363c8bee47ba7f",
+          "actualSha": "c505ad72cb15bf96a193e8e66744995f722c78db075fdec17d15bf127ae04e4f"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2l1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2L1AB.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2L1AB.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2L1AB.svd",
+          "expectedSha": "eacad9964bf3c98df9702f991cdec81e39677fe239f7647db6be4a6dc94e231e",
+          "actualSha": "74495930afaf0714c87f59a1c92345d0fc42ca00643738a8ae15c33bf1dca665"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra2l2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA2L209.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA2L209.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA2L209.svd",
+          "expectedSha": "9b4a25e8134cbbca9d21a505004bb24d87876ad29d4ddb77873e9de3eee9872f",
+          "actualSha": "904e52b41881d762f5757e5a20a432d1a07d1e2731f1f7771895b228d10d36f2"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra4e2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA4E2B9.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4E2B9.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA4E2B9.svd",
+          "expectedSha": "2701ebbd28f98c2ea4aab046d584f2ad7e7d48d8b2deb7caa98954b65e56fed3",
+          "actualSha": "e167c0ba68a2c50282ca47dfd20245fa1ad7233363dc0168217e5dc63a109a48"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra4l1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA4L1BD.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4L1BD.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA4L1BD.svd",
+          "expectedSha": "4a912206f290e38a2e255a2067e4805f645aa4c9e193a1aec6c7f567eb524e2f",
+          "actualSha": "67eeba7850a781323994d0bf5bdb05c9f3772e5d615a68c1316e0d83ee8a1c24"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra4m2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA4M2AD.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4M2AD.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA4M2AD.svd",
+          "expectedSha": "f602a6e6d51f6d948291f11f89da402960ba55657b8c355b9959cda4fcf3d5f8",
+          "actualSha": "9683830d9ce8457c711d7609c7581ed43668a6b43b7c48f82c7f4df8991bf0f2"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra4m3.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA4M3AF.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4M3AF.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA4M3AF.svd",
+          "expectedSha": "2bd6b112829487bef6a88557379e6af566c29f19b963c6b4201d730eb0e745ed",
+          "actualSha": "b2cfcb24489157d2bd8ad90dd88c826203bc0825b45bd05a9e04156a3dc3fb55"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra4t1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA4T1BB.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA4T1BB.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA4T1BB.svd",
+          "expectedSha": "8cfa0ef186b9db23742de9e0f21400e68e5f1a59a6db8c8e45c652bd385bf39c",
+          "actualSha": "dc31925af941c0b5d258e5287cda024773e7699545d356c88ed8a438677c2113"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6e1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6E10F.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6E10F.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6E10F.svd",
+          "expectedSha": "7e44ee807662f48f948e355e7782d6327dc3ed1c8ab69b3ad7f9bc7e15a1c6c9",
+          "actualSha": "2ce9dbe39a40979eb13a3d86741c4e07254d3b694279b1dfcfc1a25fbddea757"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6e2.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6E2BB.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6E2BB.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6E2BB.svd",
+          "expectedSha": "985ba0d0fae07a51a4d0272d145c55573f0897cf2544628a948ada339a0ae2ef",
+          "actualSha": "35f0378519f9bbda9ea8765d112156f918356a23dd210843c00b0ec7bc9269b7"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6m4.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6M4AF.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M4AF.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6M4AF.svd",
+          "expectedSha": "b1cbb14967af35b5df7c94c23064fdcbb53592428d7471b87c0b87ca37eecfe4",
+          "actualSha": "40d8ea904d55568eb872ee58a40a872d4e7b0d28e8cb630aeb60ca65100b28cc"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6M5BH.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M5BH.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6M5BH.svd",
+          "expectedSha": "4bd7437bbc712aa1781142e36833c8d492448b985a16e65d95574e037be6554b",
+          "actualSha": "7e11743cf0f7b102cda11dcd0904848ea1c7ac15d31a9251bdb59a1db7711977"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6m5.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6M5ZH.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6M5ZH.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6M5ZH.svd",
+          "expectedSha": "7e947831400413d595ca81a47a75cc9ecdcd68acd3348f49ebc0a91a9a584305",
+          "actualSha": "f9d9dc70f8e68bdd69b488ef21914bbc18f1810526ea7548050d8918d0e7f3e3"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra6t3.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA6T3BB.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA6T3BB.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA6T3BB.svd",
+          "expectedSha": "b7b95d33d054fd3a597ac07e1b3a5ff533e032b302cb1b2abb87d1a4e9fe2969",
+          "actualSha": "a57c4890cbeada482250a1b54435b0a890ef93dee712e8d336ef969f5448a3cd"
+        },
+        {
+          "pack": "Renesas.RA_mcu_ra8d1.5.9.0.pack",
+          "state": "shared",
+          "source": ".mcu/.iofiles/R7FA8D1AF.svd",
+          "file": "<e2-area>/home/.eclipse/com.renesas.platform_1273726404/DebugComp/RA/IoFiles/R7FA8D1AF.svd",
+          "relative": "DebugComp/RA/IoFiles/R7FA8D1AF.svd",
+          "expectedSha": "5c5ef72972f0e844f1f401f1cb21be03bbf9399d2e5eec971982f42182aa7505",
+          "actualSha": "b48f498bbab94ad4e342bb0c2dcaf0d53c5acf0c15710687a54b06205fbdda5f"
+        }
+      ],
+      "unprocessedPacks": []
+    }
+  },
+  "warnings": [],
+  "timings": {
+    "totalMs": 1495
+  },
+  "host": "<e2studio>/Renesas e2 studio with RA FSP 6.6.0.app/Contents/MacOS/e2studio",
+  "workspace": "<e2-area>/state/w/4afb3dae"
+}

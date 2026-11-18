@@ -1,0 +1,1063 @@
+{
+  "types": [
+    {
+      "name": "R_MRAM_Type",
+      "size": "0x3808",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.1, p.3561\u20133591",
+      "members": [
+        {
+          "name": "MRCPFB",
+          "offset": "0x000",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MPFBEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.1, p.3561",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/01-60.5.1-mrcpfb-code-mram-prefetch-buffer-enable-r.md"
+        },
+        {
+          "name": "MRCFREQ",
+          "offset": "0x004",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRCMHZ",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.2, p.3561",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/02-60.5.2-mrcfreq-code-mram-frequency-notifications.md"
+        },
+        {
+          "name": "MREFREQ",
+          "offset": "0x008",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MREMHZ",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.3, p.3562",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/03-60.5.3-mrefreq-extra-mram-frequency-notification.md"
+        },
+        {
+          "name": "MRCDECC",
+          "offset": "0x010",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DECDISC",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ECCSELC",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.4, p.3563",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/04-60.5.4-mrcdecc-code-mram-ecc-decoder-control-reg.md"
+        },
+        {
+          "name": "MRCRAEINT",
+          "offset": "0x014",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "INTENBDC",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "INTENBTC",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.5, p.3564",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/05-60.5.5-mrcraeint-code-mram-read-access-error-int.md"
+        },
+        {
+          "name": "MRCRAES",
+          "offset": "0x018",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DECERRC",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEDERRC",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.6, p.3564",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/06-60.5.6-mrcraes-code-mram-read-access-error-statu.md"
+        },
+        {
+          "name": "MRCRTEA",
+          "offset": "0x01C",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MRCRTEA",
+              "pos": 5,
+              "bits": 27,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.7, p.3565",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/07-60.5.7-mrcrtea-code-mram-ted-error-address-regis.md"
+        },
+        {
+          "name": "MRCRDEA",
+          "offset": "0x020",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MRCRDEA",
+              "pos": 5,
+              "bits": 27,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.8, p.3566",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/08-60.5.8-mrcrdea-code-mram-dec-error-address-regis.md"
+        },
+        {
+          "name": "MRERAEINT",
+          "offset": "0x034",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "INTENBDE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "INTENBTE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.9, p.3566",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/09-60.5.9-mreraeint-extra-mram-read-access-error-in.md"
+        },
+        {
+          "name": "MRERAES",
+          "offset": "0x038",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DECERRE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEDERRE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.10, p.3567",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/10-60.5.10-mreraes-extra-mram-read-access-error-sta.md"
+        },
+        {
+          "name": "MRERTEA",
+          "offset": "0x03C",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MRERTEA",
+              "pos": 4,
+              "bits": 28,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.11, p.3568",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/11-60.5.11-mrertea-extra-mram-ted-error-address-reg.md"
+        },
+        {
+          "name": "MRERDEA",
+          "offset": "0x040",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MRERDEA",
+              "pos": 4,
+              "bits": 28,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.12, p.3569",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/12-60.5.12-mrerdea-extra-mram-dec-error-address-reg.md"
+        },
+        {
+          "name": "MSAR",
+          "offset": "0x100",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MREECCSA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MREFREQSA",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MRCECCSA",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MRCFREQSA",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MPFBENSA",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MACICMISA",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MACICMRSA",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MACITRSA",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MRCPSA",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MREPSEQSA",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MRCPSEQSA",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.13, p.3569",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/13-60.5.13-msar-mram-security-attribution-register.md"
+        },
+        {
+          "name": "MREZS",
+          "offset": "0x400",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "WHUKZF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "WHUKEXE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.14, p.3571",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/14-60.5.14-mrezs-extra-mram-zeroization-status-regi.md"
+        },
+        {
+          "name": "MREZC",
+          "offset": "0x404",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WHUKZE",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.15, p.3571",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/15-60.5.15-mrezc-extra-mram-zeroization-control-reg.md"
+        },
+        {
+          "name": "MASTAT",
+          "offset": "0x2010",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MREAE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMDLK",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.16, p.3572",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/16-60.5.16-mastat-extra-mram-access-status-register.md"
+        },
+        {
+          "name": "MPAEINT",
+          "offset": "0x2014",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MREAEIE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMDLKIE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.17, p.3573",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/17-60.5.17-mpaeint-extra-mram-access-error-interrup.md"
+        },
+        {
+          "name": "MRDYIE",
+          "offset": "0x2018",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRDYIE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.18, p.3574",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/18-60.5.18-mrdyie-extra-mram-ready-interrupt-enable.md"
+        },
+        {
+          "name": "MSADDR",
+          "offset": "0x2030",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MSADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.19, p.3574",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/19-60.5.19-msaddr-maci-command-start-address-regist.md",
+          "note": "Offset is 0x2030 in HM 60.5.19; the integration contract value 0x2044 is not used."
+        },
+        {
+          "name": "MCNTSELR",
+          "offset": "0x2048",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CNTSEL",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.20, p.3575",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/20-60.5.20-mcntselr-mram-counter-select-register.md"
+        },
+        {
+          "name": "MCNTDTR0",
+          "offset": "0x204c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CNTRDAT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.21, p.3576",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/21-60.5.21-mcntdtrn-mram-counter-data-register-n-0.md"
+        },
+        {
+          "name": "MCNTDTR1",
+          "offset": "0x2050",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CNTRDAT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.21, p.3576",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/21-60.5.21-mcntdtrn-mram-counter-data-register-n-0.md"
+        },
+        {
+          "name": "MCTRCNTR",
+          "offset": "0x2060",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRTRG",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "Key",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.22, p.3576",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/22-60.5.22-mctrcntr-mram-configuration-update-trans.md"
+        },
+        {
+          "name": "MCTRLSR",
+          "offset": "0x2064",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TRLIST",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.23, p.3577",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/23-60.5.23-mctrlsr-mram-configuration-update-transf.md"
+        },
+        {
+          "name": "MCTRSTATR",
+          "offset": "0x206C",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "TRBUSY",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TRMD",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.24, p.3578",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/24-60.5.24-mctrstatr-mram-configuration-update-tran.md"
+        },
+        {
+          "name": "MSTATR",
+          "offset": "0x2080",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CFGSETERR",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PRGERR",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ILGLERR",
+              "pos": 14,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "MRDY",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TZFERR",
+              "pos": 19,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OTERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SECERR",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ILGCOMERR",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.25, p.3578",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/25-60.5.25-mstatr-extra-mram-status-register.md"
+        },
+        {
+          "name": "MENTRYR",
+          "offset": "0x2084",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MENTRY",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.26, p.3581",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/26-60.5.26-mentryr-extra-mram-program-mode-entry-re.md"
+        },
+        {
+          "name": "MSUINITR",
+          "offset": "0x208C",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SUINIT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.27, p.3582",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/27-60.5.27-msuinitr-extra-mram-sequencer-setup-init.md"
+        },
+        {
+          "name": "MCMDR",
+          "offset": "0x20A0",
+          "width": 16,
+          "access": "R",
+          "fields": [
+            {
+              "name": "PCMDR",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "CMDR",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.28, p.3582",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/28-60.5.28-mcmdr-maci-command-register.md"
+        },
+        {
+          "name": "MSUASMON",
+          "offset": "0x20DC",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "FSPR",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BTSIZE",
+              "pos": 29,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "BTFLG",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.29, p.3583",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/29-60.5.29-msuasmon-mram-startup-area-select-monito.md"
+        },
+        {
+          "name": "MSUACR",
+          "offset": "0x20E8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SAS",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.30, p.3584",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/30-60.5.30-msuacr-mram-startup-area-control-registe.md"
+        },
+        {
+          "name": "MRPSC",
+          "offset": "0x2800",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MHSPEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.31, p.3585",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/31-60.5.31-mrpsc-mram-program-speed-control-registe.md"
+        },
+        {
+          "name": "MRCPC0",
+          "offset": "0x3000",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRCPNEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.32, p.3585",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/32-60.5.32-mrcpc0-code-mram-program-control-registe.md"
+        },
+        {
+          "name": "MRCPC1",
+          "offset": "0x3004",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRCPSEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.33, p.3586",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/33-60.5.33-mrcpc1-code-mram-program-control-registe.md"
+        },
+        {
+          "name": "MRCBPROT0",
+          "offset": "0x3008",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BPCN0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.34, p.3586",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/34-60.5.34-mrcbprot0-code-mram-block-protection-reg.md"
+        },
+        {
+          "name": "MRCBPROT1",
+          "offset": "0x300C",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BPCN1",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.35, p.3587",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/35-60.5.35-mrcbprot1-code-mram-block-protection-reg.md"
+        },
+        {
+          "name": "MRCPS",
+          "offset": "0x3010",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PRGERRC",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ECCERRC",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ABUFEMP",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ABUFFULL",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PRGBSYC",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.36, p.3587",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/36-60.5.36-mrcps-code-mram-program-status-register.md"
+        },
+        {
+          "name": "MRCPAEINT",
+          "offset": "0x3014",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRCAEIE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.37, p.3589",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/37-60.5.37-mrcpaeint-code-mram-program-access-error.md"
+        },
+        {
+          "name": "MRCPEA",
+          "offset": "0x3018",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MCPEA",
+              "pos": 5,
+              "bits": 27,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.38, p.3589",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/38-60.5.38-mrcpea-code-mram-program-error-address-r.md"
+        },
+        {
+          "name": "MRCFLR",
+          "offset": "0x3030",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRCFL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.39, p.3590",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/39-60.5.39-mrcflr-code-mram-flush-register.md"
+        },
+        {
+          "name": "MRCEECC",
+          "offset": "0x3804",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ECCBYPC",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.40, p.3590",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/40-60.5.40-mrceecc-code-mram-ecc-encoder-control-re.md"
+        }
+      ]
+    },
+    {
+      "name": "R_UIDR_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.41, p.3591",
+      "members": [
+        {
+          "name": "UIDR",
+          "offset": "0x00",
+          "width": 32,
+          "access": "R",
+          "reset": "chip-specific",
+          "count": 4,
+          "individual_names": [
+            "UIDR0",
+            "UIDR1",
+            "UIDR2",
+            "UIDR3"
+          ],
+          "fields": [
+            {
+              "name": "UID",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.41, p.3591",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/41-60.5.41-uidrn-unique-id-registers-n-n-0-to-3.md"
+        }
+      ]
+    },
+    {
+      "name": "R_PNR_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.42, p.3591",
+      "members": [
+        {
+          "name": "PNR",
+          "offset": "0x00",
+          "width": 32,
+          "access": "R",
+          "reset": "chip-specific",
+          "count": 4,
+          "individual_names": [
+            "PNR0",
+            "PNR1",
+            "PNR2",
+            "PNR3"
+          ],
+          "fields": [
+            {
+              "name": "PNR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.42, p.3591",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/42-60.5.42-pnrn-part-numbering-register-n-n-0-to-3.md"
+        }
+      ]
+    },
+    {
+      "name": "R_MCUVER_Type",
+      "size": "0x01",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.43, p.3592",
+      "members": [
+        {
+          "name": "MCUVER",
+          "offset": "0x00",
+          "width": 8,
+          "access": "R",
+          "reset": "chip-specific",
+          "fields": [
+            {
+              "name": "MCUVE",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.43, p.3592",
+          "manual_path": "67-60.-mram/05-60.5-register-descriptions/43-60.5.43-mcuver-mcu-version-register.md"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_MRAM",
+      "type": "R_MRAM_Type",
+      "secure": "0x4013c000",
+      "nonsecure": "0x5013c000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a760.5.1, p.3561"
+    },
+    {
+      "name": "R_UIDR",
+      "type": "R_UIDR_Type",
+      "secure": "0x02F07B00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.41, p.3591"
+    },
+    {
+      "name": "R_PNR",
+      "type": "R_PNR_Type",
+      "secure": "0x02C1EC38",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.42, p.3591"
+    },
+    {
+      "name": "R_MCUVER",
+      "type": "R_MCUVER_Type",
+      "secure": "0x02C1EC48",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §60.5.43, p.3592"
+    }
+  ]
+}

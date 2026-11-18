@@ -1,0 +1,8 @@
+ok project create r018_def_mram85 (4.3 s)
+created r018_def_mram85 at <repo>/validation/ra8p1/compatibility/defaults/r018
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m85), core CM85, fsp 5.9.0, toolchain 13.2.1.arm-13-7, rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU0 (r018_def_mram85 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits)
+content generated in 3.8 s (no separate generate needed)
+next: embedder e2 build <repo>/validation/ra8p1/compatibility/defaults/r018
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)
+warning: project folder <repo>/validation/ra8p1/compatibility/defaults/r018 is not named r018_def_mram85, so tools looking for r018_def_mram85/Debug/r018_def_mram85.elf will miss it; --location can also be the parent folder.

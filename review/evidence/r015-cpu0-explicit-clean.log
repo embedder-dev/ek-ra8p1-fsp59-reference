@@ -1,0 +1,5 @@
+ok clean validation/ra8p1/review-r015 (306 ms)
+clean: ok, 0 errors, 0 warnings (71ms)
+configuration.xml: unchanged
+log: <e2-area>/state/state/4afb3dae/logs/1794911668289-review_r015_cpu0-clean.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 54776c, the rest stock; journalled)

@@ -1,0 +1,7 @@
+test_all_legal_type6_dividers_match_manual (tools.test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_all_legal_type6_dividers_match_manual) ... ok
+test_every_legacy_device_retains_original_preprocessed_helper (tools.test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_every_legacy_device_retains_original_preprocessed_helper) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.549s
+
+OK

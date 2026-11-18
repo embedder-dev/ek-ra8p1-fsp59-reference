@@ -420,6 +420,12 @@ typedef enum e_ioport_peripheral
     /** Pin will function as an Ethernet RMMI peripheral pin */
     IOPORT_PERIPHERAL_ETHER_RMII = (0x17UL << IOPORT_PRV_PFS_PSEL_OFFSET),
 
+    /** Pin will function as an Ethernet RGMII peripheral pin */
+    IOPORT_PERIPHERAL_ETHER_RGMII = (0x18UL << IOPORT_PRV_PFS_PSEL_OFFSET),
+
+    /** Pin will function as a PDM peripheral pin */
+    IOPORT_PERIPHERAL_PDM = (0x1BUL << IOPORT_PRV_PFS_PSEL_OFFSET),
+
     /** Pin will function as a PDC peripheral pin */
     IOPORT_PERIPHERAL_PDC = (0x18UL << IOPORT_PRV_PFS_PSEL_OFFSET),
 

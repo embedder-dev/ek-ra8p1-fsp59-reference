@@ -1,0 +1,21 @@
+{
+  "phase": "initial_read_only_review_in_progress",
+  "findings": 197,
+  "duplicate_ids": [],
+  "ledger_column_count": 11,
+  "frozen_inputs_checked": 4473,
+  "changed_frozen_inputs": [],
+  "disposition": "All initial allegations remain untriaged; no production, metadata, generator or test fixes have started.",
+  "area_counts": {
+    "1_header": {"High": 12, "Medium": 23, "Low": 2},
+    "2_interrupts_events": {"High": 2, "Medium": 1},
+    "3_bsp": {"High": 11, "Medium": 8},
+    "4_dual_core": {"Medium": 2, "Unrated source/compiler risk": 1},
+    "5_drivers": {"High": 54, "Medium": 62, "Low": 3},
+    "6_board_configurator_packs": {"Medium": 2, "Low": 1},
+    "7_older_devices": {"Medium": 1},
+    "8_tests": {"High": 6, "Medium": 6}
+  },
+  "qualification": {"new_tests": "not run", "new_builds": "not run", "hardware": "not run; prohibited by task"},
+  "note": "Intermediate checkpoint, not the complete initial ledger and not an adjudication or correctness verdict. Later findings remain to be recorded."
+}

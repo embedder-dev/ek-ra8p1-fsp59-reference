@@ -1,0 +1,9 @@
+ok build …p1/review-drivers/review_r015_dac_b_cpu0 (2.7 s)
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_dac_b_cpu0/Debug/review_r015_dac_b_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_dac_b_cpu0/Debug/review_r015_dac_b_cpu0.elf 314600 B 12:13:15, .srec 20922 B 12:13:15, .map 137593 B 12:13:15, .sbd 5476 B 12:13:15
+clean: ok, 0 errors, 0 warnings (96ms)
+full: ok, 0 errors, 0 warnings (779ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794913993327-review_r015_dac_b_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install edce92, install 54776c, the rest stock; journalled)

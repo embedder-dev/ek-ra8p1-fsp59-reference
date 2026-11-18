@@ -1,0 +1,17 @@
+test_both_dma_banks_consume_authoritative_cpu0_policy (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_both_dma_banks_consume_authoritative_cpu0_policy) ... FAIL
+test_legacy_preprocessed_fragment_is_unchanged (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_legacy_preprocessed_fragment_is_unchanged) ... ok
+test_upper_irq_policy_is_consumed_for_target_only (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_upper_irq_policy_is_consumed_for_target_only) ... ok
+
+======================================================================
+FAIL: test_both_dma_banks_consume_authoritative_cpu0_policy (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_both_dma_banks_consume_authoritative_cpu0_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_security_attribution.py", line 72, in test_both_dma_banks_consume_authoritative_cpu0_policy
+    self.assertIn("R_CPSCU->DMACCHSAR = BSP_TZ_CFG_DMACCHSAR", fragment)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'R_CPSCU->DMACCHSAR = BSP_TZ_CFG_DMACCHSAR' not found in '  #ifdef BSP_TZ_CFG_DMACCHSAR\n    R_CPSCU->DMACCHSAR |= (BSP_TZ_CFG_DMACCHSAR << DMACX_REGISTER_SHIFT); /* DMAC Channel Security Attribution. */\n  #endif\n'
+
+----------------------------------------------------------------------
+Ran 3 tests in 9.173s
+
+FAILED (failures=1)

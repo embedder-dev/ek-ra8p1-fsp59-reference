@@ -1,0 +1,14 @@
+[
+  {
+    "core": "CM85",
+    "project": "validation/ra8p1/review-drivers/review_r015_pdm_cpu0",
+    "log": "review/evidence/r015-pdm-cpu0-default-first-build.log",
+    "verified": true
+  },
+  {
+    "core": "CM33",
+    "project": "validation/ra8p1/review-drivers/review_r015_pdm_cpu1",
+    "log": "review/evidence/r015-pdm-cpu1-default-first-build.log",
+    "verified": true
+  }
+]

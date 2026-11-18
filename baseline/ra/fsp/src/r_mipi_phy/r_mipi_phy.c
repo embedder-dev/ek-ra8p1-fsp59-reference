@@ -55,6 +55,11 @@ fsp_err_t r_mipi_phy_open (mipi_phy_ctrl_t * const p_api_ctrl, mipi_phy_cfg_t co
 {
     mipi_phy_ctrl_t * p_ctrl = p_api_ctrl;
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    /* DSI uses master mode; select it before starting the LDO (HM 65.3.1). */
+    R_DPHYCNT->DPHYMDC_b.MASTEREN = 1U;
+#endif
+
     /* Set DPHYREFCR to match PCLKA */
     uint32_t pclka_hz = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_PCLKA);
     R_DPHYCNT->DPHYREFCR_b.RFREQ = (uint8_t) ((pclka_hz / MIPI_DSI_PRV_1MHZ) - 1);

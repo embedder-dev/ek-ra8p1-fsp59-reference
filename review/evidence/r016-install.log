@@ -1,0 +1,12 @@
+e2: starting e2 studio worker (lane 0)
+ok packs install (5.6 s)
+plan edce92
+pack folder: <e2-area>/home/.eclipse/com.renesas.platform_1273726404/internal/projectgen/ra/packs
+  replace Renesas.RA.5.9.0.pack  9ab18773 -> 46b801c7
+  unchanged: 36
+support files: 1 stale and 0 left-over file(s) removed; e2 re-extracts 1 pack(s) on its next start
+applied; journal <e2-area>/state/packs/d0ba0e43/journal.json
+workers stopped: 1; e2 restarted (and processed packs on request): 1 support file(s) re-extracted, 0 new
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install edce92, install 54776c, the rest stock; journalled)
+support files (layer 2): 324 checked in 1 packs; 302 match their pack, 22 e2 does not track (templates and similar; not checked)
+undo: embedder e2 packs rollback (dry run first)

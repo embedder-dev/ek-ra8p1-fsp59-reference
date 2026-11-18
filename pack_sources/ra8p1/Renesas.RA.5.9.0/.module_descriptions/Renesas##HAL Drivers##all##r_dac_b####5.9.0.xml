@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<raModuleDescription>
+    <config id="config.driver.dac_b" path="fsp_cfg/r_dac_b_cfg.h" version="0">
+        <property id="config.driver.dac_b.param_checking_enable" default="config.driver.dac_b.param_checking_enable.bsp" display="Parameter Checking" description="">
+            <option id="config.driver.dac_b.param_checking_enable.bsp" display="Default (BSP)" value="BSP_CFG_PARAM_CHECKING_ENABLE" />
+            <option id="config.driver.dac_b.param_checking_enable.enabled" display="Enabled" value="1" />
+            <option id="config.driver.dac_b.param_checking_enable.disabled" display="Disabled" value="0" />
+        </property>
+        <content>
+#define DAC_B_CFG_PARAM_CHECKING_ENABLE (${config.driver.dac_b.param_checking_enable})
+</content>
+    </config>
+    <module id="module.driver.dac_on_dac_b" config="config.driver.dac_b" display="Analog|${module.driver.dac_b.name} DAC_B (r_dac_b)" version="1" url="group___D_A_C___B.html">
+        <constraint display="Unique name required for each instance">"${interface.driver.dac.${module.driver.dac_b.name}}" === "1"</constraint>
+        <constraint display="Only one control block may own each DAC_B unit">"${interface.driver.dac_on_dac_b.${module.driver.dac_b.channel}}" === "1"</constraint>
+        <constraint display="Requires DAC_B peripheral">"${interface.mcu.dac_b}" === "1"</constraint>
+        <constraint display="Channel not available on selected MCU">testExists("${interface.mcu.dac12.${module.driver.dac_b.channel}}")</constraint>
+        <constraint display="ELC signal selection requires an ELC Driver">(!"${module.driver.dac_b.elc_trigger}".startsWith("_signal.")) || ("1" === "${interface.driver.elc}")</constraint>
+        <constraint display="Collective DAE control cannot be combined with ELC">("${module.driver.dac_b.elc_trigger}" === "_disabled") || ("${module.driver.dac_b.p_pair}" === "NULL")</constraint>
+        <constraint display="Nonsecure DAC requires coefficient transfer by secure startup">("${_project.nonsecure}" !== "1") || ("${module.driver.dac_b.calibration_preloaded}" === "module.driver.dac_b.calibration_preloaded.enabled")</constraint>
+        <requires id="module.driver.dac_on_dac_b.requires.mcu" interface="interface.mcu.dac_b" visible="false" display="Requires DAC_B peripheral" />
+        <provides interface="interface.driver.dac" />
+        <provides interface="interface.driver.dac_on_dac_b" />
+        <provides interface="interface.driver.dac_on_dac_b.${module.driver.dac_b.channel}" />
+        <provides interface="interface.driver.dac.${module.driver.dac_b.name}" />
+        <provides interface="interface.peripheral.dac_b" />
+        <provides interface="interface.peripheral.dac_b${module.driver.dac_b.channel}" />
+        <property id="module.driver.dac_b.name" default="g_dac_b${_instance}" display="Name" description="">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.driver.dac_b.name}")</constraint>
+        </property>
+        <property id="module.driver.dac_b.channel" default="0" display="Channel" description="Reserve each unit for one control block on one core. Duplicate-unit constraints cover this project only, not CPU0/CPU1 ownership. Collective mode requires both units on the same owning core.">
+            <constraint display="Channel must be 0 or 1">testInteger("${module.driver.dac_b.channel}") &amp;&amp; (Number("${module.driver.dac_b.channel}") &gt;= 0) &amp;&amp; (Number("${module.driver.dac_b.channel}") &lt;= 1)</constraint>
+        </property>
+        <property id="module.driver.dac_b.data_format" default="module.driver.dac_b.data_format.right" display="Data Format" description="">
+            <option id="module.driver.dac_b.data_format.right" display="Right Justified" value="DAC_DATA_FORMAT_FLUSH_RIGHT" />
+            <option id="module.driver.dac_b.data_format.left" display="Left Justified" value="DAC_DATA_FORMAT_FLUSH_LEFT" />
+        </property>
+        <property id="module.driver.dac_b.voltage_mode" default="module.driver.dac_b.voltage_mode.normal" display="External VREFH Voltage" description="">
+            <option id="module.driver.dac_b.voltage_mode.normal" display="&gt;= 2.7 V" value="DAC_B_VOLTAGE_NORMAL" />
+            <option id="module.driver.dac_b.voltage_mode.low" display="&lt; 2.7 V" value="DAC_B_VOLTAGE_LOW" />
+        </property>
+        <property id="module.driver.dac_b.output" default="module.driver.dac_b.output.pin" display="Output Destination" description="">
+            <option id="module.driver.dac_b.output.pin" display="DAn pin" value="DAC_B_OUTPUT_PIN" />
+            <option id="module.driver.dac_b.output.internal" display="Comparator / ADC16H" value="DAC_B_OUTPUT_INTERNAL" />
+        </property>
+        <property id="module.driver.dac_b.calibration_preloaded" default="module.driver.dac_b.calibration_preloaded.disabled" display="Coefficients Preloaded by Secure Startup" description="">
+            <option id="module.driver.dac_b.calibration_preloaded.disabled" display="No: Transfer on Open" value="false" />
+            <option id="module.driver.dac_b.calibration_preloaded.enabled" display="Yes" value="true" />
+        </property>
+        <property id="module.driver.dac_b.p_pair" default="NULL" display="Collective Start Peer Control Block" description="NULL for independent conversion. Otherwise use the other unit's control-block symbol and configure its reciprocal peer. Both units require matching security attribution.">
+            <constraint display="Must be a C symbol">testSymbol("${module.driver.dac_b.p_pair}")</constraint>
+        </property>
+        <property id="module.driver.dac_b.timeout" default="1000000" display="Calibration Polling Iterations" description="">
+            <constraint display="Timeout must be a positive 32-bit integer">testInteger("${module.driver.dac_b.timeout}") &amp;&amp; (Number("${module.driver.dac_b.timeout}") &gt; 0) &amp;&amp; (Number("${module.driver.dac_b.timeout}") &lt;= 4294967295)</constraint>
+        </property>
+        <property id="module.driver.dac_b.elc_trigger" default="_disabled" display="ELC Trigger Source" description="">
+            <select enum="enum.disabled" />
+            <select enum="_signal" />
+            <linkConstraint display="Requires ELC peripheral function for DAC">"${_link}" === "link.dac${module.driver.dac_b.channel}"</linkConstraint>
+        </property>
+        <peripheral name="DAC12${module.driver.dac_b.channel}" component="dac12${module.driver.dac_b.channel}" />
+        <symbol id="symbol.driver.dac_b.name" value="${module.driver.dac_b.name}" />
+        <symbol id="symbol.driver.dac_b.guard.open" value="${module.driver.dac_b.name}_open_guard" />
+        <symbol id="symbol.driver.dac_b.guard.macro.open" value="FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Open" />
+        <symbol id="symbol.driver.dac_b.guard.write" value="${module.driver.dac_b.name}_write_guard" />
+        <symbol id="symbol.driver.dac_b.guard.macro.write" value="FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Write" />
+        <symbol id="symbol.driver.dac_b.guard.start" value="${module.driver.dac_b.name}_start_guard" />
+        <symbol id="symbol.driver.dac_b.guard.macro.start" value="FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Start" />
+        <symbol id="symbol.driver.dac_b.guard.stop" value="${module.driver.dac_b.name}_stop_guard" />
+        <symbol id="symbol.driver.dac_b.guard.macro.stop" value="FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Stop" />
+        <symbol id="symbol.driver.dac_b.guard.close" value="${module.driver.dac_b.name}_close_guard" />
+        <symbol id="symbol.driver.dac_b.guard.macro.close" value="FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Close" />
+        <symbol id="symbol.driver.dac_b.nsc_api" value="${module.driver.dac_b.name}_nsc_api" />
+        <symbol id="symbol.driver.dac_b.cfg" value="${module.driver.dac_b.name}_cfg" />
+        <symbol id="symbol.driver.dac_b.ctrl" value="${module.driver.dac_b.name}_ctrl" />
+        <symbol id="symbol.driver.dac_b.ext_cfg" value="${module.driver.dac_b.name}_ext_cfg" />
+        <header>
+extern const dac_instance_t ${module.driver.dac_b.name};
+extern dac_b_instance_ctrl_t ${module.driver.dac_b.name}_ctrl;
+extern const dac_cfg_t ${module.driver.dac_b.name}_cfg;
+</header>
+        <includes>#include "r_dac_b.h"
+#include "r_dac_api.h"</includes>
+        <declarations>
+dac_b_instance_ctrl_t ${module.driver.dac_b.name}_ctrl;
+const dac_b_extended_cfg_t ${module.driver.dac_b.name}_ext_cfg =
+{
+    .data_format = ${module.driver.dac_b.data_format},
+    .voltage_mode = ${module.driver.dac_b.voltage_mode},
+    .output = ${module.driver.dac_b.output},
+    .trigger = (0 == ${module.driver.dac_b.elc_trigger}) ? DAC_B_TRIGGER_SOFTWARE : DAC_B_TRIGGER_ELC,
+#if defined(${module.driver.dac_b.p_pair})
+    .p_pair = ${module.driver.dac_b.p_pair},
+#else
+    .p_pair = &amp;${module.driver.dac_b.p_pair},
+#endif
+    .timeout = ${module.driver.dac_b.timeout},
+    .calibration_preloaded = ${module.driver.dac_b.calibration_preloaded},
+};
+const dac_cfg_t ${module.driver.dac_b.name}_cfg =
+{
+    .channel = ${module.driver.dac_b.channel},
+    .ad_da_synchronized = false,
+    .p_extend = &amp;${module.driver.dac_b.name}_ext_cfg,
+};
+const dac_instance_t ${module.driver.dac_b.name} =
+{
+    .p_ctrl = &amp;${module.driver.dac_b.name}_ctrl,
+    .p_cfg = &amp;${module.driver.dac_b.name}_cfg,
+    .p_api = &amp;g_dac_on_dac_b,
+};
+</declarations>
+        <guard>
+            <header>
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_open_guard(dac_ctrl_t *p_api_ctrl, dac_cfg_t const *const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_write_guard(dac_ctrl_t *p_api_ctrl, uint16_t value);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_start_guard(dac_ctrl_t *p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_stop_guard(dac_ctrl_t *p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_close_guard(dac_ctrl_t *p_api_ctrl);
+
+            </header>
+            <template name="${module.driver.dac_b.name}_guard.c">
+                
+                    #include "guard.h"
+
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_open_guard (dac_ctrl_t *p_api_ctrl, dac_cfg_t const *const p_cfg)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+    FSP_PARAMETER_NOT_USED(p_cfg);
+
+    return R_DAC_B_Open(&amp;${module.driver.dac_b.name}_ctrl, &amp;${module.driver.dac_b.name}_cfg);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_write_guard (dac_ctrl_t *p_api_ctrl, uint16_t value)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_DAC_B_Write(&amp;${module.driver.dac_b.name}_ctrl, value);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_start_guard (dac_ctrl_t *p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_DAC_B_Start(&amp;${module.driver.dac_b.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_stop_guard (dac_ctrl_t *p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_DAC_B_Stop(&amp;${module.driver.dac_b.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_close_guard (dac_ctrl_t *p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_DAC_B_Close(&amp;${module.driver.dac_b.name}_ctrl);
+}
+
+                
+            </template>
+        </guard>
+        <nsc>
+            <header>
+
+#define FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Open() ${module.driver.dac_b.name}_open_guard(FSP_SECURE_ARGUMENT, FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Write(value) ${module.driver.dac_b.name}_write_guard(FSP_SECURE_ARGUMENT, value)
+
+#define FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Start() ${module.driver.dac_b.name}_start_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Stop() ${module.driver.dac_b.name}_stop_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.dac_b.name}_R_DAC_B_Close() ${module.driver.dac_b.name}_close_guard(FSP_SECURE_ARGUMENT)
+
+
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_open_guard(dac_ctrl_t *p_api_ctrl, dac_cfg_t const *const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_write_guard(dac_ctrl_t *p_api_ctrl, uint16_t value);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_start_guard(dac_ctrl_t *p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_stop_guard(dac_ctrl_t *p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.dac_b.name}_close_guard(dac_ctrl_t *p_api_ctrl);
+
+
+extern const dac_instance_t ${module.driver.dac_b.name};
+            </header>
+            <declarations>
+                
+static const dac_api_t ${module.driver.dac_b.name}_nsc_api =
+{
+    .open = ${module.driver.dac_b.name}_open_guard,
+    .write = ${module.driver.dac_b.name}_write_guard,
+    .start = ${module.driver.dac_b.name}_start_guard,
+    .stop = ${module.driver.dac_b.name}_stop_guard,
+    .close = ${module.driver.dac_b.name}_close_guard,
+};
+const dac_instance_t ${module.driver.dac_b.name} =
+{
+    .p_api = &amp;${module.driver.dac_b.name}_nsc_api,
+    .p_ctrl = FSP_SECURE_ARGUMENT,
+    .p_cfg = FSP_SECURE_ARGUMENT,
+};
+                
+            </declarations>
+        </nsc>
+        <api configurable="true">
+            <file>ra/fsp/inc/instances/r_dac_b.h</file>
+            <file>ra/fsp/inc/api/r_dac_api.h</file>
+        </api>
+    </module>
+</raModuleDescription>

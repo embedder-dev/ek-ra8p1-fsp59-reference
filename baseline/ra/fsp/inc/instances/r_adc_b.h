@@ -34,10 +34,17 @@ FSP_HEADER
                                                                 (channel_mask & BSP_FEATURE_ADC_B_UNIT_0_CHANNELS) : \
                                                                 (channel_mask & BSP_FEATURE_ADC_B_UNIT_1_CHANNELS))
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+ #define R_ADC_B0_ADUGTR_UGAIN_INTEGER_Pos       (14)
+ #define R_ADC_B0_ADUGTR_UGAIN_INTEGER_Msk       (0xC000)
+ #define R_ADC_B0_ADUGTR_UGAIN_FRACTIONAL_Pos    (0)
+ #define R_ADC_B0_ADUGTR_UGAIN_FRACTIONAL_Msk    (0x3FFF)
+#else
 #define R_ADC_B0_ADUGTR_UGAIN_INTEGER_Pos       (22)
 #define R_ADC_B0_ADUGTR_UGAIN_INTEGER_Msk       (0xC00000)
 #define R_ADC_B0_ADUGTR_UGAIN_FRACTIONAL_Pos    (0)
 #define R_ADC_B0_ADUGTR_UGAIN_FRACTIONAL_Msk    (0x3FFFFF)
+#endif
 
 /***********************************************************************************************************************
  * Type definitions
@@ -587,7 +594,11 @@ typedef struct st_adc_b_extended_cfg
     union
     {
         uint32_t sampling_state_tables[8];               /// Sampling State Table register data
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+        uint16_t sampling_state_table[16];               ///< Sampling State Tables 0..15
+#else
         uint16_t sampling_state_table[15];               ///< Sampling State Tables
+#endif
     };
     uint8_t  sample_and_hold_enable_mask;                ///< Sample and Hold enable register data
     uint32_t sample_and_hold_config_012;                 ///< Sample and Hold configuration register data
@@ -597,6 +608,12 @@ typedef struct st_adc_b_extended_cfg
     uint32_t user_gain_tables[8];                        ///< User Gain Table register data
     uint32_t limiter_clip_interrupt_enable_mask;         ///< Limiter clip interrupt enable register data
     uint32_t limiter_clip_tables[8];                     ///< Limiter clip Table register data
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    uint8_t high_accuracy_enable;                          ///< Unit mask: high accuracy required for Hybrid, prohibited for oversampling
+    uint8_t group_priority_enable;                         ///< Unit mask: priority enabled in SAR mode only
+    bool low_voltage;                                     ///< AVCC/VCC/VREFH below 2.7 V: CST must be 200 ns; apply HM70.100 sampling prerequisites
+    bool single_ended_overflow_strict;                      ///< Reject offset/add/average that can hide below-VREFL overflow
+#endif
 } adc_b_extended_cfg_t;
 
 /** ADC instance control block. DO NOT INITIALIZE.  Initialized in @ref adc_api_t::open(). */

@@ -1,0 +1,18 @@
+ok config set …a8p1/review-drivers/review_r015_pdm_cpu1 (2.7 s)
+applied the given settings to review_r015_pdm_cpu1; saved, content generated (no separate generate needed)
+created g_pdm0 (module.driver.pdm_on_pdm.381066255 — PDM (r_pdm), channel 2)
+generated: ra_gen/hal_data.c defines g_pdm0_ctrl; ra_gen/hal_data.h declares them
+configuration.xml: saved; read back from the file: g_pdm0 (module.driver.pdm_on_pdm.381066255, r_pdm, channel 2)
+regenerated from configuration.xml: ra_gen/hal_data.c, ra_gen/hal_data.h, ra_gen/vector_data.c, ra_gen/vector_data.h (VECTOR_DATA_IRQ_COUNT (0) -> (2); +VECTOR_NUMBER_PDM_DAT2 ((IRQn_Type) 0); +PDM_DAT2_IRQn ((IRQn_Type) 0); +VECTOR_NUMBER_PDM_ERR2 ((IRQn_Type) 1); +PDM_ERR2_IRQn ((IRQn_Type) 1); +1 more)
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_pdm_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_pdm_api.h, ra/fsp/inc/instances/r_pdm.h, ra/fsp/src/r_pdm/r_pdm.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -116 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_pdm_cpu1/Debug/review_r015_pdm_cpu1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_pdm_cpu1/Debug/review_r015_pdm_cpu1.elf 246980 B 11:47:24, .srec 15118 B 11:47:24, .map 134585 B 11:47:24, .sbd 5639 B 11:47:24
+preceding review_r015_cpu0: verified yes 12 min ago (0 errors), .sbd fresh
+review_r015_cpu0: artifacts (stat from disk): review-r015/Debug/review_r015_cpu0.elf 282904 B 11:35:38, .srec 17454 B 11:35:38, .map 134987 B 11:35:38, .sbd 5476 B 11:33:09
+build: full: ok, 0 errors, 0 warnings (523ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794912443091-review_r015_pdm_cpu1-full.log

@@ -44,6 +44,13 @@ extern "C" {
         <constraint display="Specified 'Bitrate' is not available on selected MCU.">
             testInteger("${module.driver.spi.bitrate}") &amp;&amp; ("${module.driver.spi.bitrate}" &gt; 0) &amp;&amp; ("${module.driver.spi.bitrate}" &lt;= (Number("${config.bsp.fsp.mcu.sci_spi.max_bitrate}")))
         </constraint>
+        <constraint display="Master bitrate is below the minimum achievable with the selected SCI clock.">
+            !testExists("${interface.mcu.sci_b.no_scksel}") ||
+            ("${module.driver.spi.operating_mode}" != "module.driver.spi.operating_mode.mode_master") ||
+            (Number("${module.driver.spi.bitrate}") &gt;= Math.ceil(
+                (("${module.driver.spi.clock_source}" == "module.driver.spi.clock_source.pclk") ?
+                 Number("${board.clock.peripheral.sci_b}") : Number("${board.clock.peripheral.sciclk}")) / 65536))
+        </constraint>
         <constraint display="Channel not avaliable on selected MCU">
             ("${interface.mcu.sci_b.${module.driver.spi.channel}}" === "1")
         </constraint>

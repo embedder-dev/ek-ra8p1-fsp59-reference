@@ -1,0 +1,9 @@
+ok build …p1/compatibility/defaults/r018_def_pdm85 (1.7 s)
+verified: yes — <repo>/validation/ra8p1/compatibility/defaults/r018_def_pdm85/Debug/r018_def_pdm85.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r018_def_pdm85/Debug/r018_def_pdm85.elf 345936 B 14:54:05, .srec 19338 B 14:54:05, .map 137841 B 14:54:05, .sbd 5494 B 14:54:05
+clean: ok, 0 errors, 0 warnings (79ms)
+full: ok, 0 errors, 0 warnings (530ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794923644235-r018_def_pdm85-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)

@@ -1,0 +1,5 @@
+{
+  "Renesas.RA.5.9.0.pack": [
+    "ra/fsp/src/r_ospi_b/r_ospi_b.c"
+  ]
+}

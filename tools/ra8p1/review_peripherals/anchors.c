@@ -1,0 +1,176 @@
+/* Independent HM Rev1.30 numeric anchors; compile only, never access MMIO. */
+#include <stddef.h>
+#include "R7KA8P1KF.h"
+
+#define AT(type, member, address) \
+    _Static_assert(offsetof(type, member) == (address), #type "." #member " offset")
+#define WIDTH(type, member, bytes) \
+    _Static_assert(sizeof(((type *) 0)->member) == (bytes), #type "." #member " width")
+#define MASK(prefix, mask) _Static_assert(prefix##_Msk == (mask), #prefix " mask")
+#define BASE(instance, address, type) \
+    _Static_assert(instance##_S_BASE == (address), #instance " secure"); \
+    _Static_assert(instance##_NS_BASE == (address) + 0x10000000UL, #instance " nonsecure"); \
+    _Static_assert(instance##_BASE == (address) + (BSP_TZ_NONSECURE_BUILD ? 0x10000000UL : 0UL), #instance " selected"); \
+    _Static_assert(_Generic(instance, type *: 1, default: 0), #instance " pointer type")
+
+/* §§36.2–36.3 pp1936–1953; §36.6.3 pp1964–1969. */
+AT(R_GPTP_Type, PTPTIVC0, 0x20);
+AT(R_GPTP_Type, PTPTIVC1, 0x60);
+AT(R_GPTP_Type, PTPGPTPTM1U, 0x98);
+AT(R_GPTP_Type, PTPMCCM1U, 0x21C);
+AT(R_GPTP_Type, PTPMCRTC1U, 0x31C);
+AT(R_GPTP_Type, PTPMCPC[1], 0x404);
+AT(R_GPTP_Type, PTPCCC70, 0x538);
+AT(R_GPTP_Type, PTPCCC71, 0x53C);
+AT(R_GPTP_Type, POTCR3, 0x1094);
+AT(R_GPTP_Type, POTCPR3L, 0x10C0);
+WIDTH(R_GPTP_Type, POTSTR0U, 4);
+WIDTH(R_GPTP_Type, PTPMCPC, 8);
+MASK(R_GPTP_PTPTIVC1_TIV, 0xFFFFFFFFUL);
+MASK(R_GPTP_PTPIS0_MCCOES1, 0x20000UL);
+MASK(R_GPTP_POTCFGR_REFSEL, 1UL);
+
+/* §§67.3 pp3946–3965; data-lane stride16, virtual-channel stride16. */
+AT(R_MIPI_CSI0_Type, DLST1, 0x90);
+AT(R_MIPI_CSI0_Type, DLIE1, 0x98);
+AT(R_MIPI_CSI0_Type, VCST15, 0x1F0);
+AT(R_MIPI_CSI0_Type, VCSC15, 0x1F4);
+AT(R_MIPI_CSI0_Type, VCIE15, 0x1F8);
+AT(R_MIPI_CSI0_Type, PMST, 0x200);
+AT(R_MIPI_CSI0_Type, GSHT, 0x290);
+WIDTH(R_MIPI_CSI0_Type, RTCT, 4);
+MASK(R_MIPI_CSI0_MCT0_ECCV13, 0x1000000UL);
+MASK(R_MIPI_CSI0_VCST15_ETR, 0x10000000UL);
+MASK(R_MIPI_CSI0_GSHT_SPVC, 0xF000000UL);
+
+/* §68.2 pp3985–4007; unsupported holes0x1C,0x4C–0x50 remain padding. */
+AT(R_VIN0_Type, CSI_IFMD, 0x20);
+AT(R_VIN0_Type, MTCSTOP, 0x54);
+AT(R_VIN0_Type, UDS_SCALE, 0x84);
+AT(R_VIN0_Type, UDS_CLIP_SIZE, 0xA4);
+AT(R_VIN0_Type, LUTD, 0x104);
+AT(R_VIN0_Type, YCCR1, 0x228);
+AT(R_VIN0_Type, CSCE4, 0x30C);
+MASK(R_VIN0_CSI_IFMD_VC_SEL, 0xFUL);
+MASK(R_VIN0_CSI_IFMD_DT, 0x3F00UL);
+MASK(R_VIN0_UDS_SCALE_HMANT, 0xF0000000UL);
+
+/* §43.2 pp2878–2882: ECC test-control register is16-bit, not32-bit. */
+AT(R_ECCMB0_Type, EC710TMC, 4);
+WIDTH(R_ECCMB0_Type, EC710TMC, 2);
+AT(R_ECCMB0_Type, EC710TED, 0xC);
+AT(R_ECCMB0_Type, EC710EAD0, 0x10);
+MASK(R_ECCMB0_EC710TMC_ETMA, 0xC000UL);
+MASK(R_ECCMB0_EC710EAD0_ECEAD, 0x3FFUL);
+
+/* §§31.2–31.3 pp1332–1476: interleaved dimensions and emulation space. */
+AT(R_MFWD_Type, FWPC20, 0x120);
+AT(R_MFWD_Type, FWPC22, 0x128);
+AT(R_MFWD_Type, FWCTTC720, 0x5D0);
+AT(R_MFWD_Type, FWCFMC06, 0x201C);
+AT(R_MFWD_Type, FWCFMC156, 0x23DC);
+AT(R_MFWD_Type, FWPMTRCBSC31, 0x59E4);
+AT(R_MFWD_Type, FWPMTREBSC7, 0x56EC);
+AT(R_MFWD_Type, FWFRPPCN127, 0x6DF8);
+AT(R_MFWD_Type, FWFRDPCN127, 0x6DFC);
+AT(R_MFWD_Type, FWFRPPCN127_E, 0x78F8);
+AT(R_MFWD_Type, FWFRDPCN127_E, 0x78FC);
+WIDTH(R_MFWD_Type, FWPMFDCN, 16 * 4);
+MASK(R_MFWD_FWCFMC156_CFFV, 0x8000UL);
+MASK(R_MFWD_FWPMTRCBSC31_CBS, 0x3FFFFUL);
+
+/* §30.2 pp1299–1311: 2 timestamp maps but64 descriptor maps. */
+WIDTH(R_ESWM_Type, TPEMIMC6, 2 * 4);
+WIDTH(R_ESWM_Type, TPEMIMC7, 64 * 4);
+AT(R_ESWM_Type, TPEMIMC6[1], 0x84);
+AT(R_ESWM_Type, TPEMIMC7[63], 0x1FC);
+AT(R_ESWM_Type, MIIRR, 0x19400);
+AT(R_ESWM_Type, MIICR1, 0x19408);
+AT(R_ESWM_Type, TASSTSR, 0x19420);
+MASK(R_ESWM_MIIRR_RMRST1, 0x200UL);
+MASK(R_ESWM_TPEMIMC7_GDICM0, 7UL);
+
+/* §§32.2–32.3 pp1601–1621: port × pause-level mapping is3 × 2. */
+AT(R_COMA_Type, CABPPPFLC00, 0xA0);
+AT(R_COMA_Type, CABPPPFLC01, 0xA4);
+AT(R_COMA_Type, CABPPPFLC20, 0xB0);
+AT(R_COMA_Type, CABPPPFLC21, 0xB4);
+AT(R_COMA_Type, CABPLCM_E, 0x14C);
+AT(R_COMA_Type, CABPMCPM2_E, 0x288);
+MASK(R_COMA_CABPPPFLC21_PPAL, 0x3FF0000UL);
+
+/* §§33.2–33.3 pp1638–1678. Literal q/i in SVD names are real arrays. */
+WIDTH(R_ETHA0_Type, EACAULC, 8 * 4);
+AT(R_ETHA0_Type, EACAULC[7], 0x25C);
+AT(R_ETHA0_Type, EATASENM[7], 0x37C);
+AT(R_ETHA0_Type, EATDQMLM7_E, 0xDC);
+AT(R_ETHA0_Type, EACTDQMLM_E, 0x110);
+MASK(R_ETHA0_EACAULC_CUL, 0x7FFFFFFFUL);
+MASK(R_ETHA0_EATASC_TASCI, 4UL);
+
+/* §§34.3–34.4 pp1715–1773; §34.6.2.2 p1783 gives2 priority groups. */
+WIDTH(R_RMAC0_Type, MTPFC3, 8);
+AT(R_RMAC0_Type, MTPFC3[1], 0x34);
+AT(R_RMAC0_Type, MPFC[15], 0x13C);
+AT(R_RMAC0_Type, MPCFRCT[1], 0x344);
+MASK(R_RMAC0_MPSM_PRD, 0xFFFF0000UL);
+MASK(R_RMAC0_MPIC_PSMCT, 0x70000000UL);
+
+/* §§35.2–35.3 pp1798–1858. Start/current address pairs use4 × 2 words. */
+WIDTH(R_GWCA0_Type, GWDCC, 64 * 4);
+WIDTH(R_GWCA0_Type, GWIDASM, 4 * 4);
+AT(R_GWCA0_Type, GWDCC[63], 0x4FC);
+AT(R_GWCA0_Type, GWIDASAM30, 0x918);
+AT(R_GWCA0_Type, GWIDASAM31, 0x91C);
+AT(R_GWCA0_Type, GWIDACAM31, 0x99C);
+AT(R_GWCA0_Type, GWRLC7, 0xAB8);
+AT(R_GWCA0_Type, GWRDCN_E, 0x1080);
+AT(R_GWCA0_Type, GWDIS1, 0x1110);
+AT(R_GWCA0_Type, GWEIS21, 0x1210);
+MASK(R_GWCA0_GWTRC1_TSR32, 1UL);
+MASK(R_GWCA0_GWDIS1_DIS63, 0x80000000UL);
+MASK(R_GWCA0_GWEIS21_DFES63, 0x80000000UL);
+
+/* §§46.3 pp3059–3060; no reset value is selected for CONVAREAD. */
+AT(R_DOTF_Type, CONVAREAST, 0);
+AT(R_DOTF_Type, CONVAREAD, 4);
+_Static_assert(sizeof(R_DOTF_Type) == 8, "DOTF has only documented configuration words");
+MASK(R_DOTF_CONVAREAD_CONVAREAD, 0xFFFFF000UL);
+MASK(R_DOTF0_CONVAREAD_CONVAREAD, 0xFFFFF000UL);
+
+/* §24.2 pp1164–1169: A/B16-bit halves interleaved at4-byte channel stride. */
+_Static_assert(_Alignof(R_PDG_Type) == 2, "PDG halfword alignment");
+AT(R_PDG_Type, GTDLYCR2, 2);
+AT(R_PDG_Type, GTDLYR0A, 0x18);
+AT(R_PDG_Type, GTDLYR0B, 0x1A);
+AT(R_PDG_Type, GTDLYR3A, 0x24);
+AT(R_PDG_Type, GTDLYR3B, 0x26);
+AT(R_PDG_Type, GTDLYF3B, 0x36);
+WIDTH(R_PDG_Type, GTDLYF3B, 2);
+MASK(R_PDG_GTDLYCR_FRANGE, 0x300UL);
+MASK(R_PDG_GTDLYCR2_DLYEN3, 0x800UL);
+MASK(R_PDG_GTDLYF3B_DLY, 0x7FUL);
+
+/* Appendix3 TableA3.1 pp4286–4288 and fitted KF applicability Table1.15. */
+BASE(R_GPTP, 0x403E0000UL, R_GPTP_Type);
+BASE(R_MIPI_CSI0, 0x40347000UL, R_MIPI_CSI0_Type);
+BASE(R_VIN0, 0x40347400UL, R_VIN0_Type);
+BASE(R_ECCMB0, 0x4036F200UL, R_ECCMB0_Type);
+BASE(R_ECCMB1, 0x4036F300UL, R_ECCMB0_Type);
+BASE(R_MFWD, 0x403C0000UL, R_MFWD_Type);
+BASE(R_ESWM, 0x403C8000UL, R_ESWM_Type);
+BASE(R_COMA, 0x403C9000UL, R_COMA_Type);
+BASE(R_ETHA0, 0x403CA000UL, R_ETHA0_Type);
+BASE(R_ETHA1, 0x403CC000UL, R_ETHA0_Type);
+BASE(R_RMAC0, 0x403CB000UL, R_RMAC0_Type);
+BASE(R_RMAC1, 0x403CD000UL, R_RMAC0_Type);
+BASE(R_GWCA0, 0x403CE000UL, R_GWCA0_Type);
+BASE(R_DOTF0, 0x40268800UL, R_DOTF_Type);
+BASE(R_DOTF1, 0x40268900UL, R_DOTF_Type);
+BASE(R_DOTF, 0x40268800UL, R_DOTF_Type);
+BASE(R_PDG, 0x40324000UL, R_PDG_Type);
+
+#undef AT
+#undef WIDTH
+#undef MASK
+#undef BASE

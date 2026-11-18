@@ -1,0 +1,9 @@
+ok build …a8p1/review-drivers/review_r015_cgc_cpu0 (1.7 s)
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_cgc_cpu0/Debug/review_r015_cgc_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_cgc_cpu0/Debug/review_r015_cgc_cpu0.elf 408144 B 13:52:14, .srec 34710 B 13:52:14, .map 147714 B 13:52:14, .sbd 5476 B 13:52:15
+clean: ok, 0 errors, 0 warnings (86ms)
+full: ok, 0 errors, 0 warnings (539ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794919933731-review_r015_cgc_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, the rest stock; journalled)

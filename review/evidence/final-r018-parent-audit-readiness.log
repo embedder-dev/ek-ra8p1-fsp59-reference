@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "revision": "r018",
+  "manifest_sha256": "eb4dd36f99fb67c1692f7b56d5439c312381e8a4897dfbb30711b9ef491d3960",
+  "stage": "binding-readiness-only",
+  "result_claims": false,
+  "aggregation_executed": false,
+  "missing_bindings": [
+    "expanded-mandatory: strict typed transfer adapter/binding missing for 42-existing-projects-and-r017-all-152-source-census",
+    "usb-security: strict typed transfer adapter/binding missing for 34-r016-linked-fixtures-and-original-source-dependencies",
+    "rtos-matrix: fresh-source/typed-transfer proof not bound",
+    "rtos-matrix: strict typed transfer adapter/binding missing for six-r016-core-mode-checking-port-kernel-and-link-rows",
+    "older-regression: fresh-source/typed-transfer proof not bound",
+    "older-regression: strict typed transfer adapter/binding missing for 18-legacy-rows-with-actual-r016-r017-origins"
+  ],
+  "fresh_source_fixture_records_validated": 12,
+  "strict_typed_transfer_proofs_validated": 0,
+  "exit_status": 2,
+  "bound_input_count": 876
+}

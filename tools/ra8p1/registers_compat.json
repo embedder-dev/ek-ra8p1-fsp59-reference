@@ -1,0 +1,6344 @@
+{
+  "schema": 1,
+  "device": "R7KA8P1KF",
+  "types": [
+    {
+      "name": "R_DMAC0_Type",
+      "size": "0x34",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742",
+      "members": [
+        {
+          "name": "DMSAR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMSAR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742"
+        },
+        {
+          "name": "DMDAR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMDAR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.6, p.743"
+        },
+        {
+          "name": "DMCRA",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMCRAL",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "DMCRAH",
+              "pos": 16,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.8, p.744"
+        },
+        {
+          "name": "DMCRB",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMCRBL",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "DMCRBH",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.9, p.745"
+        },
+        {
+          "name": "DMTMD",
+          "offset": "0x10",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DCTG",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "SZ",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TKP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTS",
+              "pos": 12,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "MD",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.10, p.746"
+        },
+        {
+          "name": "DMINT",
+          "offset": "0x13",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DARIE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SARIE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RPTIE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ESIE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTIE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.11, p.747"
+        },
+        {
+          "name": "DMAMD",
+          "offset": "0x14",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DARA",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "DADR",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DM",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "SARA",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "SADR",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SM",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.12, p.748"
+        },
+        {
+          "name": "DMOFR",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMOFR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.13, p.751"
+        },
+        {
+          "name": "DMCNT",
+          "offset": "0x1c",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.14, p.751"
+        },
+        {
+          "name": "DMREQ",
+          "offset": "0x1d",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SWREQ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLRS",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.15, p.752"
+        },
+        {
+          "name": "DMSTS",
+          "offset": "0x1e",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ESIF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTIF",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACT",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.16, p.753"
+        },
+        {
+          "name": "DMSRR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMSRR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.5, p.743"
+        },
+        {
+          "name": "DMDRR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMDRR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.7, p.743"
+        },
+        {
+          "name": "DMSBS",
+          "offset": "0x28",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMSBSL",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "DMSBSH",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.17, p.754"
+        },
+        {
+          "name": "DMDBS",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMDBSL",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "DMDBSH",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.18, p.755"
+        },
+        {
+          "name": "DMBWR",
+          "offset": "0x30",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BWE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.19, p.756"
+        }
+      ]
+    },
+    {
+      "name": "R_GPT0_Type",
+      "size": "0xf0",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894",
+      "members": [
+        {
+          "name": "GTWP",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WP",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STRWP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STPWP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLRWP",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMNWP",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PRKEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894"
+        },
+        {
+          "name": "GTSTR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CSTRT0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT8",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT9",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT10",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT11",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT12",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT13",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT14",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT15",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT16",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT17",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT18",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT19",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT20",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT21",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT22",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT23",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT24",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT25",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT26",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT27",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT28",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT29",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT30",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT31",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.2, p.896"
+        },
+        {
+          "name": "GTSTP",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CSTOP0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP8",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP9",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP10",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP11",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP12",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP13",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP14",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP15",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP16",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP17",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP18",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP19",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP20",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP21",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP22",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP23",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP24",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP25",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP26",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP27",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP28",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP29",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP30",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP31",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.3, p.897"
+        },
+        {
+          "name": "GTCLR",
+          "offset": "0xc",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CCLR0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR8",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR9",
+              "pos": 9,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR10",
+              "pos": 10,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR11",
+              "pos": 11,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR12",
+              "pos": 12,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR13",
+              "pos": 13,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR14",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR15",
+              "pos": 15,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR16",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR17",
+              "pos": 17,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR18",
+              "pos": 18,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR19",
+              "pos": 19,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR20",
+              "pos": 20,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR21",
+              "pos": 21,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR22",
+              "pos": 22,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR23",
+              "pos": 23,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR24",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR25",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR26",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR27",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR28",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR29",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR30",
+              "pos": 30,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CCLR31",
+              "pos": 31,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.4, p.897"
+        },
+        {
+          "name": "GTSSR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SSGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTRT",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.5, p.898"
+        },
+        {
+          "name": "GTPSR",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PSGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSTOP",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.6, p.901"
+        },
+        {
+          "name": "GTCSR",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CSGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSCMSC",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "CP1CCE",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCLR",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.7, p.904"
+        },
+        {
+          "name": "GTUPSR",
+          "offset": "0x1c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "USGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "USILVL",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.8, p.908"
+        },
+        {
+          "name": "GTDNSR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DSGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSILVL",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.9, p.912"
+        },
+        {
+          "name": "GTICASR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ASGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASOC",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.10, p.916"
+        },
+        {
+          "name": "GTICBSR",
+          "offset": "0x28",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BSGTRGAR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGAF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGBF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGCR",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGCF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGDR",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSGTRGDF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCARBL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCARBH",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCAFBL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCAFBH",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCBRAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCBRAH",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCBFAL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSCBFAH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCG",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSELCH",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSOC",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.11, p.919"
+        },
+        {
+          "name": "GTCR",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AINV",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BINV",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICDS",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCGTIOC",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCGRP",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CPSCD",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCEN",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MD",
+              "pos": 16,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "TPCS",
+              "pos": 23,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "CKEG",
+              "pos": 27,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.12, p.923"
+        },
+        {
+          "name": "GTUDDTYC",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "UD",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "UDF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OADTY",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OADTYF",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OADTYR",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OBDTY",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OBDTYF",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OBDTYR",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OABDTYT",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.13, p.926"
+        },
+        {
+          "name": "GTIOR",
+          "offset": "0x34",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTIOA",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "CPSCIR",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OADFLT",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OAHLD",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OAE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OADF",
+              "pos": 9,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OAEOCD",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PSYE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFAEN",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFCSA",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "GTIOB",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "OBDFLT",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OBHLD",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OBE",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OBDF",
+              "pos": 25,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OBEOCD",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFBEN",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFCSB",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.14, p.928"
+        },
+        {
+          "name": "GTINTAD",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SCFA",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFC",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFD",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFF",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFPO",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCFPU",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRAUEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRADEN",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRBUEN",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRBDEN",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GRP",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "GRPDTE",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GRPABH",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GRPABL",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.15, p.933"
+        },
+        {
+          "name": "GTST",
+          "offset": "0x3c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCFA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFB",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFC",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFPO",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCFPU",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITCNT",
+              "pos": 8,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "TUCF",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ADTRAUF",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRADF",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRBUF",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTRBDF",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ODF",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DTEF",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OABHF",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OABLF",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PCF",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.16, p.936"
+        },
+        {
+          "name": "GTBER",
+          "offset": "0x40",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BD0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BD1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BD2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BD3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBRTECA",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBRTECB",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCRA",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CCRB",
+              "pos": 18,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PR",
+              "pos": 20,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CCRSWT",
+              "pos": 22,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ADTTA",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTDA",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTTB",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTDB",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.17, p.942"
+        },
+        {
+          "name": "GTITC",
+          "offset": "0x44",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ITLA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITLB",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITLC",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITLD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITLE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ITLF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IVTC",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "IVTT",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTAL",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADTBL",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.18, p.946"
+        },
+        {
+          "name": "GTCNT",
+          "offset": "0x48",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTCNT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.19, p.948"
+        },
+        {
+          "name": "GTCCR",
+          "offset": "0x4c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTCCR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.20, p.948",
+          "count": 6,
+          "individual_names": [
+            "GTCCRA",
+            "GTCCRB",
+            "GTCCRC",
+            "GTCCRE",
+            "GTCCRD",
+            "GTCCRF"
+          ]
+        },
+        {
+          "name": "GTPR",
+          "offset": "0x64",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTPR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.21, p.948"
+        },
+        {
+          "name": "GTPBR",
+          "offset": "0x68",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTPBR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.22, p.949"
+        },
+        {
+          "name": "GTPDBR",
+          "offset": "0x6c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTPDBR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.23, p.949"
+        },
+        {
+          "name": "GTADTRA",
+          "offset": "0x70",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTRA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.24, p.949"
+        },
+        {
+          "name": "GTADTBRA",
+          "offset": "0x74",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTBRA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.25, p.950"
+        },
+        {
+          "name": "GTADTDBRA",
+          "offset": "0x78",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTDBRA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.26, p.950"
+        },
+        {
+          "name": "GTADTRB",
+          "offset": "0x7c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTRB",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.24, p.949"
+        },
+        {
+          "name": "GTADTBRB",
+          "offset": "0x80",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTBRB",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.25, p.950"
+        },
+        {
+          "name": "GTADTDBRB",
+          "offset": "0x84",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTADTDBRB",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.26, p.950"
+        },
+        {
+          "name": "GTDTCR",
+          "offset": "0x88",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TDE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDBUE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDBDE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDFER",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.27, p.951"
+        },
+        {
+          "name": "GTDVU",
+          "offset": "0x8c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTDVU",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.28, p.952"
+        },
+        {
+          "name": "GTDVD",
+          "offset": "0x90",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTDVD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.28, p.952"
+        },
+        {
+          "name": "GTDBU",
+          "offset": "0x94",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTDBU",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.29, p.953"
+        },
+        {
+          "name": "GTDBD",
+          "offset": "0x98",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTDBD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.29, p.953"
+        },
+        {
+          "name": "GTSOS",
+          "offset": "0x9c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SOS",
+              "pos": 0,
+              "bits": 2,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.30, p.953"
+        },
+        {
+          "name": "GTSOTR",
+          "offset": "0xa0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SOTR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.31, p.954"
+        },
+        {
+          "name": "GTADSMR",
+          "offset": "0xa4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ADSMS0",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADSMEN0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADSMS1",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADSMEN1",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.32, p.954"
+        },
+        {
+          "name": "GTEITC",
+          "offset": "0xa8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EIVTC1",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "EIVTT1",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "EITCNT1",
+              "pos": 12,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "EIVTC2",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "EIVTT2",
+              "pos": 20,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "EITCNT2IV",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "EITCNT2",
+              "pos": 28,
+              "bits": 4,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.33, p.956"
+        },
+        {
+          "name": "GTEITLI1",
+          "offset": "0xac",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EITLA",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLB",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLC",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLD",
+              "pos": 12,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLE",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLF",
+              "pos": 20,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLV",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EITLU",
+              "pos": 28,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.34, p.958"
+        },
+        {
+          "name": "GTEITLI2",
+          "offset": "0xb0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EADTAL",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EADTBL",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.35, p.959"
+        },
+        {
+          "name": "GTEITLB",
+          "offset": "0xb4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EBTLCA",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLCB",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLPR",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLADA",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLADB",
+              "pos": 20,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLDVU",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "EBTLDVD",
+              "pos": 28,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.36, p.961"
+        },
+        {
+          "name": "GTICLF",
+          "offset": "0xb8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ICLFA",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ICLFSELC",
+              "pos": 4,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "ICLFB",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ICLFSELD",
+              "pos": 20,
+              "bits": 6,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.37, p.963"
+        },
+        {
+          "name": "GTPC",
+          "offset": "0xbc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PCEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ASTP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PCNT",
+              "pos": 16,
+              "bits": 12,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.38, p.964"
+        },
+        {
+          "name": "GTADCMSC",
+          "offset": "0xc0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ADCMSC1",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMST1",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMSCNT1IV",
+              "pos": 8,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMSCNT1",
+              "pos": 12,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "ADCMSC2",
+              "pos": 16,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMST2",
+              "pos": 20,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMSCNT2IV",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMSCNT2",
+              "pos": 28,
+              "bits": 4,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.39, p.965"
+        },
+        {
+          "name": "GTADCMSS",
+          "offset": "0xc4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ADCMSAL",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMSBL",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMBSA",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ADCMBSB",
+              "pos": 20,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.40, p.967"
+        },
+        {
+          "name": "GTSECSR",
+          "offset": "0xd0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SECSEL0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL8",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL9",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL10",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL11",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL12",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SECSEL13",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.41, p.969"
+        },
+        {
+          "name": "GTSECR",
+          "offset": "0xd4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SBDCE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDPE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDAE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDDE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDCD",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDPD",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDAD",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBDDD",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPCE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCE",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPCD",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSCD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.42, p.971"
+        },
+        {
+          "name": "GTBER2",
+          "offset": "0xe0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CCTCA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCTCB",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCTPR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCTADA",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCTADB",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CCTDV",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMTCA",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CMTCB",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CMTADA",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMTADB",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTCA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTCB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTPR",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTADA",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTADB",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPTDV",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CP3DB",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPBTD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OLTTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OLTTB",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.43, p.973"
+        },
+        {
+          "name": "GTOLBR",
+          "offset": "0xe4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GTIOAB",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "GTIOBB",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.44, p.978"
+        },
+        {
+          "name": "GTICCR",
+          "offset": "0xec",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ICAFA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFB",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFC",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFPO",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAFPU",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICACLK",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICAGRP",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFA",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFB",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFC",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFD",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFF",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFPO",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBFPU",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBCLK",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICBGRP",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.45, p.978"
+        }
+      ]
+    },
+    {
+      "name": "R_GPT_OPS_Type",
+      "size": "0x4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.46, p.982",
+      "members": [
+        {
+          "name": "OPSCR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "UF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WF",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "U",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "V",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "W",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "EN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FB",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "P",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "N",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "INV",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RV",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ALIGN",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GRP",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "GODF",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFEN",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFCS",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.46, p.982"
+        }
+      ]
+    },
+    {
+      "name": "R_GPT_GTCLK_Type",
+      "size": "0x4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.47, p.985",
+      "members": [
+        {
+          "name": "GTCLKCR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BPEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.47, p.985"
+        }
+      ]
+    },
+    {
+      "name": "R_SCI_B0_Type",
+      "size": "0x7c",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190",
+      "members": [
+        {
+          "name": "RDR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RDAT",
+              "pos": 0,
+              "bits": 9,
+              "access": "R"
+            },
+            {
+              "name": "MPB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DR",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FPER",
+              "pos": 11,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FFER",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ORER",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PER",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FER",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190",
+          "views": [
+            {
+              "name": "RDR_BY",
+              "offset": 0,
+              "width": 8,
+              "access": "R",
+              "fields": [
+                {
+                  "name": "RDAT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TDR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TDAT",
+              "pos": 0,
+              "bits": 9,
+              "access": "R/W"
+            },
+            {
+              "name": "MPBT",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TSYNC",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.3, p.2191",
+          "views": [
+            {
+              "name": "TDR_BY",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "TDAT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            },
+            {
+              "name": "TDRLL",
+              "width": 8,
+              "offset": 0,
+              "access": "R/W"
+            },
+            {
+              "name": "TDRLH",
+              "width": 8,
+              "offset": 1,
+              "access": "R/W"
+            }
+          ],
+          "vocabulary": "Stock 5.9 TDR_BY names the same low-byte view documented as TDRLL in \u00a739.2.3."
+        },
+        {
+          "name": "CCR0",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MPIE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DCME",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IDSEL",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RIE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEIE",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSE",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.5, p.2192"
+        },
+        {
+          "name": "CCR1",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CTSE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CTSPEN",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPB2DT",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPB2IO",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PM",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TINV",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RINV",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPLP",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SHARPS",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFCS",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "NFEN",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFM",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.6, p.2195"
+        },
+        {
+          "name": "CCR2",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BCP",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "BGDM",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ABCS",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ABCSE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ABCSE2",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BRR",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "BRME",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CKS",
+              "pos": 20,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "MDDR",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.7, p.2199"
+        },
+        {
+          "name": "CCR3",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CPHA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPOL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BPEN",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CHR",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "LSBF",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SINV",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STP",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXDESEL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MOD",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "MP",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FM",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DEN",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CKE",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ACS0",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GM",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BLK",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.8, p.2213"
+        },
+        {
+          "name": "CCR4",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CMPD",
+              "pos": 0,
+              "bits": 9,
+              "access": "R/W"
+            },
+            {
+              "name": "ASEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATEN",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AST",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "AJD",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ATT",
+              "pos": 28,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "AET",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.9, p.2220"
+        },
+        {
+          "name": "CESR",
+          "offset": "0x1c",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RIST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TIST",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.29, p.2251"
+        },
+        {
+          "name": "ICR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IICDL",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "IICINTM",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICCSC",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICACKT",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICSTAREQ",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICRSTAREQ",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICSTPREQ",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICSDAS",
+              "pos": 20,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "IICSCLS",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.10, p.2222"
+        },
+        {
+          "name": "FCR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DRES",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TTRG",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "TFRST",
+              "pos": 15,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RTRG",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "RFRST",
+              "pos": 23,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RSTRG",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.11, p.2225"
+        },
+        {
+          "name": "MCR",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RMPOL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TMPOL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ERTEN",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SYNVAL",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SYNSEL",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBSEL",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TPLEN",
+              "pos": 8,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "TPPAT",
+              "pos": 12,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "RPLEN",
+              "pos": 16,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "RPPAT",
+              "pos": 20,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PFEREN",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SYEREN",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SBEREN",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.12, p.2226"
+        },
+        {
+          "name": "DCR",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DEPOL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DEAST",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "DENGT",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.13, p.2229"
+        },
+        {
+          "name": "XCR0",
+          "offset": "0x34",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCSS",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "BFE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CF0RE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CF1DS",
+              "pos": 10,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PIBE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIBS",
+              "pos": 13,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "BFOIE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCDIE",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BFDIE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "COFIE",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AEDIE",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCCS",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.14, p.2230"
+        },
+        {
+          "name": "XCR1",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDST",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BMEN",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PCF1D",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "SCF1D",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "CF1CE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.15, p.2233"
+        },
+        {
+          "name": "XCR2",
+          "offset": "0x3c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CF0D",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "CF0CE",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "BFLW",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.16, p.2234"
+        },
+        {
+          "name": "CSR",
+          "offset": "0x48",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "ERS",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXDMON",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DCMF",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DPER",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DFER",
+              "pos": 18,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ORER",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "MFF",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PER",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FER",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TDRE",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TEND",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDRF",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.17, p.2235"
+        },
+        {
+          "name": "ISR",
+          "offset": "0x4c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "IICACKR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IICSTIF",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.18, p.2240"
+        },
+        {
+          "name": "FRSR",
+          "offset": "0x50",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DR",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "R",
+              "pos": 8,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "PNUM",
+              "pos": 16,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "FNUM",
+              "pos": 24,
+              "bits": 6,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.19, p.2241"
+        },
+        {
+          "name": "FTSR",
+          "offset": "0x54",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "T",
+              "pos": 0,
+              "bits": 6,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.20, p.2242"
+        },
+        {
+          "name": "MSR",
+          "offset": "0x58",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "PFER",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SYER",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SBER",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "MER",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSYNC",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.21, p.2243"
+        },
+        {
+          "name": "XSR0",
+          "offset": "0x5c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SFSF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXDSF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BFOF",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BCDF",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BFDF",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CF0MF",
+              "pos": 11,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CF1MF",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PIBDF",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "COF",
+              "pos": 14,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "AEDF",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CF0RD",
+              "pos": 16,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "CF1RD",
+              "pos": 24,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.22, p.2245"
+        },
+        {
+          "name": "XSR1",
+          "offset": "0x60",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "TCNT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.23, p.2247"
+        },
+        {
+          "name": "CFCLR",
+          "offset": "0x68",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "ERSC",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DCMFC",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DPERC",
+              "pos": 17,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DFERC",
+              "pos": 18,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ORERC",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "MFFC",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PERC",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "FERC",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TDREC",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RDRFC",
+              "pos": 31,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.24, p.2248"
+        },
+        {
+          "name": "ICFCLR",
+          "offset": "0x6c",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "IICSTIFC",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.25, p.2249"
+        },
+        {
+          "name": "FFCLR",
+          "offset": "0x70",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "DRC",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.26, p.2249"
+        },
+        {
+          "name": "MFCLR",
+          "offset": "0x74",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "PFERC",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SYERC",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SBERC",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "MERC",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.27, p.2250"
+        },
+        {
+          "name": "XFCLR",
+          "offset": "0x78",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "BFOC",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BCDC",
+              "pos": 9,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "BFDC",
+              "pos": 10,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CF0MC",
+              "pos": 11,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CF1MC",
+              "pos": 12,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PIBDC",
+              "pos": 13,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "COFC",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "AEDC",
+              "pos": 15,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.28, p.2250"
+        }
+      ]
+    },
+    {
+      "name": "R_SPI_B0_Type",
+      "size": "0x70",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.1, p.2891",
+      "members": [
+        {
+          "name": "SPDR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SPD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.1, p.2891"
+        },
+        {
+          "name": "SPDECR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SCKDL",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "SLNDL",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "SPNDL",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.2, p.2893"
+        },
+        {
+          "name": "SPCR",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SPE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPPE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPOE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PTE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCKASE",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BFDS",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MODFEN",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPEIE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPRIE",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPIIE",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPDRES",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPTIE",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CENDIE",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPMS",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPFRF",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TXMD",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "MSTR",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BPEN",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.3, p.2894"
+        },
+        {
+          "name": "SPCR2",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RMFM",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "RMEDTG",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RMSTTG",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SPDRC",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "SPLP",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPLP2",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MOIFV",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MOIFE",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.4, p.2899"
+        },
+        {
+          "name": "SPCR3",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SSL0P",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSL1P",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSL2P",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSL3P",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPBR",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "SPSLN",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.5, p.2901"
+        },
+        {
+          "name": "SPCMD",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CPHA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPOL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BRDV",
+              "pos": 2,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "SSLKP",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LSBF",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPNDEN",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SLNDEN",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCKDEN",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPB",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "SSLA",
+              "pos": 24,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.6, p.2903",
+          "count": 8,
+          "individual_names": [
+            "SPCMD0",
+            "SPCMD1",
+            "SPCMD2",
+            "SPCMD3",
+            "SPCMD4",
+            "SPCMD5",
+            "SPCMD6",
+            "SPCMD7"
+          ]
+        },
+        {
+          "name": "SPDCR",
+          "offset": "0x40",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BYSW",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPRDTD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SINV",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPFC",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.7, p.2906"
+        },
+        {
+          "name": "SPDCR2",
+          "offset": "0x44",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RTRG",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TTRG",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.8, p.2907"
+        },
+        {
+          "name": "SPSR",
+          "offset": "0x50",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SPCP",
+              "pos": 8,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "SPECM",
+              "pos": 12,
+              "bits": 3,
+              "access": "R"
+            },
+            {
+              "name": "SPDRF",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "OVRF",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IDLNF",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "MODF",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PERF",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "UDRF",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SPTEF",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CENDF",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SPRF",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.9, p.2908"
+        },
+        {
+          "name": "SPTFSR",
+          "offset": "0x58",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "TFDN",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.10, p.2914"
+        },
+        {
+          "name": "SPRFSR",
+          "offset": "0x5c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RFDN",
+              "pos": 0,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.11, p.2914"
+        },
+        {
+          "name": "SPPSR",
+          "offset": "0x60",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SPEPS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.12, p.2915"
+        },
+        {
+          "name": "SPSRC",
+          "offset": "0x68",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SPDRFC",
+              "pos": 23,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "OVRFC",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "MODFC",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PERFC",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "UDRFC",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SPTEFC",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CENDFC",
+              "pos": 30,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SPRFC",
+              "pos": 31,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.13, p.2915"
+        },
+        {
+          "name": "SPFCR",
+          "offset": "0x6c",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SPFRST",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.14, p.2916"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_DMAC0",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a000",
+      "nonsecure": "0x5000a000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC1",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a040",
+      "nonsecure": "0x5000a040",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC2",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a080",
+      "nonsecure": "0x5000a080",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC3",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a0c0",
+      "nonsecure": "0x5000a0c0",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC4",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a100",
+      "nonsecure": "0x5000a100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC5",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a140",
+      "nonsecure": "0x5000a140",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC6",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a180",
+      "nonsecure": "0x5000a180",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_DMAC7",
+      "type": "R_DMAC0_Type",
+      "secure": "0x4000a1c0",
+      "nonsecure": "0x5000a1c0",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a717.2.4, p.742; \u00a717.1 pp.737\u2013738 CPU-local channels; stride 0x40"
+    },
+    {
+      "name": "R_GPT0",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322000",
+      "nonsecure": "0x50322000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT1",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322100",
+      "nonsecure": "0x50322100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT2",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322200",
+      "nonsecure": "0x50322200",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT3",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322300",
+      "nonsecure": "0x50322300",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT4",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322400",
+      "nonsecure": "0x50322400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT5",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322500",
+      "nonsecure": "0x50322500",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT6",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322600",
+      "nonsecure": "0x50322600",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT7",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322700",
+      "nonsecure": "0x50322700",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT8",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322800",
+      "nonsecure": "0x50322800",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT9",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322900",
+      "nonsecure": "0x50322900",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT10",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322a00",
+      "nonsecure": "0x50322a00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT11",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322b00",
+      "nonsecure": "0x50322b00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT12",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322c00",
+      "nonsecure": "0x50322c00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT13",
+      "type": "R_GPT0_Type",
+      "secure": "0x40322d00",
+      "nonsecure": "0x50322d00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.1, p.894; GPT32n n=0..13, stride 0x100"
+    },
+    {
+      "name": "R_GPT_OPS",
+      "type": "R_GPT_OPS_Type",
+      "secure": "0x40323f00",
+      "nonsecure": "0x50323f00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.46, p.982"
+    },
+    {
+      "name": "R_GPT_GTCLK",
+      "type": "R_GPT_GTCLK_Type",
+      "secure": "0x40323f10",
+      "nonsecure": "0x50323f10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.47, p.985"
+    },
+    {
+      "name": "R_SCI_B0",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358000",
+      "nonsecure": "0x50358000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B1",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358100",
+      "nonsecure": "0x50358100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B2",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358200",
+      "nonsecure": "0x50358200",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B3",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358300",
+      "nonsecure": "0x50358300",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B4",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358400",
+      "nonsecure": "0x50358400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B5",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358500",
+      "nonsecure": "0x50358500",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B6",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358600",
+      "nonsecure": "0x50358600",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B7",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358700",
+      "nonsecure": "0x50358700",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B8",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358800",
+      "nonsecure": "0x50358800",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SCI_B9",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358900",
+      "nonsecure": "0x50358900",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100"
+    },
+    {
+      "name": "R_SPI_B0",
+      "type": "R_SPI_B0_Type",
+      "secure": "0x4035c000",
+      "nonsecure": "0x5035c000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.1, p.2890; SPIn_B n=0..1, stride 0x100"
+    },
+    {
+      "name": "R_SPI_B1",
+      "type": "R_SPI_B0_Type",
+      "secure": "0x4035c100",
+      "nonsecure": "0x5035c100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a744.2.1, p.2890; SPIn_B n=0..1, stride 0x100"
+    },
+    {
+      "name": "R_SCI0",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358000",
+      "nonsecure": "0x50358000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI1",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358100",
+      "nonsecure": "0x50358100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI2",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358200",
+      "nonsecure": "0x50358200",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI3",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358300",
+      "nonsecure": "0x50358300",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI4",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358400",
+      "nonsecure": "0x50358400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI5",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358500",
+      "nonsecure": "0x50358500",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI6",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358600",
+      "nonsecure": "0x50358600",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI7",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358700",
+      "nonsecure": "0x50358700",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI8",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358800",
+      "nonsecure": "0x50358800",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    },
+    {
+      "name": "R_SCI9",
+      "type": "R_SCI_B0_Type",
+      "secure": "0x40358900",
+      "nonsecure": "0x50358900",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a739.2.2, p.2190; SCIn_B n=0..9, stride 0x100; generic SCI instance denotes the same SCI_B bank, not a legacy register layout"
+    }
+  ]
+}

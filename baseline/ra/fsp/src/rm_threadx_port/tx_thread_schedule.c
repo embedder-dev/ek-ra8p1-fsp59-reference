@@ -65,11 +65,15 @@
 /* Used to convert text into a string. */
 #define TX_PORT_STRINGIFY(s)               #s
 
-/* The scheduler stacks r4-r11 (and LR if the MCU has an FPU) in PendSV_Handler, but PSPLIM will not detect a stack
- * overflow because PSP is not used in handler mode. TX_PORT_SCHEDULER_STACK is used to move PSPLIM to account for
- * this. TX_PORT_SCHEDULER_STACK must be a multiple of 8. */
+/* The scheduler's stores through r3 are not checked against PSPLIM. Reserve the maximum software context above
+ * the stack start. On secondary-core devices the resulting limit is rounded up to an 8-byte boundary below. */
 #if __FPU_USED
- #define TX_PORT_SCHEDULER_STACK    40
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+/* r4-r11, s16-s31 and EXC_RETURN require 100 bytes before limit alignment. */
+  #define TX_PORT_SCHEDULER_STACK    100
+ #else
+  #define TX_PORT_SCHEDULER_STACK    40
+ #endif
 #else
  #define TX_PORT_SCHEDULER_STACK    32
 #endif
@@ -556,7 +560,11 @@ TX_PORT_NAKED_FUNCTION VOID PendSV_Handler (VOID)
         "LDR     r1, [r6, #"TX_PORT_STRINGIFY_EXPANDED (TX_PORT_OFFSET_STACK_START)
         "]                                   \n"
         "ADD     r1,  r1, #"TX_PORT_STRINGIFY_EXPANDED (TX_PORT_SCHEDULER_STACK)
-        "                                    \n" // Update PSP to utilize the HW stack monitor with the amount of room required to save r4-r11
+        "                                    \n" // Reserve software context below the hardware-checked PSP
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+        "ADD     r1,  r1, #7                 \n" // Round up rather than losing reserved bytes to PSPLIM alignment
+        "BIC     r1,  r1, #7                 \n"
+ #endif
         "MSR     PSPLIM, r1                  \n"
 #endif
 
@@ -761,6 +769,9 @@ void _tx_port_svc_handler (UINT * caller_stack_ptr)
             }
             else
             {
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+                p_thread->tx_thread_secure_stack_context = 0U;
+ #endif
                 caller_stack_ptr[0] = TX_SUCCESS;
             }
 

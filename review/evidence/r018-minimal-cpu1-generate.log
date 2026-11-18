@@ -1,0 +1,7 @@
+ok generate validation/ra8p1/review_r015_cpu1 (814 ms)
+generated project content for review_r015_cpu1 (<repo>/validation/ra8p1/review_r015_cpu1)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: changed: .cproject (+1 -0 lines); rewritten with identical content: .api_xml, .secure_azone, .secure_rzone
+preceding review_r015_cpu0: Smart Bundle fresh (<repo>/validation/ra8p1/review-r015/Debug/review_r015_cpu0.sbd)
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ra8p1/review_r015_cpu1

@@ -491,8 +491,12 @@ static void r_sci_b_spi_hw_config (sci_b_spi_instance_ctrl_t * const p_ctrl)
     uint32_t ccr3 = R_SCI_B0_CCR3_CPHA_Msk | R_SCI_B0_CCR3_CPOL_Msk | R_SCI_B0_CCR3_LSBF_Msk |
                     SCI_B_SPI_PRV_CHR_RST_VALUE;
 
+#if BSP_FEATURE_SCI_SPI_HAS_SCKSEL
     /* CCR4.SCKSEL selects the master receive clock used in simple spi mode on supported MCUs. */
     uint32_t ccr4  = (BSP_FEATURE_SCI_SPI_SCKSEL_VALUE << R_SCI_B0_CCR4_SCKSEL_Pos);
+#else
+    uint32_t ccr4  = 0U;
+#endif
     uint32_t cfclr = 0U;
     uint32_t ffclr = 0U;
 
@@ -681,6 +685,11 @@ static fsp_err_t r_sci_b_spi_write_read_common (sci_b_spi_instance_ctrl_t * cons
      * progress. Reference section 26.2.5 Serial Control Register (SCR) in the RA6T2 manual r01uh0951ej0100-ra6t2. */
     FSP_ERROR_RETURN(0 == (p_ctrl->p_reg->CCR0 & (R_SCI_B0_CCR0_RE_Msk | R_SCI_B0_CCR0_TE_Msk)), FSP_ERR_IN_USE);
 
+#if !BSP_FEATURE_SCI_SPI_HAS_SCKSEL
+    /* CCR0 readback does not acknowledge the internal stop when TCLK is slower than PCLK. */
+    FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->CESR & (R_SCI_B0_CESR_TIST_Msk | R_SCI_B0_CESR_RIST_Msk), 0U);
+#endif
+
     /* Setup the control block. */
     p_ctrl->count    = length;
     p_ctrl->tx_count = 0U;
@@ -773,6 +782,10 @@ static void r_sci_b_spi_start_transfer (sci_b_spi_instance_ctrl_t * const p_ctrl
 
         if ((SPI_MODE_SLAVE == p_ctrl->p_cfg->operating_mode) && (1 < p_ctrl->count))
         {
+#if !BSP_FEATURE_SCI_SPI_HAS_SCKSEL
+            /* Wait for the first byte to reach TSR before overwriting TDR (non-FIFO mode). */
+            FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->CSR & R_SCI_B0_CSR_TDRE_Msk, R_SCI_B0_CSR_TDRE_Msk);
+#endif
             /* First call writes directly to the TSR register. The second call writes to the TDR register. */
             r_sci_b_spi_transmit(p_ctrl);
         }
@@ -957,6 +970,11 @@ void sci_b_spi_tei_isr (void)
         (uint32_t) ~(R_SCI_B0_CCR0_TIE_Msk | R_SCI_B0_CCR0_TE_Msk | R_SCI_B0_CCR0_RE_Msk | R_SCI_B0_CCR0_TEIE_Msk);
     p_ctrl->p_reg->CCR0 = ccr0_temp;
 
+#if !BSP_FEATURE_SCI_SPI_HAS_SCKSEL
+    /* A completion callback may immediately start the next transfer. */
+    FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->CESR & (R_SCI_B0_CESR_TIST_Msk | R_SCI_B0_CESR_RIST_Msk), 0U);
+#endif
+
     /* Notify the user that the transfer has completed. */
     r_sci_b_spi_call_callback(p_ctrl, SPI_EVENT_TRANSFER_COMPLETE);
 
@@ -983,9 +1001,22 @@ void sci_b_spi_eri_isr (void)
     /* Disables receiver, transmitter and transmit end IRQ. */
     p_ctrl->p_reg->CCR0 &= (uint32_t) ~(R_SCI_B0_CCR0_TIE_Msk | R_SCI_B0_CCR0_RIE_Msk | R_SCI_B0_CCR0_TEIE_Msk);
 
+#if !BSP_FEATURE_SCI_SPI_HAS_SCKSEL
+    /* Stop interrupt/event reception before stopping the receiver, then acknowledge the internal stop. */
+    p_ctrl->p_reg->CCR0 &= (uint32_t) ~(R_SCI_B0_CCR0_TE_Msk | R_SCI_B0_CCR0_RE_Msk);
+    FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->CESR & (R_SCI_B0_CESR_TIST_Msk | R_SCI_B0_CESR_RIST_Msk), 0U);
+
+    /* Non-FIFO overrun recovery requires an RDR read before clearing ORER. */
+    (void) p_ctrl->p_reg->RDR;
+#endif
+
     /* Clear the error status flags (The only possible error is an RX overflow). */
 
     p_ctrl->p_reg->CFCLR = R_SCI_B0_CFCLR_ORERC_Msk;
+
+#if !BSP_FEATURE_SCI_SPI_HAS_SCKSEL
+    FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->CSR & R_SCI_B0_CSR_ORER_Msk, 0U);
+#endif
 
     /* Notify the user that an error occurred. */
     r_sci_b_spi_call_callback(p_ctrl, SPI_EVENT_ERR_READ_OVERFLOW);

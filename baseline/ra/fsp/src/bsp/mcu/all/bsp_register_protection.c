@@ -74,6 +74,12 @@ BSP_SECTION_FLASH_GAP void R_BSP_RegisterProtectEnable (bsp_reg_protect_t regs_t
          * disable writes. */
 #if BSP_TZ_NONSECURE_BUILD && BSP_FEATURE_TZ_VERSION == 2
         R_SYSTEM->PRCR_NS = ((R_SYSTEM->PRCR_NS | BSP_PRV_PRCR_KEY) & (uint16_t) (~g_prcr_masks[regs_to_protect]));
+ #if BSP_FEATURE_BSP_HAS_PRCR_S
+        FSP_REGISTER_READ(R_SYSTEM->PRCR_NS);
+ #endif
+#elif BSP_FEATURE_BSP_HAS_PRCR_S
+        R_SYSTEM->PRCR_S = ((R_SYSTEM->PRCR_S | BSP_PRV_PRCR_KEY) & (uint16_t) (~g_prcr_masks[regs_to_protect]));
+        FSP_REGISTER_READ(R_SYSTEM->PRCR_S);
 #else
         R_SYSTEM->PRCR = ((R_SYSTEM->PRCR | BSP_PRV_PRCR_KEY) & (uint16_t) (~g_prcr_masks[regs_to_protect]));
 #endif
@@ -104,6 +110,13 @@ BSP_SECTION_FLASH_GAP void R_BSP_RegisterProtectDisable (bsp_reg_protect_t regs_
          * disable writes. */
 #if BSP_TZ_NONSECURE_BUILD && BSP_FEATURE_TZ_VERSION == 2
         R_SYSTEM->PRCR_NS = ((R_SYSTEM->PRCR_NS | BSP_PRV_PRCR_KEY) | g_prcr_masks[regs_to_unprotect]);
+ #if BSP_FEATURE_BSP_HAS_PRCR_S
+        FSP_REGISTER_READ(R_SYSTEM->PRCR_NS);
+ #endif
+#elif BSP_FEATURE_BSP_HAS_PRCR_S
+        /* Read back before accessing PRC4-protected registers (HM 13.2.1). */
+        R_SYSTEM->PRCR_S = ((R_SYSTEM->PRCR_S | BSP_PRV_PRCR_KEY) | g_prcr_masks[regs_to_unprotect]);
+        FSP_REGISTER_READ(R_SYSTEM->PRCR_S);
 #else
         R_SYSTEM->PRCR = ((R_SYSTEM->PRCR | BSP_PRV_PRCR_KEY) | g_prcr_masks[regs_to_unprotect]);
 #endif

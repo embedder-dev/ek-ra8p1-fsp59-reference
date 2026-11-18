@@ -1,0 +1,206 @@
+{
+  "success": true,
+  "revision": "r018",
+  "manifest_sha256": "eb4dd36f99fb67c1692f7b56d5439c312381e8a4897dfbb30711b9ef491d3960",
+  "fresh_clean_driver_modes": 24,
+  "source_elf_cases": 24,
+  "archives_rehashed": 24,
+  "hardware_executed": false,
+  "cases": [
+    {
+      "driver": "mram",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "917e7d70cc586d35f8addf17a924d456e9e845a079e32c2fdf0dd6b1788ad4c9",
+      "source_elf_sha256": "2fce2239e1503eb84d560ec6839ba59b43c63481c1743d7c1c335e473a5fcc49",
+      "build_log_sha256": "1e749d1f9bd3718cf67e3fa8f9d1a94fd87b242d8c164ffbc45e19d6c09bac76"
+    },
+    {
+      "driver": "mram",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "63aab1cd7aef374faa0730893625154a0ec3e3ecaf7c4f65a5e37a62bdf07694",
+      "source_elf_sha256": "9c195763cecefe14076e0b55cb60a402cb56d3080a97f35dcdfb3eb72ef3e8cc",
+      "build_log_sha256": "fb488cd94d68930adc3c0abc8dd7ccf719e748e11292255b5d45e1c15437b313"
+    },
+    {
+      "driver": "mram",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "f4d17641cb074ee25fcec4ba47b48e33fdaa71de0777176a668e84d68248f4a1",
+      "source_elf_sha256": "d66a6a1a5609007d2192ddd05572242dab66e980eebcce1704da9441a04fb5e3",
+      "build_log_sha256": "9da829410ff6945f1e2c19d480f310644ceeb0fc7a41c0f61f8da91984da8f70"
+    },
+    {
+      "driver": "mram",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "2191fdc5e16366a8358a49ac0f0582753108862e99efb50efbc34146189bd214",
+      "source_elf_sha256": "7309c6ea6ee98cdb70ea7bc946f7e08f29b9782fa93b08b49723df3225df59e0",
+      "build_log_sha256": "3f77cbd0f71fb1654953898a2444adffb120db13b8ee3fe61aa59c9cbf631e51"
+    },
+    {
+      "driver": "dac_b",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "0e1f8c18ca466af8e49928cbb7fc6d4637862369857f634c4798b1070b86d11d",
+      "source_elf_sha256": "97f63f36519b95142838597508eb7469d315da36ef9ad9988e48d20685b46198",
+      "build_log_sha256": "018808253959825e5d3db746d8254d11ffb4d05c9b3e384201946518d23a01fb"
+    },
+    {
+      "driver": "dac_b",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "f0c3e843c4322bf9a12b1a254fad45742bc5750e533c117a093a147c4572f3d9",
+      "source_elf_sha256": "b96dc99c4f56ca4bf88ca1610936e8d43c68a221a0436738ed2bc85aa071e034",
+      "build_log_sha256": "9dd0efed529d31f029a242e2b84a01bcd30d1fc3ccbecd46d9045db9c8a399dd"
+    },
+    {
+      "driver": "dac_b",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "882716c602929d5be3db586c9c7c55320d9aefb585887d675f78e6ad6964adfc",
+      "source_elf_sha256": "45538efe5de5a56e195f1675fa661b58b89b38222dc707b6a24cb4a3a1a9d918",
+      "build_log_sha256": "7c1ed5399cf9d74b65694f74f153e061c44ac6d0c3bcba9fcb61947310e89fc5"
+    },
+    {
+      "driver": "dac_b",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "8b8f5db4d81f02de0689f7b89f92b18c5ec6c8a79d7c8a19c30cb6c0c7b1dd57",
+      "source_elf_sha256": "b3828fc09f30401f7c7635ec0183667df307890bff8101093ff5169974b6cfa7",
+      "build_log_sha256": "49fc2d3d9350b8c5ed938679482baf617ba8adff9c549aa0a0f800ae0c5add57"
+    },
+    {
+      "driver": "pdm",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "c9859b7fa0a79853008af749627dd347b9e9f1d82174f114a1b6f8b5efa45a9b",
+      "source_elf_sha256": "ae468ede1c12d6bbba742a3a2ccd21b944f0ab7b01fe37aabbf68c4752db8c8e",
+      "build_log_sha256": "a71e8812e4f8859a13d386b7c4c2066dfb59bb6c980c6c13df735215219616a5"
+    },
+    {
+      "driver": "pdm",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "0250528ea515481eb6618cca70bc4ad0f7c04c8bfdef4ed270953b9aef0bc363",
+      "source_elf_sha256": "6f55fda62fdef57185675ccdc47e416e9eb1f13c0764e1281a7424bcc7b82ff7",
+      "build_log_sha256": "d8ec62e64dc9c9e2a69f7467930f84c93b0bff5e193c5e40e40b9f219b23ec89"
+    },
+    {
+      "driver": "pdm",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "dca20406a3479fb9b1a4dd97b5cc27918c6b5ea15e056d6d9d962e3e0254928d",
+      "source_elf_sha256": "399683426bfc4c7d0273a87688afa826e5057c0dde5815aab6dcddaf1e5454da",
+      "build_log_sha256": "4286cff556698ff3406431621f2f4de85aff01bcf9afce652fafc1cc0bfacd0c"
+    },
+    {
+      "driver": "pdm",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "1fde32f4ebb78d2f533405cad3f3a2e6e040d4fec30f894294beedead4727d42",
+      "source_elf_sha256": "55a24f8e51cd69db547606d8bdf0920d493007e3a16b5d521603b626a4616a68",
+      "build_log_sha256": "9e91e6700fbf647ed4129a6ef83dcbaf8be4bf09673567e5d495756b6c903b3d"
+    },
+    {
+      "driver": "wdt",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "a10da794895ad187c331ee475d76c17f6106f9987320cbc8fb77cdcc2b515a83",
+      "source_elf_sha256": "bb59109ced3b56f8bde4138275378cea61998f371ffe89feca3965e28766ce0d",
+      "build_log_sha256": "fc5df6d9986eebb09645272ae0074012956f101efed4ea2262603cd01d8ce153"
+    },
+    {
+      "driver": "wdt",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "56a0d09f52a58164818a3cb6b9d56e03402ec80ceca4da0c5eaf6e036dd655ff",
+      "source_elf_sha256": "3b99a2eb65b232bce52db6515def8fe8cfd62ddc1f93ab9546d9eefa05c48a53",
+      "build_log_sha256": "d2c12986b7f33961550503163554e533e68669257bbb46051988807ab3641624"
+    },
+    {
+      "driver": "wdt",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "98108f24b67cdef5f6ba04f90b7c48bc2575f0957f0bec152aacd61edc0646c5",
+      "source_elf_sha256": "e6bef691c70e786c14db90a41f7d994f5984af48e11d95709ac95386326cf9c6",
+      "build_log_sha256": "f81d7f866fe88cb1c1ee1d3a76e65aa23facc290dc10e79d33cd6e18c5d769c4"
+    },
+    {
+      "driver": "wdt",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "e9d4f843bb57923817b1ad94eef39e4c43aa55437af6e5af0b97bd7253489d9f",
+      "source_elf_sha256": "8bc78c6413c636b37c2c4356815ef4b3d20bc26310502b66ef3fa9289f47d327",
+      "build_log_sha256": "ad8d99992c6fd349bc438308d86165a2156fecd9370db4fc5d98259c1599981b"
+    },
+    {
+      "driver": "adc_b",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "e7b81a93ddac04ee7ed717db677dae911b1937172486976bd7550c4e711c21a1",
+      "source_elf_sha256": "cfb7a17f5c51aca5fcb3f8f33bd05b0f202de311aeee3cbcf3fa5235ab5bb1ed",
+      "build_log_sha256": "4451cd8bdb092eb3caa247cb76701a9eb544a30a117116e3e143dbaccb36f64a"
+    },
+    {
+      "driver": "adc_b",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "66b65d63ba6da3dbd5772aefcd9ead2eefb868561255269a367fb1efeab95df9",
+      "source_elf_sha256": "298922f388926c583e5457630b2def804d89527ba4db290746d49e27f3fdec9c",
+      "build_log_sha256": "e4558190f2f2e436a65d70326f237e09554802d6407e0fed674b67ad0f21f2a8"
+    },
+    {
+      "driver": "adc_b",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "3dfc684e2bb0af465101a9bd055d637461cebbb36ff04912a0f7b8e8756a696b",
+      "source_elf_sha256": "69a1ccbe7289bdbd6d057ca7c187e769b1016928dedf1d3e06e6037df5e3425f",
+      "build_log_sha256": "6ede15260975f47a1edfdb99c1c6ad994fb3fe52975001baa312f0ec53026059"
+    },
+    {
+      "driver": "adc_b",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "b38b34720400bdc1ca40a7c35070d43b112426203ae5be924e21498a860ee658",
+      "source_elf_sha256": "c53a020b197fb2b421b1284353d3491aeba22378ac32cf8e0978613951bc40e2",
+      "build_log_sha256": "2a56a6b636883df78df2993989245a6fa53811da20241f87ba18c65681e5d9bb"
+    },
+    {
+      "driver": "cgc",
+      "core": "cpu0",
+      "checking": "disabled",
+      "archive_sha256": "9488b72f470e8929b7c746cd6600b8897c6457df2daaf9cacb53bac49502a555",
+      "source_elf_sha256": "533da3f2a9e40c86d3477032ca8b14ad6e29457d8ff362430c358526d094a40b",
+      "build_log_sha256": "0593c5b8040afa65dd1d7ae7b8b871b86104c014d22d541a6f2f55ff11df804f"
+    },
+    {
+      "driver": "cgc",
+      "core": "cpu0",
+      "checking": "enabled",
+      "archive_sha256": "a9cbe70dbfb2792ef8ab3ed4c49e08d69ca91aa4267103ee0e415877fcb2eb50",
+      "source_elf_sha256": "c1417a0f3403ade3cd2de987cdf236a555b8c30b0e3a2223581aee178a4e6637",
+      "build_log_sha256": "c1b8e5b79ec3209db0c8b99507b50bbac7a979eca3b44f9df60821606f0fa1d8"
+    },
+    {
+      "driver": "cgc",
+      "core": "cpu1",
+      "checking": "disabled",
+      "archive_sha256": "1ef3de251abe4af5c43f427ba9323089038b4fd84e195b4666c2cd57257715dc",
+      "source_elf_sha256": "93c85d16acf663fec359d7590f4d075f464fead34cc9c91654d9e8a3970cd09d",
+      "build_log_sha256": "61364ad6a4692ceb5373b3be30c855a03d1b3edc58ce8617e1cc4d06116bcdd9"
+    },
+    {
+      "driver": "cgc",
+      "core": "cpu1",
+      "checking": "enabled",
+      "archive_sha256": "cde1a821c0ff3a042abb4cdb5767b4111ac72d2bfdded058d4be213571545928",
+      "source_elf_sha256": "c877ece4bed24f19c033f092b0009828c9457d07214b9f79b0d205467257adb9",
+      "build_log_sha256": "b09781ad6737954e0e5b2eb489a911bb7663e742d629daa4bd81ff5174378a54"
+    }
+  ],
+  "bsp_report": "review/evidence/r018-minimal-source-elf.json",
+  "board_report": "review/evidence/r018-board-check.log",
+  "metadata_report": "review/evidence/final-r018-metadata-validation.log"
+}

@@ -1,0 +1,13 @@
+.usage: r018-audit.tests.py [-h] [--inputs INPUTS] (--check-ready |
+                           --aggregate) [--parent-release]
+                           [--output-prefix OUTPUT_PREFIX]
+r018-audit.tests.py: error: Aggregation held: explicit parent release and all final bindings required
+.usage: r018-audit.tests.py [-h] [--inputs INPUTS] (--check-ready |
+                           --aggregate) [--parent-release]
+                           [--output-prefix OUTPUT_PREFIX]
+r018-audit.tests.py: error: Aggregation held: explicit parent release and all final bindings required
+........................
+----------------------------------------------------------------------
+Ran 26 tests in 0.101s
+
+OK

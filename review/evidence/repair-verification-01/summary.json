@@ -1,0 +1,50 @@
+{
+  "main_exit_code": 0,
+  "main_test_count": 146,
+  "input_changes_during_main_run": {},
+  "outcomes": [
+    {
+      "module": "test_ra8p1_candidate",
+      "outcome": "ok",
+      "count": 73
+    },
+    {
+      "module": "test_ra8p1_review_dual_cache",
+      "outcome": "ok",
+      "count": 13
+    },
+    {
+      "module": "test_ra8p1_review_nmi_init",
+      "outcome": "ok",
+      "count": 4
+    },
+    {
+      "module": "test_ra8p1_review_regression_ownership",
+      "outcome": "ok",
+      "count": 11
+    },
+    {
+      "module": "test_ra8p1_review_rtos_provenance",
+      "outcome": "ok",
+      "count": 16
+    },
+    {
+      "module": "test_ra8p1_review_tcm_windows",
+      "outcome": "ok",
+      "count": 8
+    },
+    {
+      "module": "test_ra8p1_rtos_compatibility",
+      "outcome": "ok",
+      "count": 14
+    },
+    {
+      "module": "test_ra8p1_startup",
+      "outcome": "ok",
+      "count": 7
+    }
+  ],
+  "mdf_exit_code": 0,
+  "mdf_test_count": 7,
+  "total_test_count": 153
+}

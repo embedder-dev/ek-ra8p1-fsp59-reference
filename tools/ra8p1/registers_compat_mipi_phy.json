@@ -1,0 +1,303 @@
+{
+  "types": [
+    {
+      "name": "R_DPHYCNT_Type",
+      "size": "0x4c",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2, p.3832\u20133847",
+      "members": [
+        {
+          "name": "DPHYREFCR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RFREQ",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.1, p.3832\u20133833"
+        },
+        {
+          "name": "DPHYPLFCR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IDIV",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NFMUL",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PMUL",
+              "pos": 12,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NMUL",
+              "pos": 16,
+              "bits": 9,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.2, p.3833\u20133834"
+        },
+        {
+          "name": "DPHYPLOCR",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PLLSTP",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.3, p.3834\u20133835"
+        },
+        {
+          "name": "DPHYESCCR",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ESCDIV",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.4, p.3835\u20133836"
+        },
+        {
+          "name": "DPHYPWRCR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PWRSEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.5, p.3836\u20133836"
+        },
+        {
+          "name": "DPHYSFR",
+          "offset": "0x1c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "PWRSF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PLLSF",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.6, p.3836\u20133837"
+        },
+        {
+          "name": "DPHYOCR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DPHYEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.7, p.3837\u20133837"
+        },
+        {
+          "name": "DPHYTIM1",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TINIT",
+              "pos": 0,
+              "bits": 19,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.8, p.3837\u20133838"
+        },
+        {
+          "name": "DPHYTIM2",
+          "offset": "0x28",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCLKPREP",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "TCLKSETT",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "TCLKMISS",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.9, p.3838\u20133838"
+        },
+        {
+          "name": "DPHYTIM3",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "THSPREP",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "THSSETT",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.10, p.3838\u20133839"
+        },
+        {
+          "name": "DPHYTIM4",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCLKZERO",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "TCLKPRE",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "TCLKPOST",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "TCLKTRL",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.11, p.3839\u20133840"
+        },
+        {
+          "name": "DPHYTIM5",
+          "offset": "0x34",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "THSZERO",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "THSTRL",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "THSEXIT",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.12, p.3840\u20133841"
+        },
+        {
+          "name": "DPHYTIM6",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TLPX",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.13, p.3841\u20133846"
+        },
+        {
+          "name": "DPHYMDC",
+          "offset": "0x48",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MASTEREN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2.14, p.3846\u20133847"
+        }
+      ],
+      "alignment": 4
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_DPHYCNT",
+      "type": "R_DPHYCNT_Type",
+      "secure": "0x40346c00",
+      "nonsecure": "0x50346c00",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a765.2, p.3832\u20133847"
+    }
+  ]
+}

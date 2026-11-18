@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "projects": [
+    {
+      "project": "r018_def_mram85",
+      "archive_sha256": "993f30918c0e320b5ea26a28e50cdf5787016f34b30052e7f469253ceb2fc5db",
+      "build_log": "review/evidence/r018-default-mram85-clean-build.log",
+      "build_log_sha256": "d3250731fad24c1162793abe31ca0e626c2d5742ed1635133589da0769c99089",
+      "source_elf_sha256": "31a7f1824382d3f4bc9b7ce8d3430bd8f29c8d8a2069d66877712ad2db880dd1"
+    },
+    {
+      "project": "r018_def_mram33",
+      "archive_sha256": "75ce5b0d07964f1efc854c80270947b97306cf56ea1c5bb79022bd59bc1a0bb1",
+      "build_log": "review/evidence/r018-default-mram33-clean-build.log",
+      "build_log_sha256": "4c8078d0f1f6e03302b72d30b4ab269358b440baebe534cee237801b4846f53b",
+      "source_elf_sha256": "31a7f1824382d3f4bc9b7ce8d3430bd8f29c8d8a2069d66877712ad2db880dd1"
+    },
+    {
+      "project": "r018_def_dac_b85",
+      "archive_sha256": "3dbfd9dedb5b3c73ebd653544c7bc8d48c493177b9ab9453f55d084a7a7d4bdd",
+      "build_log": "review/evidence/r018-default-dac_b85-clean-build.log",
+      "build_log_sha256": "947c634de28c929eed2466ac1ba0061dc4425e63cf769dbb10d573057f38b4a1",
+      "source_elf_sha256": "71ffaf5ac8bfd00373ae1c6acab173a255070c638c6d6fbba58152a809a93f4e"
+    },
+    {
+      "project": "r018_def_dac_b33",
+      "archive_sha256": "9f9910d7eb426412453ab8851169c41ed865f51ff2be68d262b7183a14231db5",
+      "build_log": "review/evidence/r018-default-dac_b33-clean-build.log",
+      "build_log_sha256": "06493c6a1e8de4b8fb957888f8284ae79de0fe30f9bc3b5944a5a8d2b6bb305e",
+      "source_elf_sha256": "71ffaf5ac8bfd00373ae1c6acab173a255070c638c6d6fbba58152a809a93f4e"
+    },
+    {
+      "project": "r018_def_pdm85",
+      "archive_sha256": "f73ccd5396b7679852eefde893eeb7e4a930402f37059bced31a0e1967adeaa6",
+      "build_log": "review/evidence/r018-default-pdm85-clean-build.log",
+      "build_log_sha256": "49bbc3e44f6c96d35735cfc9d6cba2a487ac6b91f61f73d255d574bd30176d59",
+      "source_elf_sha256": "d2b8381e17a0112204f9a435c68f176243c10adda0859190144c4567784d4131"
+    },
+    {
+      "project": "r018_def_pdm33",
+      "archive_sha256": "c06cc9d423568ee6e74064a78167022318c537aa10365c8f8121fb107b29a621",
+      "build_log": "review/evidence/r018-default-pdm33-clean-build.log",
+      "build_log_sha256": "4ef9c5ddaea9da6df808443c98e51f0ea6aca0866a648a0c510d2414c8b93fe0",
+      "source_elf_sha256": "d2b8381e17a0112204f9a435c68f176243c10adda0859190144c4567784d4131"
+    }
+  ],
+  "scope": "All six default archives and their declared files rehashed; actual clean-build verdicts and full physical source/ELF checks verified"
+}

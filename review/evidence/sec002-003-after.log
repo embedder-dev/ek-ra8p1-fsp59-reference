@@ -1,0 +1,9 @@
+test_actual_stack_providers_drive_each_coupled_security_bit (tools.test_ra8p1_review_security_attribution.PeripheralAttributionMetadataTests.test_actual_stack_providers_drive_each_coupled_security_bit) ... ok
+test_both_dma_banks_consume_authoritative_cpu0_policy (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_both_dma_banks_consume_authoritative_cpu0_policy) ... ok
+test_legacy_preprocessed_fragment_is_unchanged (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_legacy_preprocessed_fragment_is_unchanged) ... ok
+test_upper_irq_policy_is_consumed_for_target_only (tools.test_ra8p1_review_security_attribution.SecurityAttributionTests.test_upper_irq_policy_is_consumed_for_target_only) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 4.121s
+
+OK

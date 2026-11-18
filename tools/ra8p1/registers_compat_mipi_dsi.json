@@ -1,0 +1,4595 @@
+{
+  "types": [
+    {
+      "name": "R_DSILINK_Type",
+      "size": "0x880",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2, p.3850\u20133924",
+      "members": [
+        {
+          "name": "ISR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQ1",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "VM",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RCV",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FERR",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PPI",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.1, p.3850\u20133851"
+        },
+        {
+          "name": "LINKSR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SQ0RUN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SQ1RUN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "VRUN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "HSBUSY",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "LPBUSY",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.2, p.3851\u20133852"
+        },
+        {
+          "name": "TXSETR",
+          "offset": "0x100",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "NUMLANE",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CLEN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DLEN",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.3, p.3852\u20133853"
+        },
+        {
+          "name": "HSCLKSETR",
+          "offset": "0x104",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HSCLST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HSCLMD",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.4, p.3853\u20133854"
+        },
+        {
+          "name": "ULPSSETR",
+          "offset": "0x108",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WKUP",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.5, p.3854\u20133854"
+        },
+        {
+          "name": "ULPSCR",
+          "offset": "0x10c",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLENT",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLEXIT",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DLENT",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DLEXIT",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.6, p.3854\u20133855"
+        },
+        {
+          "name": "RSTCR",
+          "offset": "0x110",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SWRST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FTXSTP",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.7, p.3855\u20133856"
+        },
+        {
+          "name": "RSTSR",
+          "offset": "0x114",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RSTHS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSTLP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSTAPB",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSTAXI",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSTV",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0STP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL1STP",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0DIR",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.8, p.3856\u20133857"
+        },
+        {
+          "name": "DSISETR",
+          "offset": "0x120",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MRPSZ",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "ECCEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VC0CRCEN",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VC1CRCEN",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VC2CRCEN",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VC3CRCEN",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCREN",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXTEMD",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EOTPEN",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.9, p.3857\u20133859"
+        },
+        {
+          "name": "TXPPD0R",
+          "offset": "0x160",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA2",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA3",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.10, p.3859\u20133859"
+        },
+        {
+          "name": "TXPPD1R",
+          "offset": "0x164",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA4",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA5",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA6",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA7",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.11, p.3860\u20133860"
+        },
+        {
+          "name": "TXPPD2R",
+          "offset": "0x168",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA8",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA9",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA10",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA11",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.12, p.3860\u20133861"
+        },
+        {
+          "name": "TXPPD3R",
+          "offset": "0x16c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA12",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA13",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA14",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA15",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.13, p.3861\u20133862"
+        },
+        {
+          "name": "RXSR",
+          "offset": "0x200",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "BTAREND",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXRESP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXEOTP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXACK",
+              "pos": 14,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "EXTEDET",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "MLFERR",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ECCERRM",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "UNEXERR",
+              "pos": 18,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "WCERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCERR",
+              "pos": 21,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IBERR",
+              "pos": 22,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXOVFERR",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PRTOERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "NORESERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSIZEERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ECCERRS",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.14, p.3862\u20133865"
+        },
+        {
+          "name": "RXSCR",
+          "offset": "0x204",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "BTAREND",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXRESP",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXEOTP",
+              "pos": 10,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXACK",
+              "pos": 14,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "EXTEDET",
+              "pos": 15,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "MLFERR",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ECCERRM",
+              "pos": 17,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "UNEXERR",
+              "pos": 18,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "WCERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CRCERR",
+              "pos": 21,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "IBERR",
+              "pos": 22,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXOVFERR",
+              "pos": 23,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PRTOERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "NORESERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RSIZEERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ECCERRS",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.15, p.3865\u20133867"
+        },
+        {
+          "name": "RXIER",
+          "offset": "0x208",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BTAREND",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXRESP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXEOTP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXACK",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXTEDET",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MLFERR",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ECCERRM",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "UNEXERR",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WCERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CRCERR",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IBERR",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXOVFERR",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PRTOERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NORESERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSIZEERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ECCERRS",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.16, p.3868\u20133871"
+        },
+        {
+          "name": "PRESPTOBTASETR",
+          "offset": "0x210",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PRTBTA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.17, p.3871\u20133871"
+        },
+        {
+          "name": "PRESPTOLPSETR",
+          "offset": "0x214",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LPWTO",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "LPRTO",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.18, p.3871\u20133872"
+        },
+        {
+          "name": "PRESPTOHSSETR",
+          "offset": "0x218",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HSWTO",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "HSRTO",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.19, p.3872\u20133873"
+        },
+        {
+          "name": "AKEPLATIR",
+          "offset": "0x220",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "EREP",
+              "pos": 0,
+              "bits": 16,
+              "access": "R"
+            },
+            {
+              "name": "VC",
+              "pos": 16,
+              "bits": 4,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.20, p.3873\u20133873"
+        },
+        {
+          "name": "AKEPACMSR",
+          "offset": "0x224",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "AEREP",
+              "pos": 0,
+              "bits": 16,
+              "access": "R"
+            },
+            {
+              "name": "AVC",
+              "pos": 16,
+              "bits": 4,
+              "access": "R",
+              "note": "Stock AVC is the four-bit bitmap of manual AVC0, AVC1, AVC2 and AVC3 at bits 16\u201319; no reserved gap or encoded-channel conversion."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.21, p.3874\u20133875",
+          "note": "AVC[3:0] preserves the stock bitmap spelling of the four contiguous per-virtual-channel flags AVC0\u2013AVC3 in the cited manual table."
+        },
+        {
+          "name": "AKEPSCR",
+          "offset": "0x228",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "AEREP",
+              "pos": 0,
+              "bits": 16,
+              "access": "W"
+            },
+            {
+              "name": "AVC",
+              "pos": 16,
+              "bits": 4,
+              "access": "W",
+              "note": "Stock AVC is the four-bit bitmap of manual AVC0, AVC1, AVC2 and AVC3 at bits 16\u201319; no reserved gap or encoded-channel conversion."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.22, p.3875\u20133876",
+          "note": "AVC[3:0] preserves the stock bitmap spelling of the four contiguous per-virtual-channel flags AVC0\u2013AVC3 in the cited manual table."
+        },
+        {
+          "name": "RXRSSR",
+          "offset": "0x230",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SLT0VLD",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SLT1VLD",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SLT2VLD",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SLT3VLD",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.23, p.3876\u20133877"
+        },
+        {
+          "name": "RXRSSCR",
+          "offset": "0x234",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SLT0VLD",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SLT1VLD",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SLT2VLD",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SLT3VLD",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.24, p.3877\u20133877"
+        },
+        {
+          "name": "RXRINFOOWSR",
+          "offset": "0x238",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SL0OW",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SL1OW",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SL2OW",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SL3OW",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.25, p.3878\u20133878"
+        },
+        {
+          "name": "RXRINFOOWSCR",
+          "offset": "0x23c",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SL0OW",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SL1OW",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SL2OW",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SL3OW",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.26, p.3879\u20133879"
+        },
+        {
+          "name": "RXRSS0R",
+          "offset": "0x240",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXSUC",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "INFOOW",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.27, p.3880\u20133882"
+        },
+        {
+          "name": "RXRSS1R",
+          "offset": "0x244",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXSUC",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "INFOOW",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.27, p.3880\u20133882"
+        },
+        {
+          "name": "RXRSS2R",
+          "offset": "0x248",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXSUC",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "INFOOW",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.27, p.3880\u20133882"
+        },
+        {
+          "name": "RXRSS3R",
+          "offset": "0x24c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXSUC",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "INFOOW",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.27, p.3880\u20133882"
+        },
+        {
+          "name": "RXPPD0R",
+          "offset": "0x2c0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA2",
+              "pos": 16,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA3",
+              "pos": 24,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.28, p.3882\u20133882"
+        },
+        {
+          "name": "RXPPD1R",
+          "offset": "0x2c4",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA4",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA5",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA6",
+              "pos": 16,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA7",
+              "pos": 24,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.29, p.3883\u20133883"
+        },
+        {
+          "name": "RXPPD2R",
+          "offset": "0x2c8",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA8",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA9",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA10",
+              "pos": 16,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA11",
+              "pos": 24,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.30, p.3883\u20133884"
+        },
+        {
+          "name": "RXPPD3R",
+          "offset": "0x2cc",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATA12",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA13",
+              "pos": 8,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA14",
+              "pos": 16,
+              "bits": 8,
+              "access": "R"
+            },
+            {
+              "name": "DATA15",
+              "pos": 24,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.31, p.3884\u20133885"
+        },
+        {
+          "name": "HSTXTOSETR",
+          "offset": "0x2e0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HTXTO",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.32, p.3885\u20133885"
+        },
+        {
+          "name": "LRXHTOSETR",
+          "offset": "0x2e4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LRXHTO",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.33, p.3885\u20133886"
+        },
+        {
+          "name": "TATOSETR",
+          "offset": "0x2e8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TATO",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.34, p.3886\u20133886"
+        },
+        {
+          "name": "FERRSR",
+          "offset": "0x300",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "HTXTO",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ESCENT",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SYNCESC",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CTRL",
+              "pos": 18,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLP0",
+              "pos": 19,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLP1",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLP0S",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLP1S",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.35, p.3886\u20133888"
+        },
+        {
+          "name": "FERRSCR",
+          "offset": "0x304",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "HTXTO",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ESCENT",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SYNCESC",
+              "pos": 17,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CTRL",
+              "pos": 18,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLP0",
+              "pos": 19,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLP1",
+              "pos": 20,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.36, p.3888\u20133889"
+        },
+        {
+          "name": "FERRIER",
+          "offset": "0x308",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HTXTO",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LRXHTO",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TATO",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ESCENT",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SYNCESC",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CTRL",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLP0",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLP1",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.37, p.3889\u20133891"
+        },
+        {
+          "name": "CLSTPTSETR",
+          "offset": "0x314",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CLKSTPT",
+              "pos": 2,
+              "bits": 10,
+              "access": "R/W"
+            },
+            {
+              "name": "CLKBFHT",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "CLKKPT",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.38, p.3891\u20133893"
+        },
+        {
+          "name": "LPTRNSTSETR",
+          "offset": "0x318",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "GOLPBKT",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.39, p.3893\u20133894"
+        },
+        {
+          "name": "PLSR",
+          "offset": "0x320",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CLUAN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLSTP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0RLE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0RUE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0UAN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL1UAN",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0STP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL1STP",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0RX2TX",
+              "pos": 12,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0TX2RX",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DL0DIR",
+              "pos": 15,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLULPENT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLULPEXT",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLLP2HS",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CLHS2LP",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DLULPENT",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DLULPEXT",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.40, p.3894\u20133897"
+        },
+        {
+          "name": "PLSCR",
+          "offset": "0x324",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "DL0RX2TX",
+              "pos": 12,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DL0TX2RX",
+              "pos": 13,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLULPENT",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLULPEXT",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLLP2HS",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLHS2LP",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DLULPENT",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DLULPEXT",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.41, p.3897\u20133898"
+        },
+        {
+          "name": "PLIER",
+          "offset": "0x328",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DL0RX2TX",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DL0TX2RX",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLULPENT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLULPEXT",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLLP2HS",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLHS2LP",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DLULPENT",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DLULPEXT",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.42, p.3898\u20133900"
+        },
+        {
+          "name": "VMSET0R",
+          "offset": "0x400",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "VSTART",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "VSTOP",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "HSANOLP",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HBPNOLP",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HFPNOLP",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.43, p.3900\u20133901"
+        },
+        {
+          "name": "VMSET1R",
+          "offset": "0x404",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DLY",
+              "pos": 2,
+              "bits": 12,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.44, p.3901\u20133902"
+        },
+        {
+          "name": "VMSR",
+          "offset": "0x410",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "STOP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RUNNING",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "VIRDY",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TIMERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "VBUFUDF",
+              "pos": 22,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "VBUFOVF",
+              "pos": 23,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.45, p.3902\u20133903"
+        },
+        {
+          "name": "VMSCR",
+          "offset": "0x414",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "STOP",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "VIRDY",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TIMERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "VBUFUDF",
+              "pos": 22,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "VBUFOVF",
+              "pos": 23,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.46, p.3904\u20133905"
+        },
+        {
+          "name": "VMIER",
+          "offset": "0x418",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STOP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VIRDY",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIMERR",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBUFUDF",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VBUFOVF",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.47, p.3905\u20133906"
+        },
+        {
+          "name": "VMPPSETR",
+          "offset": "0x420",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TXESYNC",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.48, p.3906\u20133907"
+        },
+        {
+          "name": "VMVSSETR",
+          "offset": "0x428",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "VSA",
+              "pos": 0,
+              "bits": 12,
+              "access": "R/W"
+            },
+            {
+              "name": "VSPOL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "VACT",
+              "pos": 16,
+              "bits": 15,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.49, p.3907\u20133907"
+        },
+        {
+          "name": "VMVPSETR",
+          "offset": "0x42c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "VBP",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            },
+            {
+              "name": "VFP",
+              "pos": 16,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.50, p.3907\u20133908"
+        },
+        {
+          "name": "VMHSSETR",
+          "offset": "0x430",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HSA",
+              "pos": 0,
+              "bits": 12,
+              "access": "R/W"
+            },
+            {
+              "name": "HSPOL",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HACT",
+              "pos": 16,
+              "bits": 15,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.51, p.3908\u20133908"
+        },
+        {
+          "name": "VMHPSETR",
+          "offset": "0x434",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HBP",
+              "pos": 0,
+              "bits": 13,
+              "access": "R/W"
+            },
+            {
+              "name": "HFP",
+              "pos": 16,
+              "bits": 13,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.52, p.3909\u20133909"
+        },
+        {
+          "name": "SQCH0SET0R",
+          "offset": "0x5c0",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.53, p.3909\u20133909"
+        },
+        {
+          "name": "SQCH0SR",
+          "offset": "0x5d0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RUNNING",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.54, p.3910\u20133911"
+        },
+        {
+          "name": "SQCH0SCR",
+          "offset": "0x5d4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.55, p.3912\u20133913"
+        },
+        {
+          "name": "SQCH0IER",
+          "offset": "0x5d8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.56, p.3913\u20133914"
+        },
+        {
+          "name": "SQCH1SET0R",
+          "offset": "0x600",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.57, p.3915\u20133915"
+        },
+        {
+          "name": "SQCH1SR",
+          "offset": "0x610",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RUNNING",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SIZEERR",
+              "pos": 19,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.58, p.3915\u20133917"
+        },
+        {
+          "name": "SQCH1SCR",
+          "offset": "0x614",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SIZEERR",
+              "pos": 19,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.59, p.3917\u20133919"
+        },
+        {
+          "name": "SQCH1IER",
+          "offset": "0x618",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AACTFIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADESFIN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SIZEERR",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TXIBERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXFERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXFAIL",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXPFAIL",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXCORERR",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RXAKE",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.60, p.3919\u20133920"
+        },
+        {
+          "name": "SQCH0DSC0AR",
+          "offset": "0x780",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC0BR",
+          "offset": "0x784",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC0CR",
+          "offset": "0x788",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC0DR",
+          "offset": "0x78c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC1AR",
+          "offset": "0x790",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC1BR",
+          "offset": "0x794",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC1CR",
+          "offset": "0x798",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC1DR",
+          "offset": "0x79c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC2AR",
+          "offset": "0x7a0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC2BR",
+          "offset": "0x7a4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC2CR",
+          "offset": "0x7a8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC2DR",
+          "offset": "0x7ac",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC3AR",
+          "offset": "0x7b0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC3BR",
+          "offset": "0x7b4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC3CR",
+          "offset": "0x7b8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC3DR",
+          "offset": "0x7bc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC4AR",
+          "offset": "0x7c0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC4BR",
+          "offset": "0x7c4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC4CR",
+          "offset": "0x7c8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC4DR",
+          "offset": "0x7cc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC5AR",
+          "offset": "0x7d0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC5BR",
+          "offset": "0x7d4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC5CR",
+          "offset": "0x7d8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC5DR",
+          "offset": "0x7dc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC6AR",
+          "offset": "0x7e0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC6BR",
+          "offset": "0x7e4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC6CR",
+          "offset": "0x7e8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC6DR",
+          "offset": "0x7ec",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH0DSC7AR",
+          "offset": "0x7f0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH0DSC7BR",
+          "offset": "0x7f4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH0DSC7CR",
+          "offset": "0x7f8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH0DSC7DR",
+          "offset": "0x7fc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC0AR",
+          "offset": "0x800",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC0BR",
+          "offset": "0x804",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC0CR",
+          "offset": "0x808",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC0DR",
+          "offset": "0x80c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC1AR",
+          "offset": "0x810",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC1BR",
+          "offset": "0x814",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC1CR",
+          "offset": "0x818",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC1DR",
+          "offset": "0x81c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC2AR",
+          "offset": "0x820",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC2BR",
+          "offset": "0x824",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC2CR",
+          "offset": "0x828",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC2DR",
+          "offset": "0x82c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC3AR",
+          "offset": "0x830",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC3BR",
+          "offset": "0x834",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC3CR",
+          "offset": "0x838",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC3DR",
+          "offset": "0x83c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC4AR",
+          "offset": "0x840",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC4BR",
+          "offset": "0x844",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC4CR",
+          "offset": "0x848",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC4DR",
+          "offset": "0x84c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC5AR",
+          "offset": "0x850",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC5BR",
+          "offset": "0x854",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC5CR",
+          "offset": "0x858",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC5DR",
+          "offset": "0x85c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC6AR",
+          "offset": "0x860",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC6BR",
+          "offset": "0x864",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC6CR",
+          "offset": "0x868",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC6DR",
+          "offset": "0x86c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        },
+        {
+          "name": "SQCH1DSC7AR",
+          "offset": "0x870",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA0",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DATA1",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "DT",
+              "pos": 16,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "VC",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "FMT",
+              "pos": 24,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPD",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BTA",
+              "pos": 26,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "NXACT",
+              "pos": 28,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.61, p.3921\u20133922"
+        },
+        {
+          "name": "SQCH1DSC7BR",
+          "offset": "0x874",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DTSEL",
+              "pos": 24,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.62, p.3922\u20133923"
+        },
+        {
+          "name": "SQCH1DSC7CR",
+          "offset": "0x878",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FINACT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUXOP",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACTCODE",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.63, p.3923\u20133924"
+        },
+        {
+          "name": "SQCH1DSC7DR",
+          "offset": "0x87c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LADDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2.64, p.3924\u20133924"
+        }
+      ],
+      "note": "Stock FSP5.9 DSILINK word-register vocabulary. Byte/halfword convenience aliases are not invented: the target manual specifies 32-bit register accesses. The DSI block is not the independent CSI block. RA8P1 reserves RXSCR bit 13, SQCH0SCR bits 16 and 19, and SQCH1SCR bit 16 (HM 66.2.15/55/59); the original driver must not write its RXTE, DABORT or channel-zero SIZEERR masks there.",
+      "alignment": 4
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_DSILINK",
+      "type": "R_DSILINK_Type",
+      "secure": "0x40346000",
+      "nonsecure": "0x50346000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a766.2, p.3850\u20133924"
+    }
+  ]
+}

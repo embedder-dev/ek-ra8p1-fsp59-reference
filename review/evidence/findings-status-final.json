@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "revision": "r018",
+  "scope": "Final individual adjudication and scoped software-remediation accounting; not exhaustive support/hardware qualification",
+  "initial": 228,
+  "supplemental": 14,
+  "total": 242,
+  "confirmed": 238,
+  "rejected": 1,
+  "unresolved": 3,
+  "fixed_in_stated_software_scope": 229,
+  "open": 12,
+  "areas": [
+    {
+      "area": 1,
+      "total": 38,
+      "critical": 0,
+      "high": 12,
+      "medium": 23,
+      "low": 2,
+      "unrated": 1,
+      "confirmed": 35,
+      "rejected": 0,
+      "unresolved": 3,
+      "fixed": 31,
+      "open": 7
+    },
+    {
+      "area": 2,
+      "total": 3,
+      "critical": 0,
+      "high": 2,
+      "medium": 1,
+      "low": 0,
+      "unrated": 0,
+      "confirmed": 3,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 2,
+      "open": 1
+    },
+    {
+      "area": 3,
+      "total": 27,
+      "critical": 0,
+      "high": 13,
+      "medium": 14,
+      "low": 0,
+      "unrated": 0,
+      "confirmed": 27,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 26,
+      "open": 1
+    },
+    {
+      "area": 4,
+      "total": 3,
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 0,
+      "unrated": 1,
+      "confirmed": 2,
+      "rejected": 1,
+      "unresolved": 0,
+      "fixed": 2,
+      "open": 0
+    },
+    {
+      "area": 5,
+      "total": 145,
+      "critical": 0,
+      "high": 66,
+      "medium": 76,
+      "low": 3,
+      "unrated": 0,
+      "confirmed": 145,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 142,
+      "open": 3
+    },
+    {
+      "area": 6,
+      "total": 13,
+      "critical": 0,
+      "high": 4,
+      "medium": 8,
+      "low": 1,
+      "unrated": 0,
+      "confirmed": 13,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 13,
+      "open": 0
+    },
+    {
+      "area": 7,
+      "total": 1,
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 0,
+      "unrated": 0,
+      "confirmed": 1,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 1,
+      "open": 0
+    },
+    {
+      "area": 8,
+      "total": 12,
+      "critical": 0,
+      "high": 6,
+      "medium": 6,
+      "low": 0,
+      "unrated": 0,
+      "confirmed": 12,
+      "rejected": 0,
+      "unresolved": 0,
+      "fixed": 12,
+      "open": 0
+    }
+  ],
+  "open_findings": [
+    {
+      "id": "MRAM-006",
+      "area": "5 Drivers\u2014MRAM",
+      "severity": "Medium",
+      "disposition": "Confirmed \u2014 parent checked arbitrary p_ctrl->timeout countdown at789\u2013817 and MDF minimum1 against HM60.7.4.3 figure60.11 p3600 note1: recovery timeout is1.1 times command maximum duration. Poll iterations have no calibrated relationship to that maximum and can prematurely force-stop a valid command.",
+      "status": "Open\u2014timing source blocked; unsafe requests rejected"
+    },
+    {
+      "id": "HDR-T01",
+      "area": "1 Device header",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent compared the current instance/type inventory with primary SVD GPTP/GPTP_NS and HM Appendix3 TableA3.1 p4288: bases0x403E0000/0x503E0000 are documented and all41 compact SVD register records are absent. This is header completeness, not qualification of a new Ethernet driver.",
+      "status": "Open\u2014partially repaired; source blocked"
+    },
+    {
+      "id": "EVT-002",
+      "area": "2 Interrupts/events",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent checked HM14.2.22 pp558\u2013559: reset INTSELR=0 selects CPU0 and S-TYPE-6 forbids Nonsecure writes. All target writes in baseline are bsp_irq.c278\u2013287 under FSP_PRIV_TZ_USE_SECURE_REGS and use only that image's vector table. No secure provisioning of CPU1 Nonsecure event selections exists. Conditional on CPU1 Nonsecure use; flat pair success does not cover it.",
+      "status": "Open\u2014CPU1 Nonsecure routing/partition support blocked"
+    },
+    {
+      "id": "BSP-002",
+      "area": "3 BSP",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent read linker_script107\u2013120/141\u2013142 and memory-contract cores against HM52.3.3.3/5 pp3276\u20133281: both origins and bounds are forcibly Secure aliases, irrespective of PROJECT_NONSECURE. The retained contract qualifies GNU flat only and supplies no within-core S/NS partition. Flat core disjointness is not a TrustZone allocation. Safe S/NS partition/security-boot qualification remains open; no guessed split or automatic protection relaxation.",
+      "status": "Open\u2014TrustZone partition support blocked; unsafe NS link rejected"
+    },
+    {
+      "id": "HDR-C06",
+      "area": "1 Device header",
+      "severity": "Medium",
+      "disposition": "Unresolved \u2014 parent confirms omission but not a safe address: primary SVD places the compact PVDnFCR record at+B2C while the cited HM formula indexes n differently. Do not infer a target address or declare a single correct encoding until the formula and instances are reconciled.",
+      "status": "Open\u2014source address reconciliation blocked"
+    },
+    {
+      "id": "HDR-G09",
+      "area": "1 Device header",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent compared current complete type/instance inventory with primary SVD MFWD (249 compact records) and HM Appendix3 pp4287\u20134288: documented 0x403C0000/0x503C0000 block views are entirely absent. Compact counts are not expanded-array qualification; preserve reserved holes and independently check dimensions before emission.",
+      "status": "Open\u2014partially repaired; source dimension blocked"
+    },
+    {
+      "id": "HDR-G10",
+      "area": "1 Device header",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent compared current complete type/instance inventory with primary SVD ESWM (18 compact records) and HM Appendix3 pp4287\u20134288: documented 0x403C8000/0x503C8000 block views are entirely absent. Compact counts are not expanded-array qualification; preserve reserved holes and independently check dimensions before emission.",
+      "status": "Open\u2014partially repaired; source blocked"
+    },
+    {
+      "id": "HDR-G14",
+      "area": "1 Device header",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent compared current complete type/instance inventory with primary SVD GWCA0 (100 compact records) and HM Appendix3 pp4287\u20134288: documented 0x403CE000/0x503CE000 block views are entirely absent. Compact counts are not expanded-array qualification; preserve reserved holes and independently check dimensions before emission.",
+      "status": "Open\u2014partially repaired; source address blocked"
+    },
+    {
+      "id": "HDR-G15",
+      "area": "1 Device header",
+      "severity": "Medium",
+      "disposition": "Unresolved \u2014 HM Appendix3 p4285 establishes the NPU base0x40140000/0x50140000, but supplied SVD contains no NPU register map. Presence is not enough to invent internal Ethos-U55 registers; matching configured-IP primary register documentation remains required.",
+      "status": "Open\u2014matching NPU source blocked"
+    },
+    {
+      "id": "THREADX-003",
+      "area": "5 Drivers\u2014ThreadX",
+      "severity": "Medium",
+      "disposition": "Confirmed \u2014 parent read tx_initialize_low_level.c114\u2013118, HM \u00a72.12 p156 and original CMSIS SysTick_Config. The24-bit reload check is ignored; 1GHz/59Hz exceeds2^24 and leaves SysTick unconfigured despite accepted rate. Add target configurator/range and runtime-error coverage without changing legacy behavior.",
+      "status": "Open\u2014runtime repaired; selected-core MDF constraint pending"
+    },
+    {
+      "id": "SRC-001",
+      "area": "1 Device header\u2014primary evidence",
+      "severity": "Unrated source discrepancy",
+      "disposition": "Unresolved \u2014 parent retains the reviewer\u2019s26 narrow-view reset discrepancies as a primary-source reconciliation gap, not a demonstrated candidate initializer defect. HM21.2.5 pp854\u2013855 is authoritative for documented resets but pin/input-dependent values and AD-SVD versus KF applicability need an explicit per-record comparison. No emitted reset constant or runtime consumer has been established. Supplied SVD must remain unchanged.",
+      "status": "Open\u2014source reset reconciliation"
+    },
+    {
+      "id": "OSPI-003",
+      "area": "5 Drivers\u2014OSPI_B",
+      "severity": "High",
+      "disposition": "Confirmed \u2014 parent read HM46.1 p3058 Table46.1 mappingDOTF0->OSPI0 andDOTF1->OSPI1, then actual helper calls/direct writes and original5.9 source. All operations choose unit0; target unit1 requires its own matching crypto/DOTF path. No invented RSIP channel constant is authorized if the5.9 public interface lacks it.",
+      "status": "Open\u2014crypto/register binding blocked; wrong-unit use rejected"
+    }
+  ],
+  "ledger": {
+    "path": "review/findings.md",
+    "sha256": "646442bb2be901acfd6b45bb2a32cb15d65ee573fcdeadf1098f42c7c0a4f172"
+  },
+  "hardware_executed": false,
+  "host_test_count": 889,
+  "host_tests_success": true,
+  "fresh_parent_driver_mode_links": 24,
+  "additional_fresh_untouched_default_links": 6,
+  "preserved_coverage_gaps": "review/coverage.md; review/evidence/final-r018-summary.md"
+}

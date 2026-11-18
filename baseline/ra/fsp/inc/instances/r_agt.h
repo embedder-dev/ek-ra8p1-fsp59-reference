@@ -123,6 +123,9 @@ typedef struct st_agt_instance_ctrl
     R_AGTX0_Type      * p_reg;                    // Base register for this channel
     bool                is_agtw;                  // Whether or not this channel is agtw, otherwise it is agt
     uint32_t            period;                   // Current timer period (counts)
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+    uint8_t             start;                    // Expected TCSTF after a software start/stop request
+#endif
 
     void (* p_callback)(timer_callback_args_t *); // Pointer to callback that is called when a timer_event_t occurs.
     timer_callback_args_t * p_callback_memory;    // Pointer to non-secure memory that can be used to pass arguments to a callback in non-secure memory.

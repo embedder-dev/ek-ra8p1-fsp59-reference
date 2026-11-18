@@ -1,0 +1,28 @@
+{
+  "source_log": "validation/ra8p1/compatibility/peripheral-gates/r016-build-logs/1794916989438-pg_security85_r011-full.log",
+  "count": 53,
+  "classes": {
+    "unused variable 'temp' [-Wunused-variable]": 1,
+    "unused variable 'ret' [-Wunused-variable]": 1,
+    "conversion to 'mbedtls_ct_int_t' {aka 'long int'} from 'mbedtls_ct_uint_t' {aka 'long unsigned int'} may change the sign of the result [-Wsign-conversion]": 3,
+    "conversion to 'mbedtls_ct_int_t' {aka 'long int'} from 'long unsigned int' may change the sign of the result [-Wsign-conversion]": 3,
+    "conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]": 3,
+    "conversion to 'int' from 'unsigned int' may change the sign of the result [-Wsign-conversion]": 4,
+    "unused variable 'i' [-Wunused-variable]": 2,
+    "conversion from 'size_t' {aka 'unsigned int'} to 'unsigned char' may change value [-Wconversion]": 1,
+    "conversion from 'int' to 'unsigned char' may change value [-Wconversion]": 3,
+    "'mbedtls_ccm_compare_tags' defined but not used [-Wunused-function]": 1,
+    "conversion from 'size_t' {aka 'unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]": 1,
+    "conversion to 'unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]": 4,
+    "conversion to 'size_t' {aka 'unsigned int'} from 'ptrdiff_t' {aka 'int'} may change the sign of the result [-Wsign-conversion]": 1,
+    "conversion to 'size_t' {aka 'unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]": 17,
+    "conversion to 'mbedtls_mpi_sint' {aka 'long int'} from 'mbedtls_mpi_uint' {aka 'long unsigned int'} may change the sign of the result [-Wsign-conversion]": 1,
+    "'ecp_mul_comb' defined but not used [-Wunused-function]": 1,
+    "conversion from 'size_t' {aka 'unsigned int'} to 'short unsigned int' may change value [-Wconversion]": 1,
+    "unused variable 'diff' [-Wunused-variable]": 1,
+    "'mbedtls_internal_sha256_process_many' defined but not used [-Wunused-function]": 1,
+    "conversion to 'mbedtls_ct_uint_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]": 1,
+    "'rsa_unblind' defined but not used [-Wunused-function]": 1,
+    "'rsa_prepare_blinding' defined but not used [-Wunused-function]": 1
+  }
+}

@@ -1,0 +1,3457 @@
+{
+  "schema": 1,
+  "device": "R7KA8P1KF",
+  "scope": "HDR-C01/C03/C04 new system types; NPU bus-MPU controls only, not the NPU peripheral",
+  "types": [
+    {
+      "name": "R_MPU_MMPU_GROUP_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PP",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.19, p.707",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/19-16.3.1.19-mmpuacdmacmn-mmpu-access-control-regis.md",
+          "svd_register": "RMPU.MMPUACDMAC000-07",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.3, p.700",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/03-16.3.1.3-mmpusdmacmn-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSDMAC000-07",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0x1f"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 32
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.11, p.703",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/11-16.3.1.11-mmpuedmacmn-mmpu-end-address-register.md",
+          "svd_register": "RMPU.MMPUEDMAC000-07",
+          "svd_reset": "0x1f",
+          "manual_reset": {
+            "value": "0x1f",
+            "known_mask": "0x1f"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 32
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.19, p.707",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/19-16.3.1.19-mmpuacdmacmn-mmpu-access-control-regis.md"
+    },
+    {
+      "name": "R_MPU_MMPU_GROUP_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.27, p.713",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/27-16.3.1.27-mmpuendmacm-mmpu-enable-register-for-d.md",
+          "svd_register": "RMPU.MMPUENDMAC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.35, p.719",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/35-16.3.1.35-mmpuenptdmacm-mmpu-enable-protect-regi.md",
+          "svd_register": "RMPU.MMPUENPTDMAC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.43, p.724; Non-secure alias only (0x5000_0108/0x5000_0308)",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/43-16.3.1.43-mmpurptdmacm-mmpu-regions-protect-regi.md",
+          "svd_register": "RMPU_NS.MMPURPTDMAC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT_SEC",
+          "offset": "0xc",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.44, p.725; Secure alias only (0x4000_010C/0x4000_030C)",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/44-16.3.1.44-mmpurptdmac-secm-mmpu-regions-protect.md",
+          "svd_register": "RMPU.MMPURPTDMAC_SEC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_GROUP_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.19, p.707",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/19-16.3.1.19-mmpuacdmacmn-mmpu-access-control-regis.md",
+          "count": 8
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.27, p.713",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/27-16.3.1.27-mmpuendmacm-mmpu-enable-register-for-d.md"
+    },
+    {
+      "name": "R_MPU_MMPU_EDMAC_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.20, p.708",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/20-16.3.1.20-mmpuacedmacn-mmpu-access-control-regis.md",
+          "svd_register": "RMPU.MMPUACEDMAC0-4",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.4, p.700",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/04-16.3.1.4-mmpusedmacn-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSEDMAC0-4",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0x1f"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 32
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.12, p.704",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/12-16.3.1.12-mmpueedmacn-mmpu-end-address-register.md",
+          "svd_register": "RMPU.MMPUEEDMAC0-4",
+          "svd_reset": "0x1f",
+          "manual_reset": {
+            "value": "0x1f",
+            "known_mask": "0x1f"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 32
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.20, p.708",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/20-16.3.1.20-mmpuacedmacn-mmpu-access-control-regis.md"
+    },
+    {
+      "name": "R_MPU_MMPU_EDMAC_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.28, p.714",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/28-16.3.1.28-mmpuenedmac-mmpu-enable-register-for-e.md",
+          "svd_register": "RMPU.MMPUENEDMAC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.36, p.719",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/36-16.3.1.36-mmpuenptedmac-mmpu-enable-protect-regi.md",
+          "svd_register": "RMPU.MMPUENPTEDMAC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.45, p.725",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/45-16.3.1.45-mmpurptedmac-mmpu-regions-protect-regi.md",
+          "svd_register": "RMPU.MMPURPTEDMAC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_EDMAC_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.20, p.708",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/20-16.3.1.20-mmpuacedmacn-mmpu-access-control-regis.md",
+          "count": 5
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.28, p.714",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/28-16.3.1.28-mmpuenedmac-mmpu-enable-register-for-e.md"
+    },
+    {
+      "name": "R_MPU_MMPU_GLCDC_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.21, p.708",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/21-16.3.1.21-mmpuacglcdcn-mmpu-access-control-regis.md",
+          "svd_register": "RMPU.MMPUACGLCDC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.5, p.701",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/05-16.3.1.5-mmpusglcdcn-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSGLCDC0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0x3ff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 1024
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.13, p.704",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/13-16.3.1.13-mmpueglcdcn-mmpu-end-address-register.md",
+          "svd_register": "RMPU.MMPUEGLCDC0-1",
+          "svd_reset": "0x3ff",
+          "manual_reset": {
+            "value": "0x3ff",
+            "known_mask": "0x3ff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 1024
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.21, p.708",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/21-16.3.1.21-mmpuacglcdcn-mmpu-access-control-regis.md"
+    },
+    {
+      "name": "R_MPU_MMPU_GLCDC_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.29, p.714",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/29-16.3.1.29-mmpuenglcdc-mmpu-enable-register-for-g.md",
+          "svd_register": "RMPU.MMPUENGLCDC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.37, p.720",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/37-16.3.1.37-mmpuenptglcdc-mmpu-enable-protect-regi.md",
+          "svd_register": "RMPU.MMPUENPTGLCDC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.46, p.726",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/46-16.3.1.46-mmpurptglcdc-mmpu-regions-protect-regi.md",
+          "svd_register": "RMPU.MMPURPTGLCDC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_GLCDC_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.21, p.708",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/21-16.3.1.21-mmpuacglcdcn-mmpu-access-control-regis.md",
+          "count": 2
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.29, p.714",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/29-16.3.1.29-mmpuenglcdc-mmpu-enable-register-for-g.md"
+    },
+    {
+      "name": "R_MPU_MMPU_DRW_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.22, p.709",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/22-16.3.1.22-mmpuacdrwn-mmpu-access-control-registe.md",
+          "svd_register": "RMPU.MMPUACDRW0-2",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.6, p.701",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/06-16.3.1.6-mmpusdrwn-mmpu-start-address-register-f.md",
+          "svd_register": "RMPU.MMPUSDRW0-2",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0x3ff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 1024
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.14, p.704",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/14-16.3.1.14-mmpuedrwn-mmpu-end-address-register-fo.md",
+          "svd_register": "RMPU.MMPUEDRW0-2",
+          "svd_reset": "0x3ff",
+          "manual_reset": {
+            "value": "0x3ff",
+            "known_mask": "0x3ff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 1024
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.22, p.709",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/22-16.3.1.22-mmpuacdrwn-mmpu-access-control-registe.md"
+    },
+    {
+      "name": "R_MPU_MMPU_DRW_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.30, p.715",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/30-16.3.1.30-mmpuendrw-mmpu-enable-register-for-drw.md",
+          "svd_register": "RMPU.MMPUENDRW",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.38, p.721",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/38-16.3.1.38-mmpuenpdrw-mmpu-enable-protect-registe.md",
+          "svd_register": "RMPU.MMPUENPDRW",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.47, p.727",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/47-16.3.1.47-mmpurptdrw-mmpu-regions-protect-regist.md",
+          "svd_register": "RMPU.MMPURPTDRW",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_DRW_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.22, p.709",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/22-16.3.1.22-mmpuacdrwn-mmpu-access-control-registe.md",
+          "count": 3
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.30, p.715",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/30-16.3.1.30-mmpuendrw-mmpu-enable-register-for-drw.md"
+    },
+    {
+      "name": "R_MPU_MMPU_MIPI_DSI_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.23, p.710",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/23-16.3.1.23-mmpuacmipid-mmpu-access-control-regist.md",
+          "svd_register": "RMPU.MMPUACMIPID",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.7, p.701",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/07-16.3.1.7-mmpusmipid-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSMIPID",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.15, p.705",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/15-16.3.1.15-mmpuemipid-mmpu-end-address-register-f.md",
+          "svd_register": "RMPU.MMPUEMIPID",
+          "svd_reset": "0xfff",
+          "manual_reset": {
+            "value": "0xfff",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.23, p.710",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/23-16.3.1.23-mmpuacmipid-mmpu-access-control-regist.md"
+    },
+    {
+      "name": "R_MPU_MMPU_MIPI_DSI_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.31, p.716",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/31-16.3.1.31-mmpuenmipid-mmpu-enable-register-for-m.md",
+          "svd_register": "RMPU.MMPUENMIPID",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.39, p.721",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/39-16.3.1.39-mmpuenptmipid-mmpu-enable-protect-regi.md",
+          "svd_register": "RMPU.MMPUENPTMIPID",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.48, p.727",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/48-16.3.1.48-mmpurptmipid-mmpu-regions-protect-regi.md",
+          "svd_register": "RMPU.MMPURPTMIPID",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_MIPI_DSI_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.23, p.710",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/23-16.3.1.23-mmpuacmipid-mmpu-access-control-regist.md",
+          "count": 1
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.31, p.716",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/31-16.3.1.31-mmpuenmipid-mmpu-enable-register-for-m.md"
+    },
+    {
+      "name": "R_MPU_MMPU_CEU_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.24, p.711",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/24-16.3.1.24-mmpuacceun-mmpu-access-control-registe.md",
+          "svd_register": "RMPU.MMPUACCEU0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.8, p.702",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/08-16.3.1.8-mmpusceun-mmpu-start-address-register-f.md",
+          "svd_register": "RMPU.MMPUSCEU0-1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.16, p.705",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/16-16.3.1.16-mmpueceun-mmpu-end-address-register-fo.md",
+          "svd_register": "RMPU.MMPUECEU0-1",
+          "svd_reset": "0xfff",
+          "manual_reset": {
+            "value": "0xfff",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.24, p.711",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/24-16.3.1.24-mmpuacceun-mmpu-access-control-registe.md"
+    },
+    {
+      "name": "R_MPU_MMPU_CEU_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.32, p.716",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/32-16.3.1.32-mmpuenceu-mmpu-enable-register-for-ceu.md",
+          "svd_register": "RMPU.MMPUENCEU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.40, p.722",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/40-16.3.1.40-mmpuenptceu-mmpu-enable-protect-regist.md",
+          "svd_register": "RMPU.MMPUENPTCEU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.49, p.728",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/49-16.3.1.49-mmpurptceu-mmpu-regions-protect-regist.md",
+          "svd_register": "RMPU.MMPURPTCEU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_CEU_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.24, p.711",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/24-16.3.1.24-mmpuacceun-mmpu-access-control-registe.md",
+          "count": 2
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.32, p.716",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/32-16.3.1.32-mmpuenceu-mmpu-enable-register-for-ceu.md"
+    },
+    {
+      "name": "R_MPU_MMPU_MIPI_CSI_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.25, p.711",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/25-16.3.1.25-mmpuacmipicn-mmpu-access-control-regis.md",
+          "svd_register": "RMPU.MMPUACMIPIC0-2",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.9, p.702",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/09-16.3.1.9-mmpusmipicn-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSMIPIC0-2",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.17, p.706",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/17-16.3.1.17-mmpuemipicn-mmpu-end-address-register.md",
+          "svd_register": "RMPU.MMPUEMIPIC0-2",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0xfff",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.25, p.711",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/25-16.3.1.25-mmpuacmipicn-mmpu-access-control-regis.md"
+    },
+    {
+      "name": "R_MPU_MMPU_MIPI_CSI_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.33, p.717",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/33-16.3.1.33-mmpuenmipic-mmpu-enable-register-for-m.md",
+          "svd_register": "RMPU.MMPUENMIPIC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.41, p.723",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/41-16.3.1.41-mmpuenptmipic-mmpu-enable-protect-regi.md",
+          "svd_register": "RMPU.MMPUENPTMIPIC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.50, p.729",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/50-16.3.1.50-mmpurptmipic-mmpu-regions-protect-regi.md",
+          "svd_register": "RMPU.MMPURPTMIPIC",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_MIPI_CSI_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.25, p.711",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/25-16.3.1.25-mmpuacmipicn-mmpu-access-control-regis.md",
+          "count": 3
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.33, p.717",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/33-16.3.1.33-mmpuenmipic-mmpu-enable-register-for-m.md"
+    },
+    {
+      "name": "R_MPU_MMPU_NPU_REGION_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "AC",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WP",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.26, p.712",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/26-16.3.1.26-mmpuacnpun-mmpu-access-control-registe.md",
+          "svd_register": "RMPU.MMPUACNPU0-4",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "S",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUS",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.10, p.703",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/10-16.3.1.10-mmpusnpun-mmpu-start-address-register.md",
+          "svd_register": "RMPU.MMPUSNPU0-4",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        },
+        {
+          "name": "E",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MMPUE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.18, p.706",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/18-16.3.1.18-mmpuenpun-mmpu-end-address-register-fo.md",
+          "svd_register": "RMPU.MMPUENPU0-4",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0xfff",
+            "known_mask": "0xfff"
+          },
+          "reset_note": "Manual undefined bits remain undefined; SVD reset is retained separately, not substituted for the manual.",
+          "address_granularity": 4096
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.26, p.712",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/26-16.3.1.26-mmpuacnpun-mmpu-access-control-registe.md"
+    },
+    {
+      "name": "R_MPU_MMPU_NPU_Type",
+      "size": "0x200",
+      "members": [
+        {
+          "name": "EN",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENABLE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.34, p.718",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/34-16.3.1.34-mmpuennpu-mmpu-enable-register-for-npu.md",
+          "svd_register": "RMPU.MMPUENNPU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "ENPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.42, p.723",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/42-16.3.1.42-mmpuenptnpu-mmpu-enable-protect-regist.md",
+          "svd_register": "RMPU.MMPUENPTNPU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "RPT",
+          "offset": "0x8",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.51, p.730",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/51-16.3.1.51-mmpurptnpu-mmpu-regions-protect-regist.md",
+          "svd_register": "RMPU.MMPURPTNPU",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "REGION",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_NPU_REGION_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.26, p.712",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/26-16.3.1.26-mmpuacnpun-mmpu-access-control-registe.md",
+          "count": 5
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.34, p.718",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/34-16.3.1.34-mmpuennpu-mmpu-enable-register-for-npu.md"
+    },
+    {
+      "name": "R_MPU_MMPU_Type",
+      "size": "0x1300",
+      "members": [
+        {
+          "name": "MMPUOAD",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OAD",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.52, p.730",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/52-16.3.1.52-mmpuoad-mmpu-operation-after-detection.md",
+          "svd_register": "RMPU.MMPUOAD",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "MMPUOADPT",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PROTECT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "KEY",
+              "pos": 8,
+              "bits": 8,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.53, p.731",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/53-16.3.1.53-mmpuoadpt-mmpu-operation-after-detecti.md",
+          "svd_register": "RMPU.MMPUOADPT",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "DMAC0",
+          "offset": "0x100",
+          "type": "R_MPU_MMPU_GROUP_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.27, p.713",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/27-16.3.1.27-mmpuendmacm-mmpu-enable-register-for-d.md"
+        },
+        {
+          "name": "DMAC1",
+          "offset": "0x300",
+          "type": "R_MPU_MMPU_GROUP_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.27, p.713",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/27-16.3.1.27-mmpuendmacm-mmpu-enable-register-for-d.md"
+        },
+        {
+          "name": "EDMAC",
+          "offset": "0x500",
+          "type": "R_MPU_MMPU_EDMAC_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.28, p.714",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/28-16.3.1.28-mmpuenedmac-mmpu-enable-register-for-e.md"
+        },
+        {
+          "name": "GLCDC",
+          "offset": "0x700",
+          "type": "R_MPU_MMPU_GLCDC_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.29, p.714",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/29-16.3.1.29-mmpuenglcdc-mmpu-enable-register-for-g.md"
+        },
+        {
+          "name": "DRW",
+          "offset": "0x900",
+          "type": "R_MPU_MMPU_DRW_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.30, p.715",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/30-16.3.1.30-mmpuendrw-mmpu-enable-register-for-drw.md"
+        },
+        {
+          "name": "MIPI_DSI",
+          "offset": "0xb00",
+          "type": "R_MPU_MMPU_MIPI_DSI_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.31, p.716",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/31-16.3.1.31-mmpuenmipid-mmpu-enable-register-for-m.md"
+        },
+        {
+          "name": "CEU",
+          "offset": "0xd00",
+          "type": "R_MPU_MMPU_CEU_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.32, p.716",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/32-16.3.1.32-mmpuenceu-mmpu-enable-register-for-ceu.md"
+        },
+        {
+          "name": "MIPI_CSI",
+          "offset": "0xf00",
+          "type": "R_MPU_MMPU_MIPI_CSI_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.33, p.717",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/33-16.3.1.33-mmpuenmipic-mmpu-enable-register-for-m.md"
+        },
+        {
+          "name": "NPU",
+          "offset": "0x1100",
+          "type": "R_MPU_MMPU_NPU_Type",
+          "element_size": 512,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.34, p.718",
+          "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/34-16.3.1.34-mmpuennpu-mmpu-enable-register-for-npu.md"
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §16.3.1.52, p.730",
+      "manual_path": "23-16.-memory-protection-unit-mpu/03-16.3-bus-master-mpu/01-16.3.1-register-descriptions/52-16.3.1.52-mmpuoad-mmpu-operation-after-detection.md",
+      "aliases": [
+        "R_RMPU_Type"
+      ]
+    },
+    {
+      "name": "R_IPC_Type",
+      "size": "0x134",
+      "members": [
+        {
+          "name": "IPCSEM",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LOCK",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.3, p.210",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/03-3.2.3-ipcsemn-semaphore-register-n-n-0-to-15.md",
+          "svd_register": "IPC.IPCSEM0-15",
+          "svd_reset": "0x0",
+          "count": 16,
+          "individual_names": [
+            "IPCSEM0",
+            "IPCSEM1",
+            "IPCSEM2",
+            "IPCSEM3",
+            "IPCSEM4",
+            "IPCSEM5",
+            "IPCSEM6",
+            "IPCSEM7",
+            "IPCSEM8",
+            "IPCSEM9",
+            "IPCSEM10",
+            "IPCSEM11",
+            "IPCSEM12",
+            "IPCSEM13",
+            "IPCSEM14",
+            "IPCSEM15"
+          ]
+        },
+        {
+          "name": "IPC0NMISTA",
+          "offset": "0x80",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "NMI",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.4, p.210",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/04-3.2.4-ipc0nmista-inter-processor0-nmi-request-st.md",
+          "svd_register": "IPC.IPC0NMISTA",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC0NMISET",
+          "offset": "0x84",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.5, p.211",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/05-3.2.5-ipc0nmiset-inter-processor0-nmi-request-se.md",
+          "svd_register": "IPC.IPC0NMISET",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC0NMICLR",
+          "offset": "0x88",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.6, p.212",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/06-3.2.6-ipc0nmiclr-inter-processor0-nmi-request-cl.md",
+          "svd_register": "IPC.IPC0NMICLR",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC1NMISTA",
+          "offset": "0x90",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "NMI",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.7, p.212",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/07-3.2.7-ipc1nmista-inter-processor1-nmi-request-st.md",
+          "svd_register": "IPC.IPC1NMISTA",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC1NMISET",
+          "offset": "0x94",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.8, p.213",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/08-3.2.8-ipc1nmiset-inter-processor1-nmi-request-se.md",
+          "svd_register": "IPC.IPC1NMISET",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC1NMICLR",
+          "offset": "0x98",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.9, p.213",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/09-3.2.9-ipc1nmiclr-inter-processor1-nmi-request-cl.md",
+          "svd_register": "IPC.IPC1NMICLR",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPC0STA0",
+          "offset": "0xc0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "IRQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDY",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FULL",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.10, p.214",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/10-3.2.10-ipc0sta0-inter-processor0-status-register.md",
+          "svd_register": "IPC.IPC0STA0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC0ISET0",
+          "offset": "0xc4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.11, p.215",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/11-3.2.11-ipc0iset0-inter-processor0-irq-request-se.md",
+          "svd_register": "IPC.IPC0ISET0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC0TXD0",
+          "offset": "0xc8",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "TXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.12, p.215",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/12-3.2.12-ipc0txd0-inter-processor0-fifo-transfer-d.md",
+          "svd_register": "IPC.IPC0TXD0",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC0RXD0",
+          "offset": "0xcc",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.13, p.216",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/13-3.2.13-ipc0rxd0-inter-processor0-fifo-receive-da.md",
+          "svd_register": "IPC.IPC0RXD0",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC0CLR0",
+          "offset": "0xd0",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RST",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCLR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "FCLR",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.14, p.216",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/14-3.2.14-ipc0clr0-inter-processor0-clear-register0.md",
+          "svd_register": "IPC.IPC0CLR0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC0STA1",
+          "offset": "0xe0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "IRQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDY",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FULL",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.15, p.217",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/15-3.2.15-ipc0sta1-inter-processor0-status-register.md",
+          "svd_register": "IPC.IPC0STA1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC0ISET1",
+          "offset": "0xe4",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.16, p.218",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/16-3.2.16-ipc0iset1-inter-processor0-irq-request-se.md",
+          "svd_register": "IPC.IPC0ISET1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC0TXD1",
+          "offset": "0xe8",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "TXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.17, p.219",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/17-3.2.17-ipc0txd1-inter-processor0-fifo-transfer-d.md",
+          "svd_register": "IPC.IPC0TXD1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC0RXD1",
+          "offset": "0xec",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.18, p.219",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/18-3.2.18-ipc0rxd1-inter-processor0-fifo-receive-da.md",
+          "svd_register": "IPC.IPC0RXD1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC0CLR1",
+          "offset": "0xf0",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RST",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCLR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "FCLR",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.19, p.220",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/19-3.2.19-ipc0clr1-inter-processor0-clear-register1.md",
+          "svd_register": "IPC.IPC0CLR1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1STA0",
+          "offset": "0x100",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "IRQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDY",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FULL",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.20, p.221",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/20-3.2.20-ipc1sta0-inter-processor1-status-register.md",
+          "svd_register": "IPC.IPC1STA0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1ISET0",
+          "offset": "0x104",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.21, p.222",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/21-3.2.21-ipc1iset0-inter-processor1-irq-request-se.md",
+          "svd_register": "IPC.IPC1ISET0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1TXD0",
+          "offset": "0x108",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "TXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.22, p.222",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/22-3.2.22-ipc1txd0-inter-processor1-fifo-transfer-d.md",
+          "svd_register": "IPC.IPC1TXD0",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC1RXD0",
+          "offset": "0x10c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.23, p.223",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/23-3.2.23-ipc1rxd0-inter-processor1-fifo-receive-da.md",
+          "svd_register": "IPC.IPC1RXD0",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC1CLR0",
+          "offset": "0x110",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RST",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCLR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "FCLR",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.24, p.223",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/24-3.2.24-ipc1clr0-inter-processor1-request-clear-r.md",
+          "svd_register": "IPC.IPC1CLR0",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1STA1",
+          "offset": "0x120",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "IRQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "IRQ7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDY",
+              "pos": 16,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FULL",
+              "pos": 17,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RERR",
+              "pos": 24,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "FERR",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.25, p.224",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/25-3.2.25-ipc1sta1-inter-processor1-request-status.md",
+          "svd_register": "IPC.IPC1STA1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1ISET1",
+          "offset": "0x124",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SET0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "SET7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.26, p.225",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/26-3.2.26-ipc1iset1-inter-processor1-irq-request-se.md",
+          "svd_register": "IPC.IPC1ISET1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        },
+        {
+          "name": "IPC1TXD1",
+          "offset": "0x128",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "TXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.27, p.226",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/27-3.2.27-ipc1txd1-inter-processor1-fifo-transfer-d.md",
+          "svd_register": "IPC.IPC1TXD1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC1RXD1",
+          "offset": "0x12c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RXD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.28, p.226",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/28-3.2.28-ipc1rxd1-inter-processor1-fifo-receive-da.md",
+          "svd_register": "IPC.IPC1RXD1",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffffff"
+          }
+        },
+        {
+          "name": "IPC1CLR1",
+          "offset": "0x130",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "CLR0",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR1",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR2",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR3",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR4",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR5",
+              "pos": 5,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR6",
+              "pos": 6,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLR7",
+              "pos": 7,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RST",
+              "pos": 16,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "RCLR",
+              "pos": 24,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "FCLR",
+              "pos": 25,
+              "bits": 1,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.29, p.227",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/29-3.2.29-ipc1clr1-inter-processor1-clear-register1.md",
+          "svd_register": "IPC.IPC1CLR1",
+          "svd_reset": "0x0",
+          "note": "HM §§3.2.10–29 supplies all eight IRQ/SET/CLR bits in every bank, including fields omitted by the compact SVD."
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.3, p.210",
+      "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/03-3.2.3-ipcsemn-semaphore-register-n-n-0-to-15.md"
+    },
+    {
+      "name": "R_CPU_OCD_Type",
+      "size": "0x304",
+      "members": [
+        {
+          "name": "MCUERRSTAT",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "ZERO",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.2, p.150; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.MCUERRSTAT",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "MCUCTRL",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EDBGRQ0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EDBGRQ1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPUWAIT0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CPUWAIT1",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.3, p.150; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.MCUCTRL",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "JBMDR",
+          "offset": "0x100",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "KEY",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.1, p.151; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.JBMDR",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "JBRDR",
+          "offset": "0x120",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RDAT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.2, p.151; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.JBRDR",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "JBTDR",
+          "offset": "0x130",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TDAT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.3, p.152; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.JBTDR",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "JBSTR",
+          "offset": "0x140",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RDF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.4, p.152; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.JBSTR",
+          "svd_reset": "0x2",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "JBICR",
+          "offset": "0x150",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RDFIE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.5, p.153; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.JBICR",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        },
+        {
+          "name": "FSBLSTATM",
+          "offset": "0x300",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RS",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6.4.6, p.153; privileged CPU access requires debugger connected or self-hosted debug",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md",
+          "svd_register": "CPU_OCD.FSBLSTATM",
+          "svd_reset": "0x0",
+          "access_note": "HM Table2.28: no JTAG/SWD writes to JBTDR, JBSTR or JBICR; JBMDR external write only during RES pin reset; MCUCTRL/JBRDR external write must not race CPU access."
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.6, p.147",
+      "manual_path": "09-2.-cpu/09-2.9-register-descriptions/06-2.9.6-ocdreg.md"
+    },
+    {
+      "name": "R_CPU_DBG_Type",
+      "size": "0x204",
+      "members": [
+        {
+          "name": "DBGSTR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CDBGPWRUPREQ",
+              "pos": 28,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CDBGPWRUPACK",
+              "pos": 29,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.2, p.141",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.DBGSTR",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xcfffffff"
+          },
+          "reset_note": "HM p.141 bits29:28 are x; SVD records zero."
+        },
+        {
+          "name": "DBGSTOPCR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DBGSTOP_IWDT",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGSTOP_WDT0",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGSTOP_WDT1",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGSTOP_PVD",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGSTOP_NVMERR",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGSTOP_CTERR0",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.3, p.141",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.DBGSTOPCR",
+          "svd_reset": "0x7",
+          "note": "HM p.142 declares bit29 reserved, R/W with no effect; do not publish the SVD DBGSTOP_CTERR1 symbol as a functional control."
+        },
+        {
+          "name": "DBGAUTH0",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DBGEN0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DBGEN1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NIDEN0",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NIDEN1",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DEVICEEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SWDBG",
+              "pos": 31,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.4, p.142",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.DBGAUTH0",
+          "svd_reset": "0x10000",
+          "manual_reset": {
+            "value": "0x10000",
+            "known_mask": "0x7fffffff"
+          },
+          "reset_note": "HM p.142 bit31 is OFS1.SWDBG-dependent; SVD records zero for it."
+        },
+        {
+          "name": "TRPORTCR",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DRV",
+              "pos": 2,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PORTSEL",
+              "pos": 8,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "SWOSEL",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.6, p.144",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.TRPORTCR",
+          "svd_reset": "0x4"
+        },
+        {
+          "name": "TRPORTSZ",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PORTSIZE",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.9, p.146",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.TRPORTSZ",
+          "svd_reset": "0x1"
+        },
+        {
+          "name": "CACHEDBGCR",
+          "offset": "0x40",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "L1RSTDIS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.5, p.143",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.CACHEDBGCR",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "DBGNVMCR",
+          "offset": "0x50",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "NVMWE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.10, p.147; NVMWE valid only while CPU halted",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.DBGNVMCR",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "ALCTRL",
+          "offset": "0x100",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AL",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "FAILCNT",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.7, p.145; accessible only in Boot mode",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.ALCTRL",
+          "svd_reset": "0x0",
+          "manual_reset": {
+            "value": "0x0",
+            "known_mask": "0xffffff00"
+          },
+          "reset_note": "HM p.145 bits7:0 depend on PL; SVD records zero."
+        },
+        {
+          "name": "FSBLSTAT",
+          "offset": "0x200",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RS",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FSBLCLK",
+              "pos": 8,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.8, p.146; accessible only while FSBL executes",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPU_DBG.FSBLSTAT",
+          "svd_reset": "0x0"
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5, p.139",
+      "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md"
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_MPU_MMPU",
+      "type": "R_MPU_MMPU_Type",
+      "secure": "0x40000000",
+      "nonsecure": "0x50000000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.1 (Appendix3), p.4285",
+      "manual_path": "80-appendix-3.-i-o-registers/01-3.1-peripheral-base-addresses.md"
+    },
+    {
+      "name": "R_RMPU",
+      "type": "R_RMPU_Type",
+      "secure": "0x40000000",
+      "nonsecure": "0x50000000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.1 (Appendix3), p.4285",
+      "manual_path": "80-appendix-3.-i-o-registers/01-3.1-peripheral-base-addresses.md"
+    },
+    {
+      "name": "R_IPC",
+      "type": "R_IPC_Type",
+      "secure": "0x40020000",
+      "nonsecure": "0x50020000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.1 (Appendix3), p.4285",
+      "manual_path": "80-appendix-3.-i-o-registers/01-3.1-peripheral-base-addresses.md"
+    },
+    {
+      "name": "R_CPU_OCD",
+      "type": "R_CPU_OCD_Type",
+      "secure": "0x40011000",
+      "nonsecure": "0x50011000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.1 (Appendix3), p.4285",
+      "manual_path": "80-appendix-3.-i-o-registers/01-3.1-peripheral-base-addresses.md"
+    },
+    {
+      "name": "R_CPU_DBG",
+      "type": "R_CPU_DBG_Type",
+      "secure": "0x4001b000",
+      "nonsecure": "0x5001b000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.1 (Appendix3), p.4285",
+      "manual_path": "80-appendix-3.-i-o-registers/01-3.1-peripheral-base-addresses.md"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+usage: verify_candidate.py [-h] --manifest MANIFEST --contract CONTRACT
+                           --project CORE=PATH [--elf CORE=RELATIVE_PATH]
+                           [--source-root SOURCE_ROOT] [--readelf READELF]
+verify_candidate.py: error: unrecognized arguments: --report review/evidence/r015-bsp-source-elf.json

@@ -1,0 +1,26 @@
+test_nonsecure_images_fail_closed_without_qualified_partitions (test_ra8p1_pack_resources.GnuLinkerTests.test_nonsecure_images_fail_closed_without_qualified_partitions) ... 
+  test_nonsecure_images_fail_closed_without_qualified_partitions (test_ra8p1_pack_resources.GnuLinkerTests.test_nonsecure_images_fail_closed_without_qualified_partitions) (core='CM85') ... FAIL
+  test_nonsecure_images_fail_closed_without_qualified_partitions (test_ra8p1_pack_resources.GnuLinkerTests.test_nonsecure_images_fail_closed_without_qualified_partitions) (core='CM33') ... FAIL
+
+======================================================================
+FAIL: test_nonsecure_images_fail_closed_without_qualified_partitions (test_ra8p1_pack_resources.GnuLinkerTests.test_nonsecure_images_fail_closed_without_qualified_partitions) (core='CM85')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_pack_resources.py", line 301, in test_nonsecure_images_fail_closed_without_qualified_partitions
+    self.assertNotEqual(0, result.returncode)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_nonsecure_images_fail_closed_without_qualified_partitions (test_ra8p1_pack_resources.GnuLinkerTests.test_nonsecure_images_fail_closed_without_qualified_partitions) (core='CM33')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_pack_resources.py", line 301, in test_nonsecure_images_fail_closed_without_qualified_partitions
+    self.assertNotEqual(0, result.returncode)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.234s
+
+FAILED (failures=2)

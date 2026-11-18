@@ -1,0 +1,12 @@
+test_directory_cannot_stand_in_for_owning_mdf (test_ra8p1_candidate_mdf.OwningMdfTests.test_directory_cannot_stand_in_for_owning_mdf) ... ok
+test_matching_owning_mdf_is_required_without_owning_third_party_inputs (test_ra8p1_candidate_mdf.OwningMdfTests.test_matching_owning_mdf_is_required_without_owning_third_party_inputs) ... ok
+test_mdf_must_match_current_owner_even_with_proven_original_variants (test_ra8p1_candidate_mdf.OwningMdfTests.test_mdf_must_match_current_owner_even_with_proven_original_variants) ... ok
+test_missing_owning_mdf_is_not_silently_skipped (test_ra8p1_candidate_mdf.OwningMdfTests.test_missing_owning_mdf_is_not_silently_skipped) ... ok
+test_selected_pack_mdf_is_rechecked_after_initial_baseline_validation (test_ra8p1_candidate_mdf.OwningMdfTests.test_selected_pack_mdf_is_rechecked_after_initial_baseline_validation) ... ok
+test_symlinked_owning_mdf_is_rejected (test_ra8p1_candidate_mdf.OwningMdfTests.test_symlinked_owning_mdf_is_rejected) ... ok
+test_unrelated_pack_resources_need_not_exist_in_checkout (test_ra8p1_candidate_mdf.OwningMdfTests.test_unrelated_pack_resources_need_not_exist_in_checkout) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.018s
+
+OK

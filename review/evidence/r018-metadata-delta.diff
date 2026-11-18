@@ -1,0 +1,72 @@
+--- r017/.module_descriptions/Renesas##BSP##ra8p1##device####5.9.0.xml
++++ r018/.module_descriptions/Renesas##BSP##ra8p1##device####5.9.0.xml
+@@ -63,6 +63,8 @@
+         <provides interface="interface.mcu.acmphs" />
+         <provides interface="interface.mcu.acmphs.0" />
+         <provides interface="interface.mcu.acmphs.1" />
++        <provides interface="interface.mcu.acmphs.2" />
++        <provides interface="interface.mcu.acmphs.3" />
+         <provides interface="interface.mcu.agt" />
+         <provides interface="interface.mcu.agt.0" />
+         <provides interface="interface.mcu.agt.1" />
+@@ -248,7 +250,7 @@
+             <option id="enum.mcu.acmphs.is_present" display="ACMPHS is available on the RA8P1." value="1" />
+         </enum>
+         <enum id="enum.mcu.acmphs.channel.mask" default="enum.mcu.acmphs.channel.bitmask">
+-            <option id="enum.mcu.acmphs.channel.bitmask" display="ACMPHS channel mask." value="0x3" />
++            <option id="enum.mcu.acmphs.channel.bitmask" display="ACMPHS channel mask." value="0xF" />
+         </enum>
+         <enum id="enum.mcu.acmplp.present" default="enum.mcu.acmplp.not_present">
+             <option id="enum.mcu.acmplp.not_present" display="ACMPLP is not available on the RA8P1." value="0" />
+@@ -800,6 +802,8 @@
+         <enum id="enum.mcu.acmphs.channels" default="enum.mcu.acmphs.channels.0">
+             <option id="enum.mcu.acmphs.channels.0" display="ACMPHS0" value="0" />
+             <option id="enum.mcu.acmphs.channels.1" display="ACMPHS1" value="1" />
++            <option id="enum.mcu.acmphs.channels.2" display="ACMPHS2" value="2" />
++            <option id="enum.mcu.acmphs.channels.3" display="ACMPHS3" value="3" />
+         </enum>
+         <enum id="enum.mcu.adc.bits.ch0" default="enum.mcu.adc.bits.ch0.value">
+             <option id="enum.mcu.adc.bits.ch0.value" display="ADC12 register block absent; target uses ADC16H" value="0" />
+--- r017/.module_descriptions/Renesas##BSP##ra8p1##fsp####5.9.0.xml
++++ r018/.module_descriptions/Renesas##BSP##ra8p1##fsp####5.9.0.xml
+@@ -2238,9 +2238,6 @@
+             <option display="Not Supported" id="module.driver.lpm.flash_mode.lpm_flash_mode_flash_active" value="false" />
+         </enum>
+         <enum id="enum.mcu.lvd.monitor" default="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_3_08V">
+-            <option display="Monitor 1 (4.29V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_4_29V" value="(0)" />
+-            <option display="Monitor 1 (4.16V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_4_16V" value="(1)" />
+-            <option display="Monitor 1 (4.03V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_4_03V" value="(2)" />
+             <option display="Monitor 1 (3.86V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_3_86V" value="(3)" />
+             <option display="Monitor 1 (3.14V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_3_14V" value="(4)" />
+             <option display="Monitor 1 (3.10V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_3_10V" value="(5)" />
+@@ -2254,9 +2251,6 @@
+             <option display="Monitor 1 (1.86V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_1_86V" value="(13)" />
+             <option display="Monitor 1 (1.74V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_1_74V" value="(14)" />
+             <option display="Monitor 1 (1.71V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_1_LEVEL_1_71V" value="(15)" />
+-            <option display="Monitor 2 (4.29V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_4_29V" value="(0)" />
+-            <option display="Monitor 2 (4.16V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_4_16V" value="(1)" />
+-            <option display="Monitor 2 (4.03V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_4_03V" value="(2)" />
+             <option display="Monitor 2 (3.86V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_3_86V" value="(3)" />
+             <option display="Monitor 2 (3.14V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_3_14V" value="(4)" />
+             <option display="Monitor 2 (3.10V)" id="module.driver.lvd.voltage_threshold.LVD_THRESHOLD_MONITOR_2_LEVEL_3_10V" value="(5)" />
+@@ -2315,12 +2309,20 @@
+             <option display="SCI2_TDR" id="module.driver.crc.snoop_address.SCI2_tdr" value="0x204" />
+             <option display="SCI3_TDR" id="module.driver.crc.snoop_address.SCI3_tdr" value="0x304" />
+             <option display="SCI4_TDR" id="module.driver.crc.snoop_address.SCI4_tdr" value="0x404" />
++            <option display="SCI5_TDR" id="module.driver.crc.snoop_address.SCI5_tdr" value="0x504" />
++            <option display="SCI6_TDR" id="module.driver.crc.snoop_address.SCI6_tdr" value="0x604" />
++            <option display="SCI7_TDR" id="module.driver.crc.snoop_address.SCI7_tdr" value="0x704" />
++            <option display="SCI8_TDR" id="module.driver.crc.snoop_address.SCI8_tdr" value="0x804" />
+             <option display="SCI9_TDR" id="module.driver.crc.snoop_address.SCI9_tdr" value="0x904" />
+             <option display="SCI0_RDR" id="module.driver.crc.snoop_address.SCI0_rdr" value="0x000" />
+             <option display="SCI1_RDR" id="module.driver.crc.snoop_address.SCI1_rdr" value="0x100" />
+             <option display="SCI2_RDR" id="module.driver.crc.snoop_address.SCI2_rdr" value="0x200" />
+             <option display="SCI3_RDR" id="module.driver.crc.snoop_address.SCI3_rdr" value="0x300" />
+             <option display="SCI4_RDR" id="module.driver.crc.snoop_address.SCI4_rdr" value="0x400" />
++            <option display="SCI5_RDR" id="module.driver.crc.snoop_address.SCI5_rdr" value="0x500" />
++            <option display="SCI6_RDR" id="module.driver.crc.snoop_address.SCI6_rdr" value="0x600" />
++            <option display="SCI7_RDR" id="module.driver.crc.snoop_address.SCI7_rdr" value="0x700" />
++            <option display="SCI8_RDR" id="module.driver.crc.snoop_address.SCI8_rdr" value="0x800" />
+             <option display="SCI9_RDR" id="module.driver.crc.snoop_address.SCI9_rdr" value="0x900" />
+         </enum>
+         <enum id="enum.mcu.sdhi.bus_width" default="module.driver.sdmmc.bus_width.bus_width_4_bits">

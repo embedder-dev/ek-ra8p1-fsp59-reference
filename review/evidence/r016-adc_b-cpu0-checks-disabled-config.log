@@ -1,0 +1,7 @@
+ok config set …p1/review-drivers/review_r015_adc_b_cpu0 (1.6 s)
+applied the given settings to review_r015_adc_b_cpu0; saved, content generated (no separate generate needed)
+  bsp config.bsp.common.checking: config.bsp.common.checking.disabled -> config.bsp.common.checking.disabled (configuration.xml: config.bsp.common.checking.disabled)
+configuration.xml: unchanged (the values were already set); read back from the file: bsp checking config.bsp.common.checking.disabled
+e2 bookkeeping, safe to ignore: changed: .cproject (+1 -0 lines); rewritten with identical content: .api_xml, .secure_azone, .secure_rzone, .secure_xml, ra_cfg.txt
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ra8p1/review-drivers/review_r015_adc_b_cpu0

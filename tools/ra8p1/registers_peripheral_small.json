@@ -1,0 +1,2767 @@
+{
+  "schema": 1,
+  "device": "R7KA8P1KF",
+  "integration": "Integrated manual-derived peripheral inventory. Existing-type extensions reside in their original owning inventories; this fragment is consumed by generate_device_header.py.",
+  "types": [
+    {
+      "name": "R_ULPT0_Type",
+      "size": "0x14",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.1, p.1198",
+      "members": [
+        {
+          "name": "ULPTCNT",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ULPTCNT",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.1, p.1198"
+        },
+        {
+          "name": "ULPTCMA",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ULPTCMA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.2, p.1199"
+        },
+        {
+          "name": "ULPTCMB",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ULPTCMB",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.3, p.1199"
+        },
+        {
+          "name": "ULPTCR",
+          "offset": "0xc",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TSTART",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCSTF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TSTOP",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TUNDF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMAF",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMBF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.4, p.1200"
+        },
+        {
+          "name": "ULPTMR1",
+          "offset": "0xd",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOD1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEDGPL",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCK1",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.5, p.1202"
+        },
+        {
+          "name": "ULPTMR2",
+          "offset": "0xe",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CKS",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "LPM",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.6, p.1202"
+        },
+        {
+          "name": "ULPTMR3",
+          "offset": "0xf",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCNTCTL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEVPOL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOPOL",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEECTL",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TEEPOL",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.7, p.1203"
+        },
+        {
+          "name": "ULPTIOC",
+          "offset": "0x10",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TOE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIPF",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TIOGT0",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.8, p.1205"
+        },
+        {
+          "name": "ULPTISR",
+          "offset": "0x11",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RCCPSEL2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.9, p.1205"
+        },
+        {
+          "name": "ULPTCMSR",
+          "offset": "0x12",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCMEA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOEA",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOPOLA",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMEB",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOEB",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOPOLB",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.10, p.1206"
+        }
+      ]
+    },
+    {
+      "name": "R_SSI0_Type",
+      "size": "0x28",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.1, p.3066",
+      "members": [
+        {
+          "name": "SSICR",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "REN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEN",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MUEN",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CKDV",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DEL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PDTA",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDTA",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPDP",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "LRCKP",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCKP",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MST",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SWL",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "DWL",
+              "pos": 19,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "FRM",
+              "pos": 22,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "IIEN",
+              "pos": 25,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ROIEN",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RUIEN",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOIEN",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TUIEN",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CKS",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.1, p.3066"
+        },
+        {
+          "name": "SSISR",
+          "offset": "0x4",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IIRQ",
+              "pos": 25,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ROIRQ",
+              "pos": 26,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RUIRQ",
+              "pos": 27,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOIRQ",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TUIRQ",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.2, p.3076"
+        },
+        {
+          "name": "SSIFCR",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RFRST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TFRST",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RIE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BSW",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SSIRST",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AUCKE",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.3, p.3087"
+        },
+        {
+          "name": "SSIFSR",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RDF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RDC",
+              "pos": 8,
+              "bits": 6,
+              "access": "R"
+            },
+            {
+              "name": "TDE",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDC",
+              "pos": 24,
+              "bits": 6,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.4, p.3093"
+        },
+        {
+          "name": "SSIFTDR",
+          "offset": "0x18",
+          "width": 32,
+          "access": "W",
+          "fields": [
+            {
+              "name": "SSIFTDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.5, p.3096",
+          "views": [
+            {
+              "name": "SSIFTDR16",
+              "offset": 0,
+              "width": 16,
+              "access": "W"
+            },
+            {
+              "name": "SSIFTDR8",
+              "offset": 0,
+              "width": 8,
+              "access": "W"
+            }
+          ]
+        },
+        {
+          "name": "SSIFRDR",
+          "offset": "0x1c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SSIFRDR",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.6, p.3099",
+          "views": [
+            {
+              "name": "SSIFRDR16",
+              "offset": 0,
+              "width": 16,
+              "access": "R"
+            },
+            {
+              "name": "SSIFRDR8",
+              "offset": 0,
+              "width": 8,
+              "access": "R"
+            }
+          ]
+        },
+        {
+          "name": "SSIOFR",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OMOD",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "LRCONT",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BCKASTP",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.7, p.3101"
+        },
+        {
+          "name": "SSISCR",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RDFS",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "TDES",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.8, p.3104"
+        }
+      ]
+    },
+    {
+      "name": "R_IIC0_SAR_Type",
+      "size": "0x2",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.13, p.2400",
+      "members": [
+        {
+          "name": "L",
+          "offset": "0x0",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SVA",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.13, p.2400",
+          "vocabulary": "Stock L.SVA denotes all eight address storage bits; HM separates bit0/SVA0 and bits7:1/SVA. Hardware address/width and 7-/10-bit behavior are unchanged."
+        },
+        {
+          "name": "U",
+          "offset": "0x1",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "FS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SVA8",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SVA9",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.14, p.2401",
+          "vocabulary": "Stock upper address-bit names SVA8/9 split the documented SVA[9:8] storage field."
+        }
+      ],
+      "vocabulary": "Stock nested SAR.L/U register names are canonical for SARLy/SARUy."
+    },
+    {
+      "name": "R_IIC0_Type",
+      "size": "0x18",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.1, p.2379",
+      "members": [
+        {
+          "name": "ICCR1",
+          "offset": "0x0",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDAI",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SCLI",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDAO",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCLO",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SOWP",
+              "pos": 4,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CLO",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IICRST",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ICE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.1, p.2379"
+        },
+        {
+          "name": "ICCR2",
+          "offset": "0x1",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ST",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RS",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SP",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRS",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MST",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BBSY",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.2, p.2381"
+        },
+        {
+          "name": "ICMR1",
+          "offset": "0x2",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BC",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "BCWP",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "CKS",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "MTWP",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.3, p.2384"
+        },
+        {
+          "name": "ICMR2",
+          "offset": "0x3",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TMOL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TMOH",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDDL",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "DLCS",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.4, p.2385"
+        },
+        {
+          "name": "ICMR3",
+          "offset": "0x4",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "NF",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ACKBR",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ACKBT",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACKWP",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RDRFS",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WAIT",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SMBS",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.5, p.2386"
+        },
+        {
+          "name": "ICFER",
+          "offset": "0x5",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MALE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NALE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SALE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NACKE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NFE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SCLE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "FMPE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.6, p.2388"
+        },
+        {
+          "name": "ICSER",
+          "offset": "0x6",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SAR0E",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAR1E",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAR2E",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GCAE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DIDE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HOAE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.7, p.2390"
+        },
+        {
+          "name": "ICIER",
+          "offset": "0x7",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOIE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ALIE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STIE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SPIE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NAKIE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RIE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEIE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.8, p.2391"
+        },
+        {
+          "name": "ICSR1",
+          "offset": "0x8",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AAS0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AAS1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AAS2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "GCA",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DID",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HOA",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.9, p.2392"
+        },
+        {
+          "name": "ICSR2",
+          "offset": "0x9",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOF",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AL",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "START",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "STOP",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "NACKF",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RDRF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TEND",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TDRE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.10, p.2394"
+        },
+        {
+          "name": "SAR",
+          "offset": "0xa",
+          "type": "R_IIC0_SAR_Type",
+          "element_size": 2,
+          "count": 3,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.13, p.2400"
+        },
+        {
+          "name": "ICBRL",
+          "offset": "0x10",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BRL",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.15, p.2401"
+        },
+        {
+          "name": "ICBRH",
+          "offset": "0x11",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BRH",
+              "pos": 0,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.16, p.2402"
+        },
+        {
+          "name": "ICDRT",
+          "offset": "0x12",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ICDRT",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.17, p.2403"
+        },
+        {
+          "name": "ICDRR",
+          "offset": "0x13",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "ICDRR",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.18, p.2403–2404",
+          "note": "The manual explicitly prohibits writes to ICDRR."
+        },
+        {
+          "name": "ICWUR",
+          "offset": "0x16",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WUAFA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WUACK",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WUF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WUIE",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WUE",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.11, p.2398"
+        },
+        {
+          "name": "ICWUR2",
+          "offset": "0x17",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "WUSEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WUASYF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "WUSYF",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.12, p.2399"
+        }
+      ]
+    },
+    {
+      "name": "R_SDHI0_Type",
+      "size": "0x1e4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.1, p.3133",
+      "members": [
+        {
+          "name": "SD_CMD",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CMDIDX",
+              "pos": 0,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "ACMD",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "RSPTP",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "CMDTP",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMDRW",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRSTP",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMD12AT",
+              "pos": 14,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.1, p.3133",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_ARG",
+          "offset": "0x8",
+          "width": 32,
+          "access": "R/W",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.2, p.3134",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_ARG1",
+          "offset": "0xc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.3, p.3135",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_STOP",
+          "offset": "0x10",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "STP",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SEC",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.4, p.3135",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_SECCNT",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.5, p.3136",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP10",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.6, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP1",
+          "offset": "0x1c",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.7, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP32",
+          "offset": "0x20",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.6, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP3",
+          "offset": "0x24",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.7, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP54",
+          "offset": "0x28",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.6, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP5",
+          "offset": "0x2c",
+          "width": 32,
+          "access": "R",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.7, p.3137",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP76",
+          "offset": "0x30",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SD_RSP76",
+              "pos": 0,
+              "bits": 24,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.8, p.3138",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_RSP7",
+          "offset": "0x34",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SD_RSP7",
+              "pos": 0,
+              "bits": 8,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.9, p.3138",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_INFO1",
+          "offset": "0x38",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RSPEND",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACEND",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDCDRM",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDCDIN",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDCDMON",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDWPMON",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "SDD3RM",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDD3IN",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDD3MON",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.10, p.3139",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_INFO2",
+          "offset": "0x3c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CMDE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CRCE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ENDE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTO",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ILW",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ILR",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSPTO",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDD0MON",
+              "pos": 7,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BRE",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BWE",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SD_CLK_CTRLEN",
+              "pos": 13,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CBSY",
+              "pos": 14,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "ILA",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.11, p.3142",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_INFO1_MASK",
+          "offset": "0x40",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RSPENDM",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ACENDM",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDCDRMM",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDCDINM",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDD3RMM",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDD3INM",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.12, p.3146",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_INFO2_MASK",
+          "offset": "0x44",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CMDEM",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CRCEM",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ENDEM",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DTOM",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ILWM",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ILRM",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSPTOM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BREM",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BWEM",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ILAM",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.13, p.3147",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_CLK_CTRL",
+          "offset": "0x48",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CLKSEL",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "CLKEN",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CLKCTRLEN",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.14, p.3148",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_SIZE",
+          "offset": "0x4c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "LEN",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.15, p.3149",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_OPTION",
+          "offset": "0x50",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CTOP",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "TOP",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "TOUTMASK",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WIDTH8",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WIDTH",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.16, p.3149",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_ERR_STS1",
+          "offset": "0x58",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "CMDE0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CMDE1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSPLENE0",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSPLENE1",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDLENE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCLENE",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSPCRCE0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSPCRCE1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDCRCE",
+              "pos": 10,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCTKE",
+              "pos": 11,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCTK",
+              "pos": 12,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.17, p.3151",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_ERR_STS2",
+          "offset": "0x5c",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "RSPTO0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RSPTO1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BSYTO0",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "BSYTO1",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "RDTO",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCTO",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "CRCBSYTO",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.18, p.3152",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_BUF0",
+          "offset": "0x60",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SD_BUF0",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.19, p.3153",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SDIO_MODE",
+          "offset": "0x68",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "INTEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RWREQ",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "IOABT",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "C52PUB",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.20, p.3154",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SDIO_INFO1",
+          "offset": "0x6c",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IOIRQ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXPUB52",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXWT",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.21, p.3155",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SDIO_INFO1_MASK",
+          "offset": "0x70",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "IOIRQM",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXPUB52M",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "EXWTM",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.22, p.3156",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SD_DMAEN",
+          "offset": "0x1b0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DMAEN",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.23, p.3157",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SOFT_RST",
+          "offset": "0x1c0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SDRST",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.24, p.3158",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "SDIF_MODE",
+          "offset": "0x1cc",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "NOCHKCR",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.25, p.3158",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        },
+        {
+          "name": "EXT_SWAP",
+          "offset": "0x1e0",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "BWSWP",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "BRSWP",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.26, p.3159",
+          "vocabulary": "Native RA8P1 32-bit access interface; incompatible split16 stock variants must be adapted, not overlaid at incorrect offsets."
+        }
+      ]
+    },
+    {
+      "name": "R_AGTX0_AGT16_CTRL_Type",
+      "size": "0x8",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.4, p.1177",
+      "members": [
+        {
+          "name": "AGTCR",
+          "offset": "0x0",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TSTART",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCSTF",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "TSTOP",
+              "pos": 2,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "TEDGF",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TUNDF",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMAF",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMBF",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.4, p.1177"
+        },
+        {
+          "name": "AGTMR1",
+          "offset": "0x1",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TMOD",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "TEDGPL",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCK",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.5, p.1178"
+        },
+        {
+          "name": "AGTMR2",
+          "offset": "0x2",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "CKS",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "LPM",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.6, p.1179"
+        },
+        {
+          "name": "AGTIOC",
+          "offset": "0x4",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TEDGSEL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TIPF",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TIOGT",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.7, p.1180"
+        },
+        {
+          "name": "AGTISR",
+          "offset": "0x5",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "EEPS",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.8, p.1182"
+        },
+        {
+          "name": "AGTCMSR",
+          "offset": "0x6",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCMEA",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOEA",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOPOLA",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCMEB",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOEB",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TOPOLB",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.9, p.1182"
+        },
+        {
+          "name": "AGTIOSEL",
+          "offset": "0x7",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TIES",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.10, p.1183"
+        }
+      ]
+    },
+    {
+      "name": "R_AGTX0_AGT16_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175",
+      "members": [
+        {
+          "name": "AGT",
+          "offset": "0x0",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AGT",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175"
+        },
+        {
+          "name": "AGTCMA",
+          "offset": "0x2",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AGTCMA",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.2, p.1176"
+        },
+        {
+          "name": "AGTCMB",
+          "offset": "0x4",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AGTCMB",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.3, p.1176"
+        },
+        {
+          "name": "CTRL",
+          "offset": "0x8",
+          "type": "R_AGTX0_AGT16_CTRL_Type",
+          "element_size": 8,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.4, p.1177"
+        }
+      ]
+    },
+    {
+      "name": "R_AGTX0_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175",
+      "members": [
+        {
+          "name": "AGT16",
+          "offset": "0x0",
+          "type": "R_AGTX0_AGT16_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175"
+        }
+      ]
+    },
+    {
+      "name": "R_RTC_CP_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.28, p.1249–1251 (§§27.2.28–33)",
+      "members": [
+        {
+          "name": "RSEC",
+          "offset": "0x2",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "SEC1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "SEC10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.28, p.1249",
+          "views": [
+            {
+              "name": "BCNT0",
+              "offset": 0,
+              "width": 8,
+              "access": "R",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R"
+                }
+              ]
+            }
+          ],
+          "vocabulary": "Read-only binary-count capture alternative, HM27.2.33 p.1251."
+        },
+        {
+          "name": "RMIN",
+          "offset": "0x4",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MIN1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "MIN10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.29, p.1249",
+          "views": [
+            {
+              "name": "BCNT1",
+              "offset": 0,
+              "width": 8,
+              "access": "R",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R"
+                }
+              ]
+            }
+          ],
+          "vocabulary": "Read-only binary-count capture alternative, HM27.2.33 p.1251."
+        },
+        {
+          "name": "RHR",
+          "offset": "0x6",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "HR1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "HR10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R"
+            },
+            {
+              "name": "PM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.30, p.1250",
+          "views": [
+            {
+              "name": "BCNT2",
+              "offset": 0,
+              "width": 8,
+              "access": "R",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R"
+                }
+              ]
+            }
+          ],
+          "vocabulary": "Read-only binary-count capture alternative, HM27.2.33 p.1251."
+        },
+        {
+          "name": "RDAY",
+          "offset": "0xa",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "DATE1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "DATE10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.31, p.1250",
+          "views": [
+            {
+              "name": "BCNT3",
+              "offset": 0,
+              "width": 8,
+              "access": "R",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R"
+                }
+              ]
+            }
+          ],
+          "vocabulary": "Read-only binary-count capture alternative, HM27.2.33 p.1251."
+        },
+        {
+          "name": "RMON",
+          "offset": "0xc",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "MON1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R"
+            },
+            {
+              "name": "MON10",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.32, p.1251"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_ULPT0",
+      "type": "R_ULPT0_Type",
+      "secure": "0x40220000",
+      "nonsecure": "0x50220000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.1, p.1198"
+    },
+    {
+      "name": "R_ULPT1",
+      "type": "R_ULPT0_Type",
+      "secure": "0x40220100",
+      "nonsecure": "0x50220100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §26.3.1, p.1198"
+    },
+    {
+      "name": "R_SSI0",
+      "type": "R_SSI0_Type",
+      "secure": "0x4025d000",
+      "nonsecure": "0x5025d000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.1, p.3066"
+    },
+    {
+      "name": "R_SSI1",
+      "type": "R_SSI0_Type",
+      "secure": "0x4025d100",
+      "nonsecure": "0x5025d100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §47.2.1, p.3066"
+    },
+    {
+      "name": "R_IIC0",
+      "type": "R_IIC0_Type",
+      "secure": "0x4025e000",
+      "nonsecure": "0x5025e000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.1, p.2379"
+    },
+    {
+      "name": "R_IIC1",
+      "type": "R_IIC0_Type",
+      "secure": "0x4025e100",
+      "nonsecure": "0x5025e100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.1, p.2379"
+    },
+    {
+      "name": "R_IIC2",
+      "type": "R_IIC0_Type",
+      "secure": "0x4025e200",
+      "nonsecure": "0x5025e200",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §40.2.1, p.2379"
+    },
+    {
+      "name": "R_SDHI0",
+      "type": "R_SDHI0_Type",
+      "secure": "0x40252000",
+      "nonsecure": "0x50252000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.1, p.3133"
+    },
+    {
+      "name": "R_SDHI1",
+      "type": "R_SDHI0_Type",
+      "secure": "0x40252400",
+      "nonsecure": "0x50252400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §48.2.1, p.3133"
+    },
+    {
+      "name": "R_AGT0",
+      "type": "R_AGTX0_Type",
+      "secure": "0x40221000",
+      "nonsecure": "0x50221000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175"
+    },
+    {
+      "name": "R_AGT1",
+      "type": "R_AGTX0_Type",
+      "secure": "0x40221100",
+      "nonsecure": "0x50221100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175"
+    },
+    {
+      "name": "R_AGTX0",
+      "type": "R_AGTX0_Type",
+      "secure": "0x40221000",
+      "nonsecure": "0x50221000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175",
+      "vocabulary": "Stock FSP 5.9 aggregate AGTX spelling for the identical AGT16 instance. No AGTW or AGT32 hardware is implied."
+    },
+    {
+      "name": "R_AGTX1",
+      "type": "R_AGTX0_Type",
+      "secure": "0x40221100",
+      "nonsecure": "0x50221100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §25.2.1, p.1175",
+      "vocabulary": "Stock FSP 5.9 aggregate AGTX spelling for the identical AGT16 instance."
+    }
+  ],
+  "differences": [
+    {
+      "module": "r_agt",
+      "status": "adaptation-required",
+      "source": "RA8P1 HM §25.1–25.2 pp.1174–1183",
+      "reason": "Only AGT16 channels0/1 exist. Stock runtime AGT32 ternaries and AGTIOSEL_ALT references must be preprocessor-gated by BSP_FEATURE_AGT_REGISTER_TYPE (legacy 0, AGT16-only layout 1), independently of channel counts, so legacy zero-AGTW devices retain their original runtime branches. No absent AGT32 or ALT storage is supplied. AGTIOSEL contains TIES only; SEL is reserved."
+    },
+    {
+      "module": "r_lpm",
+      "status": "adaptation-required",
+      "source": "RA8P1 HM §14.2.19–20 pp.554–558",
+      "reason": "WUPEN is the canonical FSP 5.9 name of the first 32-bit wake-enable bank, documented as WUPEN0 on RA8P1 at CPU-local ICU+0x1A0. A same-storage WUPEN view preserves only target fields; WUPEN1 remains independent. Parent owns target wake-source/event enums. No WUPEN2, SBYEDCR, SNZCR, SOPCCR, FOCOSCR or ICLKSCR is invented."
+    },
+    {
+      "module": "r_lvd",
+      "status": "canonical-equivalent-vocabulary",
+      "source": "RA8P1 HM §8.2 pp.304–310",
+      "reason": "Canonical LVD1/2 and native PVD1/2 views name identical target storage and meanings. PVD4/5 remain native reset-only views: CR0.RE is bit0, with no RI/RN fields or PVD3. PVD4/5 FCR omitted pending resolution: HM8.2.9 prints 0xB2C+4*(n-1), n=4,5, which conflicts with the apparent indexing origin and surrounding register map; no guessed offset is published."
+    },
+    {
+      "module": "r_sdhi",
+      "status": "adaptation-required",
+      "source": "RA8P1 HM §48.2 pp.3136–3162",
+      "reason": "All target native ports here are 32-bit. Do not invent split16 SD_ARG1 or SD_BUF width/layout expected by older SDHI versions; select the real target register-access capability."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+248:    p_transfer->p_api->open(p_transfer->p_ctrl, p_transfer->p_cfg);
+521:    p_dma_reg->DMBWR = R_DMAC0_DMBWR_BWE_Msk;
+528:    p_transfer->p_cfg->p_info->length = (uint16_t) byte_count;
+530:    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+532:    r_ospi_b_write_enable(p_instance_ctrl);
+536:    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+541:    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+545:        FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+549:    p_dma_reg->DMBWR = 0U;
+565:    err = r_ospi_b_write_enable(p_instance_ctrl);
+566:    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+654:    fsp_err_t err = r_ospi_b_write_enable(p_instance_ctrl);
+655:    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);

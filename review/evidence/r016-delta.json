@@ -1,0 +1,10 @@
+{
+  "delta_vs_r015": {
+    "Renesas.RA.5.9.0.pack": [
+      ".module_descriptions/Renesas##HAL Drivers##all##r_ospi_b####5.9.0.xml",
+      "ra/fsp/src/r_gpt/r_gpt.c",
+      "ra/fsp/src/r_ospi_b/r_ospi_b.c"
+    ]
+  },
+  "target_pin_and_resource_pack_unchanged": true
+}

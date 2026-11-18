@@ -1229,6 +1229,28 @@ This file is generated using: scripts/jinja/mdf_render.sh
         <provides interface="interface.mcu.ether.supports.tz_secure" />
         <provides interface="interface.mcu.usb.pipes.0.1.2.3.4.5.6.7.8.9" />
 
+        <enum id="enum.driver.mipi_dsi.rxie" default="">
+            <option display="BTA Request End" id="module.driver.mipi_dsi.rxie.btarend" value="R_DSILINK_RXIER_BTAREND_Msk"/>
+            <option display="LP-RX Host Processor Timeout" id="module.driver.mipi_dsi.rxie.lrxhto" value="R_DSILINK_RXIER_LRXHTO_Msk"/>
+            <option display="Turnaround Acknowledge Timeout" id="module.driver.mipi_dsi.rxie.tato" value="R_DSILINK_RXIER_TATO_Msk"/>
+            <option display="Response Packet Receive" id="module.driver.mipi_dsi.rxie.rxresp" value="R_DSILINK_RXIER_RXRESP_Msk"/>
+            <option display="EoTp Receive" id="module.driver.mipi_dsi.rxie.rxeotp_msk" value="R_DSILINK_RXIER_RXEOTP_Msk"/>
+            <option display="Tearing Effect Trigger Receive" id="module.driver.mipi_dsi.rxie.rxte" value="R_DSILINK_RXIER_RXTE_Msk"/>
+            <option display="ACK Trigger Receive" id="module.driver.mipi_dsi.rxie.rxack" value="R_DSILINK_RXIER_RXACK_Msk"/>
+            <option display="External Tearing Effect Detect" id="module.driver.mipi_dsi.rxie.extedet" value="R_DSILINK_RXIER_EXTEDET_Msk"/>
+            <option display="Malform Error" id="module.driver.mipi_dsi.rxie.mlferr" value="R_DSILINK_RXIER_MLFERR_Msk"/>
+            <option display="Multi Bit ECC Error" id="module.driver.mipi_dsi.rxie.eccerrm" value="R_DSILINK_RXIER_ECCERRM_Msk"/>
+            <option display="Unexpected Packet Error" id="module.driver.mipi_dsi.rxie.unexerr" value="R_DSILINK_RXIER_UNEXERR_Msk"/>
+            <option display="Word Count Error" id="module.driver.mipi_dsi.rxie.wcerr" value="R_DSILINK_RXIER_WCERR_Msk"/>
+            <option display="CRC Error" id="module.driver.mipi_dsi.rxie.crcerr" value="R_DSILINK_RXIER_CRCERR_Msk"/>
+            <option display="Internal Bus Error" id="module.driver.mipi_dsi.rxie.iberr" value="R_DSILINK_RXIER_IBERR_Msk"/>
+            <option display="Receive Buffer Overflow Error" id="module.driver.mipi_dsi.rxie.rxovferr" value="R_DSILINK_RXIER_RXOVFERR_Msk"/>
+            <option display="Peripheral Response Timeout Error" id="module.driver.mipi_dsi.rxie.prtoerr" value="R_DSILINK_RXIER_PRTOERR_Msk"/>
+            <option display="No Response Error" id="module.driver.mipi_dsi.rxie.noreserr" value="R_DSILINK_RXIER_NORESERR_Msk"/>
+            <option display="Retrun Packet Size Error" id="module.driver.mipi_dsi.rxie.rsizeerr" value="R_DSILINK_RXIER_RSIZEERR_Msk"/>
+            <option display="Single Bit ECC Error" id="module.driver.mipi_dsi.rxie.eccerrs" value="R_DSILINK_RXIER_ECCERRS_Msk"/>
+            <option display="Acknowledge and Error Report Receive" id="module.driver.mipi_dsi.rxie.rxake" value="R_DSILINK_RXIER_RXAKE_Msk"/>
+        </enum>
         <enum id="enum.mcu.nvic.priorities.mandatory" default="board.icu.common.irq.priority12">
             <option display="Priority 0 (highest)" id="board.icu.common.irq.priority0" value="(0)" />
             <option display="Priority 1" id="board.icu.common.irq.priority1" value="(1)"/>

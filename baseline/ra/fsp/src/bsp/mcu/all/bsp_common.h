@@ -299,6 +299,12 @@ typedef enum e_fsp_priv_clock
     FSP_PRIV_CLOCK_ICLK   = 24,
     FSP_PRIV_CLOCK_FCLK   = 28,
     FSP_PRIV_CLOCK_CPUCLK = 32,
+#if BSP_FEATURE_CGC_SCKDIVCR2_HAS_EXTRA_CLOCKS
+    FSP_PRIV_CLOCK_MRPCLK  = 28,
+    FSP_PRIV_CLOCK_CPUCLK1 = 36,
+    FSP_PRIV_CLOCK_NPUCLK  = 40,
+    FSP_PRIV_CLOCK_MRICLK  = 44,
+#endif
 } fsp_priv_clock_t;
 
 /* Private enum used in R_FSP_SciSpiClockHzGe.  Maps clock name to base bit in SCISPICKCR. */
@@ -361,7 +367,41 @@ __STATIC_INLINE IRQn_Type R_FSP_CurrentIrqGet (void)
  **********************************************************************************************************************/
 __STATIC_INLINE uint32_t R_FSP_SystemClockHzGet (fsp_priv_clock_t clock)
 {
-#if !BSP_FEATURE_CGC_REGISTER_SET_B
+#if BSP_FEATURE_CGC_SCKDIVCR2_HAS_EXTRA_CLOCKS
+    uint32_t shift = (uint32_t) clock;
+    uint32_t dividers;
+
+    if ((shift > 44U) || ((shift & 3U) != 0U))
+    {
+        return 0U;
+    }
+
+    if (shift >= 32U)
+    {
+        dividers = FSP_STYPE3_REG16_READ(R_SYSTEM->SCKDIVCR2, BSP_CFG_CLOCKS_SECURE);
+        shift -= 32U;
+        if ((FSP_PRIV_CLOCK_CPUCLK == clock) && (BSP_CFG_CPU_CORE == 1))
+        {
+            shift = 4U;
+        }
+    }
+    else
+    {
+        dividers = FSP_STYPE3_REG32_READ(R_SYSTEM->SCKDIVCR, BSP_CFG_CLOCKS_SECURE);
+    }
+
+    uint32_t divider = (dividers >> shift) & FSP_PRV_SCKDIVCR_DIV_MASK;
+    if ((divider == 7U) || (divider > 11U))
+    {
+        return 0U;
+    }
+
+    divider = (divider & 8U) ? (3U << (divider & 7U)) : (1U << divider);
+    fsp_priv_source_clock_t source = (fsp_priv_source_clock_t)
+                                     FSP_STYPE3_REG8_READ(R_SYSTEM->SCKSCR, BSP_CFG_CLOCKS_SECURE);
+
+    return R_BSP_SourceClockHzGet(source) / divider;
+#elif !BSP_FEATURE_CGC_REGISTER_SET_B
     uint32_t sckdivcr  = FSP_STYPE3_REG32_READ(R_SYSTEM->SCKDIVCR, BSP_CFG_CLOCKS_SECURE);
     uint32_t clock_div = (sckdivcr >> clock) & FSP_PRV_SCKDIVCR_DIV_MASK;
 
@@ -448,6 +488,12 @@ __STATIC_INLINE uint32_t R_FSP_ClockDividerGet (uint32_t ckdivcr)
         /* Clock Divided by 10 */
         return 10;
     }
+#if BSP_FEATURE_CGC_PLLCCR_TYPE == 6
+    else if (9U == ckdivcr)
+    {
+        return 32U;
+    }
+#endif
     else
     {
         /* The remaining case is ckdivcr = 8 which divides the clock by 16. */
@@ -456,6 +502,69 @@ __STATIC_INLINE uint32_t R_FSP_ClockDividerGet (uint32_t ckdivcr)
     /* Clock Divided by 16 */
     return 16U;
 }
+
+#if BSP_FEATURE_BSP_HAS_BCLKA_CLOCK || BSP_FEATURE_BSP_HAS_ESW_CLOCK
+/*******************************************************************************************************************//**
+ * Decodes the restricted BCLKA, ESWCLK and ESWPHYCLK source/divider registers.
+ * Returns zero for prohibited settings or while the clock is held stopped for switching.
+ **********************************************************************************************************************/
+__STATIC_INLINE uint32_t R_FSP_AsyncClockHzGet (uint32_t control, uint32_t divider)
+{
+    uint32_t source = control & 0xFU;
+    if ((control & 0xC0U) || ((source != 1U) && ((source < 5U) || (source > 10U))))
+    {
+        return 0U;
+    }
+
+    uint32_t divisor;
+    switch (divider)
+    {
+        case 0U: divisor = 1U; break;
+        case 1U: divisor = 2U; break;
+        case 2U: divisor = 4U; break;
+        case 3U: divisor = 6U; break;
+        case 4U: divisor = 8U; break;
+        case 7U: divisor = 10U; break;
+        case 8U: divisor = 16U; break;
+        case 9U: divisor = 32U; break;
+        default: return 0U;
+    }
+
+    return R_BSP_SourceClockHzGet((fsp_priv_source_clock_t) source) / divisor;
+}
+
+#endif
+#if BSP_FEATURE_BSP_HAS_BCLKA_CLOCK
+/*******************************************************************************************************************//**
+ * Gets BCLKA in Hertz, independently of the BCKCR external-bus selection.
+ **********************************************************************************************************************/
+__STATIC_INLINE uint32_t R_FSP_BclkaClockHzGet (void)
+{
+    return R_FSP_AsyncClockHzGet(FSP_STYPE3_REG8_READ(R_SYSTEM->BCKACR, BSP_CFG_CLOCKS_SECURE),
+                               FSP_STYPE3_REG8_READ(R_SYSTEM->BCKADIVCR, BSP_CFG_CLOCKS_SECURE));
+}
+
+#endif
+#if BSP_FEATURE_BSP_HAS_ESW_CLOCK
+/*******************************************************************************************************************//**
+ * Gets ESWCLK in Hertz.
+ **********************************************************************************************************************/
+__STATIC_INLINE uint32_t R_FSP_EswClockHzGet (void)
+{
+    return R_FSP_AsyncClockHzGet(FSP_STYPE3_REG8_READ(R_SYSTEM->ESWCKCR, BSP_CFG_CLOCKS_SECURE),
+                               FSP_STYPE3_REG8_READ(R_SYSTEM->ESWCKDIVCR, BSP_CFG_CLOCKS_SECURE));
+}
+
+/*******************************************************************************************************************//**
+ * Gets ESWPHYCLK in Hertz.
+ **********************************************************************************************************************/
+__STATIC_INLINE uint32_t R_FSP_EswPhyClockHzGet (void)
+{
+    return R_FSP_AsyncClockHzGet(FSP_STYPE3_REG8_READ(R_SYSTEM->ESWPCKCR, BSP_CFG_CLOCKS_SECURE),
+                               FSP_STYPE3_REG8_READ(R_SYSTEM->ESWPCKDIVCR, BSP_CFG_CLOCKS_SECURE));
+}
+
+#endif
 
 #if BSP_FEATURE_BSP_HAS_SCISPI_CLOCK
 
@@ -485,10 +594,17 @@ __STATIC_INLINE uint32_t R_FSP_SpiClockHzGet (void)
 {
     uint32_t                spidivcr  = FSP_STYPE3_REG8_READ(R_SYSTEM->SPICKDIVCR, BSP_CFG_CLOCKS_SECURE);
     uint32_t                clock_div = R_FSP_ClockDividerGet(spidivcr & FSP_PRV_SCKDIVCR_DIV_MASK);
+ #if BSP_FEATURE_CGC_SCKDIVCR2_HAS_EXTRA_CLOCKS
+    fsp_priv_source_clock_t spicksel =
+        (fsp_priv_source_clock_t) ((FSP_STYPE3_REG8_READ(R_SYSTEM->SPICKCR,
+                                                       BSP_CFG_CLOCKS_SECURE) & R_SYSTEM_SPICKCR_SPICKSEL_Msk) >>
+                                   R_SYSTEM_SPICKCR_SPICKSEL_Pos);
+ #else
     fsp_priv_source_clock_t spicksel  =
         (fsp_priv_source_clock_t) ((FSP_STYPE3_REG8_READ(R_SYSTEM->SPICKCR,
                                                          BSP_CFG_CLOCKS_SECURE) & R_SYSTEM_SPICKCR_CKSEL_Msk) >>
                                    R_SYSTEM_SPICKCR_CKSEL_Pos);
+ #endif
 
     return R_BSP_SourceClockHzGet(spicksel) / clock_div;
 }
@@ -540,7 +656,7 @@ __STATIC_INLINE void R_BSP_FlashCacheDisable (void)
     R_FCACHE->FCACHEE = 0U;
 #endif
 
-#ifdef R_CACHE
+#if defined(R_CACHE) && (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_FEATURE_BSP_CODE_CACHE_VERSION != 0))
  #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 2
 
     /* Writeback and flush cache when disabling
@@ -579,7 +695,7 @@ __STATIC_INLINE void R_BSP_FlashCacheEnable (void)
     R_FCACHE->FCACHEE = 1U;
 #endif
 
-#ifdef R_CACHE
+#if defined(R_CACHE) && (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_FEATURE_BSP_CODE_CACHE_VERSION != 0))
  #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 1
 
     /* Configure the C-Cache line size. */

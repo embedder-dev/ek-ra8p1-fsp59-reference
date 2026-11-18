@@ -1,0 +1,844 @@
+{
+  "types": [
+    {
+      "name": "R_RTC_RTCCR_Type",
+      "size": "0x2",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.27, p.1248–1249",
+      "members": [
+        {
+          "name": "RTCCR",
+          "offset": "0x0",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "TCCT",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TCST",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TCNF",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "TCEN",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.27, p.1248–1249",
+          "manual_path": "34-27.-realtime-clock-rtc/02-27.2-register-descriptions/27-27.2.27-rtccrn-time-capture-control-register-n-n.md",
+          "note": "8-bit RTCCRn at RTC+0x40+2*n, n=0..2. TCST supports write-zero clearing; bits 3 and 6 are reserved. The second byte of each indexed element is not a register."
+        }
+      ]
+    },
+    {
+      "name": "R_RTC_Type",
+      "size": "0x80",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.20, p.1241–1249",
+      "members": [
+        {
+          "name": "R64CNT",
+          "offset": "0x0",
+          "width": 8,
+          "access": "R",
+          "fields": [
+            {
+              "name": "F64HZ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F32HZ",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F16HZ",
+              "pos": 2,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F8HZ",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F4HZ",
+              "pos": 4,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F2HZ",
+              "pos": 5,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "F1HZ",
+              "pos": 6,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.1, p.1231"
+        },
+        {
+          "name": "RSECCNT",
+          "offset": "0x2",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SEC1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "SEC10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.2, p.1231",
+          "views": [
+            {
+              "name": "BCNT0",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.6. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RMINCNT",
+          "offset": "0x4",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MIN1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "MIN10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.3, p.1232",
+          "views": [
+            {
+              "name": "BCNT1",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.6. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RHRCNT",
+          "offset": "0x6",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HR1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "HR10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.4, p.1232",
+          "views": [
+            {
+              "name": "BCNT2",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.6. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RWKCNT",
+          "offset": "0x8",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DAYW",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.5, p.1233",
+          "views": [
+            {
+              "name": "BCNT3",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNT",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.6. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RDAYCNT",
+          "offset": "0xa",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATE1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DATE10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.7, p.1234"
+        },
+        {
+          "name": "RMONCNT",
+          "offset": "0xc",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MON1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "MON10",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.8, p.1234"
+        },
+        {
+          "name": "RYRCNT",
+          "offset": "0xe",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "YR1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "YR10",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.9, p.1235"
+        },
+        {
+          "name": "RSECAR",
+          "offset": "0x10",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SEC1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "SEC10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.10, p.1235",
+          "views": [
+            {
+              "name": "BCNT0AR",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNTAR",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.14. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RMINAR",
+          "offset": "0x12",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MIN1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "MIN10",
+              "pos": 4,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.11, p.1236",
+          "views": [
+            {
+              "name": "BCNT1AR",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNTAR",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.14. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RHRAR",
+          "offset": "0x14",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "HR1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "HR10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PM",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.12, p.1236",
+          "views": [
+            {
+              "name": "BCNT2AR",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNTAR",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.14. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RWKAR",
+          "offset": "0x16",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DAYW",
+              "pos": 0,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.13, p.1237",
+          "views": [
+            {
+              "name": "BCNT3AR",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "BCNTAR",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.14. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RDAYAR",
+          "offset": "0x18",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATE1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DATE10",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.15, p.1238",
+          "views": [
+            {
+              "name": "BCNT0AER",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ENB",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.19. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RMONAR",
+          "offset": "0x1a",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "MON1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "MON10",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.16, p.1239",
+          "views": [
+            {
+              "name": "BCNT1AER",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ENB",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.19. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RYRAR",
+          "offset": "0x1c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "YR1",
+              "pos": 0,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "YR10",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.17, p.1240",
+          "views": [
+            {
+              "name": "BCNT2AER",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ENB",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.19. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RYRAREN",
+          "offset": "0x1e",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ENB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.18, p.1240",
+          "views": [
+            {
+              "name": "BCNT3AER",
+              "offset": 0,
+              "width": 8,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ENB",
+                  "pos": 0,
+                  "bits": 8,
+                  "access": "R/W"
+                }
+              ]
+            }
+          ],
+          "vocabulary": " Binary count-mode view at the same address, HM27.2.19. Do not use calendar and binary interpretations simultaneously."
+        },
+        {
+          "name": "RCR1",
+          "offset": "0x22",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "AIE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CIE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PIE",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RTCOS",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PES",
+              "pos": 4,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.20, p.1241–1242",
+          "manual_path": "34-27.-realtime-clock-rtc/02-27.2-register-descriptions/20-27.2.20-rcr1-rtc-control-register-1.md"
+        },
+        {
+          "name": "RCR2",
+          "offset": "0x24",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "START",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RESET",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADJ30",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RTCOE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AADJE",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "AADJP",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "HR24",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CNTMD",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.21, p.1242–1244",
+          "manual_path": "34-27.-realtime-clock-rtc/02-27.2-register-descriptions/21-27.2.21-rcr2-rtc-control-register-2-in-calendar.md",
+          "note": "Calendar-count field view. START, RESET, RTCOE, AADJE, AADJP and CNTMD retain their positions in binary-count mode (§27.2.22 pp.1244–1246); bits 2 and 6 are reserved in that mode."
+        },
+        {
+          "name": "RCR4",
+          "offset": "0x28",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RCKSEL",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.23, p.1246",
+          "manual_path": "34-27.-realtime-clock-rtc/02-27.2-register-descriptions/23-27.2.23-rcr4-rtc-control-register-4.md"
+        },
+        {
+          "name": "RFRH",
+          "offset": "0x2a",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RFC16",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.25, p.1247"
+        },
+        {
+          "name": "RFRL",
+          "offset": "0x2c",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RFC",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.24, p.1246"
+        },
+        {
+          "name": "RADJ",
+          "offset": "0x2e",
+          "width": 8,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ADJ",
+              "pos": 0,
+              "bits": 6,
+              "access": "R/W"
+            },
+            {
+              "name": "PMADJ",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.26, p.1247"
+        },
+        {
+          "name": "RTCCR",
+          "offset": "0x40",
+          "type": "R_RTC_RTCCR_Type",
+          "element_size": 2,
+          "count": 3,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.27, p.1248–1249"
+        },
+        {
+          "name": "CP",
+          "offset": "0x50",
+          "type": "R_RTC_CP_Type",
+          "element_size": 16,
+          "count": 3,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.28, p.1249–1251 (§§27.2.28–33)"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_RTC",
+      "type": "R_RTC_Type",
+      "secure": "0x40202000",
+      "nonsecure": "0x50202000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §27.2.27, p.1248"
+    }
+  ]
+}

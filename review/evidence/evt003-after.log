@@ -1,0 +1,6 @@
+test_both_manual_dtc_end_sources_are_eventlink_only (tools.test_ra8p1_review_events.DtcEndEventTests.test_both_manual_dtc_end_sources_are_eventlink_only) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

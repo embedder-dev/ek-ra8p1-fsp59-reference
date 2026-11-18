@@ -1,0 +1,14 @@
+[
+  {
+    "core": "CM85",
+    "project": "validation/ra8p1/review-drivers/review_r015_wdt_cpu0",
+    "log": "review/evidence/r015-wdt-cpu0-default-first-build.log",
+    "verified": true
+  },
+  {
+    "core": "CM33",
+    "project": "validation/ra8p1/review-drivers/review_r015_wdt_cpu1",
+    "log": "review/evidence/r015-wdt-cpu1-default-first-build.log",
+    "verified": true
+  }
+]

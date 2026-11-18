@@ -240,7 +240,12 @@ BSP_SECTION_FLASH_GAP void bsp_irq_cfg (void)
 
     /* The Secure Attribute managed within the ARM CPU NVIC must match the security attribution of IELSEn
      * (Reference section 13.2.9 in the RA6M4 manual R01UH0890EJ0050). */
+  #if BSP_FEATURE_ICU_HAS_COMMON_REGS && (BSP_CFG_CPU_CORE == 1)
+    /* CPU1 IELSR security is in ICUSARJ/K/L (HM 14.2.8-14.2.10). */
+    uint32_t volatile * p_icusarg = &R_CPSCU->ICUSARJ;
+  #else
     uint32_t volatile * p_icusarg = &R_CPSCU->ICUSARG;
+  #endif
     for (uint32_t i = 0U; i < BSP_ICU_VECTOR_MAX_ENTRIES / BSP_PRV_BITS_PER_WORD; i++)
     {
         p_icusarg[i]  = interrupt_security_state[i];
@@ -267,7 +272,21 @@ BSP_SECTION_FLASH_GAP void bsp_irq_cfg (void)
         {
             R_ICU->IELSR[i] = (uint32_t) g_interrupt_event_link_select[i];
 
- #if BSP_ALT_BUILD
+ #if BSP_FEATURE_ICU_HAS_COMMON_REGS
+  #if FSP_PRIV_TZ_USE_SECURE_REGS
+
+            /* Secure software routes each event to its owning CPU (HM 14.2.22, S-TYPE-6). */
+            uint32_t event   = (uint32_t) g_interrupt_event_link_select[i];
+            uint32_t index   = event / BSP_PRV_BITS_PER_WORD;
+            uint32_t mask    = 1UL << (event % BSP_PRV_BITS_PER_WORD);
+            uint32_t intselr = R_ICU_COMMON->INTSELR[index];
+  #if BSP_CFG_CPU_CORE == 1
+            R_ICU_COMMON->INTSELR[index] = intselr | mask;
+  #else
+            R_ICU_COMMON->INTSELR[index] = intselr & ~mask;
+  #endif
+  #endif
+ #elif BSP_ALT_BUILD
 
             /* Set INTSELR for selected events. */
             uint32_t intselr_num = BSP_EVENT_NUM_TO_INTSELR((uint32_t) g_interrupt_event_link_select[i]);

@@ -1,0 +1,218 @@
+[
+  {
+    "driver": "mram",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-mram-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "665a1deba5f9618cd0d089306323e12e20b2202e95a02f7783b04e0b78144368"
+  },
+  {
+    "driver": "mram",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-mram-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "004a85ddfcb2c822c16f4bcf8890896c666656efca99dce31f97184c6fc84c35"
+  },
+  {
+    "driver": "mram",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-mram-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "0015fd709b68792c62d2e754feab0e3d822d29df00d34ed1a1ef218c446d0346"
+  },
+  {
+    "driver": "mram",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-mram-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "024318c5f984857ac7e995b2070a0db10ee0e6250ef839feddff864c5f760706"
+  },
+  {
+    "driver": "dac_b",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-dac_b-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "10f8e99277bf9d6a3179e395c05f5618a6e1ffb4fcd73b317c4a067f0fde990a"
+  },
+  {
+    "driver": "dac_b",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-dac_b-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "f18f8d1f7ec144cf9bdcdf8a29bd190e048c8da72f8f30555d39770562f74fa8"
+  },
+  {
+    "driver": "dac_b",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-dac_b-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "017dcba47e2258bcc00062ca275369e65c362aaf0967047916775e1f6c4dca7e"
+  },
+  {
+    "driver": "dac_b",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-dac_b-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "d3e5eb01487861691cc84e91de8d91f762194298dee08d63e7f6132782970def"
+  },
+  {
+    "driver": "pdm",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-pdm-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "6c1c5dab2623201bb5856ac79413bb3a50e38b016fdcf390b1bc9dcc8d9656ed"
+  },
+  {
+    "driver": "pdm",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-pdm-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "bf9990cffd535ea6bd4bf10244c11e8a32abe75a4cf1968a605c967b187be7bc"
+  },
+  {
+    "driver": "pdm",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-pdm-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "85b7b986b89d5e9f6562c56898c475e6282707474a3869be6db16e23faed4699"
+  },
+  {
+    "driver": "pdm",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-pdm-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "ca7eb0826e901676adc0e4c246cf21854fc805cde26127d3622a7765430370ee"
+  },
+  {
+    "driver": "wdt",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-wdt-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "04d747c00bec4c0a1fd44d375e4f6abd5a3505e32ec4c66440449e6c11d93798"
+  },
+  {
+    "driver": "wdt",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-wdt-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "fd670a3a87569b8169e9e70e141347ab58a2ebf4b0e765a6cebb25ca0426c882"
+  },
+  {
+    "driver": "wdt",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-wdt-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "de5abf23cfa3f48defc5095c64c63a77c43655c445a4fecf4eeb1111fee0d266"
+  },
+  {
+    "driver": "wdt",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-wdt-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "fe865dfef1fe887a01f54317b8c3ed9c73e39705d705950287d3525bddabc7f9"
+  },
+  {
+    "driver": "adc_b",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-adc_b-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "6eacf92706ec32d7fc29894bb671965794f08ae39dc49ee43be1d782596f358c"
+  },
+  {
+    "driver": "adc_b",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-adc_b-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "238facddf01885819e76f7e82a448097b28e5aa1de7a3016f4d4f34abf877698"
+  },
+  {
+    "driver": "adc_b",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-adc_b-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "9cc246d9e66395388ab50d17650850476555fbf2bf733239aefbd21265ebb17a"
+  },
+  {
+    "driver": "adc_b",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-adc_b-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "b25c1e94f75d7561a89c30b274607b8c09f89abb602ecd7a1c53d096dd64d1ee"
+  },
+  {
+    "driver": "cgc",
+    "core": "cpu0",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-cgc-cpu0-checks-disabled-clean-build.log",
+    "configuration_sha256": "c3bb355c0826c3855f5f19c96c62f667a294023d7a9ac3447cb0eb3db3a935e5"
+  },
+  {
+    "driver": "cgc",
+    "core": "cpu0",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-cgc-cpu0-checks-enabled-clean-build.log",
+    "configuration_sha256": "a96745fbb8f570ef66bd3604d3852acd2140ae68ca4c7706ba6a8529f422d2e7"
+  },
+  {
+    "driver": "cgc",
+    "core": "cpu1",
+    "checking": "disabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-cgc-cpu1-checks-disabled-clean-build.log",
+    "configuration_sha256": "935b42b9fc2793774661a3ac0f1393d6e6f5e32e7a83b9e2b9a2e43f209d5962"
+  },
+  {
+    "driver": "cgc",
+    "core": "cpu1",
+    "checking": "enabled",
+    "returncode": 0,
+    "verified": true,
+    "log": "review/evidence/r016-cgc-cpu1-checks-enabled-clean-build.log",
+    "configuration_sha256": "a801fd6ebf82a67584e15867f4989820380baa9f908ed62bcae0c7798227a4d3"
+  }
+]

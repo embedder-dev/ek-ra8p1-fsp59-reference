@@ -29,6 +29,12 @@
 #define BSP_PRV_SDRAM_MR_BT_SEQUENTIAL        (0U) /* MR.M3 Burst Type     : Sequential */
 #define BSP_PRV_SDRAM_MR_BURST_LENGTH         (0U) /* MR.M2:M0 Burst Length: 0(1 burst) */
 
+#if BSP_FEATURE_SDRAM_SDTR_HAS_RAI
+ #define BSP_PRV_SDRAM_ROW_ACTIVE_POS         R_BUS_SDRAM_SDTR_RAI_Pos
+#else
+ #define BSP_PRV_SDRAM_ROW_ACTIVE_POS         R_BUS_SDRAM_SDTR_RAS_Pos
+#endif
+
 /***********************************************************************************************************************
  * Typedef definitions
  **********************************************************************************************************************/
@@ -112,7 +118,7 @@ void R_BSP_SdramInit (bool init_memory)
     }
 
     /** Set timing parameters for SDRAM. Must do in single write. */
-    R_BUS->SDRAM.SDTR = ((BSP_CFG_SDRAM_TRAS - 1U) << R_BUS_SDRAM_SDTR_RAS_Pos) |
+    R_BUS->SDRAM.SDTR = ((BSP_CFG_SDRAM_TRAS - 1U) << BSP_PRV_SDRAM_ROW_ACTIVE_POS) |
                         ((BSP_CFG_SDRAM_TRCD - 1U) << R_BUS_SDRAM_SDTR_RCD_Pos) |
                         ((BSP_CFG_SDRAM_TRP - 1U) << R_BUS_SDRAM_SDTR_RP_Pos) |
                         ((BSP_CFG_SDRAM_TWR - 1U) << R_BUS_SDRAM_SDTR_WR_Pos) |

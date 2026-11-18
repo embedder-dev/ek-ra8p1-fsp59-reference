@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ARMDeviceList>
+  <Header>
+    <Generated>2025-04-14T23:41:47.131336</Generated>
+    <FileToolVersion>2.7.5235.17264</FileToolVersion>
+    <Support>ARM</Support>
+  </Header>
+  <E2Information>
+    <Path>ARM/E2_v2.4.8</Path>
+    <FileName>RFWARM.dll</FileName>
+    <DriverFileName>Communi.dll</DriverFileName>
+  </E2Information>
+  <SeggerInformation>
+    <Path>ARM/Segger_v8.12.6</Path>
+    <FileName>JLinkARM.dll</FileName>
+  </SeggerInformation>
+  <Devices>
+    <Device cpuName="R7KA8P1KF_CPU0" mcuFile="R7KA8P1KF_CPU0.mcu" armFamily="CM85" fpu="true" tz="true" jtagBoot="true" mve="true" pacbti="true" regset=".\ARM\armv8m">
+      <MemMonitor address="0x02c9f040" size="4" name="ofs0" write="false" />
+      <MemMonitor address="0x02c9f044" size="4" name="ofs2" write="false" />
+      <MemMonitor address="0x02c9f074" size="4" name="sas" write="false" />
+      <MemMonitor address="0x02c9f0c0" size="4" name="ofs1_sec" write="false" />
+      <MemMonitor address="0x02c9f0c4" size="4" name="ofs3_sec" write="false" />
+      <MemMonitor address="0x02c9f120" size="4" name="ofs1_sel" write="false" />
+      <MemMonitor address="0x02c9f124" size="4" name="ofs3_sel" write="false" />
+      <MemMonitor address="0x12c9f4c0" size="4" name="ofs1" write="false" />
+      <MemMonitor address="0x12c9f4c4" size="4" name="ofs3" write="false" />
+    </Device>
+    <Device cpuName="R7KA8P1KF_CPU1" mcuFile="R7KA8P1KF_CPU1.mcu" armFamily="CM33" fpu="true" tz="true" jtagBoot="true" regset=".\ARM\armv8m">
+      </Device>
+  </Devices>
+</ARMDeviceList>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raModuleDescription>
+    <config id="config.board.ra8p1ek" path="fsp_cfg/bsp/board_cfg.h" version="0">
+        <content>
+            #include "../../../ra/board/ra8p1_ek/board.h"
+        </content>
+    </config>
+    <board id="board.ra8p1ek" display="RA8|RA8P1|EK-RA8P1" device="R7KA8P1KFLCAC" config="config.board.ra8p1ek" version="0" debugger="com.renesas.hardwaredebug.rz.jlink">
+        <description>Custom FSP 5.9-derived support for EK-RA8P1 with R7KA8P1KFLCAC. The fitted GPY111 PHY is not supported by the baseline Ethernet PHY drivers.</description>
+        <capability id="capability.led"/>
+    </board>
+</raModuleDescription>

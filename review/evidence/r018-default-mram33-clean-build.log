@@ -1,0 +1,17 @@
+ok build …1/compatibility/defaults/r018_def_mram33 (1.8 s)
+verified: yes — <repo>/validation/ra8p1/compatibility/defaults/r018_def_mram33/Debug/r018_def_mram33.elf (0 errors, 1 warnings, relinked now, Debug)
+artifacts (stat from disk): r018_def_mram33/Debug/r018_def_mram33.elf 202460 B 14:53:30, .srec 10692 B 14:53:30, .map 134185 B 14:53:30, .sbd 5620 B 14:53:30
+preceding r018_def_mram85: verified yes 40 s ago (0 errors), .sbd fresh
+r018_def_mram85: artifacts (stat from disk): r018/Debug/r018_def_mram85.elf 322760 B 14:52:50, .srec 22100 B 14:52:50, .map 138380 B 14:52:50, .sbd 5476 B 14:52:50
+clean: ok, 0 errors, 0 warnings (79ms)
+full: ok, 0 errors, 1 warnings (484ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794923609384-r018_def_mram33-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)
+chain (build order): r018_def_mram85 -> r018_def_mram33
+  r018_def_mram85: core CM85, -mcpu=cortex-m85+nopacbti, debug SEGGERJLINKARM -t R7KA8P1KF_CPU0 (r018_def_mram85 Debug_Flat.launch)
+  r018_def_mram33: core CM33, -mcpu=cortex-m33, debug SEGGERJLINKARM -t R7KA8P1KF_CPU1 (r018_def_mram33 Debug_Attach.launch), preceding r018_def_mram85 (r018/Debug/r018_def_mram85.sbd fresh)
+memory: OVERLAP r018_def_mram85 FLASH 0x2000000-0x207FFFF vs r018_def_mram33 FLASH 0x2008000-0x207FFFF; r018_def_mram85 RAM 0x22000000-0x220CFFFF vs r018_def_mram33 RAM 0x22002000-0x220CFFFF; r018_def_mram85 FLASH_CPU1 0x2080000-0x20FFFFF vs r018_def_mram33 FLASH_CPU1 0x2080000-0x20FFFFF; r018_def_mram85 RAM_CPU1 0x220D0000-0x2219FFFF vs r018_def_mram33 RAM_CPU1 0x220D0000-0x2219FFFF
+launch group: r018_def_mram33 Debug_Multicore Launch Group starts r018_def_mram33 Debug_Multicore, r018_def_mram33 Debug_Attach
+pair: r018_def_mram85 cortex-m85+nopacbti R7KA8P1KF_CPU0 | r018_def_mram33 cortex-m33 R7KA8P1KF_CPU1; memory OVERLAPS

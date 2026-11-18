@@ -1,0 +1,13 @@
+ok packs refresh (157 ms)
+plan cfe83e (dry run; nothing written)
+pack folder: <e2-area>/home/.eclipse/com.renesas.platform_1273726404/internal/projectgen/ra/packs
+project <repo>/validation/ra8p1/projects/cpu1: replace 10 stale file(s), keep 0 edited, 0 missing (generate restores them)
+  replace ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/R7KA8P1KF.h (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/all/bsp_clocks.c (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/all/bsp_clocks.h (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/all/bsp_common.h (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/all/bsp_security.c (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+  replace ra/fsp/src/bsp/mcu/ra8p1/bsp_feature.h (Renesas.RA_mcu_ra8p1.5.9.0.pack)
+next: embedder e2 packs refresh --project validation/ra8p1/projects/cpu1 --apply --plan cfe83e

@@ -1,0 +1,6 @@
+test_actual_export_selects_header_enum_for_target_without_changing_legacy (tools.test_ra8p1_review_glcdc_metadata.GlcdcDitherMetadataTests.test_actual_export_selects_header_enum_for_target_without_changing_legacy) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.118s
+
+OK

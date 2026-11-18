@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "command": "problems validation/ra8p1/review-drivers/review_r015_adc_b_cpu0",
+  "exitCode": 0,
+  "data": {
+    "project": {
+      "name": "review_r015_adc_b_cpu0",
+      "location": "<repo>/validation/ra8p1/review-drivers/review_r015_adc_b_cpu0"
+    },
+    "problems": {
+      "problems": [
+        "g_adc0 ADC Driver on r_adc_b: ADC16H successive approximation time must be equal for both units and 100 to 200 ns (200 ns below 2.7 V).",
+        "g_adc0 ADC Driver on r_adc_b: ADC16H requires ADCCLK to be enabled on the Clocks tab when selected.",
+        "g_adc0 ADC Driver on r_adc_b: The ADC clock frequency must be between 25 MHz to 60 MHz."
+      ],
+      "details": [
+        {
+          "text": "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@118c6f72",
+          "getContainerId": "module.driver.adc_on_adc_b.1420650625",
+          "getResolutions": "[Lcom.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCResolution;@19b084b6",
+          "getDisplay": "ADC16H successive approximation time must be equal for both units and 100 to 200 ns (200 ns below 2.7 V).",
+          "getContainerDisplay": "g_adc0 ADC Driver on r_adc_b",
+          "getId": "module.driver.adc_on_adc_b.constraint.1542516621"
+        },
+        {
+          "text": "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@40bc27",
+          "getContainerId": "module.driver.adc_on_adc_b.1420650625",
+          "getResolutions": "[Lcom.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCResolution;@3632d273",
+          "getDisplay": "ADC16H requires ADCCLK to be enabled on the Clocks tab when selected.",
+          "getContainerDisplay": "g_adc0 ADC Driver on r_adc_b",
+          "getId": "module.driver.adc_on_adc_b.constraint.2043322428"
+        },
+        {
+          "text": "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@4437dc38",
+          "getContainerId": "module.driver.adc_on_adc_b.1420650625",
+          "getResolutions": "[Lcom.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCResolution;@59bf653c",
+          "getDisplay": "The ADC clock frequency must be between 25 MHz to 60 MHz.",
+          "getContainerDisplay": "g_adc0 ADC Driver on r_adc_b",
+          "getId": "module.driver.adc_on_adc_b.constraint.1669581096"
+        }
+      ],
+      "clock": [],
+      "modules": [
+        {
+          "id": "module.driver.adc_on_adc_b.1420650625",
+          "problems": [
+            "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@7c1aab12",
+            "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@6b66eb5",
+            "com.renesas.cdt.ddsc.internal.configurator.model.configuration.DDSCProblem@24027dda"
+          ]
+        }
+      ]
+    },
+    "count": 6,
+    "buildVerified": false
+  },
+  "warnings": [],
+  "timings": {
+    "problemsMs": 211,
+    "totalMs": 237
+  },
+  "host": "<e2studio>/Renesas e2 studio with RA FSP 6.6.0.app/Contents/MacOS/e2studio",
+  "workspace": "<e2-area>/state/w/4afb3dae"
+}

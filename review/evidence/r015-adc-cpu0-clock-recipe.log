@@ -1,0 +1,2 @@
+ok exec tools/ra8p1/set_fsp_clocks.py review_r015_adc_b_cpu0 (869 ms)
+result: {"project":"review_r015_adc_b_cpu0","applied":true,"changes":[{"id":"board.clock.adcclk.source","before":"board.clock.adcclk.source.disabled","requested":"board.clock.adcclk.source.hoco","saved":"board.clock.adcclk.source.hoco"}]}

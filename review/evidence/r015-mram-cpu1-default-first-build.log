@@ -1,0 +1,18 @@
+ok config set …8p1/review-drivers/review_r015_mram_cpu1 (2.6 s)
+applied the given settings to review_r015_mram_cpu1; saved, content generated (no separate generate needed)
+created g_mram0 (module.driver.flash_on_mram.105177916 — MRAM (r_mram))
+generated: ra_gen/hal_data.c defines g_mram0 (flash_instance_t), g_mram0_ctrl, g_mram0_ext_cfg, g_mram0_cfg; ra_gen/hal_data.h declares g_mram0_ctrl, g_mram0_cfg, g_mram0
+configuration.xml: saved; read back from the file: g_mram0 (module.driver.flash_on_mram.105177916, r_mram)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_mram_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_flash_api.h, ra/fsp/inc/instances/r_mram.h, ra/fsp/src/r_mram/r_mram.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -116 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_mram_cpu1/Debug/review_r015_mram_cpu1.elf (0 errors, 1 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_mram_cpu1/Debug/review_r015_mram_cpu1.elf 214040 B 11:45:32, .srec 14920 B 11:45:32, .map 135895 B 11:45:32, .sbd 5620 B 11:45:32
+preceding review_r015_cpu0: verified yes 10 min ago (0 errors), .sbd fresh
+review_r015_cpu0: artifacts (stat from disk): review-r015/Debug/review_r015_cpu0.elf 282904 B 11:35:38, .srec 17454 B 11:35:38, .map 134987 B 11:35:38, .sbd 5476 B 11:33:09
+build: full: ok, 0 errors, 1 warnings (498ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794912331266-review_r015_mram_cpu1-full.log

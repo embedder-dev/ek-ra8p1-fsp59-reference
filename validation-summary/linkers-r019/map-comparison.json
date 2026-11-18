@@ -1,0 +1,1167 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "fixture": "min",
+      "core": "CM85",
+      "GCC": {
+        "sections": {
+          ".text": {
+            "address": 33554432,
+            "size": 5732,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 570425344,
+            "size": 8,
+            "region": "RAM",
+            "type": "SHT_INIT_ARRAY"
+          },
+          ".noinit": {
+            "address": 570425352,
+            "size": 48,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 570425400,
+            "size": 140,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 570425540,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 570425544,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".option_setting_ofs0": {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs2": {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sec": {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sec": {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sel": {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sel": {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            33554432,
+            524288
+          ],
+          "RAM": [
+            570425344,
+            851968
+          ],
+          "ITCM": [
+            0,
+            131072
+          ],
+          "DTCM": [
+            536870912,
+            131072
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 33554432,
+            "size": 5732,
+            "region": "FLASH"
+          },
+          {
+            "address": 33560164,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "FLASH_START": 33554432,
+          "DTCM_START": 536870912,
+          "RAM_START": 570425344,
+          "ITCM_LENGTH": 131072,
+          "FLASH_LENGTH": 524288,
+          "RAM_LENGTH": 851968,
+          "DTCM_LENGTH": 131072
+        },
+        "elf_sha256": "ea1f818e4af18269fc6e8312b6c9b7fd5b3b51a08d23e9957207dd6a0323e5e0",
+        "map_sha256": "b465541749ba8f74a6cb88bcf236c787efc6b9f79e87a60069a3c8d480753b7a"
+      },
+      "LLVM": {
+        "sections": {
+          ".text": {
+            "address": 33554432,
+            "size": 7704,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".itcm_data": {
+            "address": 0,
+            "size": 8,
+            "region": "ITCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".tdata": {
+            "address": 570425344,
+            "size": 1,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".noinit": {
+            "address": 570425348,
+            "size": 44,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 570425408,
+            "size": 112,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 570425520,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".option_setting_ofs0": {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs2": {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sec": {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sec": {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sel": {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sel": {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            33554432,
+            524288
+          ],
+          "RAM": [
+            570425344,
+            851968
+          ],
+          "ITCM": [
+            0,
+            131072
+          ],
+          "DTCM": [
+            536870912,
+            131072
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 33554432,
+            "size": 7704,
+            "region": "FLASH"
+          },
+          {
+            "address": 33562144,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 33562152,
+            "size": 1,
+            "region": "FLASH"
+          },
+          {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "ITCM_LENGTH": 131072,
+          "DTCM_START": 536870912,
+          "DTCM_LENGTH": 131072,
+          "RAM_START": 570425344,
+          "RAM_LENGTH": 851968,
+          "FLASH_START": 33554432,
+          "FLASH_LENGTH": 524288
+        },
+        "elf_sha256": "da5aa3c9e641a9f2f81a7755e1a521c9348dbe940f87da2e3e7dbbf37fea71d1",
+        "map_sha256": "8e68869747cd15ec940cabc72e3191c31e12a2f71c0c2ca8d3000f0b7b68fcf1"
+      },
+      "pass": true
+    },
+    {
+      "fixture": "min",
+      "core": "CM33",
+      "GCC": {
+        "sections": {
+          ".text": {
+            "address": 34078720,
+            "size": 2056,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 571277312,
+            "size": 8,
+            "region": "RAM",
+            "type": "SHT_INIT_ARRAY"
+          },
+          ".noinit": {
+            "address": 571277320,
+            "size": 48,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 571277368,
+            "size": 116,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 571277484,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 571277488,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            34078720,
+            524288
+          ],
+          "RAM": [
+            571277312,
+            851968
+          ],
+          "ITCM": [
+            0,
+            65536
+          ],
+          "DTCM": [
+            536870912,
+            65536
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 34078720,
+            "size": 2056,
+            "region": "FLASH"
+          },
+          {
+            "address": 34080776,
+            "size": 8,
+            "region": "FLASH"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "FLASH_START": 34078720,
+          "DTCM_START": 536870912,
+          "RAM_START": 571277312,
+          "ITCM_LENGTH": 65536,
+          "FLASH_LENGTH": 524288,
+          "RAM_LENGTH": 851968,
+          "DTCM_LENGTH": 65536
+        },
+        "elf_sha256": "4325d18c36b282b28706a0eed2365ef838a0c628a2921db3825a1e0fb984d77e",
+        "map_sha256": "4a150bcfac5d9fd52a9e7ba788e3e3ea3368570b8fd1d13bdb7b9b06141a37fc"
+      },
+      "LLVM": {
+        "sections": {
+          ".text": {
+            "address": 34078720,
+            "size": 2200,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".tdata": {
+            "address": 571277312,
+            "size": 1,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".noinit": {
+            "address": 571277316,
+            "size": 44,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 571277376,
+            "size": 92,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 571277468,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 571277472,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            34078720,
+            524288
+          ],
+          "RAM": [
+            571277312,
+            851968
+          ],
+          "ITCM": [
+            0,
+            65536
+          ],
+          "DTCM": [
+            536870912,
+            65536
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 34078720,
+            "size": 2200,
+            "region": "FLASH"
+          },
+          {
+            "address": 34080928,
+            "size": 1,
+            "region": "FLASH"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "ITCM_LENGTH": 65536,
+          "DTCM_START": 536870912,
+          "DTCM_LENGTH": 65536,
+          "RAM_START": 571277312,
+          "RAM_LENGTH": 851968,
+          "FLASH_START": 34078720,
+          "FLASH_LENGTH": 524288
+        },
+        "elf_sha256": "ec5d5370d4f7627db2d44d0eaf5d914193151c82943062d0ef5f9212a068a9ea",
+        "map_sha256": "3dd9b89838b16c409dca24015a6610ae3e37f20076cc72e2cad4edf6940bc9ab"
+      },
+      "pass": true
+    },
+    {
+      "fixture": "drv",
+      "core": "CM85",
+      "GCC": {
+        "sections": {
+          ".text": {
+            "address": 33554432,
+            "size": 10964,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".itcm_data": {
+            "address": 0,
+            "size": 8,
+            "region": "ITCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 570425344,
+            "size": 1556,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_data": {
+            "address": 536870912,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_bss": {
+            "address": 536870920,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_NOBITS"
+          },
+          ".noinit": {
+            "address": 570426900,
+            "size": 52,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".nocache": {
+            "address": 570426976,
+            "size": 32,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 570427008,
+            "size": 252,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 570427260,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 570427264,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".option_setting_ofs0": {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs2": {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sec": {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sec": {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sel": {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sel": {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            33554432,
+            524288
+          ],
+          "RAM": [
+            570425344,
+            851968
+          ],
+          "ITCM": [
+            0,
+            131072
+          ],
+          "DTCM": [
+            536870912,
+            131072
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 33554432,
+            "size": 10964,
+            "region": "FLASH"
+          },
+          {
+            "address": 33565408,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 33565416,
+            "size": 1556,
+            "region": "FLASH"
+          },
+          {
+            "address": 33566976,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "FLASH_START": 33554432,
+          "DTCM_START": 536870912,
+          "RAM_START": 570425344,
+          "ITCM_LENGTH": 131072,
+          "FLASH_LENGTH": 524288,
+          "RAM_LENGTH": 851968,
+          "DTCM_LENGTH": 131072
+        },
+        "elf_sha256": "7a574dedc63edacfec6d30fddacf91e3ccf002060233afe9ec0f397fe851892a",
+        "map_sha256": "7145c1c98beac266add6f12bdabc970ad116c38314b26d3813b1d85061db0e34"
+      },
+      "LLVM": {
+        "sections": {
+          ".text": {
+            "address": 33554432,
+            "size": 13976,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".itcm_data": {
+            "address": 0,
+            "size": 16,
+            "region": "ITCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 570425344,
+            "size": 1604,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".tdata": {
+            "address": 570426948,
+            "size": 1,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_data": {
+            "address": 536870912,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_bss": {
+            "address": 536870920,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_NOBITS"
+          },
+          ".noinit": {
+            "address": 570426952,
+            "size": 48,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".nocache": {
+            "address": 570427008,
+            "size": 32,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 570427040,
+            "size": 224,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 570427264,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".option_setting_ofs0": {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs2": {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sec": {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sec": {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs1_sel": {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          },
+          ".option_setting_ofs3_sel": {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING",
+            "type": "SHT_PROGBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            33554432,
+            524288
+          ],
+          "RAM": [
+            570425344,
+            851968
+          ],
+          "ITCM": [
+            0,
+            131072
+          ],
+          "DTCM": [
+            536870912,
+            131072
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 33554432,
+            "size": 13976,
+            "region": "FLASH"
+          },
+          {
+            "address": 33568416,
+            "size": 16,
+            "region": "FLASH"
+          },
+          {
+            "address": 33568432,
+            "size": 1604,
+            "region": "FLASH"
+          },
+          {
+            "address": 33570036,
+            "size": 1,
+            "region": "FLASH"
+          },
+          {
+            "address": 33570048,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 46788672,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788676,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788800,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788804,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788896,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          },
+          {
+            "address": 46788900,
+            "size": 4,
+            "region": "OPTION_SETTING"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "ITCM_LENGTH": 131072,
+          "DTCM_START": 536870912,
+          "DTCM_LENGTH": 131072,
+          "RAM_START": 570425344,
+          "RAM_LENGTH": 851968,
+          "FLASH_START": 33554432,
+          "FLASH_LENGTH": 524288
+        },
+        "elf_sha256": "dd239906d7312314c40b020d43f5e910ea74a6a11aad0b567d999b4a2f5675aa",
+        "map_sha256": "9ba9327621b6932d5dd5d4edb0c56368f2f03e17b371815f68eef4b3860e1509"
+      },
+      "pass": true
+    },
+    {
+      "fixture": "drv",
+      "core": "CM33",
+      "GCC": {
+        "sections": {
+          ".text": {
+            "address": 34078720,
+            "size": 7280,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".itcm_data": {
+            "address": 0,
+            "size": 8,
+            "region": "ITCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 571277312,
+            "size": 1480,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_data": {
+            "address": 536870912,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_bss": {
+            "address": 536870920,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_NOBITS"
+          },
+          ".noinit": {
+            "address": 571278792,
+            "size": 48,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".nocache": {
+            "address": 571278848,
+            "size": 32,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 571278880,
+            "size": 228,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 571279108,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 571279112,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            34078720,
+            524288
+          ],
+          "RAM": [
+            571277312,
+            851968
+          ],
+          "ITCM": [
+            0,
+            65536
+          ],
+          "DTCM": [
+            536870912,
+            65536
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 34078720,
+            "size": 7280,
+            "region": "FLASH"
+          },
+          {
+            "address": 34086000,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 34086008,
+            "size": 1480,
+            "region": "FLASH"
+          },
+          {
+            "address": 34087488,
+            "size": 8,
+            "region": "FLASH"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "FLASH_START": 34078720,
+          "DTCM_START": 536870912,
+          "RAM_START": 571277312,
+          "ITCM_LENGTH": 65536,
+          "FLASH_LENGTH": 524288,
+          "RAM_LENGTH": 851968,
+          "DTCM_LENGTH": 65536
+        },
+        "elf_sha256": "93d6ecff635b7d98b4bb6308552ae6a1f0b55d93c9a9acd87989ef4e3e3c4c59",
+        "map_sha256": "3dbe5ea6bb2389a04dbf741fca1cd54225f655a0c501491ebb7155ed7baeeeea"
+      },
+      "LLVM": {
+        "sections": {
+          ".text": {
+            "address": 34078720,
+            "size": 8456,
+            "region": "FLASH",
+            "type": "SHT_PROGBITS"
+          },
+          ".itcm_data": {
+            "address": 0,
+            "size": 8,
+            "region": "ITCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".data": {
+            "address": 571277312,
+            "size": 1500,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".tdata": {
+            "address": 571278812,
+            "size": 1,
+            "region": "RAM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_data": {
+            "address": 536870912,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_PROGBITS"
+          },
+          ".dtcm_bss": {
+            "address": 536870920,
+            "size": 8,
+            "region": "DTCM",
+            "type": "SHT_NOBITS"
+          },
+          ".noinit": {
+            "address": 571278816,
+            "size": 48,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".nocache": {
+            "address": 571278880,
+            "size": 32,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".bss": {
+            "address": 571278912,
+            "size": 204,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".heap": {
+            "address": 571279116,
+            "size": 4,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          },
+          ".stack_dummy": {
+            "address": 571279120,
+            "size": 1024,
+            "region": "RAM",
+            "type": "SHT_NOBITS"
+          }
+        },
+        "regions": {
+          "FLASH": [
+            34078720,
+            524288
+          ],
+          "RAM": [
+            571277312,
+            851968
+          ],
+          "ITCM": [
+            0,
+            65536
+          ],
+          "DTCM": [
+            536870912,
+            65536
+          ],
+          "OPTION_SETTING": [
+            46788608,
+            1024
+          ],
+          "OPTION_SETTING_NS": [
+            315225088,
+            1024
+          ]
+        },
+        "load_images": [
+          {
+            "address": 34078720,
+            "size": 8456,
+            "region": "FLASH"
+          },
+          {
+            "address": 34087184,
+            "size": 8,
+            "region": "FLASH"
+          },
+          {
+            "address": 34087192,
+            "size": 1500,
+            "region": "FLASH"
+          },
+          {
+            "address": 34088692,
+            "size": 1,
+            "region": "FLASH"
+          },
+          {
+            "address": 34088704,
+            "size": 8,
+            "region": "FLASH"
+          }
+        ],
+        "symbols": {
+          "ITCM_START": 0,
+          "ITCM_LENGTH": 65536,
+          "DTCM_START": 536870912,
+          "DTCM_LENGTH": 65536,
+          "RAM_START": 571277312,
+          "RAM_LENGTH": 851968,
+          "FLASH_START": 34078720,
+          "FLASH_LENGTH": 524288
+        },
+        "elf_sha256": "f851ba43630040204be649efe483b3f29ff1430f765c96a51293d840c79fe850",
+        "map_sha256": "4400dde1e4863d5d968d3bbc6f23b97fcd006fadcfe1cb62dc311345f2fb7dc9"
+      },
+      "pass": true
+    }
+  ],
+  "shared_memory": "The unchanged GCC contract has no dedicated shared section/reservation; shared SRAM is partitioned at identical per-core addresses."
+}

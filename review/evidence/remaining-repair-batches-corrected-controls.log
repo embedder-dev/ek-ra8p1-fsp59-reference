@@ -1,0 +1,18 @@
+test_legacy_feature_selection_and_real_arm_objects (test_ra8p1_review_agt.ReviewAgtTests.test_legacy_feature_selection_and_real_arm_objects) ... ok
+test_mdf_target_constraints_and_calculator (test_ra8p1_review_agt.ReviewAgtTests.test_mdf_target_constraints_and_calculator) ... ok
+test_nsc_compare_dispatch_and_original_public_api (test_ra8p1_review_agt.ReviewAgtTests.test_nsc_compare_dispatch_and_original_public_api) ... ok
+test_original_production_c_fails_independent_hm_oracles (test_ra8p1_review_agt.ReviewAgtTests.test_original_production_c_fails_independent_hm_oracles) ... ok
+test_production_c_both_cores_checks_io_and_security_matrix (test_ra8p1_review_agt.ReviewAgtTests.test_production_c_both_cores_checks_io_and_security_matrix) ... ok
+test_actual_pendsv_programs_aligned_limit_with_fp_and_integer_contexts (test_ra8p1_review_threadx.ThreadXReviewTests.test_actual_pendsv_programs_aligned_limit_with_fp_and_integer_contexts) ... ok
+test_fp_psplim_covers_independent_maximum_context_and_alignment (test_ra8p1_review_threadx.ThreadXReviewTests.test_fp_psplim_covers_independent_maximum_context_and_alignment) ... ok
+test_idle_attribution_and_real_allocator_free_both_cores_optional_security (test_ra8p1_review_threadx.ThreadXReviewTests.test_idle_attribution_and_real_allocator_free_both_cores_optional_security) ... ok
+test_legacy_preprocessing_executable_constants_and_relocations_unchanged (test_ra8p1_review_threadx.ThreadXReviewTests.test_legacy_preprocessing_executable_constants_and_relocations_unchanged) ... ok
+test_original_controls_fail_independent_runtime_requirements (test_ra8p1_review_threadx.ThreadXReviewTests.test_original_controls_fail_independent_runtime_requirements) ... ok
+test_required_dependency_owners_are_real_and_spmon_rejection_preserved (test_ra8p1_review_threadx.ThreadXReviewTests.test_required_dependency_owners_are_real_and_spmon_rejection_preserved) ... ok
+test_tick_default_and_boundaries_both_cores (test_ra8p1_review_threadx.ThreadXReviewTests.test_tick_default_and_boundaries_both_cores) ... ok
+test_zero_tick_rejected_only_when_timer_enabled (test_ra8p1_review_threadx.ThreadXReviewTests.test_zero_tick_rejected_only_when_timer_enabled) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 80.392s
+
+OK

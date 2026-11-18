@@ -1,0 +1,11 @@
+e2: board check sandbox <e2-area>/state/sandbox/board-GXxTXP (APFS clone of <e2-area>/home/.eclipse; kept)
+e2: starting e2 studio worker (lane 0)
+ok board check validation/ra8p1/packs/r017 (17.3 s)
+board EK-RA8P1 (ra8p1_ek) on FSP 5.9.0: 0 candidate MDF(s) installed into the sandbox
+pin ids: 551 settings in installed Renesas##BSP##Board##ra8p1_ek####5.9.0##configuration.xml checked against PinCfgR7KA8P1BxxCAC.xml (installed FSP 5.9 support files) for R7KA8P1KFLCAC: 0 unknown
+cpu0 (CM85): created and built, verified (0 warning(s))
+  configurator problems: 0
+cpu1 (CM33): created and built, verified (0 warning(s))
+  configurator problems: 0
+sandbox kept: <e2-area>/state/sandbox/board-GXxTXP; reuse it with EMBEDDER_E2_USER_HOME=<e2-area>/state/sandbox/board-GXxTXP/home EMBEDDER_E2_HOME=<e2-area>/state/sandbox/board-GXxTXP/e2home embedder e2 problems <e2-area>/state/sandbox/board-GXxTXP/projects/cpu0
+verdict: EK-RA8P1 creates and builds with 0 errors and 0 configurator problems

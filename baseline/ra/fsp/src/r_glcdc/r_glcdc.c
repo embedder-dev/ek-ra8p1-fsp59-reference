@@ -38,6 +38,11 @@
 /* Color look up table entry size */
 #define GLCDC_PRV_CLUT_ENTRY_SIZE                      (256U)
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+/* A stopped pixel clock or an unacknowledged frame-end must not hang the caller. */
+ #define GLCDC_PRV_TRANSITION_TIMEOUT_US    (100000U)
+#endif
+
 /* Panel timing, Maximum threshold */
 #define GLCDC_PRV_BG_PLANE_H_CYC_MAX                   (2047U)         ///< BG_PERI.FH
 #define GLCDC_PRV_BG_PLANE_V_CYC_MAX                   (2047U)         ///< BG_PERI.FV
@@ -182,6 +187,12 @@ typedef struct st_recalculated_param
 /***********************************************************************************************************************
  * Private function prototypes
  **********************************************************************************************************************/
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+static fsp_err_t r_glcdc_monitor_wait(uint32_t mask, uint32_t value);
+static bool r_glcdc_registers_busy(void);
+static fsp_err_t r_glcdc_layer_check(display_input_cfg_t const * p_input, display_layer_t const * p_layer);
+#endif
+
 static fsp_err_t r_glcdc_stop(glcdc_instance_ctrl_t * const p_ctrl);
 static void      r_glcdc_sync_signal_set(display_cfg_t const * const p_cfg);
 
@@ -369,6 +380,17 @@ fsp_err_t R_GLCDC_Open (display_ctrl_t * const p_api_ctrl, display_cfg_t const *
     /* Set the dot clock frequency */
     r_glcdc_clock_set(p_cfg);
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    err = r_glcdc_monitor_wait(1U << 16, 1U << 16);
+    if (FSP_SUCCESS != err)
+    {
+        R_GLCDC->BG.EN_b.SWRST = 0U;
+        R_BSP_MODULE_STOP(FSP_IP_GLCDC, 0);
+
+        return err;
+    }
+#endif
+
     /* Set the panel signal timing */
     r_glcdc_sync_signal_set(p_cfg);
 
@@ -384,6 +406,18 @@ fsp_err_t R_GLCDC_Open (display_ctrl_t * const p_api_ctrl, display_cfg_t const *
     /* Configure the graphics plane layers */
     for (uint32_t layer = 0U; layer <= DISPLAY_FRAME_LAYER_2; layer++)
     {
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+        err = r_glcdc_layer_check(&p_cfg->input[layer], &p_cfg->layer[layer]);
+        if (FSP_SUCCESS != err)
+        {
+            R_GLCDC->BG.EN_b.SWRST = 0U;
+            R_BSP_MODULE_STOP(FSP_IP_GLCDC, 0);
+
+            return err;
+        }
+
+        g_clut_data_latched[layer] = true;
+#endif
         r_glcdc_graphics_layer_set(&(p_cfg->input[layer]), &(p_cfg->layer[layer]), (display_frame_layer_t) layer);
     }
 
@@ -468,10 +502,18 @@ fsp_err_t R_GLCDC_Close (display_ctrl_t * const p_api_ctrl)
 #endif
 
     /* Stop video if running */
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    if (R_GLCDC->BG.EN_b.EN || R_GLCDC->BG.MON_b.EN || (DISPLAY_STATE_DISPLAYING == p_ctrl->state))
+    {
+        err = r_glcdc_stop(p_api_ctrl);
+        FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    }
+#else
     if (R_GLCDC->BG.EN_b.EN)
     {
         r_glcdc_stop(p_api_ctrl);
     }
+#endif
 
 #if defined(GLCDC_CFG_USING_DSI)
 
@@ -536,19 +578,37 @@ fsp_err_t R_GLCDC_Start (display_ctrl_t * const p_api_ctrl)
     FSP_ERROR_RETURN(DISPLAY_STATE_OPENED == p_ctrl->state, FSP_ERR_NOT_OPEN);
 #endif
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(DISPLAY_STATE_OPENED == p_ctrl->state, FSP_ERR_INVALID_MODE);
+    err = r_glcdc_monitor_wait(1U << 16, 1U << 16);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+    FSP_ERROR_RETURN(0U == R_GLCDC->BG.MON_b.EN, FSP_ERR_INVALID_UPDATE_TIMING);
+    FSP_ERROR_RETURN((0U == R_GLCDC->GR[0].VEN_b.PVEN) && (0U == R_GLCDC->GR[1].VEN_b.PVEN) &&
+                     (0U == R_GLCDC->OUT.VLATCH_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
+#endif
+
 #if defined(GLCDC_CFG_USING_DSI)
 
     /* DSI must be started before GLCDC. See RA8 UM R01UH0995EJ0050 Section 56.3.7.1 */
     glcdc_extended_cfg_t * p_extend     = (glcdc_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
     mipi_dsi_instance_t  * dsi_instance = (mipi_dsi_instance_t *) p_extend->phy_layer;
     err = dsi_instance->p_api->start(dsi_instance->p_ctrl);
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+ #endif
 #endif
 
     /* Start to output the vertical and horizontal synchronization signals and screen data. */
 
     /* enables background plane operation and internal register value reflection. */
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    /* HM64.2.2: EN and VEN must change in the same register write. */
+    R_GLCDC->BG.EN = (1U << 16) | (1U << 8) | 1U;
+#else
     R_GLCDC->BG.EN_b.VEN = 1U;
     R_GLCDC->BG.EN_b.EN  = 1U;
+#endif
 
     /* Enable Line detect function    */
     R_GLCDC->SYSCNT.DTCTEN_b.VPOSDTC = 1U;
@@ -613,6 +673,12 @@ fsp_err_t R_GLCDC_LayerChange (display_ctrl_t const * const        p_api_ctrl,
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->GR[layer].VEN_b.PVEN), FSP_ERR_INVALID_UPDATE_TIMING);
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->BG.EN_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+    fsp_err_t err = r_glcdc_layer_check(&p_cfg->input, &p_cfg->layer);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#endif
+
     /* Configure the graphics plane layers */
     r_glcdc_graphics_layer_set(&p_cfg->input, &p_cfg->layer, layer);
 
@@ -655,6 +721,10 @@ fsp_err_t R_GLCDC_BufferChange (display_ctrl_t const * const p_api_ctrl,
     /* Return immediately if the register updating is in progress */
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->GR[layer].VEN_b.PVEN), FSP_ERR_INVALID_UPDATE_TIMING);
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->BG.EN_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
+
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+#endif
 
     uint32_t dispsel;
     uint32_t flmrd;
@@ -723,6 +793,10 @@ fsp_err_t R_GLCDC_ColorCorrection (display_ctrl_t const * const       p_api_ctrl
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->OUT.VLATCH_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->BG.EN_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
 
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+ #endif
+
     /* Configure the brightness and contrast correction register setting. */
     r_glcdc_brightness_correction(p_ctrl, &p_correction->brightness);
     r_glcdc_contrast_correction(p_ctrl, &p_correction->contrast);
@@ -758,24 +832,57 @@ fsp_err_t R_GLCDC_ClutUpdate (display_ctrl_t const * const     p_api_ctrl,
 #if (GLCDC_CFG_PARAM_CHECKING_ENABLE)
     FSP_ASSERT(p_ctrl);
     FSP_ASSERT(p_clut_cfg);
+ #if !BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
     FSP_ERROR_RETURN(g_clut_data_latched[layer], FSP_ERR_INVALID_UPDATE_TIMING);
+ #endif
     FSP_ERROR_RETURN((GLCDC_PRV_CLUT_ENTRY_SIZE > p_clut_cfg->start), FSP_ERR_INVALID_CLUT_ACCESS);
     FSP_ERROR_RETURN((GLCDC_PRV_CLUT_ENTRY_SIZE >= p_clut_cfg->size), FSP_ERR_INVALID_CLUT_ACCESS);
+#endif
+
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(p_clut_cfg->start < GLCDC_PRV_CLUT_ENTRY_SIZE, FSP_ERR_INVALID_CLUT_ACCESS);
+    FSP_ERROR_RETURN(p_clut_cfg->size <= (GLCDC_PRV_CLUT_ENTRY_SIZE - p_clut_cfg->start),
+                     FSP_ERR_INVALID_CLUT_ACCESS);
+    fsp_err_t err = r_glcdc_monitor_wait(1U << 16, 1U << 16);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+    FSP_ERROR_RETURN(0U == R_GLCDC->GR[layer].VEN_b.PVEN, FSP_ERR_INVALID_UPDATE_TIMING);
 #endif
 
     /* Get the index of the CLUT not in use */
     uint32_t target_plane = R_GLCDC->GR[layer].CLUTINT_b.SEL ? 0 : 1;
 
     /* Get the start address in the destination CLUT hardware array based on the currently selected table and layer */
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    uint32_t volatile * clut_hw;
+    if (DISPLAY_FRAME_LAYER_1 == layer)
+    {
+        clut_hw = target_plane ? R_GLCDC->GR1_CLUT1 : R_GLCDC->GR1_CLUT0;
+    }
+    else
+    {
+        clut_hw = target_plane ? R_GLCDC->GR2_CLUT1 : R_GLCDC->GR2_CLUT0;
+    }
+
+    clut_hw += p_clut_cfg->start;
+#else
     uint32_t volatile * clut_hw = R_GLCDC->GR1_CLUT0 +
                                   ((target_plane + (uint32_t) (layer << 1)) * GLCDC_PRV_CLUT_ENTRY_SIZE) +
                                   p_clut_cfg->start;
+#endif
 
     /* Copy the new CLUT data from the source memory to the CLUT SRAM in the GLCDC module */
     memcpy((void *) clut_hw, p_clut_cfg->p_base, sizeof(uint32_t) * p_clut_cfg->size);
 
     /* Swap to the new CLUT table data on the next frame */
     R_GLCDC->GR[layer].CLUTINT_b.SEL = target_plane & 1;
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    /* When stopped, Start's global request reflects this selection instead. */
+    if (R_GLCDC->BG.EN_b.EN)
+    {
+        R_GLCDC->GR[layer].VEN_b.PVEN = 1U;
+    }
+#endif
 
     return FSP_SUCCESS;
 }
@@ -799,6 +906,34 @@ fsp_err_t R_GLCDC_ClutEdit (display_ctrl_t const * const p_api_ctrl,
     FSP_ASSERT(p_ctrl);
 #endif
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    fsp_err_t err = r_glcdc_monitor_wait(1U << 16, 1U << 16);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+    FSP_ERROR_RETURN(0U == R_GLCDC->GR[layer].VEN_b.PVEN, FSP_ERR_INVALID_UPDATE_TIMING);
+
+    uint32_t selected = R_GLCDC->GR[layer].CLUTINT_b.SEL;
+    uint32_t target = selected ^ 1U;
+    uint32_t volatile * source;
+    uint32_t volatile * destination;
+    if (DISPLAY_FRAME_LAYER_1 == layer)
+    {
+        source      = selected ? R_GLCDC->GR1_CLUT1 : R_GLCDC->GR1_CLUT0;
+        destination = target ? R_GLCDC->GR1_CLUT1 : R_GLCDC->GR1_CLUT0;
+    }
+    else
+    {
+        source      = selected ? R_GLCDC->GR2_CLUT1 : R_GLCDC->GR2_CLUT0;
+        destination = target ? R_GLCDC->GR2_CLUT1 : R_GLCDC->GR2_CLUT0;
+    }
+    memcpy((void *) destination, (void const *) source, GLCDC_PRV_CLUT_ENTRY_SIZE * sizeof(uint32_t));
+    destination[index] = color;
+    R_GLCDC->GR[layer].CLUTINT_b.SEL = target;
+    if (R_GLCDC->BG.EN_b.EN)
+    {
+        R_GLCDC->GR[layer].VEN_b.PVEN = 1U;
+    }
+#else
     static uint32_t volatile * clut_hw[2] = {R_GLCDC->GR1_CLUT0, R_GLCDC->GR2_CLUT0};
 
     /* If the previously written CLUT has been selected, switch to the unused one */
@@ -823,6 +958,7 @@ fsp_err_t R_GLCDC_ClutEdit (display_ctrl_t const * const p_api_ctrl,
 
     /* Set the CLUT element */
     clut_hw[layer][index] = color;
+#endif
 
     return FSP_SUCCESS;
 }
@@ -896,6 +1032,30 @@ fsp_err_t R_GLCDC_StatusGet (display_ctrl_t const * const p_api_ctrl, display_st
  * Private Functions
  **********************************************************************************************************************/
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+static fsp_err_t r_glcdc_monitor_wait (uint32_t mask, uint32_t value)
+{
+    uint32_t remaining = GLCDC_PRV_TRANSITION_TIMEOUT_US;
+    while ((R_GLCDC->BG.MON & mask) != value)
+    {
+        FSP_ERROR_RETURN(remaining > 0U, FSP_ERR_TIMEOUT);
+        remaining--;
+        R_BSP_SoftwareDelay(1U, BSP_DELAY_UNITS_MICROSECONDS);
+    }
+
+    return FSP_SUCCESS;
+}
+
+static bool r_glcdc_registers_busy (void)
+{
+    return (0U == R_GLCDC->BG.MON_b.SWRST) ||
+           ((0U == R_GLCDC->BG.EN_b.EN) && (0U != R_GLCDC->BG.MON_b.EN)) ||
+           (0U != R_GLCDC->BG.EN_b.VEN) || (0U != R_GLCDC->BG.MON_b.VEN) ||
+           (0U != R_GLCDC->GAM[0].LATCH) || (0U != R_GLCDC->GAM[1].LATCH) ||
+           (0U != R_GLCDC->GAM[2].LATCH);
+}
+#endif
+
 /*******************************************************************************************************************//**
  * The GLCDC stop subroutine for R_GLCDC_Stop API.
  * @param[in]     p_ctrl                       Pointer to the configuration structure for display interface
@@ -906,6 +1066,20 @@ fsp_err_t R_GLCDC_StatusGet (display_ctrl_t const * const p_api_ctrl, display_st
 static fsp_err_t r_glcdc_stop (glcdc_instance_ctrl_t * const p_ctrl)
 {
     fsp_err_t err = FSP_SUCCESS;
+
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    /* A previous stop request may still be awaiting its frame-end acknowledgement. */
+    if (0U == R_GLCDC->BG.EN_b.EN)
+    {
+        err = r_glcdc_monitor_wait(1U, 0U);
+        FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+        p_ctrl->state = DISPLAY_STATE_OPENED;
+
+        return FSP_SUCCESS;
+    }
+
+    FSP_ERROR_RETURN(!r_glcdc_registers_busy(), FSP_ERR_INVALID_UPDATE_TIMING);
+#endif
 
 #if defined(GLCDC_CFG_USING_DSI)
 
@@ -923,7 +1097,13 @@ static fsp_err_t r_glcdc_stop (glcdc_instance_ctrl_t * const p_ctrl)
     FSP_ERROR_RETURN(false == (bool) (R_GLCDC->BG.EN_b.VEN), FSP_ERR_INVALID_UPDATE_TIMING);
 
     /* Disable background plane operation */
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    R_GLCDC->BG.EN = 1U << 16;
+    err = r_glcdc_monitor_wait(1U, 0U);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#else
     R_GLCDC->BG.EN_b.EN = 0U;
+#endif
 
     p_ctrl->state = DISPLAY_STATE_OPENED;
 
@@ -973,7 +1153,14 @@ static fsp_err_t r_glcdc_param_check_gamma_correction (gamma_correction_t const 
                          FSP_ERR_INVALID_GAMMA_SETTING);
 
         /* The Gamma correction threshold[N] must be less than threshold[N+1] */
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+        FSP_ERROR_RETURN((0 == i) ? (0U == p_gamma_correction->threshold[i]) :
+                         ((previous_threshold < p_gamma_correction->threshold[i]) ||
+                          (GLCDC_PRV_GAMMA_THRESHOLD_MAX == p_gamma_correction->threshold[i])),
+                         FSP_ERR_INVALID_GAMMA_SETTING);
+ #else
         FSP_ERROR_RETURN(previous_threshold <= p_gamma_correction->threshold[i], FSP_ERR_INVALID_GAMMA_SETTING);
+ #endif
         previous_threshold = p_gamma_correction->threshold[i];
 
         /* Each of gamma correction gain values must be less than GLCDC_PRV_GAMMA_GAIN_MAX */
@@ -1014,12 +1201,21 @@ static fsp_err_t r_glcdc_param_check_layer_setting_alignment (display_cfg_t cons
  **********************************************************************************************************************/
 static fsp_err_t r_glcdc_param_check_display_cycle (display_cfg_t const * const p_cfg)
 {
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    FSP_ERROR_RETURN(((GLCDC_PRV_BG_PLANE_H_CYC_MIN + 1U) <= p_cfg->output.htiming.total_cyc) &&
+                     ((GLCDC_PRV_BG_PLANE_H_CYC_MAX + 1U) >= p_cfg->output.htiming.total_cyc),
+                     FSP_ERR_INVALID_TIMING_SETTING);
+    FSP_ERROR_RETURN(((GLCDC_PRV_BG_PLANE_V_CYC_MIN + 1U) <= p_cfg->output.vtiming.total_cyc) &&
+                     ((GLCDC_PRV_BG_PLANE_V_CYC_MAX + 1U) >= p_cfg->output.vtiming.total_cyc),
+                     FSP_ERR_INVALID_TIMING_SETTING);
+ #else
     FSP_ERROR_RETURN((GLCDC_PRV_BG_PLANE_H_CYC_MIN <= p_cfg->output.htiming.total_cyc) &&
                      (GLCDC_PRV_BG_PLANE_H_CYC_MAX >= p_cfg->output.htiming.total_cyc),
                      FSP_ERR_INVALID_TIMING_SETTING);
     FSP_ERROR_RETURN((GLCDC_PRV_BG_PLANE_V_CYC_MIN <= p_cfg->output.vtiming.total_cyc) &&
                      (GLCDC_PRV_BG_PLANE_V_CYC_MAX >= p_cfg->output.vtiming.total_cyc),
                      FSP_ERR_INVALID_TIMING_SETTING);
+ #endif
     FSP_ERROR_RETURN((GLCDC_PRV_BG_PLANE_H_CYC_ACTIVE_SIZE_MIN <= p_cfg->output.htiming.display_cyc) &&
                      (GLCDC_PRV_BG_PLANE_H_CYC_ACTIVE_SIZE_MAX >= p_cfg->output.htiming.display_cyc),
                      FSP_ERR_INVALID_TIMING_SETTING);
@@ -1383,8 +1579,13 @@ static void r_glcdc_data_enable_set (glcdc_tcon_pin_t const          tcon,
 static void r_glcdc_background_screen_set (display_cfg_t const * const p_cfg)
 {
     /* Set number of total cycles for a line including sync, back porch and Front porch */
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    R_GLCDC->BG.PERI = (((p_cfg->output.vtiming.total_cyc - 1U) & GLCDC_PRV_BG_PERI_FV_MASK) << 16) +
+                       ((p_cfg->output.htiming.total_cyc - 1U) & GLCDC_PRV_BG_PERI_FH_MASK);
+#else
     R_GLCDC->BG.PERI = ((p_cfg->output.vtiming.total_cyc & GLCDC_PRV_BG_PERI_FV_MASK) << 16) +
                        (p_cfg->output.htiming.total_cyc & GLCDC_PRV_BG_PERI_FH_MASK);
+#endif
     R_GLCDC->BG.SYNC = ((GLCDC_PRV_BG_PLANE_VSYNC_POS_MIN & GLCDC_PRV_BG_SYNC_VP_MASK) << 16) +
                        (GLCDC_PRV_BG_PLANE_HSYNC_POS_MIN & GLCDC_PRV_BG_SYNC_HP_MASK);
 
@@ -1519,6 +1720,54 @@ static void r_glcdc_graphics_layer_param_recalculation (display_input_cfg_t cons
     }
 }
 
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+static fsp_err_t r_glcdc_layer_check (display_input_cfg_t const * p_input, display_layer_t const * p_layer)
+{
+    if (NULL == p_input->p_base)
+    {
+        return FSP_SUCCESS;
+    }
+
+    FSP_ERROR_RETURN(((uint32_t) p_input->format <= DISPLAY_IN_FORMAT_CLUT1) && (p_input->vsize <= 2044U),
+                     FSP_ERR_INVALID_LAYER_SETTING);
+    uint32_t bits = r_glcdc_get_bit_size(p_input->format);
+    uint32_t stride_bits = (uint32_t) p_input->hstride * bits;
+    uint32_t stride = stride_bits / 8U;
+    FSP_ERROR_RETURN((0U == ((uint32_t) p_input->p_base % GLCDC_PRV_ADDRESS_ALIGNMENT_64B)) &&
+                     (0U == (stride_bits % (8U * GLCDC_PRV_ADDRESS_ALIGNMENT_64B))),
+                     FSP_ERR_INVALID_ALIGNMENT);
+    FSP_ERROR_RETURN(p_input->lines_repeat_enable ||
+                     ((stride > 0U) && (stride <= (p_input->line_descending_enable ? 32768U : 32767U))),
+                     FSP_ERR_INVALID_LAYER_SETTING);
+
+    glcdc_recalculated_param_t geometry;
+    r_glcdc_graphics_layer_param_recalculation(p_input, p_layer, &geometry);
+    if ((0U == geometry.hpix_size) || (0U == geometry.vpix_size))
+    {
+        return FSP_SUCCESS;
+    }
+
+    int32_t hpos = g_ctrl_blk.back_porch.x + geometry.hpix_offset;
+    int32_t vpos = g_ctrl_blk.back_porch.y + geometry.vpix_offset;
+    FSP_ERROR_RETURN((hpos >= (int32_t) GLCDC_PRV_GR_PLANE_H_CYC_ACTIVE_POS_MIN) &&
+                     (hpos <= (int32_t) (GLCDC_PRV_GR_PLANE_H_CYC_ACTIVE_POS_MAX + 1U)) &&
+                     (vpos >= (int32_t) GLCDC_PRV_GR_PLANE_V_CYC_ACTIVE_POS_MIN) &&
+                     (vpos <= (int32_t) (GLCDC_PRV_GR_PLANE_V_CYC_ACTIVE_POS_MAX + 1U)), FSP_ERR_INVALID_LAYER_SETTING);
+    uint32_t lines = p_input->lines_repeat_enable ? p_input->lines_repeat_times : geometry.vpix_size;
+    uint32_t height = p_input->lines_repeat_enable ?
+                      (uint32_t) geometry.vpix_size * p_input->lines_repeat_times : geometry.vpix_size;
+    FSP_ERROR_RETURN((0U == (geometry.base_address % GLCDC_PRV_ADDRESS_ALIGNMENT_64B)),
+                     FSP_ERR_INVALID_ALIGNMENT);
+    FSP_ERROR_RETURN((geometry.hpix_size >= 16U) && (geometry.hpix_size <= 2040U) &&
+                     (0U == (geometry.hpix_size % 2U)) && (height >= 16U) && (height <= 2044U) &&
+                     (lines > 0U) && (lines <= 2044U) && (geometry.hread_size > 0U) &&
+                     ((geometry.hread_size / GLCDC_PRV_ADDRESS_ALIGNMENT_64B) <=
+                      GLCDC_PRV_GR_PLANE_TOTAL_TRANSFER_TIMES_MAX), FSP_ERR_INVALID_LAYER_SETTING);
+
+    return FSP_SUCCESS;
+}
+#endif
+
 /*******************************************************************************************************************//**
  * Subroutine to configure the graphics layer register settings which includes...
  *          - Blend setting of foreground or background plane on background plane
@@ -1548,6 +1797,17 @@ static void r_glcdc_graphics_layer_set (display_input_cfg_t const * const p_inpu
 
         return;
     }
+
+#if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    r_glcdc_graphics_layer_param_recalculation(p_input, p_layer, &recalculated);
+    if ((0U == recalculated.hpix_size) || (0U == recalculated.vpix_size))
+    {
+        R_GLCDC->GR[layer].AB1   = GLCDC_PLANE_BLEND_TRANSPARENT;
+        R_GLCDC->GR[layer].FLMRD = 0U;
+
+        return;
+    }
+#endif
 
     /* Set layer pixel color format */
     R_GLCDC->GR[layer].FLM6 = ((uint32_t) g_format_lut[p_input->format]) << 28;
@@ -1618,10 +1878,12 @@ static void r_glcdc_graphics_layer_set (display_input_cfg_t const * const p_inpu
     /* Set the alpha blending condition */
     r_glcdc_graphics_layer_blend_condition_set(p_layer, layer);
 
+#if !BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
     /* Reset CLUT table selection */
     R_GLCDC->GR[layer].CLUTINT = 0;
     g_clut_data_latched[0]     = true;
     g_clut_data_latched[1]     = true;
+#endif
 }
 
 /*******************************************************************************************************************//**
@@ -1811,6 +2073,12 @@ static void r_glcdc_gamma_correction (display_cfg_t const * const p_cfg)
 
     gamma_correction_t * LUT_ptr;
 
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    bool gamma_enable = p_cfg->output.p_gamma_correction->g.enable ||
+                        p_cfg->output.p_gamma_correction->b.enable ||
+                        p_cfg->output.p_gamma_correction->r.enable;
+ #endif
+
     /* Set gamma correction LUTs based on config struct */
     for (j = 0U; j < 3U; j++)
     {
@@ -1852,16 +2120,45 @@ static void r_glcdc_gamma_correction (display_cfg_t const * const p_cfg)
                                           (LUT_ptr->threshold[(i * 3U) + 3U] & GLCDC_PRV_GAMX_AREAX_MASK);
             }
 
+ #if !BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
             /* Enable LUT */
             R_GLCDC->GAM[j].GAM_SW = 1U;
+ #endif
         }
         else
         {
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+            /* A shared switch needs a unity curve for each disabled color. */
+            if (gamma_enable)
+            {
+                for (i = 0U; i < (uint8_t) (DISPLAY_GAMMA_CURVE_ELEMENT_NUM / 2); i++)
+                {
+                    R_GLCDC->GAM[j].LUT[i] = (1024U << 16) + 1024U;
+                }
+
+                for (i = 0U; i < (uint8_t) (DISPLAY_GAMMA_CURVE_ELEMENT_NUM / 3); i++)
+                {
+                    R_GLCDC->GAM[j].AREA[i] = (((i * 3U) + 1U) * 64U << 20) +
+                                              (((i * 3U) + 2U) * 64U << 10) +
+                                              (((i * 3U) + 3U) * 64U);
+                }
+            }
+ #else
             R_GLCDC->GAM[j].GAM_SW = 0U;
+ #endif
         }
 
+ #if !BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
         R_GLCDC->GAM[j].LATCH = 1U;
+ #endif
     }
+
+ #if BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH
+    /* HM64.2.29: startup global reflection includes the switch and all gamma tables.
+     * Individual gamma requests cannot complete before Start supplies VS, and must
+     * not coexist with its BG_EN.VEN request (HM64.2.28). */
+    R_GLCDC->GAM[0].GAM_SW = gamma_enable;
+ #endif
 }
 
 #endif

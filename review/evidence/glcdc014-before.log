@@ -1,0 +1,15 @@
+test_actual_export_selects_header_enum_for_target_without_changing_legacy (tools.test_ra8p1_review_glcdc_metadata.GlcdcDitherMetadataTests.test_actual_export_selects_header_enum_for_target_without_changing_legacy) ... FAIL
+
+======================================================================
+FAIL: test_actual_export_selects_header_enum_for_target_without_changing_legacy (tools.test_ra8p1_review_glcdc_metadata.GlcdcDitherMetadataTests.test_actual_export_selects_header_enum_for_target_without_changing_legacy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_glcdc_metadata.py", line 25, in test_actual_export_selects_header_enum_for_target_without_changing_legacy
+    self.assertIsNotNone(prop.find("export"), "Target enum correction must be exported")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : Target enum correction must be exported
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

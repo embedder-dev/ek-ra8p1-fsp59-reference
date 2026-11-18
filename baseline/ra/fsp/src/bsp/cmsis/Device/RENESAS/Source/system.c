@@ -46,6 +46,12 @@
 
 #define ARMV8_MPU_REGION_MIN_SIZE                     (32U)
 
+#if BSP_FEATURE_BSP_HAS_CTCM
+ #define BSP_PRV_CTCM_SIZE                            (0x10000U)
+ #define BSP_PRV_CTCM_BASE                            (0x00000000U)
+ #define BSP_PRV_STCM_BASE                            (0x20000000U)
+#endif
+
 /***********************************************************************************************************************
  * Typedef definitions
  **********************************************************************************************************************/
@@ -164,6 +170,21 @@ extern void * __Vectors[];
 
 extern void R_BSP_SecurityInit(void);
 
+#if BSP_FEATURE_BSP_HAS_CTCM
+ #if defined(__GNUC__) && !defined(__ARMCC_VERSION)
+extern uint32_t __itcm_data_init_start;
+extern uint32_t __itcm_data_init_end;
+extern uint32_t __itcm_data_start;
+extern uint32_t __dtcm_data_init_start;
+extern uint32_t __dtcm_data_init_end;
+extern uint32_t __dtcm_data_start;
+extern uint32_t __dtcm_bss_start;
+extern uint32_t __dtcm_bss_end;
+ #else
+  #error "C-TCM startup requires the GNU linker contract."
+ #endif
+#endif
+
 /***********************************************************************************************************************
  * Private global variables and functions
  **********************************************************************************************************************/
@@ -210,6 +231,23 @@ static void bsp_init_itcm(void);
 static void bsp_init_dtcm(void);
 
  #endif
+#endif
+
+#if BSP_FEATURE_BSP_HAS_CTCM
+static void bsp_init_ctcm(void);
+
+#endif
+
+#if (BSP_FEATURE_BSP_POWER_DOMAIN_TYPE == 1) && BSP_FEATURE_BSP_HAS_GRAPHICS_DOMAIN && !BSP_CFG_SKIP_INIT && \
+    (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0))
+static void bsp_init_graphics_power_domain(void);
+
+#endif
+
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 0) && \
+    defined(BSP_CFG_SECONDARY_CORE_START_ADDRESS) && !BSP_TZ_NONSECURE_BUILD && !BSP_CFG_SKIP_INIT
+static void bsp_start_secondary_core(void);
+
 #endif
 
 #if BSP_CFG_DCACHE_ENABLED
@@ -270,8 +308,25 @@ void SystemInit (void)
     SCB->VTOR = (uint32_t) &__Vectors;
 #endif
 
+#if BSP_FEATURE_BSP_HAS_CTCM
+    /* The initial image and stack are in MRAM/SRAM, not in the TCM being initialized. */
+    bsp_init_ctcm();
+#endif
+
+#if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
 #if !BSP_TZ_CFG_SKIP_INIT && !BSP_CFG_SKIP_INIT
- #if BSP_FEATURE_BSP_VBATT_HAS_VBTCR1_BPWSWSTP
+ #if BSP_FEATURE_BSP_VBATT_HAS_VBTBPCR1
+  #if !BSP_TZ_NONSECURE_BUILD
+    /* Stop backup supply switching before disabling its detector (HM 12.2.11-12). */
+    uint16_t prcr = R_SYSTEM->PRCR_S;
+    R_SYSTEM->PRCR_S = prcr | BSP_PRV_PRCR_PRC1_UNLOCK;
+    FSP_REGISTER_READ(R_SYSTEM->PRCR_S);
+    R_SYSTEM->VBTBPCR1 = R_SYSTEM_VBTBPCR1_BPWSWSTP_Msk;
+    R_SYSTEM->VBTBPCR2_b.VDETE = 0U;
+    R_SYSTEM->PRCR_S = BSP_PRV_PRCR_KEY | prcr;
+    FSP_REGISTER_READ(R_SYSTEM->PRCR_S);
+  #endif
+ #elif BSP_FEATURE_BSP_VBATT_HAS_VBTCR1_BPWSWSTP
 
     /* Unlock VBTCR1 register. */
     R_SYSTEM->PRCR = (uint16_t) BSP_PRV_PRCR_PRC1_UNLOCK;
@@ -298,6 +353,8 @@ void SystemInit (void)
  #endif
 #endif
 
+#endif
+
 #if BSP_CFG_EARLY_INIT
 
     /* Initialize uninitialized BSP variables early for use in R_BSP_WarmStart. */
@@ -307,12 +364,28 @@ void SystemInit (void)
     /* Call pre clock initialization hook. */
     R_BSP_WarmStart(BSP_WARM_START_RESET);
 
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 1)
+
+    /* CPU0 owns the global clocks. CPU1 only reconstructs its local frequency table. */
+    bsp_clock_freq_var_init();
+
+ #if BSP_FEATURE_BSP_CODE_CACHE_VERSION == 2
+  #if !BSP_TZ_CFG_SKIP_INIT && !BSP_CFG_SKIP_INIT
+
+    /* Cold C-Cache enable: flush and await completion before ENC (HM 2.16.3.3). */
+    FSP_HARDWARE_REGISTER_WAIT(R_CACHE->CCAFCT, 0U);
+    R_CACHE->CCAFCT_b.FC = 1U;
+  #endif
+    FSP_HARDWARE_REGISTER_WAIT(R_CACHE->CCAFCT, 0U);
+    R_CACHE->CCACTL = 1U;
+ #endif
+#else
 #if BSP_TZ_CFG_SKIP_INIT || BSP_CFG_SKIP_INIT
 
     /* Initialize clock variables to be used with R_BSP_SoftwareDelay. */
     bsp_clock_freq_var_init();
 
- #if BSP_CFG_SKIP_INIT && (defined(R_CACHE) || BSP_FEATURE_BSP_FLASH_CACHE)
+ #if BSP_CFG_SKIP_INIT && (defined(R_CACHE) || BSP_FEATURE_BSP_FLASH_CACHE) && !BSP_FEATURE_BSP_HAS_SECONDARY_CORE
 
     /* Flush cache before enabling */
     R_CACHE->CCAFCT_b.FC = 1;
@@ -332,6 +405,7 @@ void SystemInit (void)
 
     bsp_reset_trng_circuit();
  #endif
+#endif
 #endif
 
     /* Call post clock initialization hook. */
@@ -450,6 +524,7 @@ void SystemInit (void)
     /* Initialize SystemCoreClock variable. */
     SystemCoreClockUpdate();
 
+#if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
 #if BSP_FEATURE_RTC_IS_AVAILABLE || BSP_FEATURE_RTC_HAS_TCEN || BSP_FEATURE_SYSC_HAS_VBTICTLR
 
     /* For TZ project, it should be called by the secure application, whether RTC module is to be configured as secure or not. */
@@ -486,12 +561,14 @@ void SystemInit (void)
     R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_SAR);
 #endif
 
+#endif
+
 #if BSP_TZ_SECURE_BUILD
 
     /* Initialize security features. */
     R_BSP_SecurityInit();
 #else
- #if FSP_PRIV_TZ_USE_SECURE_REGS
+ #if FSP_PRIV_TZ_USE_SECURE_REGS && (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0))
 
     /* Initialize peripherals to secure mode for flat projects */
     R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_SAR);
@@ -509,6 +586,12 @@ void SystemInit (void)
     SCB_EnableDCache();
 #endif
 
+#if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
+#if BSP_FEATURE_BSP_POWER_DOMAIN_TYPE == 1
+ #if BSP_FEATURE_BSP_HAS_GRAPHICS_DOMAIN && !BSP_CFG_SKIP_INIT
+    bsp_init_graphics_power_domain();
+ #endif
+#else
 #if BSP_FEATURE_BSP_HAS_GRAPHICS_DOMAIN && !BSP_CFG_SKIP_INIT
     if ((((0 == R_SYSTEM->PGCSAR) && FSP_PRIV_TZ_USE_SECURE_REGS) ||
          ((1 == R_SYSTEM->PGCSAR) && BSP_TZ_NONSECURE_BUILD)) && (0 != R_SYSTEM->PDCTRGD))
@@ -527,6 +610,8 @@ void SystemInit (void)
 #if BSP_FEATURE_CGC_HAS_EXTRACLK2 && !BSP_CFG_SKIP_INIT
     bsp_internal_prv_enable_extra_power_domain();
 #endif
+#endif
+#endif
 
     /* Call Post C runtime initialization hook. */
     R_BSP_WarmStart(BSP_WARM_START_POST_C);
@@ -536,7 +621,130 @@ void SystemInit (void)
 
     /* Call any BSP specific code. No arguments are needed so NULL is sent. */
     bsp_init(NULL);
+
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 0) && \
+    defined(BSP_CFG_SECONDARY_CORE_START_ADDRESS) && !BSP_TZ_NONSECURE_BUILD && !BSP_CFG_SKIP_INIT
+    bsp_start_secondary_core();
+#endif
 }
+
+#if (BSP_FEATURE_BSP_POWER_DOMAIN_TYPE == 1) && BSP_FEATURE_BSP_HAS_GRAPHICS_DOMAIN && !BSP_CFG_SKIP_INIT && \
+    (!BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0))
+
+/*******************************************************************************************************************//**
+ * Power the independently attributed graphics domain (HM 11.2.2, 11.2.14 and 11.5.1).
+ **********************************************************************************************************************/
+static void bsp_init_graphics_power_domain (void)
+{
+    uint32_t graphics_nonsecure = R_SYSTEM->PGCSAR & R_SYSTEM_PGCSAR_NONSEC1_Msk;
+    if ((((0U == graphics_nonsecure) && FSP_PRIV_TZ_USE_SECURE_REGS) ||
+         ((0U != graphics_nonsecure) && BSP_TZ_NONSECURE_BUILD)) && (0U != R_SYSTEM->PDCTRGD))
+    {
+        /* MOCO must remain running; CPU0 completes the transition before CPU1 is released. */
+        R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_OM_LPC_BATT);
+        FSP_HARDWARE_REGISTER_WAIT((R_SYSTEM->PDCTRGD & R_SYSTEM_PDCTRGD_PDCSF_Msk), 0U);
+        if (0U != (R_SYSTEM->PDCTRGD & R_SYSTEM_PDCTRGD_PDDE_Msk))
+        {
+            FSP_HARDWARE_REGISTER_WAIT((R_SYSTEM->PDCTRGD & R_SYSTEM_PDCTRGD_PDPGSF_Msk),
+                                       R_SYSTEM_PDCTRGD_PDPGSF_Msk);
+            R_SYSTEM->PDCTRGD = 0U;
+        }
+
+        FSP_HARDWARE_REGISTER_WAIT((R_SYSTEM->PDCTRGD & (R_SYSTEM_PDCTRGD_PDCSF_Msk | R_SYSTEM_PDCTRGD_PDPGSF_Msk)), 0U);
+        R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_OM_LPC_BATT);
+    }
+}
+
+#endif
+
+#if BSP_FEATURE_BSP_HAS_SECONDARY_CORE && (BSP_CFG_CPU_CORE == 0) && \
+    defined(BSP_CFG_SECONDARY_CORE_START_ADDRESS) && !BSP_TZ_NONSECURE_BUILD && !BSP_CFG_SKIP_INIT
+
+/*******************************************************************************************************************//**
+ * Activate CPU1 only after shared initialization (RA8P1 HM 2.6 and 2.9.1.7-2.9.1.9).
+ **********************************************************************************************************************/
+static void bsp_start_secondary_core (void)
+{
+    /* Do not disturb a secondary CPU that is already running. */
+    if (0U == (R_CPU_CTRL->CPU1ACTCSR & R_CPU_CTRL_CPU1ACTCSR_ACT_Msk))
+    {
+        uint16_t protect = R_CPU_CTRL->CPU1CRPT & R_CPU_CTRL_CPU1CRPT_PROTECT_Msk;
+        R_CPU_CTRL->CPU1CRPT = BSP_PRV_PRCR_KEY;
+        R_CPU_CTRL->CPU1WAITCR = R_CPU_CTRL_CPU1WAITCR_CPUWAIT_Msk;
+        R_CPU_CTRL->CPU1INITVTOR = BSP_CFG_SECONDARY_CORE_START_ADDRESS;
+        __DSB();
+        R_CPU_CTRL->CPU1ACTCSR = BSP_PRV_PRCR_KEY | R_CPU_CTRL_CPU1ACTCSR_ACTREQ_Msk;
+        FSP_HARDWARE_REGISTER_WAIT((R_CPU_CTRL->CPU1ACTCSR & R_CPU_CTRL_CPU1ACTCSR_ACT_Msk),
+                                   R_CPU_CTRL_CPU1ACTCSR_ACT_Msk);
+        __DSB();
+        R_CPU_CTRL->CPU1WAITCR = 0U;
+        R_CPU_CTRL->CPU1CRPT = BSP_PRV_PRCR_KEY | protect;
+        __DSB();
+    }
+}
+
+#endif
+
+#if BSP_FEATURE_BSP_HAS_CTCM
+
+/*******************************************************************************************************************//**
+ * Initialize CPU1 local C-TCM/S-TCM, using 32-bit ECC writes (RA8P1 HM 2.17.4.1).
+ **********************************************************************************************************************/
+static void bsp_init_ctcm (void)
+{
+ #if !BSP_TZ_NONSECURE_BUILD && !BSP_TZ_CFG_SKIP_INIT && !BSP_CFG_SKIP_INIT
+    __DMB();
+    R_TCM->TCMPRCR_S = BSP_PRV_PRCR_KEY | R_TCM_TCMPRCR_S_PR_Msk;
+
+    /* Generate ECC without checking undefined power-on contents. */
+    R_TCM->TCMCRC = 2U << R_TCM_TCMCRC_ECCMOD_Pos;
+    R_TCM->TCMCRS = 2U << R_TCM_TCMCRS_ECCMOD_Pos;
+    __DMB();
+    for (uint32_t offset = 0U; offset < BSP_PRV_CTCM_SIZE; offset += sizeof(uint32_t))
+    {
+        /* CPU1 local map, not CPU0's 0x2A000000/0x2A010000 bus aliases (HM table 2.37). */
+        *((volatile uint32_t *) (BSP_PRV_CTCM_BASE + offset)) = 0U;
+        *((volatile uint32_t *) (BSP_PRV_STCM_BASE + offset)) = 0U;
+    }
+
+    __DMB();
+    R_TCM->TCMESCLR = R_TCM_TCMESCLR_CLRC0_Msk | R_TCM_TCMESCLR_CLRC1_Msk |
+                      R_TCM_TCMESCLR_CLRS0_Msk | R_TCM_TCMESCLR_CLRS1_Msk;
+    R_TCM->TCMCRC = R_TCM_TCMCRC_ECCMOD_Msk | R_TCM_TCMCRC_E1STSEN_Msk;
+    R_TCM->TCMCRS = R_TCM_TCMCRS_ECCMOD_Msk | R_TCM_TCMCRS_E1STSEN_Msk;
+    __DMB();
+    R_TCM->TCMPRCR_S = BSP_PRV_PRCR_KEY;
+    __DSB();
+ #endif
+
+ #if BSP_CFG_C_RUNTIME_INIT
+    /* CM33 does not implement the CM85 low-overhead-loop copy instructions. */
+    uint32_t const * source = &__itcm_data_init_start;
+    uint32_t * destination = &__itcm_data_start;
+    while (source < &__itcm_data_init_end)
+    {
+        *destination++ = *source++;
+    }
+
+    source = &__dtcm_data_init_start;
+    destination = &__dtcm_data_start;
+    while (source < &__dtcm_data_init_end)
+    {
+        *destination++ = *source++;
+    }
+
+    destination = &__dtcm_bss_start;
+    while (destination < &__dtcm_bss_end)
+    {
+        *destination++ = 0U;
+    }
+
+    __DSB();
+    __ISB();
+ #endif
+}
+
+#endif
 
 /*******************************************************************************************************************//**
  * This function is called at various points during the startup process.
@@ -627,7 +835,11 @@ static void bsp_init_uninitialized_vars (void)
     }
 
     extern bsp_grp_irq_cb_t g_bsp_group_irq_sources[];
+ #if BSP_FEATURE_ICU_NMIER_MAX_INDEX > 15U
+    for (uint32_t i = 0; i <= BSP_FEATURE_ICU_NMIER_MAX_INDEX; i++)
+ #else
     for (uint32_t i = 0; i < 16; i++)
+ #endif
     {
         g_bsp_group_irq_sources[i] = 0;
     }
@@ -827,6 +1039,18 @@ static void bsp_init_mpu (void)
         ARM_MPU_ATTR(ARM_MPU_ATTR_NON_CACHEABLE, ARM_MPU_ATTR_NON_CACHEABLE)
     };
 
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+
+    /* Preserve exclusive linker bounds until their size and alignment have been checked. */
+    const uint32_t bsp_mpu_regions[][2] =
+    {
+        {nocache_start, nocache_end},
+  #if BSP_FEATURE_SDRAM_START_ADDRESS
+        {nocache_sdram_start, nocache_sdram_end}
+  #endif
+    };
+ #else
+
     /* Maximum of eight regions. */
     /* A region start address and end address must each be aligned to 32 bytes. A region must be a minimum of 32 bytes to be valid. */
     /* A region end address is inclusive. */
@@ -847,6 +1071,8 @@ static void bsp_init_mpu (void)
  #endif
     };
 
+ #endif
+
     /* Initialize MPU_MAIR0 and MPU_MAIR1 from attributes table. */
     uint8_t num_attr = (sizeof(bsp_mpu_mair_attributes) / sizeof(bsp_mpu_mair_attributes[0]));
     for (uint8_t i = 0; i < num_attr; i++)
@@ -858,6 +1084,18 @@ static void bsp_init_mpu (void)
     uint8_t num_regions = (sizeof(bsp_mpu_regions) / sizeof(bsp_mpu_regions[0]));
     for (uint8_t i = 0; i < num_regions; i++)
     {
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+        uint32_t start = bsp_mpu_regions[i][0];
+        uint32_t end   = bsp_mpu_regions[i][1];
+
+        /* Encoding an empty section ending at zero would wrap the limit to all-address XN. */
+        if ((end > start) && ((end - start) >= ARMV8_MPU_REGION_MIN_SIZE) &&
+            (0U == ((start | end) & (ARMV8_MPU_REGION_MIN_SIZE - 1U))))
+        {
+            ARM_MPU_SetRegion(i, ARM_MPU_RBAR(start, ARM_MPU_SH_NON, 0U, 0U, 1U),
+                              ARM_MPU_RLAR((end - ARMV8_MPU_REGION_MIN_SIZE), 0U));
+        }
+ #else
         uint32_t rbar = bsp_mpu_regions[i].RBAR;
         uint32_t rlar = bsp_mpu_regions[i].RLAR;
 
@@ -867,6 +1105,7 @@ static void bsp_init_mpu (void)
         {
             ARM_MPU_SetRegion(i, rbar, rlar);
         }
+ #endif
     }
 
     /*

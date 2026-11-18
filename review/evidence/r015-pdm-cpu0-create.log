@@ -1,0 +1,7 @@
+ok project create review_r015_pdm_cpu0 (5.3 s)
+created review_r015_pdm_cpu0 at <repo>/validation/ra8p1/review-drivers/review_r015_pdm_cpu0
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m85), core CM85, fsp 5.9.0, toolchain 13.2.1.arm-13-7, rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU0 (review_r015_pdm_cpu0 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (given; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (given)
+content generated in 4.9 s (no separate generate needed)
+next: embedder e2 build <repo>/validation/ra8p1/review-drivers/review_r015_pdm_cpu0
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 54776c, the rest stock; journalled)

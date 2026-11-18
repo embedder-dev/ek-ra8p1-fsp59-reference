@@ -1,0 +1,24 @@
+test_canfd_limits_preserve_stock_logical_channel_contract (test_ra8p1_graphics_metadata.GraphicsMetadata.test_canfd_limits_preserve_stock_logical_channel_contract) ... ok
+test_canfd_logical_channels_match_two_one_channel_instances (test_ra8p1_graphics_metadata.GraphicsMetadata.test_canfd_logical_channels_match_two_one_channel_instances) ... ok
+test_existing_graphics_clock_exports_cover_driver_references (test_ra8p1_graphics_metadata.GraphicsMetadata.test_existing_graphics_clock_exports_cover_driver_references) ... ok
+test_k_package_has_complete_parallel_display_signals (test_ra8p1_graphics_metadata.GraphicsMetadata.test_k_package_has_complete_parallel_display_signals) ... ok
+test_k_package_has_dsi_te_and_dedicated_lanes (test_ra8p1_graphics_metadata.GraphicsMetadata.test_k_package_has_dsi_te_and_dedicated_lanes) ... ok
+test_physical_dsi_requirement_without_false_feature_set (test_ra8p1_graphics_metadata.GraphicsMetadata.test_physical_dsi_requirement_without_false_feature_set) ... ok
+test_physical_glcdc_requirement_and_negative_control (test_ra8p1_graphics_metadata.GraphicsMetadata.test_physical_glcdc_requirement_and_negative_control) ... ok
+test_stock_graphics_enum_and_event_references_are_target_local (test_ra8p1_graphics_metadata.GraphicsMetadata.test_stock_graphics_enum_and_event_references_are_target_local) ... ok
+test_external_hardware_requires_remain_without_feature_set_alias (test_ra8p1_graphics_metadata.SharedGraphicsMetadata.test_external_hardware_requires_remain_without_feature_set_alias) ... ok
+test_glcdc_retains_legacy_and_supplied_model_bindings (test_ra8p1_graphics_metadata.SharedGraphicsMetadata.test_glcdc_retains_legacy_and_supplied_model_bindings) ... ok
+test_legacy_graphics_contracts_against_original_release (test_ra8p1_graphics_metadata.SharedGraphicsMetadata.test_legacy_graphics_contracts_against_original_release) ... ok
+test_mipi_eligibility_javascript_positive_and_negative_controls (test_ra8p1_graphics_metadata.SharedGraphicsMetadata.test_mipi_eligibility_javascript_positive_and_negative_controls) ... ok
+test_arm_full_sources_cpu0_dependencies_before_cpu1 (test_ra8p1_startup.StartupTests.test_arm_full_sources_cpu0_dependencies_before_cpu1) ... ok
+test_ctcm_stcm_ecc_initialization_before_checking (test_ra8p1_startup.StartupTests.test_ctcm_stcm_ecc_initialization_before_checking) ... ok
+test_graphics_power_attribution_transitions_and_idempotence (test_ra8p1_startup.StartupTests.test_graphics_power_attribution_transitions_and_idempotence) ... ok
+test_legacy_ra8m1_executable_sections_unchanged (test_ra8p1_startup.StartupTests.test_legacy_ra8m1_executable_sections_unchanged) ... ok
+test_ownership_and_no_source_churn (test_ra8p1_startup.StartupTests.test_ownership_and_no_source_churn) ... ok
+test_secondary_activation_order_and_already_active (test_ra8p1_startup.StartupTests.test_secondary_activation_order_and_already_active) ... ok
+test_vbatt_layout_and_protection_readbacks (test_ra8p1_startup.StartupTests.test_vbatt_layout_and_protection_readbacks) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 5.352s
+
+OK

@@ -1,0 +1,178 @@
+test_completion_before_budget_exhaustion (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_completion_before_budget_exhaustion) ... ok
+test_completion_on_last_poll (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_completion_on_last_poll) ... ok
+test_completion_on_single_poll_budget (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_completion_on_single_poll_budget) ... ok
+test_existing_transfer_is_not_rewritten (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_existing_transfer_is_not_rewritten) ... ok
+test_immediate_completion_restores_saved_selection (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_immediate_completion_restores_saved_selection) ... ok
+test_nonsecure_requires_preloaded_calibration (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_nonsecure_requires_preloaded_calibration) ... ok
+test_still_busy_does_not_restore_selection (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_still_busy_does_not_restore_selection) ... ok
+test_still_busy_with_zeroization_does_not_restore_selection (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_still_busy_with_zeroization_does_not_restore_selection) ... ok
+test_zeroization_on_last_poll_restores_selection_and_reports_error (tools.test_ra8p1_review_dac.DacCalibrationBoundaryTests.test_zeroization_on_last_poll_restores_selection_and_reports_error) ... ok
+test_ra8p1_review_wdt (unittest.loader._FailedTest.test_ra8p1_review_wdt) ... ERROR
+test_hm_inpsel_mapping_uses_supplied_physical_pin_groups (tools.test_ra8p1_review_pdm.PdmReviewMetadataTests.test_hm_inpsel_mapping_uses_supplied_physical_pin_groups) ... ok
+test_stereo_constraint_rejects_missing_and_mismatched_source (tools.test_ra8p1_review_pdm.PdmReviewMetadataTests.test_stereo_constraint_rejects_missing_and_mismatched_source) ... ok
+test_pdm001_overwrite_injected_during_fifo_drain (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm001_overwrite_injected_during_fifo_drain) ... ok
+test_pdm002_error_at_icu_clear_is_repended (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm002_error_at_icu_clear_is_repended) ... ok
+test_pdm002_threshold_crossing_at_icu_clear_is_repended (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm002_threshold_crossing_at_icu_clear_is_repended) ... ok
+test_pdm003_all_settling_modes_cover_guaranteed_moco_minimum (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm003_all_settling_modes_cover_guaranteed_moco_minimum) ... ok
+test_pdm004_source_cannot_stop_before_consumer (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_source_cannot_stop_before_consumer) ... ok
+test_pdm004_source_mandatory_and_matched (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_source_mandatory_and_matched) ... ok
+test_pdm004_start_rechecks_source (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_start_rechecks_source) ... ok
+test_pdm004_unused_consumer_divider_can_differ_with_equal_decimation (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_unused_consumer_divider_can_differ_with_equal_decimation) ... ok
+test_positive_clean_completion (tools.test_ra8p1_review_pdm.PdmReviewProductionTests.test_positive_clean_completion) ... ok
+test_ra8p1_review_icu (unittest.loader._FailedTest.test_ra8p1_review_icu) ... ERROR
+test_ra8p1_review_i3c (unittest.loader._FailedTest.test_ra8p1_review_i3c) ... ERROR
+test_ra8p1_review_lpm (unittest.loader._FailedTest.test_ra8p1_review_lpm) ... ERROR
+test_original_mdf_bytes_and_all_generation_templates_are_unchanged (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_original_mdf_bytes_and_all_generation_templates_are_unchanged) ... ok
+test_scispi004_numeric_positive_and_negative_boundaries_for_both_clock_sources (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_scispi004_numeric_positive_and_negative_boundaries_for_both_clock_sources) ... ok
+test_scispi004_pre_review_admits_and_overspeeds_the_125mhz_one_bps_counterexample (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_scispi004_pre_review_admits_and_overspeeds_the_125mhz_one_bps_counterexample) ... ok
+test_slave_low_bitrate_and_all_legacy_admissions_and_exports_remain_unchanged (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_slave_low_bitrate_and_all_legacy_admissions_and_exports_remain_unchanged) ... ok
+test_target_capability_is_provided_and_not_advertised_on_stock_sci_layouts (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_target_capability_is_provided_and_not_advertised_on_stock_sci_layouts) ... FAIL
+test_all_legacy_sci_b_families_full_tu_preprocessing_and_arm_objects_match_stock (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_all_legacy_sci_b_families_full_tu_preprocessing_and_arm_objects_match_stock) ... ok
+test_busy_te_or_re_is_rejected_without_mutating_control_or_hardware (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_busy_te_or_re_is_rejected_without_mutating_control_or_hardware) ... ok
+test_complete_production_driver_arm_builds_both_cores_checking_and_dtc_on_off (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_complete_production_driver_arm_builds_both_cores_checking_and_dtc_on_off) ... ok
+test_existing_production_files_retain_crlf (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_existing_production_files_retain_crlf) ... ok
+test_pre_review_production_fails_all_four_runtime_oracles (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_pre_review_production_fails_all_four_runtime_oracles) ... ok
+test_scispi001_overrun_stops_acknowledges_drains_clears_before_callback_and_restart (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_scispi001_overrun_stops_acknowledges_drains_clears_before_callback_and_restart) ... ok
+test_scispi002_admission_waits_for_internal_stop_before_next_control_write (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_scispi002_admission_waits_for_internal_stop_before_next_control_write) ... ok
+test_scispi002_tei_acknowledges_delayed_internal_stop_before_callback_and_restart (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_scispi002_tei_acknowledges_delayed_internal_stop_before_callback_and_restart) ... ok
+test_scispi003_slave_second_preload_waits_for_tdre_including_dummy_receive (tools.test_ra8p1_review_sci_b_spi.SciSpiProductionReviewTests.test_scispi003_slave_second_preload_waits_for_tdre_including_dummy_receive) ... ok
+test_crlf_and_only_existing_target_gate (tools.test_ra8p1_review_glcdc.GlcdcReviewTests.test_crlf_and_only_existing_target_gate) ... ok
+test_hm_contracts_both_cores_checks_and_color_on_off (tools.test_ra8p1_review_glcdc.GlcdcReviewTests.test_hm_contracts_both_cores_checks_and_color_on_off) ... ok
+test_legacy_full_translation_unit_code_data_relocations_unchanged (tools.test_ra8p1_review_glcdc.GlcdcReviewTests.test_legacy_full_translation_unit_code_data_relocations_unchanged) ... ok
+test_pristine_production_fails_independent_oracles (tools.test_ra8p1_review_glcdc.GlcdcReviewTests.test_pristine_production_fails_independent_oracles) ... ok
+test_ra8p1_review_dsi (unittest.loader._FailedTest.test_ra8p1_review_dsi) ... ERROR
+test_all_legacy_cache_executable_and_preprocess_parity (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_all_legacy_cache_executable_and_preprocess_parity) ... ok
+test_all_legacy_startup_executable_and_preprocess_parity (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_all_legacy_startup_executable_and_preprocess_parity) ... ok
+test_arm_full_system_source_with_cpu0_mpu_and_cpu1_code_cache (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_arm_full_system_source_with_cpu0_mpu_and_cpu1_code_cache) ... ok
+test_callbacks_run_in_stock_order_on_both_cores (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_callbacks_run_in_stock_order_on_both_cores) ... ok
+test_cpu0_never_accesses_cm33_cache_including_skip_init (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu0_never_accesses_cm33_cache_including_skip_init) ... ok
+test_cpu1_cold_start_flushes_and_completes_before_enc (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu1_cold_start_flushes_and_completes_before_enc) ... ok
+test_cpu1_disable_completes_required_maintenance (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu1_disable_completes_required_maintenance) ... ok
+test_cpu1_generic_reenable_preserves_dirty_lines (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu1_generic_reenable_preserves_dirty_lines) ... ok
+test_cpu1_reenable_waits_for_existing_flush_and_writeback (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu1_reenable_waits_for_existing_flush_and_writeback) ... ok
+test_cpu1_skip_init_reenable_does_not_flush_dirty_lines (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_cpu1_skip_init_reenable_does_not_flush_dirty_lines) ... ok
+test_mpu_all_legacy_preprocess_and_object_parity (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_mpu_all_legacy_preprocess_and_object_parity) ... ok
+test_mpu_rejects_invalid_bounds_before_encoding_on_both_cores (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_mpu_rejects_invalid_bounds_before_encoding_on_both_cores) ... ok
+test_source_line_endings_preserved (tools.test_ra8p1_review_dual_cache.DualCacheTests.test_source_line_endings_preserved) ... ok
+test_ra8p1_review_warmstart_template (unittest.loader._FailedTest.test_ra8p1_review_warmstart_template) ... ERROR
+test_ra8p1_review_rom_protection (unittest.loader._FailedTest.test_ra8p1_review_rom_protection) ... ERROR
+test_all_legacy_devices_retain_16_slot_behavior (tools.test_ra8p1_review_nmi_init.NmiInitializationTests.test_all_legacy_devices_retain_16_slot_behavior) ... ok
+test_all_legacy_preprocessed_functions_match_original_exactly (tools.test_ra8p1_review_nmi_init.NmiInitializationTests.test_all_legacy_preprocessed_functions_match_original_exactly) ... ok
+test_ra8p1_cpu0_clears_through_ipc_and_preserves_canary (tools.test_ra8p1_review_nmi_init.NmiInitializationTests.test_ra8p1_cpu0_clears_through_ipc_and_preserves_canary) ... ok
+test_ra8p1_cpu1_clears_through_ipc_and_preserves_canary (tools.test_ra8p1_review_nmi_init.NmiInitializationTests.test_ra8p1_cpu1_clears_through_ipc_and_preserves_canary) ... ok
+test_ra8p1_review_tcm_windows (unittest.loader._FailedTest.test_ra8p1_review_tcm_windows) ... ERROR
+test_codegen_oracle_rejects_trap_missing_store_spin_and_elided_init (tools.test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_codegen_oracle_rejects_trap_missing_store_spin_and_elided_init) ... ok
+test_full_source_real_cpu1_flags_all_optimization_levels (tools.test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_full_source_real_cpu1_flags_all_optimization_levels) ... ok
+test_generated_cpu1_configuration_enables_actual_scrub_and_runtime_init (tools.test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_generated_cpu1_configuration_enables_actual_scrub_and_runtime_init) ... ok
+
+======================================================================
+ERROR: test_ra8p1_review_wdt (unittest.loader._FailedTest.test_ra8p1_review_wdt)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_wdt
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_wdt.py", line 16, in <module>
+    from test_ra8p1_wdt import configuration, executable_sections
+ModuleNotFoundError: No module named 'test_ra8p1_wdt'
+
+
+======================================================================
+ERROR: test_ra8p1_review_icu (unittest.loader._FailedTest.test_ra8p1_review_icu)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_icu
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_icu.py", line 16, in <module>
+    from test_ra8p1_wdt import executable_sections
+ModuleNotFoundError: No module named 'test_ra8p1_wdt'
+
+
+======================================================================
+ERROR: test_ra8p1_review_i3c (unittest.loader._FailedTest.test_ra8p1_review_i3c)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_i3c
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_i3c.py", line 21, in <module>
+    from ra8p1.regression import readonly_sections
+ModuleNotFoundError: No module named 'ra8p1'
+
+
+======================================================================
+ERROR: test_ra8p1_review_lpm (unittest.loader._FailedTest.test_ra8p1_review_lpm)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_lpm
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_lpm.py", line 10, in <module>
+    from test_ra8p1_lpm import CORE
+ModuleNotFoundError: No module named 'test_ra8p1_lpm'
+
+
+======================================================================
+ERROR: test_ra8p1_review_dsi (unittest.loader._FailedTest.test_ra8p1_review_dsi)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_dsi
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_dsi.py", line 22, in <module>
+    from ra8p1.compatibility import original_sources, RELEASE_PACK
+ModuleNotFoundError: No module named 'ra8p1'
+
+
+======================================================================
+ERROR: test_ra8p1_review_warmstart_template (unittest.loader._FailedTest.test_ra8p1_review_warmstart_template)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_warmstart_template
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_warmstart_template.py", line 16, in <module>
+    from test_ra8p1_startup import function
+ModuleNotFoundError: No module named 'test_ra8p1_startup'
+
+
+======================================================================
+ERROR: test_ra8p1_review_rom_protection (unittest.loader._FailedTest.test_ra8p1_review_rom_protection)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_rom_protection
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_rom_protection.py", line 20, in <module>
+    from ra8p1 import regression
+ModuleNotFoundError: No module named 'ra8p1'
+
+
+======================================================================
+ERROR: test_ra8p1_review_tcm_windows (unittest.loader._FailedTest.test_ra8p1_review_tcm_windows)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ra8p1_review_tcm_windows
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+  File "<repo>/tools/test_ra8p1_review_tcm_windows.py", line 5, in <module>
+    from ra8p1 import verify_candidate as verifier
+ModuleNotFoundError: No module named 'ra8p1'
+
+
+======================================================================
+FAIL: test_target_capability_is_provided_and_not_advertised_on_stock_sci_layouts (tools.test_ra8p1_review_sci_b_spi.SciSpiMdfReviewTests.test_target_capability_is_provided_and_not_advertised_on_stock_sci_layouts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_sci_b_spi.py", line 284, in test_target_capability_is_provided_and_not_advertised_on_stock_sci_layouts
+    self.assertEqual(CAP in provided, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     f"Parent device-MDF integration required: {family} must provide {CAP}={expected}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False != True : Parent device-MDF integration required: ra8p1 must provide interface.mcu.sci_b.no_scksel=True
+
+----------------------------------------------------------------------
+Ran 66 tests in 127.671s
+
+FAILED (failures=1, errors=8)

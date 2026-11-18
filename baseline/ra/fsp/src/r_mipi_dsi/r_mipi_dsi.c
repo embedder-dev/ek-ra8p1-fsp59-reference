@@ -25,6 +25,70 @@
 #define DSI_PACKET_FORMAT_IS_SHORT(cmd_id)    ((cmd_id & 0x0F) <= 0x08)
 #define DSI_PACKET_FORMAT_IS_LONG(cmd_id)     ((cmd_id & 0x0F) > 0x08)
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+/* Only flags documented for each W1C destination may be written (HM 66.2). */
+#define MIPI_DSI_PRV_SQCH0_CLEAR_MASK    (R_DSILINK_SQCH0SCR_AACTFIN_Msk | \
+    R_DSILINK_SQCH0SCR_ADESFIN_Msk | \
+    R_DSILINK_SQCH0SCR_TXIBERR_Msk | \
+    R_DSILINK_SQCH0SCR_RXFERR_Msk | \
+    R_DSILINK_SQCH0SCR_RXFAIL_Msk | \
+    R_DSILINK_SQCH0SCR_RXPFAIL_Msk | \
+    R_DSILINK_SQCH0SCR_RXCORERR_Msk | \
+    R_DSILINK_SQCH0SCR_RXAKE_Msk)
+#define MIPI_DSI_PRV_SQCH1_CLEAR_MASK    (R_DSILINK_SQCH1SCR_AACTFIN_Msk | \
+    R_DSILINK_SQCH1SCR_ADESFIN_Msk | \
+    R_DSILINK_SQCH1SCR_SIZEERR_Msk | \
+    R_DSILINK_SQCH1SCR_TXIBERR_Msk | \
+    R_DSILINK_SQCH1SCR_RXFERR_Msk | \
+    R_DSILINK_SQCH1SCR_RXFAIL_Msk | \
+    R_DSILINK_SQCH1SCR_RXPFAIL_Msk | \
+    R_DSILINK_SQCH1SCR_RXCORERR_Msk | \
+    R_DSILINK_SQCH1SCR_RXAKE_Msk)
+#define MIPI_DSI_PRV_RX_CLEAR_MASK    (R_DSILINK_RXSCR_BTAREND_Msk | \
+    R_DSILINK_RXSCR_LRXHTO_Msk | \
+    R_DSILINK_RXSCR_TATO_Msk | \
+    R_DSILINK_RXSCR_RXRESP_Msk | \
+    R_DSILINK_RXSCR_RXEOTP_Msk | \
+    R_DSILINK_RXSCR_RXACK_Msk | \
+    R_DSILINK_RXSCR_EXTEDET_Msk | \
+    R_DSILINK_RXSCR_MLFERR_Msk | \
+    R_DSILINK_RXSCR_ECCERRM_Msk | \
+    R_DSILINK_RXSCR_UNEXERR_Msk | \
+    R_DSILINK_RXSCR_WCERR_Msk | \
+    R_DSILINK_RXSCR_CRCERR_Msk | \
+    R_DSILINK_RXSCR_IBERR_Msk | \
+    R_DSILINK_RXSCR_RXOVFERR_Msk | \
+    R_DSILINK_RXSCR_PRTOERR_Msk | \
+    R_DSILINK_RXSCR_NORESERR_Msk | \
+    R_DSILINK_RXSCR_RSIZEERR_Msk | \
+    R_DSILINK_RXSCR_ECCERRS_Msk | \
+    R_DSILINK_RXSCR_RXAKE_Msk)
+#define MIPI_DSI_PRV_VM_CLEAR_MASK    (R_DSILINK_VMSCR_START_Msk | \
+    R_DSILINK_VMSCR_STOP_Msk | \
+    R_DSILINK_VMSCR_VIRDY_Msk | \
+    R_DSILINK_VMSCR_TIMERR_Msk | \
+    R_DSILINK_VMSCR_VBUFUDF_Msk | \
+    R_DSILINK_VMSCR_VBUFOVF_Msk)
+#define MIPI_DSI_PRV_FERR_CLEAR_MASK    (R_DSILINK_FERRSCR_HTXTO_Msk | \
+    R_DSILINK_FERRSCR_LRXHTO_Msk | \
+    R_DSILINK_FERRSCR_TATO_Msk | \
+    R_DSILINK_FERRSCR_ESCENT_Msk | \
+    R_DSILINK_FERRSCR_SYNCESC_Msk | \
+    R_DSILINK_FERRSCR_CTRL_Msk | \
+    R_DSILINK_FERRSCR_CLP0_Msk | \
+    R_DSILINK_FERRSCR_CLP1_Msk)
+#define MIPI_DSI_PRV_PL_CLEAR_MASK    (R_DSILINK_PLSCR_DL0RX2TX_Msk | \
+    R_DSILINK_PLSCR_DL0TX2RX_Msk | \
+    R_DSILINK_PLSCR_CLULPENT_Msk | \
+    R_DSILINK_PLSCR_CLULPEXT_Msk | \
+    R_DSILINK_PLSCR_CLLP2HS_Msk | \
+    R_DSILINK_PLSCR_CLHS2LP_Msk | \
+    R_DSILINK_PLSCR_DLULPENT_Msk | \
+    R_DSILINK_PLSCR_DLULPEXT_Msk)
+#define MIPI_DSI_PRV_AKEP_CLEAR_MASK    (R_DSILINK_AKEPSCR_AEREP_Msk | \
+    R_DSILINK_AKEPSCR_AVC_Msk)
+#endif
+
 /***********************************************************************************************************************
  * Typedef definitions
  **********************************************************************************************************************/
@@ -118,6 +182,14 @@ fsp_err_t R_MIPI_DSI_Open (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cfg_t co
     FSP_ERROR_RETURN(MIPI_DSI_OPEN != p_ctrl->open, FSP_ERR_ALREADY_OPEN);
 #endif
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1 && BSP_TZ_SECURE_BUILD
+    /* This API has no non-secure argument-storage registration. Never expose the secure stack. */
+    FSP_ERROR_RETURN(NULL == cmse_check_address_range((void *) p_cfg->p_callback,
+                                                     sizeof(void *),
+                                                     CMSE_AU_NONSECURE),
+                     FSP_ERR_NO_CALLBACK_MEMORY);
+#endif
+
     FSP_ERROR_RETURN(R_GLCDC->SYSCNT.PANEL_CLK_b.CLKEN, FSP_ERR_INVALID_STATE);
 
     /* Initialize internal state */
@@ -148,8 +220,10 @@ fsp_err_t R_MIPI_DSI_Open (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cfg_t co
     /* Clear any active status bits */
     R_DSILINK->SQCH0SCR = R_DSILINK_SQCH0SCR_AACTFIN_Msk |
                           R_DSILINK_SQCH0SCR_ADESFIN_Msk |
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 0
                           R_DSILINK_SQCH0SCR_DABORT_Msk |
                           R_DSILINK_SQCH0SCR_SIZEERR_Msk |
+#endif
                           R_DSILINK_SQCH0SCR_TXIBERR_Msk |
                           R_DSILINK_SQCH0SCR_RXFERR_Msk |
                           R_DSILINK_SQCH0SCR_RXFAIL_Msk |
@@ -158,7 +232,9 @@ fsp_err_t R_MIPI_DSI_Open (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cfg_t co
                           R_DSILINK_SQCH0SCR_RXAKE_Msk;
     R_DSILINK->SQCH1SCR = R_DSILINK_SQCH1SCR_AACTFIN_Msk |
                           R_DSILINK_SQCH1SCR_ADESFIN_Msk |
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 0
                           R_DSILINK_SQCH1SCR_DABORT_Msk |
+#endif
                           R_DSILINK_SQCH1SCR_SIZEERR_Msk |
                           R_DSILINK_SQCH1SCR_TXIBERR_Msk |
                           R_DSILINK_SQCH1SCR_RXFERR_Msk |
@@ -177,7 +253,9 @@ fsp_err_t R_MIPI_DSI_Open (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cfg_t co
                        R_DSILINK_RXSCR_TATO_Msk |
                        R_DSILINK_RXSCR_RXRESP_Msk |
                        R_DSILINK_RXSCR_RXEOTP_Msk |
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 0
                        R_DSILINK_RXSCR_RXTE_Msk |
+#endif
                        R_DSILINK_RXSCR_RXACK_Msk |
                        R_DSILINK_RXSCR_EXTEDET_Msk |
                        R_DSILINK_RXSCR_MLFERR_Msk |
@@ -354,6 +432,12 @@ fsp_err_t R_MIPI_DSI_UlpsEnter (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_lan
     FSP_ERROR_RETURN(!((MIPI_DSI_LANE_CLOCK & lane) && R_DSILINK->HSCLKSETR_b.HSCLMD), FSP_ERR_INVALID_MODE);
 #endif
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    /* HM 66.2.6: CLENT requires HSCLST=0, including noncontinuous mode. */
+    FSP_ERROR_RETURN(!(MIPI_DSI_LANE_CLOCK & lane) || !R_DSILINK->HSCLKSETR_b.HSCLST,
+                     FSP_ERR_INVALID_MODE);
+#endif
+
     /* Do not set 'enter ULPS' bit if lane is already in ULPS */
     uint32_t ulpscr = ((MIPI_DSI_LANE_DATA_ALL & lane) && !p_ctrl->data_ulps_active) ? R_DSILINK_ULPSCR_DLENT_Msk : 0;
     ulpscr |=
@@ -427,6 +511,20 @@ fsp_err_t R_MIPI_DSI_Command (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cmd_t
     bool    lp               = (0 != (p_cmd->flags & MIPI_DSI_CMD_FLAG_LOW_POWER));
     uint8_t sequence_channel = (lp ? 0 : 1);                                                                      // Sequence Channel (distinct from Virtual Channel)
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    if (p_cmd->flags & MIPI_DSI_CMD_FLAG_AUX_OPERATION)
+    {
+        /* Low flag bits are the action code, not BTA, for auxiliary operations.
+         * HM 66.2.63 permits only Reset-Trigger (0) and No-operation (8). */
+        uint32_t action_code = (uint32_t) p_cmd->flags &
+                               ~((uint32_t) MIPI_DSI_CMD_FLAG_AUX_OPERATION |
+                                 (uint32_t) MIPI_DSI_CMD_FLAG_LOW_POWER);
+        FSP_ERROR_RETURN((0U == action_code) || (8U == action_code), FSP_ERR_INVALID_ARGUMENT);
+        FSP_ERROR_RETURN(0U == p_cmd->tx_len, FSP_ERR_INVALID_ARGUMENT);
+        FSP_ERROR_RETURN(!R_DSILINK->LINKSR_b.VRUN, FSP_ERR_INVALID_ARGUMENT);
+    }
+#endif
+
 #if MIPI_DSI_CFG_PARAM_CHECKING_ENABLE
     FSP_ERROR_RETURN(MIPI_DSI_OPEN == p_ctrl->open, FSP_ERR_NOT_OPEN);
     FSP_ERROR_RETURN(p_cmd->p_tx_buffer || (p_cmd->tx_len == 0), FSP_ERR_INVALID_ARGUMENT);                       // Tx buffer must be supplied for non-zero Tx length
@@ -434,6 +532,7 @@ fsp_err_t R_MIPI_DSI_Command (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cmd_t
     FSP_ERROR_RETURN(!((sequence_channel == 0) && (p_cmd->tx_len > MIPI_MAX_CH0_CMD)), FSP_ERR_INVALID_ARGUMENT); // Max Tx size is 128 for channel 0 (LP Mode)
     FSP_ERROR_RETURN(!((sequence_channel == 1) && (p_cmd->tx_len > MIPI_MAX_CH1_CMD)), FSP_ERR_INVALID_ARGUMENT); // Max Tx size is 1k for channel 1 (HS Mode)
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 0
     /* AUX Operation */
     bool aux = (p_cmd->flags & MIPI_DSI_CMD_FLAG_AUX_OPERATION);
     if (aux)
@@ -446,6 +545,8 @@ fsp_err_t R_MIPI_DSI_Command (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_cmd_t
         FSP_ERROR_RETURN(!R_DSILINK->LINKSR_b.VRUN, FSP_ERR_INVALID_ARGUMENT);                                   // Aux operation is prohibited when video mode is running
         FSP_ERROR_RETURN(!(initial_skew || periodic_skew) || (sequence_channel == 1), FSP_ERR_INVALID_ARGUMENT); // Periodic and Initial skew must be HS
     }
+
+#endif
 
     FSP_ERROR_RETURN(!(lp && R_DSILINK->LINKSR_b.VRUN), FSP_ERR_IN_USE);                                         // LP not allowed during video mode operation. See RA8D1 UM 58.2.61 (R01UH0995EJ0060)
 #else
@@ -498,7 +599,11 @@ fsp_err_t R_MIPI_DSI_StatusGet (mipi_dsi_ctrl_t * const p_api_ctrl, mipi_dsi_sta
     p_status->ack_err_accumulated.bits = R_DSILINK->AKEPACMSR;
 
     /* Clear accumulated error bits after reading */
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->AKEPSCR = p_status->ack_err_accumulated.bits & MIPI_DSI_PRV_AKEP_CLEAR_MASK;
+#else
     R_DSILINK->AKEPSCR = p_status->ack_err_accumulated.bits;
+#endif
 
     return FSP_SUCCESS;
 }
@@ -539,7 +644,11 @@ static fsp_err_t dsi_stop (mipi_dsi_instance_ctrl_t * p_ctrl)
         g_video_started = false;
 
         /* Clear any stale VMSR status */
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+        R_DSILINK->VMSCR = R_DSILINK->VMSR & MIPI_DSI_PRV_VM_CLEAR_MASK;
+#else
         R_DSILINK->VMSCR = R_DSILINK->VMSR;
+#endif
     }
 
     return FSP_SUCCESS;
@@ -572,8 +681,13 @@ static uint32_t dsi_cmd_sequence_register_a (mipi_dsi_cmd_t * p_cmd)
         short_data[1] = (p_cmd->tx_len > 1) ? p_cmd->p_tx_buffer[1] : 0U;
     }
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    uint8_t bta = (p_cmd->flags & MIPI_DSI_CMD_FLAG_AUX_OPERATION) ? 0U :
+                  (uint8_t) (p_cmd->flags & MIPI_DSI_CMD_FLAG_BTA_NO_WRITE);
+#else
     uint8_t bta =
         (p_cmd->flags & (MIPI_DSI_CMD_FLAG_BTA | MIPI_DSI_CMD_FLAG_BTA_READ | MIPI_DSI_CMD_FLAG_BTA_NO_WRITE));
+#endif
 
     uint8_t  lp = (0 != (p_cmd->flags & MIPI_DSI_CMD_FLAG_LOW_POWER));
     uint32_t sequence_register_a =
@@ -610,7 +724,13 @@ static uint32_t dsi_cmd_sequence_register_b (mipi_dsi_cmd_t * p_cmd)
 static uint32_t dsi_cmd_sequence_register_c (mipi_dsi_cmd_t * p_cmd)
 {
     bool     aux_operation       = (p_cmd->flags & MIPI_DSI_CMD_FLAG_AUX_OPERATION);
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    uint32_t actcode = aux_operation ? ((uint32_t) p_cmd->flags &
+                                       ~((uint32_t) MIPI_DSI_CMD_FLAG_AUX_OPERATION |
+                                         (uint32_t) MIPI_DSI_CMD_FLAG_LOW_POWER)) : 0U;
+#else
     bool     actcode             = aux_operation ? (p_cmd->flags & 0xF) : 0; // Always store Rx result in slot 0
+#endif
     uint32_t sequence_register_c =
         (((uint32_t) 0 << R_DSILINK_SQCH0DSC0CR_FINACT_Pos) & R_DSILINK_SQCH0DSC0CR_FINACT_Msk) |
         (((uint32_t) aux_operation << R_DSILINK_SQCH0DSC0CR_AUXOP_Pos) & R_DSILINK_SQCH0DSC0CR_AUXOP_Msk) |
@@ -629,7 +749,13 @@ uint32_t dsi_cmd_sequence_register_d (mipi_dsi_cmd_t * p_cmd)
     uint8_t bta =
         (p_cmd->flags & (MIPI_DSI_CMD_FLAG_BTA | MIPI_DSI_CMD_FLAG_BTA_READ | MIPI_DSI_CMD_FLAG_BTA_NO_WRITE));
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    bool read = !(p_cmd->flags & MIPI_DSI_CMD_FLAG_AUX_OPERATION) &&
+                (0U != (bta & MIPI_DSI_CMD_FLAG_BTA_READ));
+    return (uint32_t) (read ? p_cmd->p_rx_buffer : p_cmd->p_tx_buffer);
+#else
     return (uint32_t) (bta ? p_cmd->p_rx_buffer : p_cmd->p_tx_buffer); // This buffer address is used for both Tx and Rx.
+#endif
 }
 
 /*******************************************************************************************************************//**
@@ -715,7 +841,13 @@ static void dsi_enter_reset ()
 static void dsi_init_timing (mipi_dsi_cfg_t const * const p_cfg)
 {
     /* Enable clock and data lanes and set number of lanes to use */
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    /* HM 66.2.3 requires reserved bit 16 to be written as one. */
+    R_DSILINK->TXSETR = 0x00010000U | R_DSILINK_TXSETR_DLEN_Msk | R_DSILINK_TXSETR_CLEN_Msk |
+                       (p_cfg->num_lanes - 1);
+#else
     R_DSILINK->TXSETR = R_DSILINK_TXSETR_DLEN_Msk | R_DSILINK_TXSETR_CLEN_Msk | (p_cfg->num_lanes - 1);
+#endif
 
     /* Set ULPS wakeup period */
     R_DSILINK->ULPSSETR_b.WKUP = p_cfg->ulps_wakeup_period;
@@ -843,7 +975,11 @@ static void dsi_init_video (mipi_dsi_cfg_t const * p_cfg)
          R_DSILINK_VMPPSETR_VC_Msk);
     R_DSILINK->VMVSSETR =
         ((p_cfg->vertical_sync_lines << R_DSILINK_VMVSSETR_VSA_Pos) & R_DSILINK_VMVSSETR_VSA_Msk) |
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+        (((uint32_t) !p_cfg->vertical_sync_polarity << R_DSILINK_VMVSSETR_VSPOL_Pos) &
+#else
         (((uint32_t) p_cfg->vertical_sync_polarity << R_DSILINK_VMVSSETR_VSPOL_Pos) &
+#endif
          R_DSILINK_VMVSSETR_VSPOL_Msk) |
         ((p_cfg->vertical_active_lines << R_DSILINK_VMVSSETR_VACT_Pos) &
          R_DSILINK_VMVSSETR_VACT_Msk);
@@ -853,7 +989,11 @@ static void dsi_init_video (mipi_dsi_cfg_t const * p_cfg)
          R_DSILINK_VMVPSETR_VFP_Msk);
     R_DSILINK->VMHSSETR =
         ((p_cfg->horizontal_sync_lines << R_DSILINK_VMHSSETR_HSA_Pos) & R_DSILINK_VMHSSETR_HSA_Msk) |
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+        (((uint32_t) !p_cfg->horizontal_sync_polarity << R_DSILINK_VMHSSETR_HSPOL_Pos) &
+#else
         (((uint32_t) p_cfg->horizontal_sync_polarity << R_DSILINK_VMHSSETR_HSPOL_Pos) &
+#endif
          R_DSILINK_VMHSSETR_HSPOL_Msk) |
         ((p_cfg->horizontal_active_lines << R_DSILINK_VMHSSETR_HACT_Pos) &
          R_DSILINK_VMHSSETR_HACT_Msk);
@@ -862,6 +1002,10 @@ static void dsi_init_video (mipi_dsi_cfg_t const * p_cfg)
         ((p_cfg->horizontal_front_porch << R_DSILINK_VMHPSETR_HFP_Pos) &
          R_DSILINK_VMHPSETR_HFP_Msk);
     R_DSILINK->VMSET1R =
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+        /* HM 66.2.44: bits 16,17,20,22 are mandatory ones; bit 28 must be zero. */
+        0x00530000U |
+#endif
         ((p_cfg->video_mode_delay << R_DSILINK_VMSET1R_DLY_Pos) & R_DSILINK_VMSET1R_DLY_Msk);
 }
 
@@ -901,7 +1045,11 @@ void mipi_dsi_seq0_isr (void) {
 
     /* Clear sequence channel 0 status register bits */
     uint32_t sqch0sr_bits = R_DSILINK->SQCH0SR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->SQCH0SCR = sqch0sr_bits & MIPI_DSI_PRV_SQCH0_CLEAR_MASK;
+#else
     R_DSILINK->SQCH0SCR = sqch0sr_bits; // SIZEERR is reserved for SQCH0SCR and should be read and written as zero
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);
@@ -927,7 +1075,11 @@ void mipi_dsi_seq1_isr (void) {
 
     /* Clear sequence channel 1 status register bits */
     uint32_t sqch1sr_bits = R_DSILINK->SQCH1SR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->SQCH1SCR = sqch1sr_bits & MIPI_DSI_PRV_SQCH1_CLEAR_MASK;
+#else
     R_DSILINK->SQCH1SCR = sqch1sr_bits;
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);
@@ -953,7 +1105,11 @@ void mipi_dsi_vin1_isr (void) {
 
     /* Clear video mode status register bits */
     uint32_t vmsr_bits = R_DSILINK->VMSR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->VMSCR = vmsr_bits & MIPI_DSI_PRV_VM_CLEAR_MASK;
+#else
     R_DSILINK->VMSCR = vmsr_bits;
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);
@@ -1001,7 +1157,11 @@ void mipi_dsi_rcv_isr (void) {
 
     /* Clear recieve status register bits */
     uint32_t rxsr_bits = R_DSILINK->RXSR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->RXSCR = rxsr_bits & MIPI_DSI_PRV_RX_CLEAR_MASK;
+#else
     R_DSILINK->RXSCR = rxsr_bits;
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);
@@ -1010,11 +1170,28 @@ void mipi_dsi_rcv_isr (void) {
     mipi_dsi_callback_args_t   args;
     args.event     = MIPI_DSI_EVENT_RECEIVE;
     args.rx_status = (mipi_dsi_receive_status_t) rxsr_bits;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    /* HM 66.2 requires a 32-bit access. The callback receives a RAM snapshot,
+     * not a packed pointer whose fields could generate byte accesses to MMIO. */
+    union
+    {
+        uint32_t                  word;
+        mipi_dsi_receive_result_t result;
+    } receive_result;
+    receive_result.word = R_DSILINK->RXRSS0R;
+    args.p_result = &receive_result.result;
+#else
     args.p_result  = (mipi_dsi_receive_result_t *) &R_DSILINK->RXRSS0R;
+#endif
     args.p_context = p_ctrl->p_context;
     dsi_call_callback(p_ctrl, &args);
 
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    /* Release the consumed slot (HM 66.2.24), not its independent overwrite flag. */
+    R_DSILINK->RXRSSCR = R_DSILINK_RXRSSCR_SLT0VLD_Msk;
+#else
     R_DSILINK->RXRINFOOWSCR = R_DSILINK_RXRINFOOWSCR_SL0OW_Msk; // Clear slot 0 after reading
+#endif
 
     /* Restore context if RTOS is used */
     FSP_CONTEXT_RESTORE;
@@ -1030,7 +1207,11 @@ void mipi_dsi_ferr_isr (void) {
 
     /* Clear recieve status register bits */
     uint32_t ferrsr_bits = R_DSILINK->FERRSR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->FERRSCR = ferrsr_bits & MIPI_DSI_PRV_FERR_CLEAR_MASK;
+#else
     R_DSILINK->FERRSCR = ferrsr_bits;
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);
@@ -1056,7 +1237,11 @@ void mipi_dsi_ppi_isr (void) {
 
     /* Clear PLSR */
     uint32_t plsr_bits = R_DSILINK->PLSR;
+#if BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE == 1
+    R_DSILINK->PLSCR = plsr_bits & MIPI_DSI_PRV_PL_CLEAR_MASK;
+#else
     R_DSILINK->PLSCR = plsr_bits;
+#endif
 
     IRQn_Type irq = R_FSP_CurrentIrqGet();
     R_BSP_IrqStatusClear(irq);

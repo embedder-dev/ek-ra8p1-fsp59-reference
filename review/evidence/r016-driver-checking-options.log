@@ -1,0 +1,7 @@
+ok config get validation/ra8p1/review-drivers/review_r015_mram_cpu0 (2.4 s)
+bsp (1 properties):
+  config.bsp.common.checking = config.bsp.common.checking.disabled
+stacks (2):
+  module.driver.ioport_on_ioport.0 (g_ioport I/O Port (r_ioport))
+  module.driver.flash_on_mram.1826614135 (g_mram0 MRAM (r_mram))
+more: --module <driver|id> for a stack's properties, --creatable [filter] for modules to add, --bsp [filter] for BSP properties

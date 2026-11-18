@@ -1,0 +1,659 @@
+{
+  "schema": 1,
+  "device": "R7KA8P1KF",
+  "scope": "HDR-T02..T06, HDR-C07/C08: layout-equivalent FSP5.9 public vocabulary; no incompatible-IP aliases.",
+  "types": [
+    {
+      "name": "R_DBGCFGINF_Type",
+      "size": "0x4",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a77.2.26, pp.1\u20132 (added by TN-RA*-A0176A/E, 2026-07-01)",
+      "members": [
+        {
+          "name": "DBGCFGINF",
+          "offset": "0x0",
+          "width": 32,
+          "access": "R",
+          "fields": [
+            {
+              "name": "BTCPU",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a77.2.26, pp.1\u20132 (added by TN-RA*-A0176A/E, 2026-07-01)",
+          "reset_note": "Programmed value; 0xFFFFFFFF describes blank products only, not a universal reset value. Bits31:1 read the programmed value. No programming interface is exposed."
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_DBGCFGINF",
+      "type": "R_DBGCFGINF_Type",
+      "secure": "0x02C9F04C",
+      "nonsecure": "0x12C9F04C",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a77.2.26, pp.1\u20132 (added by TN-RA*-A0176A/E, 2026-07-01)"
+    }
+  ],
+  "register_updates": [
+    {
+      "type": "R_GPT0_Type",
+      "register": "GTSTR",
+      "expected": {
+        "offset": "0x4",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a723.2.2, p.896",
+      "field_aliases": {
+        "CSTRT0": [
+          "CSTRT"
+        ]
+      }
+    },
+    {
+      "type": "R_IWDT_Type",
+      "register": "IWDTRR",
+      "expected": {
+        "offset": "0x0",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a729.2.1, p.1282",
+      "field_aliases": {
+        "REFRESH": [
+          "IWDTRR"
+        ]
+      }
+    },
+    {
+      "type": "R_I3C0_Type",
+      "register": "SVST",
+      "expected": {
+        "offset": "0x214",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a741.2.59, p.2524",
+      "field_aliases": {
+        "SVAF": [
+          "SVAFn"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RSECCNT",
+      "expected": {
+        "offset": "0x2",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.6, p.1233",
+      "view": "BCNT0",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT0"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RMINCNT",
+      "expected": {
+        "offset": "0x4",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.6, p.1233",
+      "view": "BCNT1",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT1"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RHRCNT",
+      "expected": {
+        "offset": "0x6",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.6, p.1233",
+      "view": "BCNT2",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT2"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RWKCNT",
+      "expected": {
+        "offset": "0x8",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.6, p.1233",
+      "view": "BCNT3",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT3"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RSECAR",
+      "expected": {
+        "offset": "0x10",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.14, p.1238",
+      "view": "BCNT0AR",
+      "field_aliases": {
+        "BCNTAR": [
+          "BCNT0AR"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RMINAR",
+      "expected": {
+        "offset": "0x12",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.14, p.1238",
+      "view": "BCNT1AR",
+      "field_aliases": {
+        "BCNTAR": [
+          "BCNT1AR"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RHRAR",
+      "expected": {
+        "offset": "0x14",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.14, p.1238",
+      "view": "BCNT2AR",
+      "field_aliases": {
+        "BCNTAR": [
+          "BCNT2AR"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_Type",
+      "register": "RWKAR",
+      "expected": {
+        "offset": "0x16",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.14, p.1238",
+      "view": "BCNT3AR",
+      "field_aliases": {
+        "BCNTAR": [
+          "BCNT3AR"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_CP_Type",
+      "register": "RSEC",
+      "expected": {
+        "offset": "0x2",
+        "width": 8,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.33, p.1251",
+      "view": "BCNT0",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT0CP"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_CP_Type",
+      "register": "RMIN",
+      "expected": {
+        "offset": "0x4",
+        "width": 8,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.33, p.1251",
+      "view": "BCNT1",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT1CP"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_CP_Type",
+      "register": "RHR",
+      "expected": {
+        "offset": "0x6",
+        "width": 8,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.33, p.1251",
+      "view": "BCNT2",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT2CP"
+        ]
+      }
+    },
+    {
+      "type": "R_RTC_CP_Type",
+      "register": "RDAY",
+      "expected": {
+        "offset": "0xa",
+        "width": 8,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a727.2.33, p.1251",
+      "view": "BCNT3",
+      "field_aliases": {
+        "BCNT": [
+          "BCNT3CP"
+        ]
+      }
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_ARG",
+      "expected": {
+        "offset": "0x8",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.2, p.3134",
+      "add_fields": [
+        {
+          "name": "SD_ARG",
+          "pos": 0,
+          "bits": 32,
+          "access": "R/W"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_ARG1",
+      "expected": {
+        "offset": "0xc",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.3, p.3135",
+      "add_fields": [
+        {
+          "name": "SD_ARG1",
+          "pos": 0,
+          "bits": 16,
+          "access": "R/W"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_SECCNT",
+      "expected": {
+        "offset": "0x14",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.5, p.3136",
+      "add_fields": [
+        {
+          "name": "SD_SECCNT",
+          "pos": 0,
+          "bits": 32,
+          "access": "R/W"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP10",
+      "expected": {
+        "offset": "0x18",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.6, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP10",
+          "pos": 0,
+          "bits": 32,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP1",
+      "expected": {
+        "offset": "0x1c",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.7, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP1",
+          "pos": 0,
+          "bits": 16,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP32",
+      "expected": {
+        "offset": "0x20",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.6, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP32",
+          "pos": 0,
+          "bits": 32,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP3",
+      "expected": {
+        "offset": "0x24",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.7, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP3",
+          "pos": 0,
+          "bits": 16,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP54",
+      "expected": {
+        "offset": "0x28",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.6, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP54",
+          "pos": 0,
+          "bits": 32,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_RSP5",
+      "expected": {
+        "offset": "0x2c",
+        "width": 32,
+        "access": "R"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.7, p.3137",
+      "add_fields": [
+        {
+          "name": "SD_RSP5",
+          "pos": 0,
+          "bits": 16,
+          "access": "R"
+        }
+      ]
+    },
+    {
+      "type": "R_SDHI0_Type",
+      "register": "SD_BUF0",
+      "expected": {
+        "offset": "0x60",
+        "width": 32,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a748.2.19, p.3153",
+      "field_aliases": {
+        "SD_BUF0": ["SD_BUF"]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "PRCR_S",
+      "expected": {
+        "offset": "0x3FA",
+        "width": 16,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a713.2.1, p.525",
+      "aliases": [
+        "PRCR"
+      ]
+    },
+    {
+      "type": "R_SRAM_Type",
+      "register": "SRAMPRCR_S",
+      "expected": {
+        "offset": "0x00",
+        "width": 16,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a759.2.4, p.3540",
+      "aliases": [
+        "SRAMPRCR"
+      ]
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "SCICKDIVCR",
+      "expected": {
+        "offset": "0x054",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.49, p.366",
+      "field_aliases": {
+        "SCICKDIV": [
+          "CKDIV"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "SCICKCR",
+      "expected": {
+        "offset": "0x055",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.54, p.369",
+      "field_aliases": {
+        "SCICKSEL": [
+          "CKSEL"
+        ],
+        "SCICKSREQ": [
+          "CKSREQ"
+        ],
+        "SCICKSRDY": [
+          "CKSRDY"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "SPICKDIVCR",
+      "expected": {
+        "offset": "0x056",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.50, p.367",
+      "field_aliases": {
+        "SPICKDIV": [
+          "CKDIV"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "SPICKCR",
+      "expected": {
+        "offset": "0x057",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.55, p.370",
+      "field_aliases": {
+        "SPICKSEL": [
+          "CKSEL"
+        ],
+        "SPICKSREQ": [
+          "CKSREQ"
+        ],
+        "SPICKSRDY": [
+          "CKSRDY"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "ADCCKDIVCR",
+      "expected": {
+        "offset": "0x05A",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.51, p.367",
+      "field_aliases": {
+        "ADCCKDIV": [
+          "CKDIV"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "ADCCKCR",
+      "expected": {
+        "offset": "0x05B",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.56, p.372",
+      "field_aliases": {
+        "ADCCKSEL": [
+          "CKSEL"
+        ],
+        "ADCCKSREQ": [
+          "CKSREQ"
+        ],
+        "ADCCKSRDY": [
+          "CKSRDY"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "GPTCKDIVCR",
+      "expected": {
+        "offset": "0x05C",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.52, p.368",
+      "field_aliases": {
+        "GPTCKDIV": [
+          "CKDIV"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "GPTCKCR",
+      "expected": {
+        "offset": "0x05D",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.57, p.373",
+      "field_aliases": {
+        "GPTCKSEL": [
+          "CKSEL"
+        ],
+        "GPTCKSREQ": [
+          "CKSREQ"
+        ],
+        "GPTCKSRDY": [
+          "CKSRDY"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "LCDCKDIVCR",
+      "expected": {
+        "offset": "0x05E",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.53, p.369",
+      "field_aliases": {
+        "LCDCKDIV": [
+          "CKDIV"
+        ]
+      }
+    },
+    {
+      "type": "R_SYSTEM_Type",
+      "register": "LCDCKCR",
+      "expected": {
+        "offset": "0x05F",
+        "width": 8,
+        "access": "R/W"
+      },
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a79.2.58, p.374",
+      "field_aliases": {
+        "LCDCKSEL": [
+          "CKSEL"
+        ],
+        "LCDCKSREQ": [
+          "CKSREQ"
+        ],
+        "LCDCKSRDY": [
+          "CKSRDY"
+        ]
+      }
+    }
+  ]
+}

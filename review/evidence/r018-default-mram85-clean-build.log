@@ -1,0 +1,9 @@
+ok build validation/ra8p1/compatibility/defaults/r018 (1.5 s)
+verified: yes — <repo>/validation/ra8p1/compatibility/defaults/r018/Debug/r018_def_mram85.elf (0 errors, 1 warnings, relinked now, Debug)
+artifacts (stat from disk): r018/Debug/r018_def_mram85.elf 322760 B 14:52:50, .srec 22100 B 14:52:50, .map 138380 B 14:52:50, .sbd 5476 B 14:52:50
+clean: ok, 0 errors, 0 warnings (76ms)
+full: ok, 0 errors, 1 warnings (464ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794923569642-r018_def_mram85-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)

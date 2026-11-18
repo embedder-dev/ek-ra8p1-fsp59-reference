@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <raModuleDescription>
     <config id="config.driver.glcdc" path="fsp_cfg/r_glcdc_cfg.h" version="0">
         <property default="config.driver.glcdc.param_checking_enable.bsp" display="Parameter Checking" id="config.driver.glcdc.param_checking_enable" description="If selected, code for parameter checking is included in the build.">
@@ -729,6 +729,7 @@
             <option display="Truncate" id="module.driver.display.dithering_mode.dithering_mode_trancate" value="GLCDC_DITHERING_MODE_TRUNCATE"/>
             <option display="Round off" id="module.driver.display.dithering_mode.dithering_mode_round_off" value="GLCDC_DITHERING_MODE_ROUND_off"/>
             <option display="2x2 Pattern" id="module.driver.display.dithering_mode.dithering_mode_2x2pattern" value="GLCDC_DITHERING_MODE_2X2PATTERN"/>
+            <export>(testExists("${interface.mcu.glcdc.global_gamma_switch}") &amp;&amp; ("${module.driver.display.dithering_mode}" === "GLCDC_DITHERING_MODE_ROUND_off")) ? "GLCDC_DITHERING_MODE_ROUND_OFF" : "${module.driver.display.dithering_mode}"</export>
         </property>
         <property default="module.driver.display.dithering_pattern_A.dithering_pattern_11" display="Dithering|Pattern A" id="module.driver.display.dithering_pattern_A" description="Select the dithering pattern.">
             <option display="Pattern 00" id="module.driver.display.dithering_pattern_A.dithering_pattern_00" value="GLCDC_DITHERING_PATTERN_00"/>
@@ -755,6 +756,8 @@
             <option display="Pattern 11" id="module.driver.display.dithering_pattern_D.dithering_pattern_11" value="GLCDC_DITHERING_PATTERN_11"/>
         </property>
         <peripheral name="GLCDC" component="glcdc0" />
+        <!-- For MCU pin mappings generated with MPC Designer Tool. -->
+        <peripheral name="GLCDC" component="glcdc" />
         <header>
 
             #define GLCDC_CFG_LAYER_1_ENABLE (${module.driver.display.input0.enable})

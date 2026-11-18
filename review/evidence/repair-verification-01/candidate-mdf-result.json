@@ -1,0 +1,14 @@
+{
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 -B -m unittest -v test_ra8p1_candidate_mdf",
+  "started_utc": "2026-11-17T09:15:58.059136+00:00",
+  "before_sha256": {
+    "tools/test_ra8p1_candidate_mdf.py": "98cb3020bc41739d9cd2cab3643f3de435bd6dc1696e90f183306e5b449edaf7",
+    "tools/ra8p1/verify_candidate.py": "06989f1d4e51fba64f6f13289cb2682e8539b435ef223138d43ab462d9906c61"
+  },
+  "exit_code": 0,
+  "ended_utc": "2026-11-17T09:15:58.137141+00:00",
+  "after_sha256": {
+    "tools/test_ra8p1_candidate_mdf.py": "98cb3020bc41739d9cd2cab3643f3de435bd6dc1696e90f183306e5b449edaf7",
+    "tools/ra8p1/verify_candidate.py": "06989f1d4e51fba64f6f13289cb2682e8539b435ef223138d43ab462d9906c61"
+  }
+}

@@ -1,0 +1,1550 @@
+{
+  "device": "R7KA8P1AD",
+  "version": "1.10.02",
+  "sha256": "e72e5b85682d5bb01b669187d47173211e794bf25d882b432dbb8a4f3a4ccf65",
+  "representation": "supplied parsed JSON; original SVD XML not found in project; fitted KF applicability to adjudicate from manual",
+  "peripherals": [
+    {
+      "name": "TSD",
+      "base": "0x2c1eda0",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "TSD_NS",
+      "base": "0x12c1eda0",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "RMPU",
+      "base": "0x40000000",
+      "registers": 53,
+      "fields": 81
+    },
+    {
+      "name": "SRAM",
+      "base": "0x40002000",
+      "registers": 11,
+      "fields": 27
+    },
+    {
+      "name": "BUS",
+      "base": "0x40003000",
+      "registers": 74,
+      "fields": 209
+    },
+    {
+      "name": "ICU_COMMON",
+      "base": "0x40006000",
+      "registers": 34,
+      "fields": 131
+    },
+    {
+      "name": "CPSCU",
+      "base": "0x40008000",
+      "registers": 32,
+      "fields": 341
+    },
+    {
+      "name": "DMAC00",
+      "base": "0x4000a000",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMA0",
+      "base": "0x4000a800",
+      "registers": 3,
+      "fields": 6
+    },
+    {
+      "name": "DTC0",
+      "base": "0x4000ac00",
+      "registers": 6,
+      "fields": 7
+    },
+    {
+      "name": "ICU",
+      "base": "0x4000c000",
+      "registers": 10,
+      "fields": 197
+    },
+    {
+      "name": "CPU_CTRL",
+      "base": "0x4000f000",
+      "registers": 13,
+      "fields": 27
+    },
+    {
+      "name": "CPU_OCD",
+      "base": "0x40011000",
+      "registers": 8,
+      "fields": 13
+    },
+    {
+      "name": "CPU_DBG",
+      "base": "0x4001b000",
+      "registers": 9,
+      "fields": 27
+    },
+    {
+      "name": "CACHE",
+      "base": "0x4001c000",
+      "registers": 21,
+      "fields": 52
+    },
+    {
+      "name": "FCACHE",
+      "base": "0x4001c100",
+      "registers": 1,
+      "fields": 5
+    },
+    {
+      "name": "TCM",
+      "base": "0x4001c800",
+      "registers": 9,
+      "fields": 22
+    },
+    {
+      "name": "SYSC",
+      "base": "0x4001e000",
+      "registers": 149,
+      "fields": 489
+    },
+    {
+      "name": "IPC",
+      "base": "0x40020000",
+      "registers": 27,
+      "fields": 51
+    },
+    {
+      "name": "FACI",
+      "base": "0x4011e000",
+      "registers": 2,
+      "fields": 4
+    },
+    {
+      "name": "MRAM",
+      "base": "0x4013c000",
+      "registers": 40,
+      "fields": 87
+    },
+    {
+      "name": "ELC",
+      "base": "0x40201000",
+      "registers": 9,
+      "fields": 67
+    },
+    {
+      "name": "RTC",
+      "base": "0x40202000",
+      "registers": 36,
+      "fields": 84
+    },
+    {
+      "name": "IWDT",
+      "base": "0x40202200",
+      "registers": 5,
+      "fields": 10
+    },
+    {
+      "name": "CAC",
+      "base": "0x40202400",
+      "registers": 8,
+      "fields": 18
+    },
+    {
+      "name": "WDT0",
+      "base": "0x40202600",
+      "registers": 5,
+      "fields": 9
+    },
+    {
+      "name": "MSTP",
+      "base": "0x40203000",
+      "registers": 5,
+      "fields": 72
+    },
+    {
+      "name": "PSCU",
+      "base": "0x40204000",
+      "registers": 13,
+      "fields": 144
+    },
+    {
+      "name": "POEG",
+      "base": "0x40212000",
+      "registers": 4,
+      "fields": 60
+    },
+    {
+      "name": "ULPT0",
+      "base": "0x40220000",
+      "registers": 10,
+      "fields": 29
+    },
+    {
+      "name": "AGT0",
+      "base": "0x40221000",
+      "registers": 10,
+      "fields": 24
+    },
+    {
+      "name": "DAC0_B",
+      "base": "0x40233000",
+      "registers": 4,
+      "fields": 5
+    },
+    {
+      "name": "TSN",
+      "base": "0x40235000",
+      "registers": 1,
+      "fields": 2
+    },
+    {
+      "name": "ACMPHS0",
+      "base": "0x40236000",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "USBFS",
+      "base": "0x40250000",
+      "registers": 43,
+      "fields": 215
+    },
+    {
+      "name": "SDHI0",
+      "base": "0x40252000",
+      "registers": 30,
+      "fields": 91
+    },
+    {
+      "name": "PDMIF",
+      "base": "0x40256000",
+      "registers": 65,
+      "fields": 123
+    },
+    {
+      "name": "SSIE0",
+      "base": "0x4025d000",
+      "registers": 8,
+      "fields": 43
+    },
+    {
+      "name": "IIC0",
+      "base": "0x4025e000",
+      "registers": 1,
+      "fields": 8
+    },
+    {
+      "name": "IIC0WU",
+      "base": "0x4025e014",
+      "registers": 2,
+      "fields": 8
+    },
+    {
+      "name": "OSPI0_B",
+      "base": "0x40268000",
+      "registers": 33,
+      "fields": 138
+    },
+    {
+      "name": "DOTF0",
+      "base": "0x40268800",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "CRC",
+      "base": "0x40310000",
+      "registers": 8,
+      "fields": 6
+    },
+    {
+      "name": "DOC_B",
+      "base": "0x40311000",
+      "registers": 6,
+      "fields": 5
+    },
+    {
+      "name": "GPT320",
+      "base": "0x40322000",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT_OPS",
+      "base": "0x40323f00",
+      "registers": 1,
+      "fields": 17
+    },
+    {
+      "name": "GPT_GTCLK",
+      "base": "0x40323f10",
+      "registers": 1,
+      "fields": 1
+    },
+    {
+      "name": "PDG",
+      "base": "0x40324000",
+      "registers": 6,
+      "fields": 15
+    },
+    {
+      "name": "ADC_B",
+      "base": "0x40338000",
+      "registers": 115,
+      "fields": 668
+    },
+    {
+      "name": "GLCDC",
+      "base": "0x40342000",
+      "registers": 95,
+      "fields": 231
+    },
+    {
+      "name": "MIPI_DSI",
+      "base": "0x40346000",
+      "registers": 68,
+      "fields": 359
+    },
+    {
+      "name": "MIPI_PHY0",
+      "base": "0x40346c00",
+      "registers": 14,
+      "fields": 26
+    },
+    {
+      "name": "MIPI_CSI0",
+      "base": "0x40347000",
+      "registers": 29,
+      "fields": 176
+    },
+    {
+      "name": "VIN0",
+      "base": "0x40347400",
+      "registers": 39,
+      "fields": 116
+    },
+    {
+      "name": "CEU",
+      "base": "0x40348000",
+      "registers": 61,
+      "fields": 141
+    },
+    {
+      "name": "USBHS",
+      "base": "0x40351000",
+      "registers": 63,
+      "fields": 215
+    },
+    {
+      "name": "SCI0_B",
+      "base": "0x40358000",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SPI0_B",
+      "base": "0x4035c000",
+      "registers": 14,
+      "fields": 75
+    },
+    {
+      "name": "I3C",
+      "base": "0x4035f000",
+      "registers": 93,
+      "fields": 285
+    },
+    {
+      "name": "ECCMB0",
+      "base": "0x4036f200",
+      "registers": 4,
+      "fields": 18
+    },
+    {
+      "name": "CANFD0",
+      "base": "0x40380000",
+      "registers": 143,
+      "fields": 543
+    },
+    {
+      "name": "MFWD",
+      "base": "0x403c0000",
+      "registers": 249,
+      "fields": 738
+    },
+    {
+      "name": "ESWM",
+      "base": "0x403c8000",
+      "registers": 18,
+      "fields": 97
+    },
+    {
+      "name": "COMA",
+      "base": "0x403c9000",
+      "registers": 32,
+      "fields": 75
+    },
+    {
+      "name": "RMAC0",
+      "base": "0x403cb000",
+      "registers": 75,
+      "fields": 248
+    },
+    {
+      "name": "GWCA0",
+      "base": "0x403ce000",
+      "registers": 100,
+      "fields": 243
+    },
+    {
+      "name": "GPTP",
+      "base": "0x403e0000",
+      "registers": 41,
+      "fields": 51
+    },
+    {
+      "name": "PORT0",
+      "base": "0x40400000",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT1",
+      "base": "0x40400020",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORTA",
+      "base": "0x40400140",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTB",
+      "base": "0x40400160",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTC",
+      "base": "0x40400180",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTD",
+      "base": "0x404001a0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PFS",
+      "base": "0x40400800",
+      "registers": 106,
+      "fields": 482
+    },
+    {
+      "name": "DRW",
+      "base": "0x40444000",
+      "registers": 36,
+      "fields": 124
+    },
+    {
+      "name": "RMPU_NS",
+      "base": "0x50000000",
+      "registers": 53,
+      "fields": 81
+    },
+    {
+      "name": "SRAM_NS",
+      "base": "0x50002000",
+      "registers": 11,
+      "fields": 27
+    },
+    {
+      "name": "BUS_NS",
+      "base": "0x50003000",
+      "registers": 72,
+      "fields": 205
+    },
+    {
+      "name": "ICU_COMMON_NS",
+      "base": "0x50006000",
+      "registers": 34,
+      "fields": 131
+    },
+    {
+      "name": "CPSCU_NS",
+      "base": "0x50008000",
+      "registers": 28,
+      "fields": 337
+    },
+    {
+      "name": "DMAC00_NS",
+      "base": "0x5000a000",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMA0_NS",
+      "base": "0x5000a800",
+      "registers": 3,
+      "fields": 6
+    },
+    {
+      "name": "DTC0_NS",
+      "base": "0x5000ac00",
+      "registers": 6,
+      "fields": 8
+    },
+    {
+      "name": "ICU_NS",
+      "base": "0x5000c000",
+      "registers": 10,
+      "fields": 200
+    },
+    {
+      "name": "CPU_CTRL_NS",
+      "base": "0x5000f000",
+      "registers": 4,
+      "fields": 6
+    },
+    {
+      "name": "CPU_OCD_NS",
+      "base": "0x50011000",
+      "registers": 8,
+      "fields": 13
+    },
+    {
+      "name": "CPU_DBG_NS",
+      "base": "0x5001b000",
+      "registers": 9,
+      "fields": 27
+    },
+    {
+      "name": "CACHE_NS",
+      "base": "0x5001c000",
+      "registers": 21,
+      "fields": 52
+    },
+    {
+      "name": "FCACHE_NS",
+      "base": "0x5001c100",
+      "registers": 1,
+      "fields": 5
+    },
+    {
+      "name": "TCM_NS",
+      "base": "0x5001c800",
+      "registers": 9,
+      "fields": 22
+    },
+    {
+      "name": "SYSC_NS",
+      "base": "0x5001e000",
+      "registers": 148,
+      "fields": 487
+    },
+    {
+      "name": "IPC_NS",
+      "base": "0x50020000",
+      "registers": 27,
+      "fields": 51
+    },
+    {
+      "name": "MRAM_NS",
+      "base": "0x5013c000",
+      "registers": 40,
+      "fields": 87
+    },
+    {
+      "name": "ELC_NS",
+      "base": "0x50201000",
+      "registers": 9,
+      "fields": 67
+    },
+    {
+      "name": "RTC_NS",
+      "base": "0x50202000",
+      "registers": 36,
+      "fields": 84
+    },
+    {
+      "name": "IWDT_NS",
+      "base": "0x50202200",
+      "registers": 5,
+      "fields": 10
+    },
+    {
+      "name": "CAC_NS",
+      "base": "0x50202400",
+      "registers": 8,
+      "fields": 18
+    },
+    {
+      "name": "WDT0_NS",
+      "base": "0x50202600",
+      "registers": 5,
+      "fields": 9
+    },
+    {
+      "name": "MSTP_NS",
+      "base": "0x50203000",
+      "registers": 5,
+      "fields": 72
+    },
+    {
+      "name": "PSCU_NS",
+      "base": "0x50204000",
+      "registers": 13,
+      "fields": 144
+    },
+    {
+      "name": "POEG_NS",
+      "base": "0x50212000",
+      "registers": 4,
+      "fields": 60
+    },
+    {
+      "name": "ULPT0_NS",
+      "base": "0x50220000",
+      "registers": 10,
+      "fields": 29
+    },
+    {
+      "name": "AGT0_NS",
+      "base": "0x50221000",
+      "registers": 10,
+      "fields": 24
+    },
+    {
+      "name": "DAC0_B_NS",
+      "base": "0x50233000",
+      "registers": 4,
+      "fields": 5
+    },
+    {
+      "name": "TSN_NS",
+      "base": "0x50235000",
+      "registers": 1,
+      "fields": 2
+    },
+    {
+      "name": "ACMPHS0_NS",
+      "base": "0x50236000",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "USBFS_NS",
+      "base": "0x50250000",
+      "registers": 43,
+      "fields": 215
+    },
+    {
+      "name": "SDHI0_NS",
+      "base": "0x50252000",
+      "registers": 30,
+      "fields": 91
+    },
+    {
+      "name": "PDMIF_NS",
+      "base": "0x50256000",
+      "registers": 65,
+      "fields": 123
+    },
+    {
+      "name": "SSIE0_NS",
+      "base": "0x5025d000",
+      "registers": 8,
+      "fields": 43
+    },
+    {
+      "name": "IIC0_NS",
+      "base": "0x5025e000",
+      "registers": 16,
+      "fields": 72
+    },
+    {
+      "name": "IIC0WU_NS",
+      "base": "0x5025e014",
+      "registers": 2,
+      "fields": 8
+    },
+    {
+      "name": "OSPI0_B_NS",
+      "base": "0x50268000",
+      "registers": 33,
+      "fields": 138
+    },
+    {
+      "name": "DOTF0_NS",
+      "base": "0x50268800",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "CRC_NS",
+      "base": "0x50310000",
+      "registers": 8,
+      "fields": 6
+    },
+    {
+      "name": "DOC_B_NS",
+      "base": "0x50311000",
+      "registers": 6,
+      "fields": 5
+    },
+    {
+      "name": "GPT320_NS",
+      "base": "0x50322000",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT_OPS_NS",
+      "base": "0x50323f00",
+      "registers": 1,
+      "fields": 17
+    },
+    {
+      "name": "GPT_GTCLK_NS",
+      "base": "0x50323f10",
+      "registers": 1,
+      "fields": 1
+    },
+    {
+      "name": "PDG_NS",
+      "base": "0x50324000",
+      "registers": 6,
+      "fields": 15
+    },
+    {
+      "name": "ADC_B_NS",
+      "base": "0x50338000",
+      "registers": 114,
+      "fields": 650
+    },
+    {
+      "name": "GLCDC_NS",
+      "base": "0x50342000",
+      "registers": 91,
+      "fields": 215
+    },
+    {
+      "name": "MIPI_DSI_NS",
+      "base": "0x50346000",
+      "registers": 68,
+      "fields": 359
+    },
+    {
+      "name": "MIPI_PHY0_NS",
+      "base": "0x50346c00",
+      "registers": 14,
+      "fields": 26
+    },
+    {
+      "name": "MIPI_CSI0_NS",
+      "base": "0x50347000",
+      "registers": 29,
+      "fields": 176
+    },
+    {
+      "name": "VIN0_NS",
+      "base": "0x50347400",
+      "registers": 39,
+      "fields": 116
+    },
+    {
+      "name": "CEU_NS",
+      "base": "0x50348000",
+      "registers": 61,
+      "fields": 141
+    },
+    {
+      "name": "USBHS_NS",
+      "base": "0x50351000",
+      "registers": 63,
+      "fields": 215
+    },
+    {
+      "name": "SCI0_B_NS",
+      "base": "0x50358000",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SPI0_B_NS",
+      "base": "0x5035c000",
+      "registers": 14,
+      "fields": 75
+    },
+    {
+      "name": "I3C_NS",
+      "base": "0x5035f000",
+      "registers": 93,
+      "fields": 285
+    },
+    {
+      "name": "ECCMB0_NS",
+      "base": "0x5036f200",
+      "registers": 4,
+      "fields": 18
+    },
+    {
+      "name": "CANFD0_NS",
+      "base": "0x50380000",
+      "registers": 143,
+      "fields": 543
+    },
+    {
+      "name": "MFWD_NS",
+      "base": "0x503c0000",
+      "registers": 249,
+      "fields": 738
+    },
+    {
+      "name": "ESWM_NS",
+      "base": "0x503c8000",
+      "registers": 18,
+      "fields": 97
+    },
+    {
+      "name": "COMA_NS",
+      "base": "0x503c9000",
+      "registers": 32,
+      "fields": 75
+    },
+    {
+      "name": "ETHA0_NS",
+      "base": "0x503ca000",
+      "registers": 60,
+      "fields": 183
+    },
+    {
+      "name": "RMAC0_NS",
+      "base": "0x503cb000",
+      "registers": 75,
+      "fields": 248
+    },
+    {
+      "name": "GWCA0_NS",
+      "base": "0x503ce000",
+      "registers": 100,
+      "fields": 243
+    },
+    {
+      "name": "GPTP_NS",
+      "base": "0x503e0000",
+      "registers": 41,
+      "fields": 51
+    },
+    {
+      "name": "PORT0_NS",
+      "base": "0x50400000",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT1_NS",
+      "base": "0x50400020",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORTA_NS",
+      "base": "0x50400140",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTB_NS",
+      "base": "0x50400160",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTC_NS",
+      "base": "0x50400180",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORTD_NS",
+      "base": "0x504001a0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PFS_NS",
+      "base": "0x50400800",
+      "registers": 106,
+      "fields": 482
+    },
+    {
+      "name": "DRW_NS",
+      "base": "0x50444000",
+      "registers": 36,
+      "fields": 124
+    },
+    {
+      "name": "DMAC01",
+      "base": "0x4000a040",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC02",
+      "base": "0x4000a080",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC03",
+      "base": "0x4000a0c0",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC04",
+      "base": "0x4000a100",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC05",
+      "base": "0x4000a140",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC06",
+      "base": "0x4000a180",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC07",
+      "base": "0x4000a1c0",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "WDT1",
+      "base": "0x40202700",
+      "registers": 5,
+      "fields": 9
+    },
+    {
+      "name": "ULPT1",
+      "base": "0x40220100",
+      "registers": 10,
+      "fields": 29
+    },
+    {
+      "name": "AGT1",
+      "base": "0x40221100",
+      "registers": 10,
+      "fields": 24
+    },
+    {
+      "name": "DAC1_B",
+      "base": "0x40233100",
+      "registers": 4,
+      "fields": 5
+    },
+    {
+      "name": "ACMPHS1",
+      "base": "0x40236100",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "ACMPHS2",
+      "base": "0x40236200",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "ACMPHS3",
+      "base": "0x40236300",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "SDHI1",
+      "base": "0x40252400",
+      "registers": 30,
+      "fields": 91
+    },
+    {
+      "name": "SSIE1",
+      "base": "0x4025d100",
+      "registers": 8,
+      "fields": 43
+    },
+    {
+      "name": "IIC1",
+      "base": "0x4025e100",
+      "registers": 1,
+      "fields": 8
+    },
+    {
+      "name": "IIC2",
+      "base": "0x4025e200",
+      "registers": 1,
+      "fields": 8
+    },
+    {
+      "name": "OSPI1_B",
+      "base": "0x40268400",
+      "registers": 33,
+      "fields": 138
+    },
+    {
+      "name": "DOTF1",
+      "base": "0x40268900",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "GPT321",
+      "base": "0x40322100",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT322",
+      "base": "0x40322200",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT323",
+      "base": "0x40322300",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT324",
+      "base": "0x40322400",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT325",
+      "base": "0x40322500",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT326",
+      "base": "0x40322600",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT327",
+      "base": "0x40322700",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT328",
+      "base": "0x40322800",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT329",
+      "base": "0x40322900",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3210",
+      "base": "0x40322a00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3211",
+      "base": "0x40322b00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3212",
+      "base": "0x40322c00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3213",
+      "base": "0x40322d00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "SCI1_B",
+      "base": "0x40358100",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI2_B",
+      "base": "0x40358200",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI3_B",
+      "base": "0x40358300",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI4_B",
+      "base": "0x40358400",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI5_B",
+      "base": "0x40358500",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI6_B",
+      "base": "0x40358600",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI7_B",
+      "base": "0x40358700",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI8_B",
+      "base": "0x40358800",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI9_B",
+      "base": "0x40358900",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SPI1_B",
+      "base": "0x4035c100",
+      "registers": 14,
+      "fields": 75
+    },
+    {
+      "name": "ECCMB1",
+      "base": "0x4036f300",
+      "registers": 4,
+      "fields": 18
+    },
+    {
+      "name": "CANFD1",
+      "base": "0x40382000",
+      "registers": 143,
+      "fields": 543
+    },
+    {
+      "name": "RMAC1",
+      "base": "0x403cd000",
+      "registers": 75,
+      "fields": 248
+    },
+    {
+      "name": "PORT2",
+      "base": "0x40400040",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT3",
+      "base": "0x40400060",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT4",
+      "base": "0x40400080",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT5",
+      "base": "0x404000a0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT6",
+      "base": "0x404000c0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT7",
+      "base": "0x404000e0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT8",
+      "base": "0x40400100",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT9",
+      "base": "0x40400120",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "DMAC01_NS",
+      "base": "0x5000a040",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC02_NS",
+      "base": "0x5000a080",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC03_NS",
+      "base": "0x5000a0c0",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC04_NS",
+      "base": "0x5000a100",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC05_NS",
+      "base": "0x5000a140",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC06_NS",
+      "base": "0x5000a180",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "DMAC07_NS",
+      "base": "0x5000a1c0",
+      "registers": 16,
+      "fields": 31
+    },
+    {
+      "name": "WDT1_NS",
+      "base": "0x50202700",
+      "registers": 5,
+      "fields": 9
+    },
+    {
+      "name": "ULPT1_NS",
+      "base": "0x50220100",
+      "registers": 10,
+      "fields": 29
+    },
+    {
+      "name": "AGT1_NS",
+      "base": "0x50221100",
+      "registers": 10,
+      "fields": 24
+    },
+    {
+      "name": "DAC1_B_NS",
+      "base": "0x50233100",
+      "registers": 4,
+      "fields": 5
+    },
+    {
+      "name": "ACMPHS1_NS",
+      "base": "0x50236100",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "ACMPHS2_NS",
+      "base": "0x50236200",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "ACMPHS3_NS",
+      "base": "0x50236300",
+      "registers": 7,
+      "fields": 13
+    },
+    {
+      "name": "SDHI1_NS",
+      "base": "0x50252400",
+      "registers": 30,
+      "fields": 91
+    },
+    {
+      "name": "SSIE1_NS",
+      "base": "0x5025d100",
+      "registers": 8,
+      "fields": 43
+    },
+    {
+      "name": "IIC1_NS",
+      "base": "0x5025e100",
+      "registers": 16,
+      "fields": 72
+    },
+    {
+      "name": "IIC2_NS",
+      "base": "0x5025e200",
+      "registers": 16,
+      "fields": 72
+    },
+    {
+      "name": "OSPI1_B_NS",
+      "base": "0x50268400",
+      "registers": 33,
+      "fields": 138
+    },
+    {
+      "name": "DOTF1_NS",
+      "base": "0x50268900",
+      "registers": 2,
+      "fields": 2
+    },
+    {
+      "name": "GPT321_NS",
+      "base": "0x50322100",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT322_NS",
+      "base": "0x50322200",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT323_NS",
+      "base": "0x50322300",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT324_NS",
+      "base": "0x50322400",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT325_NS",
+      "base": "0x50322500",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT326_NS",
+      "base": "0x50322600",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT327_NS",
+      "base": "0x50322700",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT328_NS",
+      "base": "0x50322800",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT329_NS",
+      "base": "0x50322900",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3210_NS",
+      "base": "0x50322a00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3211_NS",
+      "base": "0x50322b00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3212_NS",
+      "base": "0x50322c00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "GPT3213_NS",
+      "base": "0x50322d00",
+      "registers": 55,
+      "fields": 517
+    },
+    {
+      "name": "SCI1_B_NS",
+      "base": "0x50358100",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI2_B_NS",
+      "base": "0x50358200",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI3_B_NS",
+      "base": "0x50358300",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI4_B_NS",
+      "base": "0x50358400",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI5_B_NS",
+      "base": "0x50358500",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI6_B_NS",
+      "base": "0x50358600",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI7_B_NS",
+      "base": "0x50358700",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI8_B_NS",
+      "base": "0x50358800",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SCI9_B_NS",
+      "base": "0x50358900",
+      "registers": 27,
+      "fields": 180
+    },
+    {
+      "name": "SPI1_B_NS",
+      "base": "0x5035c100",
+      "registers": 14,
+      "fields": 75
+    },
+    {
+      "name": "ECCMB1_NS",
+      "base": "0x5036f300",
+      "registers": 4,
+      "fields": 18
+    },
+    {
+      "name": "CANFD1_NS",
+      "base": "0x50382000",
+      "registers": 143,
+      "fields": 543
+    },
+    {
+      "name": "ETHA1_NS",
+      "base": "0x503cc000",
+      "registers": 60,
+      "fields": 183
+    },
+    {
+      "name": "RMAC1_NS",
+      "base": "0x503cd000",
+      "registers": 75,
+      "fields": 248
+    },
+    {
+      "name": "PORT2_NS",
+      "base": "0x50400040",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT3_NS",
+      "base": "0x50400060",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT4_NS",
+      "base": "0x50400080",
+      "registers": 12,
+      "fields": 224
+    },
+    {
+      "name": "PORT5_NS",
+      "base": "0x504000a0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT6_NS",
+      "base": "0x504000c0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT7_NS",
+      "base": "0x504000e0",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT8_NS",
+      "base": "0x50400100",
+      "registers": 9,
+      "fields": 192
+    },
+    {
+      "name": "PORT9_NS",
+      "base": "0x50400120",
+      "registers": 9,
+      "fields": 192
+    }
+  ]
+}

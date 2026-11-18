@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "part": "R7KA8P1KFLCAC",
+  "header": "R7KA8P1KF.h",
+  "fsp": "5.9.0",
+  "qualification": "GNU flat builds only; TrustZone partitioning and hardware unverified",
+  "sources": {
+    "memory": "RA8P1 Hardware Manual Rev.1.30 section 5.1, figures 5.1/5.2 and table 5.1, pp.236-239",
+    "cpu0_tcm": "RA8P1 Hardware Manual Rev.1.30 section 2.1 p.111 and section 5.1 figure 5.2 p.238",
+    "cpu1_tcm": "RA8P1 Hardware Manual Rev.1.30 section 2.17 table 2.37 pp.191-192",
+    "options": "RA8P1 Hardware Manual Rev.1.30 sections 7.2.1-7.2.7 pp.280-291"
+  },
+  "physical": {
+    "MRAM": {
+      "start": "0x02000000",
+      "size": "0x00100000",
+      "ns_start": "0x12000000"
+    },
+    "SRAM": {
+      "start": "0x22000000",
+      "size": "0x001a0000",
+      "ns_start": "0x32000000"
+    }
+  },
+  "cores": {
+    "CM85": {
+      "cpu": 0,
+      "compiler": "cortex-m85",
+      "debugger": "R7KA8P1KF_CPU0",
+      "device_command": "R7KA8P1KF",
+      "compile_flags": {
+        "mcpu": "cortex-m85+nopacbti",
+        "mfpu": "fpv5-d16",
+        "mfloat-abi": "hard"
+      },
+      "allow_default_fpu": true,
+      "elf_attributes": {
+        "Tag_CPU_arch": "v8.1-M.mainline",
+        "Tag_FP_arch": "FPv5/FP-D16 for ARMv8",
+        "Tag_ABI_VFP_args": "VFP registers"
+      },
+      "boot": {
+        "vector_address": "0x02000000",
+        "vector_alignment": 128,
+        "stack_alignment": 8
+      },
+      "max_clock_hz": 1000000000,
+      "global_init_owner": true,
+      "MRAM": {
+        "start": "0x02000000",
+        "size": "0x00080000"
+      },
+      "SRAM": {
+        "start": "0x22000000",
+        "size": "0x000d0000"
+      },
+      "ITCM": {
+        "start": "0x00000000",
+        "size": "0x00020000",
+        "bus_alias": "0x28000000"
+      },
+      "DTCM": {
+        "start": "0x20000000",
+        "size": "0x00020000",
+        "bus_alias": "0x28020000"
+      }
+    },
+    "CM33": {
+      "cpu": 1,
+      "compiler": "cortex-m33",
+      "debugger": "R7KA8P1KF_CPU1",
+      "device_command": "R7KA8P1KF",
+      "launch": "r018_def_dac_b33 Debug_Attach.launch",
+      "elf_cpu_name": "8-M.MAIN",
+      "compile_flags": {
+        "mcpu": "cortex-m33",
+        "mfpu": "fpv5-sp-d16",
+        "mfloat-abi": "hard"
+      },
+      "elf_attributes": {
+        "Tag_CPU_arch": "v8-M.mainline",
+        "Tag_FP_arch": "FPv5/FP-D16 for ARMv8",
+        "Tag_ABI_HardFP_use": "SP only",
+        "Tag_ABI_VFP_args": "VFP registers"
+      },
+      "boot": {
+        "vector_address": "0x02080000",
+        "vector_alignment": 128,
+        "stack_alignment": 8
+      },
+      "max_clock_hz": 250000000,
+      "global_init_owner": false,
+      "MRAM": {
+        "start": "0x02080000",
+        "size": "0x00080000"
+      },
+      "SRAM": {
+        "start": "0x220d0000",
+        "size": "0x000d0000"
+      },
+      "ITCM": {
+        "start": "0x00000000",
+        "size": "0x00010000",
+        "bus_alias": "0x2a000000"
+      },
+      "DTCM": {
+        "start": "0x20000000",
+        "size": "0x00010000",
+        "bus_alias": "0x2a010000"
+      }
+    }
+  },
+  "options": {
+    ".option_setting_ofs0": {
+      "address": "0x02c9f040",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.1"
+    },
+    ".option_setting_ofs2": {
+      "address": "0x02c9f044",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.2"
+    },
+    ".option_setting_sas": {
+      "address": "0x02c9f074",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.3"
+    },
+    ".option_setting_ofs1_sec": {
+      "address": "0x02c9f0c0",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.4"
+    },
+    ".option_setting_ofs3_sec": {
+      "address": "0x02c9f0c4",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.6"
+    },
+    ".option_setting_ofs1_sel": {
+      "address": "0x02c9f120",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.5"
+    },
+    ".option_setting_ofs3_sel": {
+      "address": "0x02c9f124",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.7"
+    },
+    ".option_setting_ofs1": {
+      "address": "0x12c9f4c0",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.4"
+    },
+    ".option_setting_ofs3": {
+      "address": "0x12c9f4c4",
+      "size": 4,
+      "owner": "CM85",
+      "hm": "7.2.6"
+    }
+  }
+}

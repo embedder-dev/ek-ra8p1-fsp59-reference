@@ -1,0 +1,1275 @@
+{
+  "types": [
+    {
+      "name": "R_XSPI0_CMCFGCS_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "CMCFG0",
+          "offset": "0x0",
+          "width": 32,
+          "fields": [
+            {
+              "name": "FFMT",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADDSIZE",
+              "pos": 2,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "WPBSTMD",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ARYAMD",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "ADDRPEN",
+              "pos": 16,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "ADDRPCD",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.4, p.3000\u20133001",
+          "access": "R/W"
+        },
+        {
+          "name": "CMCFG1",
+          "offset": "0x4",
+          "width": 32,
+          "fields": [
+            {
+              "name": "RDCMD",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "RDLATE",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.5, p.3001\u20133002",
+          "access": "R/W"
+        },
+        {
+          "name": "CMCFG2",
+          "offset": "0x8",
+          "width": 32,
+          "fields": [
+            {
+              "name": "WRCMD",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "WRLATE",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.6, p.3002\u20133003",
+          "access": "R/W"
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.4, p.3000\u20133001"
+    },
+    {
+      "name": "R_XSPI0_CDBUF_Type",
+      "size": "0x10",
+      "members": [
+        {
+          "name": "CDT",
+          "offset": "0x0",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CMDSIZE",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "ADDSIZE",
+              "pos": 2,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "DATASIZE",
+              "pos": 5,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "LATE",
+              "pos": 9,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "TRTYPE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMD",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.7, p.3009\u20133010",
+          "access": "R/W"
+        },
+        {
+          "name": "CDA",
+          "offset": "0x4",
+          "width": 32,
+          "fields": [
+            {
+              "name": "ADD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.8, p.3010\u20133010",
+          "access": "R/W"
+        },
+        {
+          "name": "CDD0",
+          "offset": "0x8",
+          "width": 32,
+          "fields": [
+            {
+              "name": "DATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.9, p.3010\u20133011",
+          "access": "R/W"
+        },
+        {
+          "name": "CDD1",
+          "offset": "0xc",
+          "width": 32,
+          "fields": [
+            {
+              "name": "DATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.10, p.3011\u20133011",
+          "access": "R/W"
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.7, p.3009\u20133010"
+    },
+    {
+      "name": "R_XSPI0_CCCTLCS_Type",
+      "size": "0x20",
+      "members": [
+        {
+          "name": "CCCTL0",
+          "offset": "0x0",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CAEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CANOWR",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CAITV",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "CASFTSTA",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "CASFTEND",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.14, p.3014\u20133015",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL1",
+          "offset": "0x4",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CACMDSIZE",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CAADDSIZE",
+              "pos": 2,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "CADATASIZE",
+              "pos": 5,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "CAWRLATE",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "CARDLATE",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.15, p.3015\u20133016",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL2",
+          "offset": "0x8",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CAWRCMD",
+              "pos": 0,
+              "bits": 16,
+              "access": "R/W"
+            },
+            {
+              "name": "CARDCMD",
+              "pos": 16,
+              "bits": 16,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.16, p.3016\u20133016",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL3",
+          "offset": "0xc",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CAADD",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.17, p.3016\u20133017",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL4",
+          "offset": "0x10",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CADATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.18, p.3017\u20133017",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL5",
+          "offset": "0x14",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CADATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.19, p.3017\u20133017",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL6",
+          "offset": "0x18",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CADATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.20, p.3017\u20133018",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTL7",
+          "offset": "0x1c",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CADATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.21, p.3018\u20133018",
+          "access": "R/W"
+        }
+      ],
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.14, p.3014\u20133015"
+    },
+    {
+      "name": "R_XSPI0_Type",
+      "size": "0x19C",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1\u201345.2.4, p.2998\u20133024",
+      "manual_path": "52-45.-octal-serial-peripheral-interface-ospi/02-45.2-register-descriptions",
+      "note": "The stock FSP5.9 XSPI vocabulary is retained for RA8P1 OSPI_B. Only target-implemented fields are exposed: CKSFTCS0/1, ECSINTOUTEN, ABMCFG, VERSTT, WPCS0, RSTCS1 and channel-zero ECS/INT pins are absent. RACTL/MER are outside this stock HAL slice. macro_name overrides select original stock macro spellings independently of numbered bitfield member names; null suppresses a non-stock or reserved-base macro. No target address/field was inferred from the sibling.",
+      "members": [
+        {
+          "name": "WRAPCFG",
+          "offset": "0x000",
+          "width": 32,
+          "fields": [
+            {
+              "name": "DSSFTCS0",
+              "pos": 8,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "DSSFTCS1",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.1, p.2998\u20132998",
+          "access": "R/W"
+        },
+        {
+          "name": "COMCFG",
+          "offset": "0x004",
+          "width": 32,
+          "fields": [
+            {
+              "name": "ARBMD",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "OEASTEX",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "OENEGEX",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.2, p.2998\u20132999",
+          "access": "R/W"
+        },
+        {
+          "name": "BMCFGCH",
+          "offset": "0x008",
+          "width": 32,
+          "fields": [
+            {
+              "name": "WRMD",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MWRCOMB",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "MWRSIZE",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "PREEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CMBTIM",
+              "pos": 24,
+              "bits": 8,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.3, p.2999\u20133000",
+          "access": "R/W",
+          "count": 2
+        },
+        {
+          "name": "CMCFGCS",
+          "offset": "0x10",
+          "type": "R_XSPI0_CMCFGCS_Type",
+          "element_size": 16,
+          "count": 2,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.4, p.3000\u20133001"
+        },
+        {
+          "name": "LIOCFGCS",
+          "offset": "0x050",
+          "width": 32,
+          "fields": [
+            {
+              "name": "PRTMD",
+              "pos": 0,
+              "bits": 10,
+              "access": "R/W"
+            },
+            {
+              "name": "LATEMD",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WRMSKMD",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSMIN",
+              "pos": 16,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "CSASTEX",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSNEGEX",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDRDRV",
+              "pos": 22,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDRSMPMD",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SDRSMPSFT",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            },
+            {
+              "name": "DDRSMPEX",
+              "pos": 28,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1.7, p.3003\u20133004",
+          "access": "R/W",
+          "count": 2
+        },
+        {
+          "name": "BMCTL0",
+          "offset": "0x060",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CH0CS0ACC",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CH0CS1ACC",
+              "pos": 2,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CH1CS0ACC",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CH1CS1ACC",
+              "pos": 6,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.1, p.3005\u20133006",
+          "access": "R/W"
+        },
+        {
+          "name": "BMCTL1",
+          "offset": "0x064",
+          "width": 32,
+          "fields": [
+            {
+              "name": "MWRPUSHCH0",
+              "pos": 8,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "MWRPUSHCH"
+            },
+            {
+              "name": "MWRPUSHCH1",
+              "pos": 9,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "PBUFCLRCH0",
+              "pos": 10,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "PBUFCLRCH"
+            },
+            {
+              "name": "PBUFCLRCH1",
+              "pos": 11,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.2, p.3006\u20133006",
+          "access": "W"
+        },
+        {
+          "name": "CMCTLCH",
+          "offset": "0x0068",
+          "width": 32,
+          "fields": [
+            {
+              "name": "XIPENCODE",
+              "pos": 0,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "XIPEXCODE",
+              "pos": 8,
+              "bits": 8,
+              "access": "R/W"
+            },
+            {
+              "name": "XIPEN",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.3, p.3006\u20133007",
+          "access": "R/W",
+          "count": 2
+        },
+        {
+          "name": "CDCTL0",
+          "offset": "0x070",
+          "width": 32,
+          "fields": [
+            {
+              "name": "TRREQ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PERMD",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSSEL",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "TRNUM",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "PERITV",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "PERREP",
+              "pos": 24,
+              "bits": 4,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.4, p.3007\u20133008",
+          "access": "R/W"
+        },
+        {
+          "name": "CDCTL1",
+          "offset": "0x074",
+          "width": 32,
+          "fields": [
+            {
+              "name": "PEREXP",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.5, p.3008\u20133008",
+          "access": "R/W"
+        },
+        {
+          "name": "CDCTL2",
+          "offset": "0x078",
+          "width": 32,
+          "fields": [
+            {
+              "name": "PERMSK",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.6, p.3008\u20133009",
+          "access": "R/W"
+        },
+        {
+          "name": "CDBUF",
+          "offset": "0x80",
+          "type": "R_XSPI0_CDBUF_Type",
+          "element_size": 16,
+          "count": 4,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.7, p.3009\u20133010"
+        },
+        {
+          "name": "LPCTL0",
+          "offset": "0x100",
+          "width": 32,
+          "fields": [
+            {
+              "name": "PATREQ",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "CSSEL",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "XDPIN",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "XD1LEN",
+              "pos": 16,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "XD1VAL",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "XD2LEN",
+              "pos": 24,
+              "bits": 5,
+              "access": "R/W"
+            },
+            {
+              "name": "XD2VAL",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.11, p.3011\u20133012",
+          "access": "R/W"
+        },
+        {
+          "name": "LPCTL1",
+          "offset": "0x104",
+          "width": 32,
+          "fields": [
+            {
+              "name": "PATREQ",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "CSSEL",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RSTREP",
+              "pos": 4,
+              "bits": 2,
+              "access": "R/W"
+            },
+            {
+              "name": "RSTWID",
+              "pos": 8,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "RSTSU",
+              "pos": 12,
+              "bits": 3,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.12, p.3012\u20133013",
+          "access": "R/W"
+        },
+        {
+          "name": "LIOCTL",
+          "offset": "0x108",
+          "width": 32,
+          "fields": [
+            {
+              "name": "WPCS1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "RSTCS0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": "RSTCS"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.13, p.3013\u20133014",
+          "access": "R/W"
+        },
+        {
+          "name": "CCCTLCS",
+          "offset": "0x130",
+          "type": "R_XSPI0_CCCTLCS_Type",
+          "element_size": 32,
+          "count": 2,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.2.14, p.3014\u20133015"
+        },
+        {
+          "name": "COMSTT",
+          "offset": "0x184",
+          "width": 32,
+          "fields": [
+            {
+              "name": "MEMACCCH0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "MEMACCCH"
+            },
+            {
+              "name": "MEMACCCH1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "PBUFNECH0",
+              "pos": 4,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "PBUFNECH"
+            },
+            {
+              "name": "PBUFNECH1",
+              "pos": 5,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "WRBUFNECH0",
+              "pos": 6,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "WRBUFNECH"
+            },
+            {
+              "name": "WRBUFNECH1",
+              "pos": 7,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "ECSCS1",
+              "pos": 20,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "INTCS1",
+              "pos": 21,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "RSTOCS1",
+              "pos": 22,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.3.1, p.3019\u20133020",
+          "access": "R"
+        },
+        {
+          "name": "CASTTCS",
+          "offset": "0x188",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CASUC",
+              "pos": 0,
+              "bits": 32,
+              "access": "R"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.3.2, p.3020\u20133020",
+          "access": "R",
+          "count": 2
+        },
+        {
+          "name": "INTS",
+          "offset": "0x190",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CMDCMP",
+              "pos": 0,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PATCMP",
+              "pos": 1,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "PERTO",
+              "pos": 3,
+              "bits": 1,
+              "access": "R"
+            },
+            {
+              "name": "DSTOCS0",
+              "pos": 4,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "DSTOCS"
+            },
+            {
+              "name": "DSTOCS1",
+              "pos": 5,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "ECSCS1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "INTCS1",
+              "pos": 13,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "BUSERRCH0",
+              "pos": 20,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "BUSERRCH"
+            },
+            {
+              "name": "BUSERRCH1",
+              "pos": 21,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CAFAILCS0",
+              "pos": 28,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "CAFAILCS"
+            },
+            {
+              "name": "CAFAILCS1",
+              "pos": 29,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CASUCCS0",
+              "pos": 30,
+              "bits": 1,
+              "access": "R",
+              "macro_name": "CASUCCS"
+            },
+            {
+              "name": "CASUCCS1",
+              "pos": 31,
+              "bits": 1,
+              "access": "R",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.4.1, p.3021\u20133022",
+          "access": "R"
+        },
+        {
+          "name": "INTC",
+          "offset": "0x194",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CMDCMPC",
+              "pos": 0,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PATCMPC",
+              "pos": 1,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "PERTOC",
+              "pos": 3,
+              "bits": 1,
+              "access": "W"
+            },
+            {
+              "name": "DSTOCS0C",
+              "pos": 4,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "DSTOCSC"
+            },
+            {
+              "name": "DSTOCS1C",
+              "pos": 5,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "ECSCS1C",
+              "pos": 9,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "INTCS1C",
+              "pos": 13,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "BUSERRCH0C",
+              "pos": 20,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "BUSERRCHC"
+            },
+            {
+              "name": "BUSERRCH1C",
+              "pos": 21,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CAFAILCS0C",
+              "pos": 28,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "CAFAILCSC"
+            },
+            {
+              "name": "CAFAILCS1C",
+              "pos": 29,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CASUCCS0C",
+              "pos": 30,
+              "bits": 1,
+              "access": "W",
+              "macro_name": "CASUCCSC"
+            },
+            {
+              "name": "CASUCCS1C",
+              "pos": 31,
+              "bits": 1,
+              "access": "W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.4.2, p.3022\u20133023",
+          "access": "W"
+        },
+        {
+          "name": "INTE",
+          "offset": "0x198",
+          "width": 32,
+          "fields": [
+            {
+              "name": "CMDCMPE",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PATCMPE",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PERTOE",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DSTOCS0E",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": "DSTOCSE"
+            },
+            {
+              "name": "DSTOCS1E",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "ECSCS1E",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "INTCS1E",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "BUSERRCH0E",
+              "pos": 20,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": "BUSERRCHE"
+            },
+            {
+              "name": "BUSERRCH1E",
+              "pos": 21,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CAFAILCS0E",
+              "pos": 28,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": "CAFAILCSE"
+            },
+            {
+              "name": "CAFAILCS1E",
+              "pos": 29,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            },
+            {
+              "name": "CASUCCS0E",
+              "pos": 30,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": "CASUCCSE"
+            },
+            {
+              "name": "CASUCCS1E",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W",
+              "macro_name": null,
+              "note": "No independent stock macro; do not redirect an unnumbered channel-zero macro to this field."
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.4.3, p.3023\u20133024",
+          "access": "R/W"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_XSPI0",
+      "type": "R_XSPI0_Type",
+      "secure": "0x40268000",
+      "nonsecure": "0x50268000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1\u201345.2.4, p.2998\u20133024"
+    },
+    {
+      "name": "R_XSPI1",
+      "type": "R_XSPI0_Type",
+      "secure": "0x40268400",
+      "nonsecure": "0x50268400",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a745.2.1\u201345.2.4, p.2998\u20133024"
+    }
+  ]
+}

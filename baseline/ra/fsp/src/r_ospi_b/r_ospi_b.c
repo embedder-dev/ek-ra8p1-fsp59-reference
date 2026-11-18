@@ -11,6 +11,10 @@
 #include "r_ospi_b.h"
 #include <string.h>
 
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DOTF_SUPPORT_ENABLE
+ #error "OSPI_B DOTF crypto/register binding is not qualified for this variant"
+#else
+
 #if OSPI_B_CFG_DMAC_SUPPORT_ENABLE
  #include "r_transfer_api.h"
  #include "r_dmac.h"
@@ -33,6 +37,10 @@ extern rsip_instance_t const * const gp_rsip_instance;
 
 /* "xSPI" in ASCII.  Used to determine if the control block is open. */
 #define OSPI_B_PRV_OPEN                   (0x78535049U)
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+ #define OSPI_B_PRV_DMA_RECOVERY           (OSPI_B_PRV_OPEN | 0x80000000U)
+#endif
 
 #define OSPI_B_PRV_CHANNELS_PER_UNIT      (2U)
 #define OSPI_B_PRV_UNIT_CHANNELS_SHIFT    (OSPI_B_PRV_CHANNELS_PER_UNIT)
@@ -128,6 +136,16 @@ extern rsip_instance_t const * const gp_rsip_instance;
 /***********************************************************************************************************************
  * Private function prototypes
  **********************************************************************************************************************/
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+static uint32_t r_ospi_b_device_base_get(ospi_b_instance_ctrl_t const * p_ctrl);
+static uint32_t r_ospi_b_device_size_get(ospi_b_instance_ctrl_t const * p_ctrl);
+static bool r_ospi_b_device_range_check(ospi_b_instance_ctrl_t const * p_ctrl, uint32_t address, uint32_t bytes);
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+static fsp_err_t r_ospi_b_dma_quiesce(ospi_b_instance_ctrl_t * p_ctrl);
+#endif
+
 static bool      r_ospi_b_status_sub(ospi_b_instance_ctrl_t * p_instance_ctrl, uint8_t bit_pos);
 static fsp_err_t r_ospi_b_protocol_specific_settings(ospi_b_instance_ctrl_t * p_instance_ctrl);
 static fsp_err_t r_ospi_b_write_enable(ospi_b_instance_ctrl_t * p_instance_ctrl);
@@ -201,6 +219,9 @@ const spi_flash_api_t g_ospi_b_on_spi_flash =
 fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const * const p_cfg)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
     fsp_err_t                ret             = FSP_SUCCESS;
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
@@ -212,6 +233,18 @@ fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const 
 
     ospi_b_extended_cfg_t * p_cfg_extend = (ospi_b_extended_cfg_t *) p_cfg->p_extend;
 
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    FSP_ERROR_RETURN(p_cfg_extend->ospi_b_unit < 2U, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+    FSP_ERROR_RETURN(p_cfg_extend->channel < OSPI_B_PRV_CHANNELS_PER_UNIT, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+    FSP_ERROR_RETURN(((uint32_t) p_cfg->address_bytes <= 3U) ||
+                     (SPI_FLASH_ADDRESS_BYTES_4_4BYTE_READ_CODE == p_cfg->address_bytes), FSP_ERR_INVALID_ARGUMENT);
+ #if OSPI_B_CFG_DOTF_SUPPORT_ENABLE
+    /* FSP 5.9 key-output bindings address DOTF0 only. DOTF1 needs a matching crypto implementation. */
+    FSP_ERROR_RETURN((0U == p_cfg_extend->ospi_b_unit) || (NULL == p_cfg_extend->p_dotf_cfg),
+                     FSP_ERR_INVALID_ARGUMENT);
+ #endif
+#endif
+
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(BSP_PERIPHERAL_OSPI_B_CHANNEL_MASK & (1U << p_cfg_extend->ospi_b_unit));
     FSP_ERROR_RETURN(0 == (g_ospi_b_channels_open_flags & OSPI_B_PRV_CH_MASK(p_cfg_extend)), FSP_ERR_ALREADY_OPEN);
@@ -219,6 +252,22 @@ fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const 
 
     R_XSPI0_Type * p_reg = (R_XSPI0_Type *) ((uint32_t) R_XSPI0 +
                                              p_cfg_extend->ospi_b_unit * ((uint32_t) R_XSPI1 - (uint32_t) R_XSPI0));
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN(OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open, FSP_ERR_IN_USE);
+    FSP_ERROR_RETURN(OSPI_B_PRV_OPEN != p_instance_ctrl->open, FSP_ERR_ALREADY_OPEN);
+    FSP_ERROR_RETURN(0U == (g_ospi_b_channels_open_flags & OSPI_B_PRV_CH_MASK(p_cfg_extend)), FSP_ERR_ALREADY_OPEN);
+    transfer_instance_t const * p_transfer = p_cfg_extend->p_lower_lvl_transfer;
+ #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
+    FSP_ASSERT(NULL != p_transfer);
+ #endif
+    dmac_extended_cfg_t const * p_dmac_extend = p_transfer->p_cfg->p_extend;
+    dmac_instance_ctrl_t const * p_dmac_ctrl = (dmac_instance_ctrl_t const *) p_transfer->p_ctrl;
+    FSP_ERROR_RETURN(p_dmac_extend->channel < BSP_FEATURE_DMAC_MAX_CHANNEL, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+    FSP_ERROR_RETURN(0U == p_dmac_ctrl->open, FSP_ERR_ALREADY_OPEN);
+    ret = p_transfer->p_api->open(p_transfer->p_ctrl, p_transfer->p_cfg);
+    FSP_ERROR_RETURN(FSP_SUCCESS == ret, ret);
+#endif
 
     /* Enable clock to the xSPI block */
     R_BSP_MODULE_START(FSP_IP_OSPI, p_cfg_extend->ospi_b_unit);
@@ -237,7 +286,7 @@ fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const 
     }
 #endif
 
-#if OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+#if OSPI_B_CFG_DMAC_SUPPORT_ENABLE && !BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
     transfer_instance_t const * p_transfer = p_cfg_extend->p_lower_lvl_transfer;
 
  #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
@@ -246,6 +295,11 @@ fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const 
 
     /* Initialize transfer instance */
     p_transfer->p_api->open(p_transfer->p_ctrl, p_transfer->p_cfg);
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    uint32_t bmctl0 = p_reg->BMCTL0;
+    uint32_t wrapcfg = p_reg->WRAPCFG;
 #endif
 
     /* Disable memory-mapping for this slave. It will be enabled later on after initialization. */
@@ -294,6 +348,35 @@ fsp_err_t R_OSPI_B_Open (spi_flash_ctrl_t * const p_ctrl, spi_flash_cfg_t const 
 
     /* Set xSPI memory-mapping operation. */
     ret = r_ospi_b_protocol_specific_settings(p_instance_ctrl);
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    if (FSP_SUCCESS != ret)
+    {
+        /* Restore shared registers before releasing only the resources acquired by this attempt. */
+        p_reg->WRAPCFG = wrapcfg;
+        p_reg->BMCTL0 = bmctl0;
+        fsp_err_t cleanup = r_ospi_b_dma_quiesce(p_instance_ctrl);
+        if (FSP_SUCCESS == cleanup)
+        {
+            cleanup = p_transfer->p_api->close(p_transfer->p_ctrl);
+        }
+
+        if (FSP_SUCCESS != cleanup)
+        {
+            p_instance_ctrl->open = OSPI_B_PRV_DMA_RECOVERY;
+            g_ospi_b_channels_open_flags |= OSPI_B_PRV_CH_MASK(p_cfg_extend);
+            return FSP_ERR_IN_USE;
+        }
+
+        p_instance_ctrl->open = 0U;
+        if (0U == (g_ospi_b_channels_open_flags & OSPI_B_PRV_UNIT_MASK(p_cfg_extend)))
+        {
+            R_BSP_MODULE_STOP(FSP_IP_OSPI, p_cfg_extend->ospi_b_unit);
+        }
+
+        return ret;
+    }
+#endif
 
     /* Return response after issuing write transaction to xSPI bus, Enable prefetch function and combination if desired. */
     const uint32_t bmcfgch = (0 << R_XSPI0_BMCFGCH_WRMD_Pos) |
@@ -384,6 +467,9 @@ fsp_err_t R_OSPI_B_DirectTransfer (spi_flash_ctrl_t                  * p_ctrl,
                                    spi_flash_direct_transfer_dir_t     direction)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_instance_ctrl);
@@ -411,6 +497,9 @@ fsp_err_t R_OSPI_B_XipEnter (spi_flash_ctrl_t * p_ctrl)
 {
 #if OSPI_B_CFG_XIP_SUPPORT_ENABLE
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
  #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_instance_ctrl);
@@ -442,6 +531,9 @@ fsp_err_t R_OSPI_B_XipExit (spi_flash_ctrl_t * p_ctrl)
 {
 #if OSPI_B_CFG_XIP_SUPPORT_ENABLE
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
  #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_instance_ctrl);
@@ -469,6 +561,7 @@ fsp_err_t R_OSPI_B_XipExit (spi_flash_ctrl_t * p_ctrl)
  * @retval FSP_ERR_NOT_OPEN            Driver is not opened.
  * @retval FSP_ERR_INVALID_SIZE        Insufficient space remaining in page or write length is not a multiple of CPU access size when not using the DMAC.
  * @retval FSP_ERR_DEVICE_BUSY         Another Write/Erase transaction is in progress.
+ * @retval FSP_ERR_IN_USE              DMA cleanup is pending. Keep source and destination buffers valid until Close succeeds.
  * @retval FSP_ERR_WRITE_FAILED        Write operation failed.
  * @retval FSP_ERR_INVALID_ADDRESS     Destination or source is not aligned to CPU access alignment when not using the DMAC.
  **********************************************************************************************************************/
@@ -478,6 +571,9 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
                           uint32_t              byte_count)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
     fsp_err_t                err             = FSP_SUCCESS;
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
@@ -495,12 +591,21 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
  #if !OSPI_B_CFG_DMAC_SUPPORT_ENABLE
     FSP_ERROR_RETURN((byte_count & (OSPI_B_PRV_CPU_ACCESS_LENGTH - 1)) == 0, FSP_ERR_INVALID_SIZE);
     FSP_ERROR_RETURN(((uint32_t) p_dest & (OSPI_B_PRV_CPU_ACCESS_ALIGNMENT - 1)) == 0, FSP_ERR_INVALID_ADDRESS);
-  #if defined(__llvm__) && !defined(__ARMCC_VERSION)
+  #if defined(__llvm__) && !defined(__ARMCC_VERSION) && !BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
 
     /* LLVM needs 32-bit aligned data. */
     FSP_ERROR_RETURN(((uint32_t) p_src & (0x3)) == 0, FSP_ERR_INVALID_ADDRESS);
   #endif
  #endif
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    FSP_ERROR_RETURN(r_ospi_b_device_range_check(p_instance_ctrl, (uint32_t) p_dest, byte_count),
+                     FSP_ERR_INVALID_ADDRESS);
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((byte_count > 0U) && (byte_count <= UINT16_MAX), FSP_ERR_INVALID_SIZE);
 #endif
 
     R_XSPI0_Type * const p_reg = p_instance_ctrl->p_reg;
@@ -512,6 +617,47 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
     spi_flash_cfg_t       * p_cfg        = (spi_flash_cfg_t *) p_instance_ctrl->p_cfg;
     ospi_b_extended_cfg_t * p_cfg_extend = (ospi_b_extended_cfg_t *) p_cfg->p_extend;
 
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    /* Setup and start DMAC transfer. */
+    transfer_instance_t const * p_transfer = p_cfg_extend->p_lower_lvl_transfer;
+    dmac_extended_cfg_t const * p_dmac_extend = p_transfer->p_cfg->p_extend;
+    FSP_ERROR_RETURN(p_dmac_extend->channel < BSP_FEATURE_DMAC_MAX_CHANNEL, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+    R_DMAC0_Type * p_dma_reg = (R_DMAC0_Type *) ((uintptr_t) R_DMAC0 +
+                                             ((uintptr_t) R_DMAC1 - (uintptr_t) R_DMAC0) *
+                                             p_dmac_extend->channel);
+
+    /* Do not enable or configure DMA after a rejected write-enable command. */
+    err = r_ospi_b_write_enable(p_instance_ctrl);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    p_dma_reg->DMBWR = R_DMAC0_DMBWR_BWE_Msk;
+
+    p_transfer->p_cfg->p_info->p_src = p_src;
+    p_transfer->p_cfg->p_info->p_dest = p_dest;
+    p_transfer->p_cfg->p_info->transfer_settings_word_b.size = TRANSFER_SIZE_1_BYTE;
+    p_transfer->p_cfg->p_info->transfer_settings_word_b.mode = TRANSFER_MODE_NORMAL;
+    p_transfer->p_cfg->p_info->length = (uint16_t) byte_count;
+    err = p_transfer->p_api->reconfigure(p_transfer->p_ctrl, p_transfer->p_cfg->p_info);
+    if (FSP_SUCCESS == err)
+    {
+        err = p_transfer->p_api->softwareStart(p_transfer->p_ctrl, TRANSFER_START_MODE_REPEAT);
+    }
+
+    transfer_properties_t properties = {0U};
+    while (FSP_SUCCESS == err)
+    {
+        err = p_transfer->p_api->infoGet(p_transfer->p_ctrl, &properties);
+        if ((FSP_SUCCESS != err) || (0U == properties.transfer_length_remaining))
+        {
+            break;
+        }
+    }
+
+    /* A failed abort retains BWE and the buffer references until Close succeeds. */
+    fsp_err_t cleanup = r_ospi_b_dma_quiesce(p_instance_ctrl);
+    FSP_ERROR_RETURN(FSP_SUCCESS == cleanup, cleanup);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+
+ #else
     /* Setup and start DMAC transfer. */
     transfer_instance_t const * p_transfer = p_cfg_extend->p_lower_lvl_transfer;
 
@@ -548,6 +694,8 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
     /* Disable Octa-SPI DMA Bufferable Write */
     p_dma_reg->DMBWR = 0U;
 
+ #endif
+
     /* If this number of bytes is less than the combination count, push the data to force a transaction. */
     if (OSPI_B_CFG_COMBINATION_FUNCTION != OSPI_B_COMBINATION_FUNCTION_DISABLE)
     {
@@ -559,8 +707,13 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
     }
 
 #else
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    volatile uint64_t * p_dest64 = (volatile uint64_t *) p_dest;
+    uint8_t const    * p_src8   = p_src;
+ #else
     uint64_t * p_dest64 = (uint64_t *) ((uint32_t) p_dest & ~(OSPI_B_PRV_CPU_ACCESS_ALIGNMENT - 1));
     uint64_t * p_src64  = (uint64_t *) p_src;
+ #endif
 
     err = r_ospi_b_write_enable(p_instance_ctrl);
     FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
@@ -571,9 +724,18 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
          * frame with the selected size while the sequential address is incremental. Please read Section 37.3.3.3
          * Combination Function' of the RA8M1 manual R01UH0994EJ0100. So Basically Enable command should be
          * sent only once for a single burst(incremented addresses up to set combination size.). */
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+        /* The API accepts byte-aligned sources; preserve the 64-bit destination bus access. */
+        uint64_t data;
+        memcpy(&data, p_src8, sizeof(data));
+        *p_dest64 = data;
+        p_dest64++;
+        p_src8 += sizeof(data);
+ #else
         *p_dest64 = *p_src64;
         p_dest64++;
         p_src64++;
+ #endif
         byte_count -= sizeof(uint64_t);
     }
 
@@ -601,6 +763,9 @@ fsp_err_t R_OSPI_B_Write (spi_flash_ctrl_t    * p_ctrl,
 fsp_err_t R_OSPI_B_Erase (spi_flash_ctrl_t * p_ctrl, uint8_t * const p_device_address, uint32_t byte_count)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_ctrl);
@@ -612,9 +777,16 @@ fsp_err_t R_OSPI_B_Erase (spi_flash_ctrl_t * p_ctrl, uint8_t * const p_device_ad
     R_XSPI0_Type * const    p_reg             = p_instance_ctrl->p_reg;
     spi_flash_cfg_t const * p_cfg             = p_instance_ctrl->p_cfg;
     uint16_t                erase_command     = 0;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    const uint32_t chip_address_base = r_ospi_b_device_base_get(p_instance_ctrl);
+    uint32_t range_bytes = (SPI_FLASH_ERASE_SIZE_CHIP_ERASE == byte_count) ? 1U : byte_count;
+    FSP_ERROR_RETURN(r_ospi_b_device_range_check(p_instance_ctrl, (uint32_t) p_device_address, range_bytes),
+                     FSP_ERR_INVALID_ADDRESS);
+#else
     const uint32_t          chip_address_base = p_instance_ctrl->channel ?
                                                 BSP_FEATURE_OSPI_B_DEVICE_1_START_ADDRESS :
                                                 BSP_FEATURE_OSPI_B_DEVICE_0_START_ADDRESS;
+#endif
     uint32_t chip_address = (uint32_t) p_device_address - chip_address_base;
     bool     send_address = true;
 
@@ -657,8 +829,12 @@ fsp_err_t R_OSPI_B_Erase (spi_flash_ctrl_t * p_ctrl, uint8_t * const p_device_ad
     spi_flash_direct_transfer_t direct_command = {0};
     direct_command.command        = erase_command;
     direct_command.address        = chip_address;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    direct_command.address_length = (!send_address) ? 0U : (((uint32_t) p_cfg->address_bytes & 3U) + 1U);
+#else
     direct_command.address_length = (!send_address) ? 0U :
                                     ((SPI_FLASH_ADDRESS_BYTES_3 == p_instance_ctrl->p_cfg->address_bytes) ? 3U : 4U);
+#endif
     direct_command.command_length = (NULL != p_cmd_set) ? (uint8_t) p_cmd_set->command_bytes : 1U;
 
     r_ospi_b_direct_transfer(p_instance_ctrl, &direct_command, SPI_FLASH_DIRECT_TRANSFER_DIR_WRITE);
@@ -684,6 +860,9 @@ fsp_err_t R_OSPI_B_Erase (spi_flash_ctrl_t * p_ctrl, uint8_t * const p_device_ad
 fsp_err_t R_OSPI_B_StatusGet (spi_flash_ctrl_t * p_ctrl, spi_flash_status_t * const p_status)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_ctrl);
@@ -725,6 +904,9 @@ fsp_err_t R_OSPI_B_BankSet (spi_flash_ctrl_t * p_ctrl, uint32_t bank)
 fsp_err_t R_OSPI_B_SpiProtocolSet (spi_flash_ctrl_t * p_ctrl, spi_flash_protocol_t spi_protocol)
 {
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_ctrl);
@@ -752,9 +934,19 @@ fsp_err_t R_OSPI_B_Close (spi_flash_ctrl_t * p_ctrl)
 
 #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_ctrl);
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((OSPI_B_PRV_OPEN == p_instance_ctrl->open) ||
+                     (OSPI_B_PRV_DMA_RECOVERY == p_instance_ctrl->open), FSP_ERR_NOT_OPEN);
+ #else
     FSP_ERROR_RETURN(OSPI_B_PRV_OPEN == p_instance_ctrl->open, FSP_ERR_NOT_OPEN);
+ #endif
     FSP_ASSERT(NULL != p_instance_ctrl->p_cfg);
     FSP_ASSERT(NULL != p_instance_ctrl->p_cfg->p_extend);
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((OSPI_B_PRV_OPEN == p_instance_ctrl->open) ||
+                     (OSPI_B_PRV_DMA_RECOVERY == p_instance_ctrl->open), FSP_ERR_NOT_OPEN);
 #endif
 
     ospi_b_extended_cfg_t * p_cfg_extend = (ospi_b_extended_cfg_t *) (p_instance_ctrl->p_cfg->p_extend);
@@ -763,7 +955,18 @@ fsp_err_t R_OSPI_B_Close (spi_flash_ctrl_t * p_ctrl)
 
     /* Initialize transfer instance */
     transfer_instance_t const * p_transfer = p_cfg_extend->p_lower_lvl_transfer;
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    err = r_ospi_b_dma_quiesce(p_instance_ctrl);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    err = p_transfer->p_api->close(p_transfer->p_ctrl);
+    if (FSP_SUCCESS != err)
+    {
+        p_instance_ctrl->open = OSPI_B_PRV_DMA_RECOVERY;
+        return FSP_ERR_IN_USE;
+    }
+ #else
     p_transfer->p_api->close(p_transfer->p_ctrl);
+ #endif
 #endif
 
     p_instance_ctrl->open         = 0U;
@@ -793,6 +996,9 @@ fsp_err_t R_OSPI_B_AutoCalibrate (spi_flash_ctrl_t * const p_ctrl)
 {
 #if OSPI_B_CFG_AUTOCALIBRATION_SUPPORT_ENABLE
     ospi_b_instance_ctrl_t * p_instance_ctrl = (ospi_b_instance_ctrl_t *) p_ctrl;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+    FSP_ERROR_RETURN((NULL == p_instance_ctrl) || (OSPI_B_PRV_DMA_RECOVERY != p_instance_ctrl->open), FSP_ERR_IN_USE);
+#endif
 
  #if OSPI_B_CFG_PARAM_CHECKING_ENABLE
     FSP_ASSERT(NULL != p_ctrl);
@@ -841,6 +1047,10 @@ fsp_err_t R_OSPI_B_DOTF_Configure (spi_flash_ctrl_t * const p_ctrl, ospi_b_dotf_
 
     if (NULL != p_dotf_cfg)
     {
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+        /* Do not provision DOTF0 keys for the OSPI1 address space. See the FSP 5.9 binding above. */
+        FSP_ERROR_RETURN(0U == p_cfg_extend->ospi_b_unit, FSP_ERR_INVALID_ARGUMENT);
+ #endif
         ret = r_ospi_b_dotf_setup(p_dotf_cfg);
         if (FSP_SUCCESS != ret)
         {
@@ -889,9 +1099,19 @@ static fsp_err_t r_ospi_b_protocol_specific_settings (ospi_b_instance_ctrl_t * p
 
     /* Specifies the read/write commands and Read dummy clocks for Device
      * (see Section 37.3.8.5 'Flow of Memory-mapping' of the RA8M1 manual R01UH0994EJ0100). */
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    uint32_t address_size = (uint32_t) p_cfg->address_bytes & 3U;
+    uint32_t replace_mask = ~(BSP_FEATURE_OSPI_B_DEVICE_SIZE(p_extend->ospi_b_unit) - 1U);
+
+    /* ADDRPEN applies to the transmitted MSByte, not always system address bits 31:24 (HM 45.2.1.4). */
+    replace_mask = (replace_mask >> (address_size * 8U)) & 0xFFU;
+    uint32_t cmcfg0 = (replace_mask << R_XSPI0_CMCFGCS_CMCFG0_ADDRPEN_Pos) |
+                      (address_size << R_XSPI0_CMCFGCS_CMCFG0_ADDSIZE_Pos);
+#else
     uint32_t cmcfg0 = (OSPI_B_PRV_ADDRESS_REPLACE_ENABLE_BITS) |
                       (((uint32_t) p_cfg->address_bytes << R_XSPI0_CMCFGCS_CMCFG0_ADDSIZE_Pos) &
                        R_XSPI0_CMCFGCS_CMCFG0_ADDSIZE_Msk);
+#endif
 
     /* Use profile 1.0 format always for 8D-8D-8D. */
     if (SPI_FLASH_PROTOCOL_8D_8D_8D == p_instance_ctrl->spi_protocol)
@@ -1063,6 +1283,11 @@ static fsp_err_t r_ospi_b_automatic_calibration_seq (ospi_b_instance_ctrl_t * p_
 
     ospi_b_device_number_t channel = p_instance_ctrl->channel;
 
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    uint32_t preamble = (uint32_t) p_cfg_extend->p_autocalibration_preamble_pattern_addr;
+    FSP_ERROR_RETURN(r_ospi_b_device_range_check(p_instance_ctrl, preamble, 16U), FSP_ERR_INVALID_ADDRESS);
+ #endif
+
     /* Check that calibration is not in progress. */
     if (0 != p_reg->CCCTLCS[channel].CCCTL0_b.CAEN)
     {
@@ -1073,7 +1298,11 @@ static fsp_err_t r_ospi_b_automatic_calibration_seq (ospi_b_instance_ctrl_t * p_
         const uint8_t command_bytes     = (NULL != p_cmd_set) ? (uint8_t) p_cmd_set->command_bytes : 1U;
         uint16_t      read_command      = (NULL != p_cmd_set) ? p_cmd_set->read_command : p_cfg->read_command;
         const uint8_t read_dummy_cycles = (NULL != p_cmd_set) ? p_cmd_set->read_dummy_cycles : 0U;
+ #if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+        const uint8_t address_bytes     = ((uint32_t) p_cfg->address_bytes & 3U) + 1U;
+ #else
         const uint8_t address_bytes     = (p_cfg->address_bytes == SPI_FLASH_ADDRESS_BYTES_3) ? 3U : 4U;
+ #endif
 
         /* If using 1 command byte, shift the read command over as the peripheral expects. */
         if (1U == command_bytes)
@@ -1097,8 +1326,12 @@ static fsp_err_t r_ospi_b_automatic_calibration_seq (ospi_b_instance_ctrl_t * p_
             (((uint32_t) read_command << R_XSPI0_CCCTLCS_CCCTL2_CARDCMD_Pos) &
              R_XSPI0_CCCTLCS_CCCTL2_CARDCMD_Msk);
 
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+        p_reg->CCCTLCS[channel].CCCTL3 = preamble - r_ospi_b_device_base_get(p_instance_ctrl);
+#else
         p_reg->CCCTLCS[channel].CCCTL3 = (uint32_t) p_cfg_extend->p_autocalibration_preamble_pattern_addr &
                                          OSPI_B_PRV_ADDRESS_REPLACE_MASK;
+#endif
         p_reg->CCCTLCS[channel].CCCTL4 = OSPI_B_PRV_AUTOCALIBRATION_PREAMBLE_PATTERN_0;
         p_reg->CCCTLCS[channel].CCCTL5 = OSPI_B_PRV_AUTOCALIBRATION_PREAMBLE_PATTERN_1;
         p_reg->CCCTLCS[channel].CCCTL6 = OSPI_B_PRV_AUTOCALIBRATION_PREAMBLE_PATTERN_2;
@@ -1219,10 +1452,14 @@ static void r_ospi_b_xip (ospi_b_instance_ctrl_t * p_instance_ctrl, bool is_ente
 {
     R_XSPI0_Type * const    p_reg                = p_instance_ctrl->p_reg;
     const spi_flash_cfg_t * p_cfg                = p_instance_ctrl->p_cfg;
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+    volatile uint8_t * p_dummy_read_address = (volatile uint8_t *) r_ospi_b_device_base_get(p_instance_ctrl);
+#else
     volatile uint8_t      * p_dummy_read_address = (volatile uint8_t *)
                                                    ((OSPI_B_DEVICE_NUMBER_0 == p_instance_ctrl->channel) ?
                                                     BSP_FEATURE_OSPI_B_DEVICE_0_START_ADDRESS :
                                                     BSP_FEATURE_OSPI_B_DEVICE_1_START_ADDRESS);
+#endif
     volatile uint8_t dummy_read = 0;
 
     FSP_PARAMETER_NOT_USED(dummy_read); // Suppress variable not used error.
@@ -1285,6 +1522,10 @@ static ospi_b_xspi_command_set_t const * r_ospi_b_command_set_get (ospi_b_instan
     ospi_b_extended_cfg_t * p_cfg_extend = (ospi_b_extended_cfg_t *) p_instance_ctrl->p_cfg->p_extend;
 
     if ((SPI_FLASH_PROTOCOL_EXTENDED_SPI == p_instance_ctrl->spi_protocol) ||
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+        (NULL == p_cfg_extend->p_xspi_command_set) ||
+        (NULL == p_cfg_extend->p_xspi_command_set->p_table) ||
+#endif
         (0 == p_cfg_extend->p_xspi_command_set->length))
     {
 
@@ -1544,4 +1785,66 @@ static fsp_err_t r_ospi_b_dotf_setup (ospi_b_dotf_cfg_t * p_dotf_cfg)
 }
 
  #endif
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP
+static uint32_t r_ospi_b_device_base_get (ospi_b_instance_ctrl_t const * p_ctrl)
+{
+    ospi_b_extended_cfg_t const * p_extend = (ospi_b_extended_cfg_t const *) p_ctrl->p_cfg->p_extend;
+
+    return BSP_FEATURE_OSPI_B_DEVICE_START_ADDRESS(p_extend->ospi_b_unit, p_ctrl->channel);
+}
+
+static uint32_t r_ospi_b_device_size_get (ospi_b_instance_ctrl_t const * p_ctrl)
+{
+    ospi_b_extended_cfg_t const * p_extend = (ospi_b_extended_cfg_t const *) p_ctrl->p_cfg->p_extend;
+    uint32_t size = BSP_FEATURE_OSPI_B_DEVICE_SIZE(p_extend->ospi_b_unit);
+    uint32_t address_size = (uint32_t) p_ctrl->p_cfg->address_bytes & 3U;
+
+    /* Narrower commands cannot address the entire physical CPU window. Avoid a 32-bit shift by 32. */
+    if (address_size < 3U)
+    {
+        uint32_t address_limit = 1U << ((address_size + 1U) * 8U);
+        if (address_limit < size)
+        {
+            size = address_limit;
+        }
+    }
+
+    return size;
+}
+
+static bool r_ospi_b_device_range_check (ospi_b_instance_ctrl_t const * p_ctrl, uint32_t address, uint32_t bytes)
+{
+    uint32_t size = r_ospi_b_device_size_get(p_ctrl);
+    uint32_t offset = address - r_ospi_b_device_base_get(p_ctrl);
+
+    /* Subtraction keeps the end-of-window check safe from address/length wraparound. */
+    return (offset < size) && (bytes > 0U) && (bytes <= size - offset);
+}
+#endif
+
+#if BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP && OSPI_B_CFG_DMAC_SUPPORT_ENABLE
+static fsp_err_t r_ospi_b_dma_quiesce (ospi_b_instance_ctrl_t * p_ctrl)
+{
+    ospi_b_extended_cfg_t const * p_extend = (ospi_b_extended_cfg_t const *) p_ctrl->p_cfg->p_extend;
+    transfer_instance_t const * p_transfer = p_extend->p_lower_lvl_transfer;
+    dmac_extended_cfg_t const * p_dmac_extend = p_transfer->p_cfg->p_extend;
+    FSP_ERROR_RETURN(p_dmac_extend->channel < BSP_FEATURE_DMAC_MAX_CHANNEL, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+    R_DMAC0_Type * p_dma_reg = (R_DMAC0_Type *) ((uintptr_t) R_DMAC0 +
+                                             ((uintptr_t) R_DMAC1 - (uintptr_t) R_DMAC0) *
+                                             p_dmac_extend->channel);
+    fsp_err_t err = p_transfer->p_api->disable(p_transfer->p_ctrl);
+    if ((FSP_SUCCESS != err) || (0U != (p_dma_reg->DMCNT & R_DMAC0_DMCNT_DTE_Msk)) ||
+        (0U != (p_dma_reg->DMSTS & R_DMAC0_DMSTS_ACT_Msk)))
+    {
+        p_ctrl->open = OSPI_B_PRV_DMA_RECOVERY;
+        return FSP_ERR_IN_USE;
+    }
+
+    p_dma_reg->DMBWR = 0U;
+    return FSP_SUCCESS;
+}
+#endif
+
 #endif

@@ -1,0 +1,19 @@
+ok config set …/compatibility/defaults/r018_def_dac_b33 (2.7 s)
+applied the given settings to r018_def_dac_b33; saved, content generated (no separate generate needed)
+created g_dac0 (module.driver.dac_on_dac_b.290945126 — DAC_B (r_dac_b), channel 0)
+  module.driver.dac_on_dac_b.290945126 module.driver.dac_b.name: g_dac_b0 -> g_dac0 (configuration.xml: g_dac0)
+generated: ra_gen/hal_data.c defines g_dac0 (dac_instance_t), g_dac0_ctrl, g_dac0_ext_cfg, g_dac0_cfg; ra_gen/hal_data.h declares g_dac0_ctrl, g_dac0_cfg, g_dac0
+configuration.xml: saved; read back from the file: g_dac0 (module.driver.dac_on_dac_b.290945126, r_dac_b, channel 0)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_dac_b_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_dac_api.h, ra/fsp/inc/instances/r_dac_b.h, ra/fsp/src/r_dac_b/r_dac_b.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -116 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/compatibility/defaults/r018_def_dac_b33/Debug/r018_def_dac_b33.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r018_def_dac_b33/Debug/r018_def_dac_b33.elf 166044 B 14:53:50, .srec 6278 B 14:53:50, .map 132696 B 14:53:50, .sbd 5620 B 14:53:50
+preceding r018_def_dac_b85: verified yes 7 s ago (0 errors), .sbd fresh
+r018_def_dac_b85: artifacts (stat from disk): r018_def_dac_b85/Debug/r018_def_dac_b85.elf 284096 B 14:53:43, .srec 17454 B 14:53:43, .map 136930 B 14:53:43, .sbd 5476 B 14:53:43
+build: full: ok, 0 errors, 0 warnings (475ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794923629168-r018_def_dac_b33-full.log

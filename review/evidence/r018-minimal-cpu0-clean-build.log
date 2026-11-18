@@ -1,0 +1,15 @@
+ok build validation/ra8p1/review-r015 (1.6 s)
+verified: yes — <repo>/validation/ra8p1/review-r015/Debug/review_r015_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review-r015/Debug/review_r015_cpu0.elf 282904 B 14:35:19, .srec 17454 B 14:35:19, .map 134987 B 14:35:19, .sbd 5476 B 14:35:19
+clean: ok, 0 errors, 0 warnings (72ms)
+full: ok, 0 errors, 0 warnings (501ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794922518573-review_r015_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_cpu1.elf (11:35:39); run embedder e2 build ./validation/ra8p1/review_r015_cpu1
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_mram_cpu1.elf (14:24:37); run embedder e2 build ./validation/ra8p1/review-drivers/review_r015_mram_cpu1
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_dac_b_cpu1.elf (14:25:02); run embedder e2 build ./validation/ra8p1/review-drivers/review_r015_dac_b_cpu1
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_pdm_cpu1.elf (14:25:28); run embedder e2 build ./validation/ra8p1/review-drivers/review_r015_pdm_cpu1
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_wdt_cpu1.elf (14:25:57); run embedder e2 build ./validation/ra8p1/review-drivers/review_r015_wdt_cpu1
+warning: review_r015_cpu0.sbd (rewritten 14:35:19) is now newer than review_r015_cgc_cpu1.elf (14:26:57); run embedder e2 build ./validation/ra8p1/review-drivers/review_r015_cgc_cpu1

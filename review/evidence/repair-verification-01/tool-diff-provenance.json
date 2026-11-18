@@ -1,0 +1,45 @@
+[
+  {
+    "path": "tools/ra8p1/verify_candidate.py",
+    "initial_sha256": "9265db0b2c7224a92c998b14fe4166e8b130063132edd0b0d444f679958a4238",
+    "current_sha256": "06989f1d4e51fba64f6f13289cb2682e8539b435ef223138d43ab462d9906c61",
+    "frozen_archive_sha256": "da99133b16f556075f5d3bf9d1e7f85cd2c5dbf89b0d5fcd90b44a035a339cba",
+    "comparison": "Archive predates initial review; not a repair-only diff"
+  },
+  {
+    "path": "tools/ra8p1/rtos_compatibility.py",
+    "initial_sha256": "7b4dc967c933addad9fe3aaee71a98da863f5539d26aacbae2d6d78554073075",
+    "current_sha256": "b0a583c4a590abc19e239de9ca31415b2f5aed370bebb2fa275f906e65ab1adf",
+    "comparison": "No frozen archive entry"
+  },
+  {
+    "path": "tools/ra8p1/stock_regression.py",
+    "initial_sha256": "de7e5e2bd6e71643d10bc4a6cacb7e657526323e673dbe31fca8351d349581b4",
+    "current_sha256": "d7e085e8d8c5098bccad5747b6b85b791147c82e1c02d5db21d8f8ac2e906448",
+    "comparison": "No frozen archive entry"
+  },
+  {
+    "path": "tools/ra8p1/compatibility.py",
+    "initial_sha256": "922822f647c448220223ae449fc35bc5679926dcf28617910ec56671332dcf4c",
+    "current_sha256": "922822f647c448220223ae449fc35bc5679926dcf28617910ec56671332dcf4c",
+    "comparison": "No frozen archive entry"
+  },
+  {
+    "path": "tools/test_ra8p1_startup.py",
+    "initial_sha256": "f909fd06f005822cd22e66b957d462cf1e714d01d6ea9d9f633926ed913d36df",
+    "current_sha256": "9aee3cf2d56543fc72e73c86a67c46ebc0398773455c1edf75857d08cce67cde",
+    "comparison": "No frozen archive entry"
+  },
+  {
+    "path": "tools/test_ra8p1_candidate.py",
+    "initial_sha256": "2c0bbaeaa30b381e142f8a67a145fbb52f4e515418964855865f1cdbe86fdf5e",
+    "current_sha256": "c001427cdfbb94e24b0f30f02339838e01367701d4b383bbe03bb25c6cede94b",
+    "comparison": "No frozen archive entry"
+  },
+  {
+    "path": "tools/test_ra8p1_rtos_compatibility.py",
+    "initial_sha256": "efb14e5c79aa3061a4ddc6e67159b2bae49da3a3f6f7d84c477110cedd657a7d",
+    "current_sha256": "e71c9c4f3173398cc6a5126cfe5f9517053622f34ead518230096b65643086b9",
+    "comparison": "No frozen archive entry"
+  }
+]

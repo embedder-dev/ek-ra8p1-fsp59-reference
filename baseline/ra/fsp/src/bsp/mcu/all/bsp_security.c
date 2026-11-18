@@ -359,6 +359,7 @@ void R_BSP_NonSecureEnter (void)
  **********************************************************************************************************************/
 void R_BSP_SecurityInit (void)
 {
+ #if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
     /* Disable PRCR for SARs. */
     R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_SAR);
 
@@ -371,6 +372,8 @@ void R_BSP_SecurityInit (void)
     R_PSCU->SSAMONA  = (uint32_t) gp_start_of_nonsecure_ram & R_PSCU_SSAMONA_SS2_Msk;
     R_PSCU->SSAMONB  = (uint32_t) gp_start_of_nonsecure_callable_ram & R_PSCU_SSAMONB_SS1_Msk;
   #endif
+
+ #endif
 
   #if BSP_FEATURE_BSP_HAS_ITCM == 1
 
@@ -402,9 +405,21 @@ void R_BSP_SecurityInit (void)
 
   #if __SAUREGION_PRESENT
 
+ #if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
     /* Configure IDAU to divide SRAM region into NSC/NS. */
     R_CPSCU->SRAMSABAR0 = (uint32_t) gp_start_of_nonsecure_ram & R_CPSCU_SRAMSABAR0_SRAMSABAR_Msk;
     R_CPSCU->SRAMSABAR1 = (uint32_t) gp_start_of_nonsecure_ram & R_CPSCU_SRAMSABAR1_SRAMSABAR_Msk;
+  #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+    /* All four SRAM banks share the absolute boundary offset (HM 59.2.1). */
+    R_CPSCU->SRAMSABAR2 = (uint32_t) gp_start_of_nonsecure_ram & R_CPSCU_SRAMSABAR2_SRAMSABAR_Msk;
+    R_CPSCU->SRAMSABAR3 = (uint32_t) gp_start_of_nonsecure_ram & R_CPSCU_SRAMSABAR3_SRAMSABAR_Msk;
+
+    /* CPU0 owns the secondary core's global memory attribution (HM 2.17.3.1-2). */
+    R_CPSCU->TCMSAR = BSP_TZ_CFG_TCMSAR;
+    R_CPSCU->TCMSABARC = BSP_TZ_CFG_TCMSABARC;
+    R_CPSCU->TCMSABARS = BSP_TZ_CFG_TCMSABARS;
+  #endif
+ #endif
 
     /* Configure SAU region used for Code Flash Non-secure callable. */
     SAU->RNR  = BSP_SAU_REGION_CODE_FLASH_NSC;
@@ -455,7 +470,13 @@ void R_BSP_SecurityInit (void)
     /* Cache maintenance is required when changing security attribution of an address.
      * Barrier instructions are required to guarantee intended operation
      * (See Arm Cortex-M85 Technical Reference Manual Section 10.9.3). */
+ #if BSP_FEATURE_BSP_HAS_CTCM
+    /* CM33 has no Arm SCB I-cache. Complete local attribution before execution. */
+    __DSB();
+    __ISB();
+ #else
     SCB_InvalidateICache();
+ #endif
   #else
 
     /* Setting SAU_CTRL.ALLNS to 1 allows the security attribution of all addresses to be set by the IDAU in the
@@ -493,16 +514,26 @@ void R_BSP_SecurityInit (void)
                  ((FPU_FPCCR_CLRONRET_VAL << FPU_FPCCR_CLRONRET_Pos) & FPU_FPCCR_CLRONRET_Msk);
   #endif
 
+ #if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
   #if BSP_FEATURE_BSP_HAS_TZFSAR
 
     /* Set TrustZone filter to Secure. */
     R_CPSCU->TZFSAR = ~R_CPSCU_TZFSAR_TZFSA0_Msk;
   #endif
 
+  #if BSP_PERIPHERAL_MRAM_PRESENT
+    /* Slave TrustZone errors use BUSOAD.SLERROAD, not the old TZF block (HM 52.3.4). */
+    uint16_t bus_protect = R_BUS->BUSOADPT & R_BUS_BUSOADPT_PROTECT_Msk;
+    R_BUS->BUSOADPT = BSP_PRV_TZ_REG_KEY;
+    R_BUS->BUSOAD = (uint16_t) ((R_BUS->BUSOAD & ~R_BUS_BUSOAD_SLERROAD_Msk) |
+                               (BSP_TZ_CFG_EXCEPTION_RESPONSE << R_BUS_BUSOAD_SLERROAD_Pos));
+    R_BUS->BUSOADPT = BSP_PRV_TZ_REG_KEY | bus_protect;
+  #else
     /* Set TrustZone filter exception response. */
     R_TZF->TZFPT  = BSP_PRV_TZ_REG_KEY + 1U;
     R_TZF->TZFOAD = BSP_PRV_TZ_REG_KEY + BSP_TZ_CFG_EXCEPTION_RESPONSE;
     R_TZF->TZFPT  = BSP_PRV_TZ_REG_KEY + 0U;
+  #endif
 
     /* Initialize PSARs. */
     R_PSCU->PSARB = BSP_TZ_CFG_PSARB;
@@ -516,11 +547,18 @@ void R_BSP_SecurityInit (void)
     R_CPSCU->CSAR = BSP_TZ_CFG_CSAR;                                      /* Cache Security Attribution. */
   #endif
     R_SYSTEM->RSTSAR = BSP_TZ_CFG_RSTSAR;                                 /* RSTSRn Security Attribution. */
+  #if BSP_PERIPHERAL_MRAM_PRESENT
+    R_SYSTEM->PVDSAR = BSP_TZ_CFG_PVDSAR;                                 /* PVD Security Attribution (HM 8.2.1). */
+  #else
     R_SYSTEM->LVDSAR = BSP_TZ_CFG_LVDSAR;                                 /* LVD Security Attribution. */
+  #endif
     R_SYSTEM->CGFSAR = BSP_TZ_CFG_CGFSAR;                                 /* CGC Security Attribution. */
     R_SYSTEM->LPMSAR = BSP_TZ_CFG_LPMSAR;                                 /* LPM Security Attribution. */
   #ifdef BSP_TZ_CFG_DPFSAR
     R_SYSTEM->DPFSAR = BSP_TZ_CFG_DPFSAR;                                 /* Deep Standby Interrupt Factor Security Attribution. */
+  #endif
+  #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+    R_SYSTEM->DPFSAR1 = BSP_TZ_CFG_DPFSAR1;                               /* IRQ16-31 deep standby attribution (HM 11.2.4). */
   #endif
   #ifdef BSP_TZ_CFG_RSCSAR
     R_SYSTEM->RSCSAR = BSP_TZ_CFG_RSCSAR;                                 /* RAM Standby Control Security Attribution. */
@@ -540,7 +578,11 @@ void R_BSP_SecurityInit (void)
     R_CPSCU->ICUSARC = BSP_TZ_CFG_ICUSARC;                                /* DMAC Channel Security Attribution. */
   #endif
   #ifdef BSP_TZ_CFG_DMACCHSAR
+  #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+    R_CPSCU->DMACCHSAR = BSP_TZ_CFG_DMACCHSAR;
+  #else
     R_CPSCU->DMACCHSAR |= (BSP_TZ_CFG_DMACCHSAR << DMACX_REGISTER_SHIFT); /* DMAC Channel Security Attribution. */
+  #endif
   #endif
   #ifdef BSP_TZ_CFG_ICUSARD
     R_CPSCU->ICUSARD = BSP_TZ_CFG_ICUSARD;                                /* SELSR0 Security Attribution. */
@@ -555,7 +597,11 @@ void R_BSP_SecurityInit (void)
   #ifdef BSP_TZ_CFG_ELCSARA
     R_ELC->ELCSARA = BSP_TZ_CFG_ELCSARA;                                  /* ELCR, ELSEGR0, ELSEGR1 Security Attribution. */
   #endif
+  #if BSP_PERIPHERAL_MRAM_PRESENT
+    R_MRAM->MSAR = BSP_TZ_CFG_MSAR;                                      /* MRAM Security Attribution (HM 60.5.13). */
+  #else
     R_FCACHE->FSAR   = BSP_TZ_CFG_FSAR;                                   /* FLWT and FCKMHZ Security Attribution. */
+  #endif
     R_CPSCU->SRAMSAR = BSP_TZ_CFG_SRAMSAR;                                /* SRAM Security Attribution. */
   #ifdef BSP_TZ_CFG_STBRAMSAR
     R_CPSCU->STBRAMSAR = BSP_TZ_CFG_STBRAMSAR;                            /* Standby RAM Security Attribution. */
@@ -567,6 +613,12 @@ void R_BSP_SecurityInit (void)
     R_CPSCU->BUSSARC = BSP_TZ_CFG_BUSSARC;                                /* Security Attribution Register C for the BUS Control Registers. */
   #endif
 
+  #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+
+    /* CPU0 establishes the attribution of both DMAC/DTC banks, without starting CPU1 transfers. */
+    R_CPSCU->DMACSAR = BSP_TZ_CFG_DMACSAR;
+    R_CPSCU->DTCSAR = BSP_TZ_CFG_DTCSAR;
+  #else
   #if (defined(BSP_TZ_CFG_ICUSARC) && (BSP_TZ_CFG_ICUSARC != UINT32_MAX)) || \
     (defined(BSP_TZ_CFG_DMACCHSAR) &&                                        \
     ((BSP_TZ_CFG_DMACCHSAR & R_CPSCU_DMACCHSAR_DMACCHSARn_Msk) != R_CPSCU_DMACCHSAR_DMACCHSARn_Msk))
@@ -614,6 +666,8 @@ void R_BSP_SecurityInit (void)
     R_CPSCU->DTCSAR = 1U;
   #endif
 
+  #endif
+
     /* Initialize security attribution registers for Pins. */
     R_BSP_PinCfgSecurityInit();
 
@@ -622,6 +676,7 @@ void R_BSP_SecurityInit (void)
 
     /* Reenable PRCR for SARs. */
     R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_SAR);
+ #endif
 }
 
 /* This function is overridden by tooling. */

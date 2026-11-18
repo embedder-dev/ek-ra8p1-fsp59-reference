@@ -1,11 +1,14 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <raModuleDescription>
     <module config="config.driver.mipi_phy" display="Graphics|${module.driver.mipi_phy.name} MIPI Physical Layer (r_mipi_phy)" common="1" id="module.driver.mipi_phy" visible="false" version="1" url="group___m_i_p_i___d_s_i.html">
         <constraint display="Only one instance of MIPI PHY is permitted">
             "${interface.driver.mipi_phy}" === "1"
         </constraint>
         <constraint display="Requires MIPI DSI peripheral">
-            "${interface.mcu.mipi_dsi.external}" === "1" &amp;&amp; ("${interface.mcu.feature_set.b}" === "1")
+            ("${interface.mcu.mipi_dsi.external}" === "1") &amp;&amp;
+            ((testExists("${interface.mcu.feature_set.b}") &amp;&amp; ("${interface.mcu.feature_set.b}" === "1")) ||
+             (testExists("${interface.mcu.mipi_dsi}") &amp;&amp; ("${interface.mcu.mipi_dsi}" === "1") &amp;&amp;
+              testExists("${interface.mcu.dphycnt}") &amp;&amp; ("${interface.mcu.dphycnt}" === "1")))
         </constraint>
         <constraint display="Requires frequency of PCLKA to be 40 MHz or more.">
           testExists("${board.clock.peripheral.mipi_phy}") &amp;&amp; (Number("${board.clock.peripheral.mipi_phy}") &gt;= 40000000)
@@ -237,7 +240,6 @@
                  '')
         </constraint>
         <requires id="module.driver.mipi_dsi.requires.mipi_phy_hw" interface="interface.mcu.mipi_dsi.external" visible="false" display="MIPI DSI capable MCU"/>
-        <requires id="module.driver.mipi_dsi.requires.mipi_feature_set_hw" interface="interface.mcu.feature_set.b" visible="false" display="MIPI DSI capable MCU"/>
         <provides interface="interface.driver.mipi_phy" />
 
         <!-- Name and Channel -->

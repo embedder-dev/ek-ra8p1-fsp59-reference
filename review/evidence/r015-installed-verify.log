@@ -1,0 +1,6 @@
+ok packs verify (903 ms)
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 54776c, the rest stock; journalled)
+packs (layer 1) vs stock + journalled installs: 126 installed; 126 identical, 0 differ, 0 extra, 0 missing
+support files (layer 2): 2736 checked in 126 packs; 2667 match their pack, 20 in shared folders now hold another FSP version's copy (not checked), 49 e2 does not track (templates and similar; not checked)
+project sources (layer 3): not checked (--project <p> checks one)
+verdict: all two layers match

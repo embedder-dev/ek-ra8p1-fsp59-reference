@@ -36,8 +36,13 @@
  * instructions, this arithmetic determines if the 4 byte offset should be added to the indexing of IRQCRa to write to
  * channels 16-31 */
  #define ICU_IRQCR_CH(c)    ((c) + (uint8_t) (((c) >> 4) << 2))
+ #if BSP_FEATURE_ICU_HAS_COMMON_REGS
+  #define ICU_IRQCR_REG             (R_ICU_COMMON->IRQCRa)
+  #define ICU_IRQCR_REG_BITFIELD    (R_ICU_COMMON->IRQCRa_b)
+ #else
  #define ICU_IRQCR_REG             (R_ICU->IRQCRa)
  #define ICU_IRQCR_REG_BITFIELD    (R_ICU->IRQCRa_b)
+ #endif
 #else
  #define ICU_IRQCR_CH(c)    (c)
  #define ICU_IRQCR_REG             (R_ICU->IRQCR)
@@ -118,7 +123,7 @@ fsp_err_t R_ICU_ExternalIrqOpen (external_irq_ctrl_t * const p_api_ctrl, externa
     FSP_ASSERT(NULL != p_cfg->p_extend);
  #endif
 
- #if !BSP_FEATURE_ICU_HAS_FILTER
+ #if !BSP_FEATURE_ICU_HAS_FILTER || BSP_FEATURE_ICU_HAS_COMMON_REGS
 
     /* Verify the configuration trigger source is correct */
     FSP_ERROR_RETURN((EXTERNAL_IRQ_TRIG_FALLING == p_cfg->trigger) ||
@@ -128,6 +133,9 @@ fsp_err_t R_ICU_ExternalIrqOpen (external_irq_ctrl_t * const p_api_ctrl, externa
                      FSP_ERR_UNSUPPORTED);
  #endif
 
+ #if BSP_FEATURE_ICU_HAS_COMMON_REGS
+    FSP_ERROR_RETURN(p_cfg->channel < 32U, FSP_ERR_IP_CHANNEL_NOT_PRESENT);
+ #endif
     FSP_ERROR_RETURN(0 != ((1ULL << p_cfg->channel) & BSP_FEATURE_ICU_IRQ_CHANNELS_MASK),
                      FSP_ERR_IP_CHANNEL_NOT_PRESENT);
 
@@ -141,11 +149,21 @@ fsp_err_t R_ICU_ExternalIrqOpen (external_irq_ctrl_t * const p_api_ctrl, externa
     p_ctrl->irq = p_cfg->irq;
 
 #if BSP_FEATURE_ICU_HAS_IELSR
+ #if BSP_FEATURE_ICU_HAS_COMMON_REGS
+    uint32_t ielsr = 0U;
+    if (p_ctrl->irq >= 0)
+    {
+        /* Keep the input trigger inactive while reconfiguring. Writing IR = 1 is prohibited. */
+        ielsr = R_ICU->IELSR[p_ctrl->irq] & ~R_ICU_IELSR_IR_Msk;
+        R_ICU->IELSR[p_ctrl->irq] = 0U;
+    }
+ #else
 
     /* IELSR Must be zero when modifying the IRQCR bits.
      * (See ICU Section 14.2.1 of the RA6M3 manual R01UH0886EJ0100). */
     uint32_t ielsr = R_ICU->IELSR[p_ctrl->irq];
     R_ICU->IELSR[p_ctrl->irq] = 0;
+ #endif
 #endif
 
 #if BSP_TZ_SECURE_BUILD
@@ -204,8 +222,15 @@ fsp_err_t R_ICU_ExternalIrqOpen (external_irq_ctrl_t * const p_api_ctrl, externa
     }
  #endif
 
+ #if BSP_FEATURE_ICU_HAS_COMMON_REGS
+    if (p_ctrl->irq >= 0)
+    {
+        R_ICU->IELSR[p_ctrl->irq] = ielsr;
+    }
+ #else
     /* Restore IELSR. */
     R_ICU->IELSR[p_ctrl->irq] = ielsr;
+ #endif
 #endif
 
     /* NOTE: User can have the driver opened when the IRQ is not in the vector table. This is for use cases

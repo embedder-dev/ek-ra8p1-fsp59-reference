@@ -1,0 +1,9 @@
+ok build validation/ra8p1/review-drivers/review_r015_adc_clock_owner (1.7 s)
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_adc_clock_owner/Debug/review_r015_adc_clock_owner.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_adc_clock_owner/Debug/review_r015_adc_clock_owner.elf 284252 B 11:50:42, .srec 17524 B 11:50:42, .map 134998 B 11:50:42, .sbd 5476 B 11:50:42
+clean: skipped (no build output on disk; not a clean-build pass) (40 ms)
+full: ok, 0 errors, 0 warnings (485ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794912641407-review_r015_adc_clock_owner-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 54776c, the rest stock; journalled)

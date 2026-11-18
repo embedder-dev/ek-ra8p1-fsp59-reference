@@ -1,0 +1,14 @@
+test_all_twenty_crc_selections_match_explicit_manual_addresses (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_all_twenty_crc_selections_match_explicit_manual_addresses) ... ok
+test_comparator_mask_and_enum_are_complete_with_original_default (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_comparator_mask_and_enum_are_complete_with_original_default) ... ok
+test_crc_existing_legal_ids_and_default_remain_unchanged (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_crc_existing_legal_ids_and_default_remain_unchanged) ... ok
+test_generic_comparator_provides_expose_exactly_four_channels (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_generic_comparator_provides_expose_exactly_four_channels) ... ok
+test_missing_crc_choices_have_exact_lower_fourteen_bit_codes (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_missing_crc_choices_have_exact_lower_fourteen_bit_codes) ... ok
+test_original_pvd_monitor_and_threshold_defaults_remain_valid (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_original_pvd_monitor_and_threshold_defaults_remain_valid) ... ok
+test_part_external_eligibility_is_not_promoted_from_generic_presence (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_part_external_eligibility_is_not_promoted_from_generic_presence) ... ok
+test_prohibited_pvd_codes_and_stale_ids_are_no_longer_selectable (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_prohibited_pvd_codes_and_stale_ids_are_no_longer_selectable) ... ok
+test_pvd_levels_keep_every_legal_id_and_exact_encoding_for_both_monitors (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_pvd_levels_keep_every_legal_id_and_exact_encoding_for_both_monitors) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.015s
+
+OK

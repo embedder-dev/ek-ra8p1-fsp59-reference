@@ -1,0 +1,8 @@
+test_codegen_oracle_rejects_trap_missing_store_spin_and_elided_init (test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_codegen_oracle_rejects_trap_missing_store_spin_and_elided_init) ... ok
+test_full_source_real_cpu1_flags_all_optimization_levels (test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_full_source_real_cpu1_flags_all_optimization_levels) ... ok
+test_generated_cpu1_configuration_enables_actual_scrub_and_runtime_init (test_ra8p1_review_tcm_codegen.TcmCodegenTests.test_generated_cpu1_configuration_enables_actual_scrub_and_runtime_init) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.443s
+
+OK

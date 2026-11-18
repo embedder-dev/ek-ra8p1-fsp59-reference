@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='utf-8'?>
+<raModuleDescription>
+    <config id="config.driver.pdm" path="fsp_cfg/r_pdm_cfg.h" version="0">
+        <property id="config.driver.pdm.param_checking_enable" default="config.driver.pdm.param_checking_enable.bsp" display="Parameter Checking">
+            <option id="config.driver.pdm.param_checking_enable.bsp" display="Default (BSP)" value="BSP_CFG_PARAM_CHECKING_ENABLE" />
+            <option id="config.driver.pdm.param_checking_enable.enabled" display="Enabled" value="1" />
+            <option id="config.driver.pdm.param_checking_enable.disabled" display="Disabled" value="0" />
+        </property>
+        <content>
+#define PDM_CFG_PARAM_CHECKING_ENABLE (${config.driver.pdm.param_checking_enable})
+</content>
+    </config>
+    <module id="module.driver.pdm_on_pdm" config="config.driver.pdm" display="Audio|${module.driver.pdm.name} PDM (r_pdm)" version="0" url="group___p_d_m.html">
+        <constraint display="Unique name required for each instance">"${interface.driver.pdm.${module.driver.pdm.name}}" === "1"</constraint>
+        <constraint display="Processing channel already in use">"${interface.driver.pdm.channel.${module.driver.pdm.channel}}" === "1"</constraint>
+        <constraint display="Requires PDM peripheral">"${interface.mcu.pdm}" === "1"</constraint>
+        <constraint display="Processing channel unavailable">"${interface.mcu.pdm.${module.driver.pdm.channel}}" === "1"</constraint>
+        <constraint display="Physical input must match channel and edge (falling channel 0 wraps to input 2)">(Number("${module.driver.pdm.physical_input}") === ((Number("${module.driver.pdm.channel}") + ("${module.driver.pdm.input}" === "module.driver.pdm.input.falling" ? 2 : 0)) % 3))</constraint>
+        <constraint display="Falling stereo requires a rising source with matched sinc mode, decimation/range and FIFO threshold">"${module.driver.pdm.input}" !== "module.driver.pdm.input.falling" || ("${interface.driver.pdm.stereo.${module.driver.pdm.physical_input}.module.driver.pdm.input.rising.${module.driver.pdm.sinc_order}.${module.driver.pdm.clock_div}.${module.driver.pdm.fifo_threshold}}" === "1" || (("${module.driver.pdm.clock_div}" === "module.driver.pdm.clock_div.12" || "${module.driver.pdm.clock_div}" === "module.driver.pdm.clock_div.13") &amp;&amp; ("${interface.driver.pdm.stereo.${module.driver.pdm.physical_input}.module.driver.pdm.input.rising.${module.driver.pdm.sinc_order}.module.driver.pdm.clock_div.12.${module.driver.pdm.fifo_threshold}}" === "1" || "${interface.driver.pdm.stereo.${module.driver.pdm.physical_input}.module.driver.pdm.input.rising.${module.driver.pdm.sinc_order}.module.driver.pdm.clock_div.13.${module.driver.pdm.fifo_threshold}}" === "1")) || (("${module.driver.pdm.clock_div}" === "module.driver.pdm.clock_div.14" || "${module.driver.pdm.clock_div}" === "module.driver.pdm.clock_div.15") &amp;&amp; ("${interface.driver.pdm.stereo.${module.driver.pdm.physical_input}.module.driver.pdm.input.rising.${module.driver.pdm.sinc_order}.module.driver.pdm.clock_div.14.${module.driver.pdm.fifo_threshold}}" === "1" || "${interface.driver.pdm.stereo.${module.driver.pdm.physical_input}.module.driver.pdm.input.rising.${module.driver.pdm.sinc_order}.module.driver.pdm.clock_div.15.${module.driver.pdm.fifo_threshold}}" === "1")))</constraint>
+        <constraint display="PDMIF bus clock PCLKB must be 1 to 62.5 MHz">(Number("${board.clock.peripheral.pdm}") &gt;= 1000000) &amp;&amp; (Number("${board.clock.peripheral.pdm}") &lt;= 62500000)</constraint>
+        <requires id="module.driver.pdm.requires.pdm" interface="interface.mcu.pdm" visible="false" display="Requires PDM peripheral" />
+        <provides interface="interface.driver.pdm" />
+        <provides interface="interface.driver.pdm_on_pdm" />
+        <provides interface="interface.driver.pdm.${module.driver.pdm.name}" />
+        <provides interface="interface.driver.pdm.channel.${module.driver.pdm.channel}" />
+        <provides interface="interface.driver.pdm.stereo.${module.driver.pdm.channel}.${module.driver.pdm.input}.${module.driver.pdm.sinc_order}.${module.driver.pdm.clock_div}.${module.driver.pdm.fifo_threshold}" />
+        <property id="module.driver.pdm.name" display="Name" default="g_pdm${_instance}">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.driver.pdm.name}")</constraint>
+        </property>
+        <property id="module.driver.pdm.channel" default="2" display="Processing Channel" description="Assign the entire PDMIF peripheral, shared clock and interrupts exclusively to one core. All instances and IRQ handlers run on that core; serialize API calls except documented callback-safe calls. Duplicate processing channels are rejected within this project only. Open's local IRQ-context/channel checks detect sequential duplicates, not atomic reservations; no cross-core synchronization is provided.">
+            <constraint display="Processing Channel: integer 0 to 2 required">testInteger("${module.driver.pdm.channel}") &amp;&amp; (Number("${module.driver.pdm.channel}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.channel}") &lt;= 2)</constraint>
+        </property>
+        <property id="module.driver.pdm.physical_input" default="2" display="Pins|Physical Input Channel">
+            <constraint display="Pins|Physical Input Channel: integer 0 to 2 required">testInteger("${module.driver.pdm.physical_input}") &amp;&amp; (Number("${module.driver.pdm.physical_input}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.physical_input}") &lt;= 2)</constraint>
+        </property>
+        <property id="module.driver.pdm.input" default="module.driver.pdm.input.rising" display="Input Edge" description="Falling stereo uses physical input CH(n-1), wrapping CH0 to CH2 (HM50.2.19). Add the source instance in rising mode with matching sinc order, decimation/range and FIFO threshold. Open the source first; stop/close the falling consumer first. The source supplies the clock; the falling channel's CKDIV is unused. Shifts, word format and coefficients may differ.">
+            <option id="module.driver.pdm.input.rising" display="Rising (this physical input)" value="PDM_INPUT_RISING" />
+            <option id="module.driver.pdm.input.falling" display="Falling (previous physical input)" value="PDM_INPUT_PREVIOUS_FALLING" />
+        </property>
+        <property id="module.driver.pdm.sample_format" default="module.driver.pdm.sample_format.0" display="Output|FIFO Word Format">
+            <option id="module.driver.pdm.sample_format.0" display="20-bit, no shift" value="PDM_SAMPLE_FORMAT_20_BITS" />
+            <option id="module.driver.pdm.sample_format.1" display="20-bit, right shift 1" value="PDM_SAMPLE_FORMAT_20_BITS_SHIFT1" />
+            <option id="module.driver.pdm.sample_format.2" display="20-bit, right shift 2" value="PDM_SAMPLE_FORMAT_20_BITS_SHIFT2" />
+            <option id="module.driver.pdm.sample_format.3" display="20-bit, right shift 3" value="PDM_SAMPLE_FORMAT_20_BITS_SHIFT3" />
+            <option id="module.driver.pdm.sample_format.8" display="16-bit, sign and bits 18:4" value="PDM_SAMPLE_FORMAT_16_BITS_18_4" />
+            <option id="module.driver.pdm.sample_format.9" display="16-bit, sign and bits 17:3" value="PDM_SAMPLE_FORMAT_16_BITS_17_3" />
+            <option id="module.driver.pdm.sample_format.10" display="16-bit, sign and bits 16:2" value="PDM_SAMPLE_FORMAT_16_BITS_16_2" />
+            <option id="module.driver.pdm.sample_format.11" display="16-bit, sign and bits 15:1" value="PDM_SAMPLE_FORMAT_16_BITS_15_1" />
+            <option id="module.driver.pdm.sample_format.12" display="16-bit, sign and bits 14:0" value="PDM_SAMPLE_FORMAT_16_BITS_14_0" />
+        </property>
+        <property id="module.driver.pdm.clock_div" default="module.driver.pdm.clock_div.0" display="Clock|PDM Clock Divider (8 MHz MOCO)">
+            <option id="module.driver.pdm.clock_div.0" display="Divide by 2" value="0" />
+            <option id="module.driver.pdm.clock_div.1" display="Divide by 4" value="1" />
+            <option id="module.driver.pdm.clock_div.2" display="Divide by 6" value="2" />
+            <option id="module.driver.pdm.clock_div.3" display="Divide by 8" value="3" />
+            <option id="module.driver.pdm.clock_div.4" display="Divide by 10" value="4" />
+            <option id="module.driver.pdm.clock_div.5" display="Divide by 12" value="5" />
+            <option id="module.driver.pdm.clock_div.6" display="Divide by 14" value="6" />
+            <option id="module.driver.pdm.clock_div.7" display="Divide by 16" value="7" />
+            <option id="module.driver.pdm.clock_div.8" display="Divide by 18" value="8" />
+            <option id="module.driver.pdm.clock_div.9" display="Divide by 20" value="9" />
+            <option id="module.driver.pdm.clock_div.10" display="Divide by 22" value="10" />
+            <option id="module.driver.pdm.clock_div.11" display="Divide by 24" value="11" />
+            <option id="module.driver.pdm.clock_div.12" display="Divide by 26" value="12" />
+            <option id="module.driver.pdm.clock_div.13" display="Divide by 28" value="13" />
+            <option id="module.driver.pdm.clock_div.14" display="Divide by 30" value="14" />
+            <option id="module.driver.pdm.clock_div.15" display="Divide by 32" value="15" />
+        </property>
+        <property id="module.driver.pdm.sinc_order" default="module.driver.pdm.sinc_order.4" display="Filter|Sinc Order (HM table 50.7 decimation and clipping)">
+            <option id="module.driver.pdm.sinc_order.1" display="1" value="1" />
+            <option id="module.driver.pdm.sinc_order.2" display="2" value="2" />
+            <option id="module.driver.pdm.sinc_order.3" display="3" value="3" />
+            <option id="module.driver.pdm.sinc_order.4" display="4" value="4" />
+        </property>
+        <property id="module.driver.pdm.high_pass_shift" default="module.driver.pdm.high_pass_shift.0" display="Filter|High-pass Input Right Shift">
+            <option id="module.driver.pdm.high_pass_shift.0" display="0" value="0" />
+            <option id="module.driver.pdm.high_pass_shift.1" display="1" value="1" />
+            <option id="module.driver.pdm.high_pass_shift.2" display="2" value="2" />
+            <option id="module.driver.pdm.high_pass_shift.3" display="3" value="3" />
+        </property>
+        <property id="module.driver.pdm.compensation_shift" default="module.driver.pdm.compensation_shift.0" display="Filter|Compensation Input Right Shift">
+            <option id="module.driver.pdm.compensation_shift.0" display="0" value="0" />
+            <option id="module.driver.pdm.compensation_shift.1" display="1" value="1" />
+            <option id="module.driver.pdm.compensation_shift.2" display="2" value="2" />
+            <option id="module.driver.pdm.compensation_shift.3" display="3" value="3" />
+        </property>
+        <property id="module.driver.pdm.low_pass_shift" default="module.driver.pdm.low_pass_shift.0" display="Filter|Low-pass Input Right Shift">
+            <option id="module.driver.pdm.low_pass_shift.0" display="0" value="0" />
+            <option id="module.driver.pdm.low_pass_shift.1" display="1" value="1" />
+            <option id="module.driver.pdm.low_pass_shift.2" display="2" value="2" />
+            <option id="module.driver.pdm.low_pass_shift.3" display="3" value="3" />
+        </property>
+        <property id="module.driver.pdm.fifo_threshold" default="module.driver.pdm.fifo_threshold.4" display="Reception|FIFO Interrupt Threshold">
+            <option id="module.driver.pdm.fifo_threshold.0" display="1 words" value="0" />
+            <option id="module.driver.pdm.fifo_threshold.1" display="2 words" value="1" />
+            <option id="module.driver.pdm.fifo_threshold.2" display="4 words" value="2" />
+            <option id="module.driver.pdm.fifo_threshold.3" display="8 words" value="3" />
+            <option id="module.driver.pdm.fifo_threshold.4" display="16 words" value="4" />
+        </property>
+        <property id="module.driver.pdm.microphone_delay_us" default="0" display="Clock|Additional Microphone Settling Time (us)">
+            <constraint display="Clock|Additional Microphone Settling Time (us): integer 0 to 1000000 required">testInteger("${module.driver.pdm.microphone_delay_us}") &amp;&amp; (Number("${module.driver.pdm.microphone_delay_us}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.microphone_delay_us}") &lt;= 1000000)</constraint>
+        </property>
+        <property id="module.driver.pdm.p_coefficients" display="Filter|Coefficient Structure" default="NULL" description="NULL uses HM reset coefficients; otherwise name a const pdm_coefficients_t.">
+            <constraint display="Coefficient structure must be a C symbol">testSymbol("${module.driver.pdm.p_coefficients}")</constraint>
+        </property>
+        <property id="module.driver.pdm.error_enable" default="module.driver.pdm.error_enable.none" display="Errors|Additional Detectors (FIFO overflow always enabled)">
+            <option id="module.driver.pdm.error_enable.none" display="None" value="0" />
+            <option id="module.driver.pdm.error_enable.short" display="Short-circuit" value="PDM_ERROR_SHORT_CIRCUIT" />
+            <option id="module.driver.pdm.error_enable.limits" display="Lower and upper limits" value="PDM_ERROR_LOWER_LIMIT | PDM_ERROR_UPPER_LIMIT" />
+            <option id="module.driver.pdm.error_enable.all" display="All" value="PDM_ERROR_SHORT_CIRCUIT | PDM_ERROR_LOWER_LIMIT | PDM_ERROR_UPPER_LIMIT" />
+        </property>
+        <property id="module.driver.pdm.short_circuit_low" default="0" display="Errors|Short Circuit Low Limit">
+            <constraint display="Errors|Short Circuit Low Limit: integer 0 to 8191 required">testInteger("${module.driver.pdm.short_circuit_low}") &amp;&amp; (Number("${module.driver.pdm.short_circuit_low}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.short_circuit_low}") &lt;= 8191)</constraint>
+        </property>
+        <property id="module.driver.pdm.short_circuit_high" default="0" display="Errors|Short Circuit High Limit">
+            <constraint display="Errors|Short Circuit High Limit: integer 0 to 8191 required">testInteger("${module.driver.pdm.short_circuit_high}") &amp;&amp; (Number("${module.driver.pdm.short_circuit_high}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.short_circuit_high}") &lt;= 8191)</constraint>
+        </property>
+        <property id="module.driver.pdm.lower_limit" default="0x80000" display="Errors|Lower Limit (raw signed 20-bit)">
+            <constraint display="Errors|Lower Limit (raw signed 20-bit): integer 0 to 1048575 required">testInteger("${module.driver.pdm.lower_limit}") &amp;&amp; (Number("${module.driver.pdm.lower_limit}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.lower_limit}") &lt;= 1048575)</constraint>
+        </property>
+        <property id="module.driver.pdm.upper_limit" default="0x7FFFF" display="Errors|Upper Limit (raw signed 20-bit)">
+            <constraint display="Errors|Upper Limit (raw signed 20-bit): integer 0 to 1048575 required">testInteger("${module.driver.pdm.upper_limit}") &amp;&amp; (Number("${module.driver.pdm.upper_limit}") &gt;= 0) &amp;&amp; (Number("${module.driver.pdm.upper_limit}") &lt;= 1048575)</constraint>
+        </property>
+        <property id="module.driver.pdm.p_callback" default="NULL" display="Interrupts|Callback">
+            <constraint display="Callback must be a valid C symbol">testSymbol("${module.driver.pdm.p_callback}")</constraint>
+        </property>
+        <property id="module.driver.pdm.p_context" default="NULL" />
+        <property id="module.driver.pdm.ipl" display="Interrupts|Data and Error Priority" default="board.icu.common.irq.priority12">
+            <select enum="enum.mcu.nvic.priorities.mandatory" />
+            <interrupt event="event.pdm${module.driver.pdm.channel}.dat" isr="pdm_dat_isr" />
+            <interrupt event="event.pdm${module.driver.pdm.channel}.err" isr="pdm_err_isr" />
+        </property>
+        <peripheral name="PDM${module.driver.pdm.physical_input}" component="pdm${module.driver.pdm.physical_input}" />
+        <symbol id="module.driver.pdm.guard.open" value="${module.driver.pdm.name}_open_guard" />
+        <symbol id="module.driver.pdm.guard.start" value="${module.driver.pdm.name}_start_guard" />
+        <symbol id="module.driver.pdm.guard.stop" value="${module.driver.pdm.name}_stop_guard" />
+        <symbol id="module.driver.pdm.guard.status_get" value="${module.driver.pdm.name}_status_get_guard" />
+        <symbol id="module.driver.pdm.guard.close" value="${module.driver.pdm.name}_close_guard" />
+        <symbol id="module.driver.pdm.guard.callback_set" value="${module.driver.pdm.name}_callback_set_guard" />
+        <header>
+extern pdm_instance_t const ${module.driver.pdm.name};
+extern pdm_instance_ctrl_t ${module.driver.pdm.name}_ctrl;
+extern pdm_cfg_t const ${module.driver.pdm.name}_cfg;
+#ifndef ${module.driver.pdm.p_callback}
+void ${module.driver.pdm.p_callback}(pdm_callback_args_t * p_args);
+#endif
+#ifndef ${module.driver.pdm.p_coefficients}
+extern pdm_coefficients_t const ${module.driver.pdm.p_coefficients};
+#endif
+</header>
+        <includes>
+#include "r_pdm.h"
+</includes>
+        <declarations>
+pdm_instance_ctrl_t ${module.driver.pdm.name}_ctrl;
+pdm_extended_cfg_t const ${module.driver.pdm.name}_ext_cfg =
+{
+    .input = ${module.driver.pdm.input},
+    .sample_format = ${module.driver.pdm.sample_format},
+    .clock_div = ${module.driver.pdm.clock_div},
+    .sinc_order = ${module.driver.pdm.sinc_order},
+    .high_pass_shift = ${module.driver.pdm.high_pass_shift},
+    .compensation_shift = ${module.driver.pdm.compensation_shift},
+    .low_pass_shift = ${module.driver.pdm.low_pass_shift},
+    .fifo_threshold = ${module.driver.pdm.fifo_threshold},
+    .microphone_delay_us = ${module.driver.pdm.microphone_delay_us},
+    .error_enable = ${module.driver.pdm.error_enable},
+    .short_circuit_low = ${module.driver.pdm.short_circuit_low},
+    .short_circuit_high = ${module.driver.pdm.short_circuit_high},
+    .lower_limit = ${module.driver.pdm.lower_limit},
+    .upper_limit = ${module.driver.pdm.upper_limit},
+#if defined(${module.driver.pdm.p_coefficients})
+    .p_coefficients = ${module.driver.pdm.p_coefficients},
+#else
+    .p_coefficients = &amp;${module.driver.pdm.p_coefficients},
+#endif
+};
+pdm_cfg_t const ${module.driver.pdm.name}_cfg =
+{
+    .p_extend = &amp;${module.driver.pdm.name}_ext_cfg,
+    .channel = ${module.driver.pdm.channel},
+    .ipl = ${module.driver.pdm.ipl},
+    .p_callback = ${module.driver.pdm.p_callback},
+#if defined(${module.driver.pdm.p_context})
+    .p_context = ${module.driver.pdm.p_context},
+#else
+    .p_context = &amp;${module.driver.pdm.p_context},
+#endif
+#if defined(VECTOR_NUMBER_PDM_DAT${module.driver.pdm.channel})
+    .dat_irq = VECTOR_NUMBER_PDM_DAT${module.driver.pdm.channel},
+#else
+    .dat_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_PDM_ERR${module.driver.pdm.channel})
+    .err_irq = VECTOR_NUMBER_PDM_ERR${module.driver.pdm.channel},
+#else
+    .err_irq = FSP_INVALID_VECTOR,
+#endif
+};
+pdm_instance_t const ${module.driver.pdm.name} = { .p_ctrl = &amp;${module.driver.pdm.name}_ctrl, .p_cfg = &amp;${module.driver.pdm.name}_cfg, .p_api = &amp;g_pdm_on_pdm };
+</declarations>
+        <functions />
+        <guard>
+            <header>
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_open_guard(pdm_ctrl_t * const p_ctrl, pdm_cfg_t const * const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_start_guard(pdm_ctrl_t * const p_ctrl, uint32_t * const p_buffer, uint32_t const samples);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_stop_guard(pdm_ctrl_t * const p_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_status_get_guard(pdm_ctrl_t * const p_ctrl, pdm_status_t * const p_status);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_close_guard(pdm_ctrl_t * const p_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_callback_set_guard(pdm_ctrl_t * const p_ctrl, void (* p_callback)(pdm_callback_args_t *), void const * const p_context, pdm_callback_args_t * const p_callback_memory);
+</header>
+            <template name="${module.driver.pdm.name}_guard.c">#include "guard.h"
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_open_guard(pdm_ctrl_t * const p_ctrl, pdm_cfg_t const * const p_cfg)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    FSP_PARAMETER_NOT_USED(p_cfg);
+    return R_PDM_Open(&amp;${module.driver.pdm.name}_ctrl, &amp;${module.driver.pdm.name}_cfg);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_start_guard(pdm_ctrl_t * const p_ctrl, uint32_t * const p_buffer, uint32_t const samples)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    FSP_ERROR_RETURN((samples &gt; 0U) &amp;&amp; (samples &lt;= UINT32_MAX / sizeof(uint32_t)), FSP_ERR_INVALID_SIZE);
+    FSP_ERROR_RETURN(NULL != cmse_check_address_range(p_buffer, samples * sizeof(uint32_t), CMSE_AU_NONSECURE | CMSE_MPU_READWRITE), FSP_ERR_INVALID_ADDRESS);
+    return R_PDM_Start(&amp;${module.driver.pdm.name}_ctrl, p_buffer, samples);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_stop_guard(pdm_ctrl_t * const p_ctrl)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    return R_PDM_Stop(&amp;${module.driver.pdm.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_status_get_guard(pdm_ctrl_t * const p_ctrl, pdm_status_t * const p_status)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    FSP_ERROR_RETURN(NULL != cmse_check_pointed_object(p_status, CMSE_AU_NONSECURE | CMSE_MPU_READWRITE), FSP_ERR_INVALID_ADDRESS);
+    return R_PDM_StatusGet(&amp;${module.driver.pdm.name}_ctrl, p_status);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_close_guard(pdm_ctrl_t * const p_ctrl)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    return R_PDM_Close(&amp;${module.driver.pdm.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_callback_set_guard(pdm_ctrl_t * const p_ctrl, void (* p_callback)(pdm_callback_args_t *), void const * const p_context, pdm_callback_args_t * const p_callback_memory)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    FSP_ERROR_RETURN(NULL != cmse_check_address_range((void *) p_callback, sizeof(void *), CMSE_AU_NONSECURE), FSP_ERR_INVALID_ADDRESS);
+    FSP_ERROR_RETURN(NULL != cmse_check_pointed_object(p_callback_memory, CMSE_AU_NONSECURE | CMSE_MPU_READWRITE), FSP_ERR_NO_CALLBACK_MEMORY);
+    return R_PDM_CallbackSet(&amp;${module.driver.pdm.name}_ctrl, p_callback, p_context, p_callback_memory);
+}
+</template>
+        </guard>
+        <nsc>
+            <header>
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_Open() ${module.driver.pdm.name}_open_guard(FSP_SECURE_ARGUMENT, FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_Start(p_buffer, samples) ${module.driver.pdm.name}_start_guard(FSP_SECURE_ARGUMENT, p_buffer, samples)
+
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_Stop() ${module.driver.pdm.name}_stop_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_StatusGet(p_status) ${module.driver.pdm.name}_status_get_guard(FSP_SECURE_ARGUMENT, p_status)
+
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_Close() ${module.driver.pdm.name}_close_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.pdm.name}_R_PDM_CallbackSet(p_callback, p_context, p_callback_memory) ${module.driver.pdm.name}_callback_set_guard(FSP_SECURE_ARGUMENT, p_callback, p_context, p_callback_memory)
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_open_guard(pdm_ctrl_t * const p_ctrl, pdm_cfg_t const * const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_start_guard(pdm_ctrl_t * const p_ctrl, uint32_t * const p_buffer, uint32_t const samples);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_stop_guard(pdm_ctrl_t * const p_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_status_get_guard(pdm_ctrl_t * const p_ctrl, pdm_status_t * const p_status);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_close_guard(pdm_ctrl_t * const p_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.pdm.name}_callback_set_guard(pdm_ctrl_t * const p_ctrl, void (* p_callback)(pdm_callback_args_t *), void const * const p_context, pdm_callback_args_t * const p_callback_memory);
+
+extern pdm_instance_t const ${module.driver.pdm.name};
+</header>
+            <declarations>
+static pdm_api_t const ${module.driver.pdm.name}_nsc_api =
+{
+    .open = ${module.driver.pdm.name}_open_guard,
+    .start = ${module.driver.pdm.name}_start_guard,
+    .stop = ${module.driver.pdm.name}_stop_guard,
+    .statusGet = ${module.driver.pdm.name}_status_get_guard,
+    .close = ${module.driver.pdm.name}_close_guard,
+    .callbackSet = ${module.driver.pdm.name}_callback_set_guard,
+};
+pdm_instance_t const ${module.driver.pdm.name} = { .p_api = &amp;${module.driver.pdm.name}_nsc_api, .p_ctrl = FSP_SECURE_ARGUMENT, .p_cfg = FSP_SECURE_ARGUMENT };
+</declarations>
+        </nsc>
+        <api configurable="true">
+            <file>ra/fsp/inc/instances/r_pdm.h</file>
+            <file>ra/fsp/inc/api/r_pdm_api.h</file>
+        </api>
+    </module>
+</raModuleDescription>

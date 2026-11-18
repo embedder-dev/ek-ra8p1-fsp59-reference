@@ -1,0 +1,18 @@
+ok config set …a8p1/review-drivers/review_r015_wdt_cpu1 (2.6 s)
+applied the given settings to review_r015_wdt_cpu1; saved, content generated (no separate generate needed)
+created g_wdt0 (module.driver.watchdog_on_wdt.780763203 — Watchdog (r_wdt))
+generated: ra_gen/hal_data.c defines g_wdt0 (wdt_instance_t), g_wdt0_ctrl, g_wdt0_cfg; ra_gen/hal_data.h declares them
+configuration.xml: saved; read back from the file: g_wdt0 (module.driver.watchdog_on_wdt.780763203, r_wdt)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_wdt_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_wdt_api.h, ra/fsp/inc/instances/r_wdt.h, ra/fsp/src/r_wdt/r_wdt.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -116 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_wdt_cpu1/Debug/review_r015_wdt_cpu1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_wdt_cpu1/Debug/review_r015_wdt_cpu1.elf 204948 B 11:47:48, .srec 7782 B 11:47:48, .map 133895 B 11:47:48, .sbd 5620 B 11:47:49
+preceding review_r015_cpu0: verified yes 12 min ago (0 errors), .sbd fresh
+review_r015_cpu0: artifacts (stat from disk): review-r015/Debug/review_r015_cpu0.elf 282904 B 11:35:38, .srec 17454 B 11:35:38, .map 134987 B 11:35:38, .sbd 5476 B 11:33:09
+build: full: ok, 0 errors, 0 warnings (476ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794912467792-review_r015_wdt_cpu1-full.log

@@ -114,7 +114,25 @@ VOID _tx_initialize_low_level (VOID)
 #ifndef TX_NO_TIMER
 
     /* Configure SysTick based on user configuration (100 Hz by default).  */
+ #if BSP_FEATURE_BSP_HAS_SECONDARY_CORE
+  #if TX_TIMER_TICKS_PER_SECOND == 0
+   #error "ThreadX timer ticks per second must be greater than zero"
+  #endif
+    uint32_t const ticks = SystemCoreClock / TX_TIMER_TICKS_PER_SECOND;
+    if ((0U == ticks) || ((ticks - 1U) > SysTick_LOAD_RELOAD_Msk) || (0U != SysTick_Config(ticks)))
+    {
+        /* This void kernel initialization hook cannot return an error to its caller. */
+        __disable_irq();
+        SysTick->CTRL = 0U;
+        BSP_CFG_HANDLE_UNRECOVERABLE_ERROR(0);
+        while (1)
+        {
+            /* Do not enter the kernel without its configured time base, even if the error hook returns. */
+        }
+    }
+ #else
     SysTick_Config(SystemCoreClock / TX_TIMER_TICKS_PER_SECOND);
+ #endif
     NVIC_SetPriority(SysTick_IRQn, TX_PORT_CFG_SYSTICK_IPL); // Set User configured Priority for Systick Interrupt
 #endif
 

@@ -362,6 +362,7 @@ void R_BSP_WarmStart (bsp_warm_start_event_t event)
     {
         /* C runtime environment and system clocks are setup. */
 
+#if !BSP_FEATURE_BSP_HAS_SECONDARY_CORE || (BSP_CFG_CPU_CORE == 0)
         /* Configure pins. */
         R_IOPORT_Open(&amp;IOPORT_CFG_CTRL, &amp;IOPORT_CFG_NAME);
 
@@ -369,6 +370,7 @@ void R_BSP_WarmStart (bsp_warm_start_event_t event)
 
         /* Setup SDRAM and initialize it. Must configure pins first. */
         R_BSP_SdramInit(true);
+#endif
 #endif
     }
 }

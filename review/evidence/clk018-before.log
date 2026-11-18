@@ -1,0 +1,17 @@
+test_all_legal_type6_dividers_match_manual (tools.test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_all_legal_type6_dividers_match_manual) ... FAIL
+test_every_legacy_device_retains_original_preprocessed_helper (tools.test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_every_legacy_device_retains_original_preprocessed_helper) ... ok
+
+======================================================================
+FAIL: test_all_legal_type6_dividers_match_manual (tools.test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_all_legal_type6_dividers_match_manual)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_clock_divider.py", line 42, in test_all_legal_type6_dividers_match_manual
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != -6 : Assertion failed: (R_FSP_ClockDividerGet(9U) == 32U), function main, file test.c, line 65.
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.826s
+
+FAILED (failures=1)

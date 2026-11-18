@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<raModuleDescription>
+    <config id="config.driver.mram" path="fsp_cfg/r_mram_cfg.h" version="0">
+        <property id="config.driver.mram.param_checking_enable" default="config.driver.mram.param_checking_enable.bsp" display="Parameter Checking" description="">
+            <option id="config.driver.mram.param_checking_enable.bsp" display="Default (BSP)" value="BSP_CFG_PARAM_CHECKING_ENABLE" />
+            <option id="config.driver.mram.param_checking_enable.enabled" display="Enabled" value="1" />
+            <option id="config.driver.mram.param_checking_enable.disabled" display="Disabled" value="0" />
+        </property>
+        <content>
+#define MRAM_CFG_PARAM_CHECKING_ENABLE (${config.driver.mram.param_checking_enable})
+</content>
+    </config>
+    <module id="module.driver.flash_on_mram" config="config.driver.mram" display="Storage|${module.driver.mram.name} MRAM (r_mram)" version="1" url="group___M_R_A_M.html">
+        <constraint display="Unique name required for each instance">"${interface.driver.flash.${module.driver.mram.name}}" === "1"</constraint>
+        <constraint display="Requires MRAM peripheral">"${interface.mcu.mram}" === "1"</constraint>
+        <constraint display="Write window end must not precede start">Number("${module.driver.mram.write_start}") &lt;= Number("${module.driver.mram.write_end}")</constraint>
+        <requires id="module.driver.flash_on_mram.requires.mcu" interface="interface.mcu.mram" visible="false" display="Requires MRAM peripheral" />
+        <provides interface="interface.driver.flash" />
+        <provides interface="interface.driver.flash_on_mram" />
+        <provides interface="interface.driver.flash.${module.driver.mram.name}" />
+        <provides interface="interface.peripheral.mram" />
+        <property id="module.driver.mram.name" default="g_mram${_instance}" display="Name" description="">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.driver.mram.name}")</constraint>
+        </property>
+        <property id="module.driver.mram.write_start" default="0" display="Reserved Write Window Start" description="">
+            <constraint display="Must be a nonnegative integer">testInteger("${module.driver.mram.write_start}") &amp;&amp; (Number("${module.driver.mram.write_start}") &gt;= 0) &amp;&amp; (Number("${module.driver.mram.write_start}") &lt;= 4294967295)</constraint>
+        </property>
+        <property id="module.driver.mram.write_end" default="0" display="Reserved Write Window End (exclusive)" description="">
+            <constraint display="Must be a nonnegative integer">testInteger("${module.driver.mram.write_end}") &amp;&amp; (Number("${module.driver.mram.write_end}") &gt;= 0) &amp;&amp; (Number("${module.driver.mram.write_end}") &lt;= 4294967295)</constraint>
+        </property>
+        <property id="module.driver.mram.timeout" default="1000000" display="Observation Poll Budget" description="Not a calibrated command deadline. Expiry never authorizes Forced Stop. An incomplete extra command retains busy state; Reset retries read-mode recovery only after hardware completes.">
+            <constraint display="Must be a positive integer">testInteger("${module.driver.mram.timeout}") &amp;&amp; (Number("${module.driver.mram.timeout}") &gt;= 1) &amp;&amp; (Number("${module.driver.mram.timeout}") &lt;= 4294967295)</constraint>
+        </property>
+        <property id="module.driver.mram.extra" default="module.driver.mram.extra.disabled" display="Secure Extra Commands" description="Explicit opt-in for counter reads and temporary startup selection. Counter increment and permanent startup selection return FSP_ERR_UNSUPPORTED until authoritative maximum command timing is resolved and calibrated. NSC wrappers do not authorize these operations.">
+            <option id="module.driver.mram.extra.disabled" display="Disabled" value="false" />
+            <option id="module.driver.mram.extra.enabled" display="Enabled" value="true" />
+        </property>
+        <property id="module.driver.mram.p_callback" default="NULL" display="Callback" description="Stored for the flash interface only; blocking MRAM operations never invoke completion callbacks.">
+            <constraint display="Callback must be a valid C symbol">testSymbol("${module.driver.mram.p_callback}")</constraint>
+        </property>
+        <property id="module.driver.mram.p_context" default="NULL" display="Callback Context" description="" />
+        <symbol id="symbol.driver.mram.name" value="${module.driver.mram.name}" />
+        <symbol id="symbol.driver.mram.guard.open" value="${module.driver.mram.name}_open_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.open" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_Open" />
+        <symbol id="symbol.driver.mram.guard.write" value="${module.driver.mram.name}_write_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.write" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_Write" />
+        <symbol id="symbol.driver.mram.guard.erase" value="${module.driver.mram.name}_erase_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.erase" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_Erase" />
+        <symbol id="symbol.driver.mram.guard.blank_check" value="${module.driver.mram.name}_blank_check_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.blank_check" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_BlankCheck" />
+        <symbol id="symbol.driver.mram.guard.close" value="${module.driver.mram.name}_close_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.close" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_Close" />
+        <symbol id="symbol.driver.mram.guard.status_get" value="${module.driver.mram.name}_status_get_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.status_get" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_StatusGet" />
+        <symbol id="symbol.driver.mram.guard.access_window_set" value="${module.driver.mram.name}_access_window_set_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.access_window_set" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_AccessWindowSet" />
+        <symbol id="symbol.driver.mram.guard.access_window_clear" value="${module.driver.mram.name}_access_window_clear_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.access_window_clear" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_AccessWindowClear" />
+        <symbol id="symbol.driver.mram.guard.id_code_set" value="${module.driver.mram.name}_id_code_set_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.id_code_set" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_IdCodeSet" />
+        <symbol id="symbol.driver.mram.guard.reset" value="${module.driver.mram.name}_reset_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.reset" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_Reset" />
+        <symbol id="symbol.driver.mram.guard.update_flash_clock_freq" value="${module.driver.mram.name}_update_flash_clock_freq_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.update_flash_clock_freq" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_UpdateFlashClockFreq" />
+        <symbol id="symbol.driver.mram.guard.start_up_area_select" value="${module.driver.mram.name}_start_up_area_select_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.start_up_area_select" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_StartUpAreaSelect" />
+        <symbol id="symbol.driver.mram.guard.callback_set" value="${module.driver.mram.name}_callback_set_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.callback_set" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_CallbackSet" />
+        <symbol id="symbol.driver.mram.guard.bank_swap" value="${module.driver.mram.name}_bank_swap_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.bank_swap" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_BankSwap" />
+        <symbol id="symbol.driver.mram.guard.info_get" value="${module.driver.mram.name}_info_get_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.info_get" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_InfoGet" />
+        <symbol id="symbol.driver.mram.guard.anti_rollback_counter_increment" value="${module.driver.mram.name}_anti_rollback_counter_increment_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.anti_rollback_counter_increment" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterIncrement" />
+        <symbol id="symbol.driver.mram.guard.anti_rollback_counter_refresh" value="${module.driver.mram.name}_anti_rollback_counter_refresh_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.anti_rollback_counter_refresh" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterRefresh" />
+        <symbol id="symbol.driver.mram.guard.anti_rollback_counter_read" value="${module.driver.mram.name}_anti_rollback_counter_read_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.anti_rollback_counter_read" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterRead" />
+        <symbol id="symbol.driver.mram.guard.user_lockable_area_write" value="${module.driver.mram.name}_user_lockable_area_write_guard" />
+        <symbol id="symbol.driver.mram.guard.macro.user_lockable_area_write" value="FSP_GUARD_${module.driver.mram.name}_R_MRAM_UserLockableAreaWrite" />
+        <symbol id="symbol.driver.mram.nsc_api" value="${module.driver.mram.name}_nsc_api" />
+        <symbol id="symbol.driver.mram.cfg" value="${module.driver.mram.name}_cfg" />
+        <symbol id="symbol.driver.mram.ctrl" value="${module.driver.mram.name}_ctrl" />
+        <header>
+extern const flash_instance_t ${module.driver.mram.name};
+extern mram_instance_ctrl_t ${module.driver.mram.name}_ctrl;
+extern const flash_cfg_t ${module.driver.mram.name}_cfg;
+#ifndef ${module.driver.mram.p_callback}
+void ${module.driver.mram.p_callback}(flash_callback_args_t * p_args);
+#endif
+</header>
+        <includes>#include "r_mram.h"
+#include "r_flash_api.h"</includes>
+        <declarations>
+mram_instance_ctrl_t ${module.driver.mram.name}_ctrl;
+const mram_extended_cfg_t ${module.driver.mram.name}_ext_cfg =
+{
+    .write_window_start = ${module.driver.mram.write_start},
+    .write_window_end = ${module.driver.mram.write_end},
+    .timeout = ${module.driver.mram.timeout},
+    .enable_extra_commands = ${module.driver.mram.extra},
+};
+const flash_cfg_t ${module.driver.mram.name}_cfg =
+{
+    .data_flash_bgo = false,
+    .p_callback = ${module.driver.mram.p_callback},
+#if defined(${module.driver.mram.p_context})
+    .p_context = ${module.driver.mram.p_context},
+#else
+    .p_context = &amp;${module.driver.mram.p_context},
+#endif
+    .p_extend = &amp;${module.driver.mram.name}_ext_cfg,
+    .irq = FSP_INVALID_VECTOR,
+    .err_irq = FSP_INVALID_VECTOR,
+    .ipl = BSP_IRQ_DISABLED,
+    .err_ipl = BSP_IRQ_DISABLED,
+};
+const flash_instance_t ${module.driver.mram.name} =
+{
+    .p_ctrl = &amp;${module.driver.mram.name}_ctrl,
+    .p_cfg = &amp;${module.driver.mram.name}_cfg,
+    .p_api = &amp;g_flash_on_mram,
+};
+</declarations>
+        <guard>
+            <header>
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_open_guard(flash_ctrl_t *const p_api_ctrl, flash_cfg_t const *const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_write_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_erase_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t const num_blocks);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_blank_check_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t num_bytes, flash_result_t *p_blank_check_result);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_close_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_status_get_guard(flash_ctrl_t *const p_api_ctrl, flash_status_t *const p_status);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_set_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const start_addr, uint32_t const end_addr);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_clear_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_id_code_set_guard(flash_ctrl_t *const p_api_ctrl, uint8_t const *const p_id_code, flash_id_code_mode_t mode);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_reset_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_update_flash_clock_freq_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_start_up_area_select_guard(flash_ctrl_t *const p_api_ctrl, flash_startup_area_swap_t swap_type, bool is_temporary);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_callback_set_guard(flash_ctrl_t *const p_api_ctrl, void(*p_callback)(flash_callback_args_t *), void const *const p_context, flash_callback_args_t *const p_callback_memory);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_bank_swap_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_info_get_guard(flash_ctrl_t *const p_api_ctrl, flash_info_t *const p_info);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_increment_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_refresh_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_read_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter, uint32_t *const p_count);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_user_lockable_area_write_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes);
+
+            </header>
+            <template name="${module.driver.mram.name}_guard.c">
+                
+                    #include "guard.h"
+
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_open_guard (flash_ctrl_t *const p_api_ctrl, flash_cfg_t const *const p_cfg)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+    FSP_PARAMETER_NOT_USED(p_cfg);
+
+    return R_MRAM_Open(&amp;${module.driver.mram.name}_ctrl, &amp;${module.driver.mram.name}_cfg);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_write_guard (flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    FSP_ERROR_RETURN(num_bytes != 0U, FSP_ERR_INVALID_SIZE);
+    FSP_ERROR_RETURN(cmse_check_address_range((void *)(uintptr_t) src_address, num_bytes, CMSE_NONSECURE | CMSE_MPU_READ) != NULL, FSP_ERR_INVALID_ADDRESS);
+    return R_MRAM_Write(&amp;${module.driver.mram.name}_ctrl, src_address, flash_address, num_bytes);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_erase_guard (flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t const num_blocks)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_Erase(&amp;${module.driver.mram.name}_ctrl, address, num_blocks);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_blank_check_guard (flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t num_bytes, flash_result_t *p_blank_check_result)
+{
+    /* Verify all pointers are in non-secure memory. */
+    flash_result_t * p_blank_check_result_checked = cmse_check_pointed_object(p_blank_check_result, CMSE_AU_NONSECURE);
+    FSP_ASSERT(p_blank_check_result_checked != NULL);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_BlankCheck(&amp;${module.driver.mram.name}_ctrl, address, num_bytes, p_blank_check_result_checked);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_close_guard (flash_ctrl_t *const p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_Close(&amp;${module.driver.mram.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_status_get_guard (flash_ctrl_t *const p_api_ctrl, flash_status_t *const p_status)
+{
+    /* Verify all pointers are in non-secure memory. */
+    flash_status_t *const p_status_checked = cmse_check_pointed_object(p_status, CMSE_AU_NONSECURE);
+    FSP_ASSERT(p_status_checked != NULL);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_StatusGet(&amp;${module.driver.mram.name}_ctrl, p_status_checked);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_set_guard (flash_ctrl_t *const p_api_ctrl, uint32_t const start_addr, uint32_t const end_addr)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_AccessWindowSet(&amp;${module.driver.mram.name}_ctrl, start_addr, end_addr);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_clear_guard (flash_ctrl_t *const p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_AccessWindowClear(&amp;${module.driver.mram.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_id_code_set_guard (flash_ctrl_t *const p_api_ctrl, uint8_t const *const p_id_code, flash_id_code_mode_t mode)
+{
+    /* Verify all pointers are in non-secure memory. */
+    uint8_t const *const p_id_code_checked = cmse_check_address_range((void *) p_id_code, 16, CMSE_AU_NONSECURE);
+    FSP_ASSERT(p_id_code_checked != NULL);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_IdCodeSet(&amp;${module.driver.mram.name}_ctrl, p_id_code_checked, mode);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_reset_guard (flash_ctrl_t *const p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_Reset(&amp;${module.driver.mram.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_update_flash_clock_freq_guard (flash_ctrl_t *const p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_UpdateFlashClockFreq(&amp;${module.driver.mram.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_start_up_area_select_guard (flash_ctrl_t *const p_api_ctrl, flash_startup_area_swap_t swap_type, bool is_temporary)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    FSP_PARAMETER_NOT_USED(swap_type);
+    FSP_PARAMETER_NOT_USED(is_temporary);
+    return FSP_ERR_UNSUPPORTED;
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_callback_set_guard (flash_ctrl_t *const p_api_ctrl, void(*p_callback)(flash_callback_args_t *), void const *const p_context, flash_callback_args_t *const p_callback_memory)
+{
+    /* Verify all pointers are in non-secure memory. */
+    void(*p_callback_checked)(flash_callback_args_t *) = (void(*)(flash_callback_args_t *)) cmse_check_address_range((void *) p_callback, sizeof(void *), CMSE_AU_NONSECURE);
+    FSP_ERROR_RETURN(p_callback_checked != NULL, FSP_ERR_INVALID_ADDRESS);
+    flash_callback_args_t *const p_callback_memory_checked = cmse_check_pointed_object(p_callback_memory, CMSE_AU_NONSECURE | CMSE_MPU_READWRITE);
+    FSP_ERROR_RETURN(p_callback_memory_checked != NULL, FSP_ERR_NO_CALLBACK_MEMORY);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+    FSP_PARAMETER_NOT_USED(p_context);
+
+    return R_MRAM_CallbackSet(&amp;${module.driver.mram.name}_ctrl, p_callback_checked, p_context, p_callback_memory_checked);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_bank_swap_guard (flash_ctrl_t *const p_api_ctrl)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_BankSwap(&amp;${module.driver.mram.name}_ctrl);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_info_get_guard (flash_ctrl_t *const p_api_ctrl, flash_info_t *const p_info)
+{
+    /* Verify all pointers are in non-secure memory. */
+    flash_info_t *const p_info_checked = cmse_check_pointed_object(p_info, CMSE_AU_NONSECURE);
+    FSP_ASSERT(p_info_checked != NULL);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_InfoGet(&amp;${module.driver.mram.name}_ctrl, p_info_checked);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_increment_guard (flash_ctrl_t *const p_api_ctrl, flash_arc_t counter)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    FSP_PARAMETER_NOT_USED(counter);
+    return FSP_ERR_UNSUPPORTED;
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_refresh_guard (flash_ctrl_t *const p_api_ctrl, flash_arc_t counter)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_AntiRollbackCounterRefresh(&amp;${module.driver.mram.name}_ctrl, counter);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_read_guard (flash_ctrl_t *const p_api_ctrl, flash_arc_t counter, uint32_t *const p_count)
+{
+    /* Verify all pointers are in non-secure memory. */
+    uint32_t *const p_count_checked = cmse_check_address_range((void *) p_count, sizeof(uint32_t), CMSE_AU_NONSECURE);
+    FSP_ASSERT(p_count_checked != NULL);
+
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_AntiRollbackCounterRead(&amp;${module.driver.mram.name}_ctrl, counter, p_count_checked);
+}
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_user_lockable_area_write_guard (flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes)
+{
+    /* TODO: add your own security checks here */
+
+    FSP_PARAMETER_NOT_USED(p_api_ctrl);
+
+    return R_MRAM_UserLockableAreaWrite(&amp;${module.driver.mram.name}_ctrl, src_address, flash_address, num_bytes);
+}
+
+                
+            </template>
+        </guard>
+        <nsc>
+            <header>
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_Open() ${module.driver.mram.name}_open_guard(FSP_SECURE_ARGUMENT, FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_Write(src_address, flash_address, num_bytes) ${module.driver.mram.name}_write_guard(FSP_SECURE_ARGUMENT, src_address, flash_address, num_bytes)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_Erase(address, num_blocks) ${module.driver.mram.name}_erase_guard(FSP_SECURE_ARGUMENT, address, num_blocks)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_BlankCheck(address, num_bytes, p_blank_check_result) ${module.driver.mram.name}_blank_check_guard(FSP_SECURE_ARGUMENT, address, num_bytes, p_blank_check_result)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_Close() ${module.driver.mram.name}_close_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_StatusGet(p_status) ${module.driver.mram.name}_status_get_guard(FSP_SECURE_ARGUMENT, p_status)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_AccessWindowSet(start_addr, end_addr) ${module.driver.mram.name}_access_window_set_guard(FSP_SECURE_ARGUMENT, start_addr, end_addr)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_AccessWindowClear() ${module.driver.mram.name}_access_window_clear_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_IdCodeSet(p_id_code, mode) ${module.driver.mram.name}_id_code_set_guard(FSP_SECURE_ARGUMENT, p_id_code, mode)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_Reset() ${module.driver.mram.name}_reset_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_UpdateFlashClockFreq() ${module.driver.mram.name}_update_flash_clock_freq_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_StartUpAreaSelect(swap_type, is_temporary) ${module.driver.mram.name}_start_up_area_select_guard(FSP_SECURE_ARGUMENT, swap_type, is_temporary)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_CallbackSet(p_callback, p_context, p_callback_memory) ${module.driver.mram.name}_callback_set_guard(FSP_SECURE_ARGUMENT, p_callback, p_context, p_callback_memory)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_BankSwap() ${module.driver.mram.name}_bank_swap_guard(FSP_SECURE_ARGUMENT)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_InfoGet(p_info) ${module.driver.mram.name}_info_get_guard(FSP_SECURE_ARGUMENT, p_info)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterIncrement(counter) ${module.driver.mram.name}_anti_rollback_counter_increment_guard(FSP_SECURE_ARGUMENT, counter)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterRefresh(counter) ${module.driver.mram.name}_anti_rollback_counter_refresh_guard(FSP_SECURE_ARGUMENT, counter)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_AntiRollbackCounterRead(counter, p_count) ${module.driver.mram.name}_anti_rollback_counter_read_guard(FSP_SECURE_ARGUMENT, counter, p_count)
+
+#define FSP_GUARD_${module.driver.mram.name}_R_MRAM_UserLockableAreaWrite(src_address, flash_address, num_bytes) ${module.driver.mram.name}_user_lockable_area_write_guard(FSP_SECURE_ARGUMENT, src_address, flash_address, num_bytes)
+
+
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_open_guard(flash_ctrl_t *const p_api_ctrl, flash_cfg_t const *const p_cfg);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_write_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_erase_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t const num_blocks);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_blank_check_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const address, uint32_t num_bytes, flash_result_t *p_blank_check_result);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_close_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_status_get_guard(flash_ctrl_t *const p_api_ctrl, flash_status_t *const p_status);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_set_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const start_addr, uint32_t const end_addr);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_access_window_clear_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_id_code_set_guard(flash_ctrl_t *const p_api_ctrl, uint8_t const *const p_id_code, flash_id_code_mode_t mode);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_reset_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_update_flash_clock_freq_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_start_up_area_select_guard(flash_ctrl_t *const p_api_ctrl, flash_startup_area_swap_t swap_type, bool is_temporary);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_callback_set_guard(flash_ctrl_t *const p_api_ctrl, void(*p_callback)(flash_callback_args_t *), void const *const p_context, flash_callback_args_t *const p_callback_memory);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_bank_swap_guard(flash_ctrl_t *const p_api_ctrl);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_info_get_guard(flash_ctrl_t *const p_api_ctrl, flash_info_t *const p_info);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_increment_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_refresh_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_anti_rollback_counter_read_guard(flash_ctrl_t *const p_api_ctrl, flash_arc_t counter, uint32_t *const p_count);
+
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.mram.name}_user_lockable_area_write_guard(flash_ctrl_t *const p_api_ctrl, uint32_t const src_address, uint32_t flash_address, uint32_t const num_bytes);
+
+
+extern const flash_instance_t ${module.driver.mram.name};
+            </header>
+            <declarations>
+                
+static const flash_api_t ${module.driver.mram.name}_nsc_api =
+{
+    .open = ${module.driver.mram.name}_open_guard,
+    .write = ${module.driver.mram.name}_write_guard,
+    .erase = ${module.driver.mram.name}_erase_guard,
+    .blankCheck = ${module.driver.mram.name}_blank_check_guard,
+    .close = ${module.driver.mram.name}_close_guard,
+    .statusGet = ${module.driver.mram.name}_status_get_guard,
+    .accessWindowSet = ${module.driver.mram.name}_access_window_set_guard,
+    .accessWindowClear = ${module.driver.mram.name}_access_window_clear_guard,
+    .idCodeSet = ${module.driver.mram.name}_id_code_set_guard,
+    .reset = ${module.driver.mram.name}_reset_guard,
+    .updateFlashClockFreq = ${module.driver.mram.name}_update_flash_clock_freq_guard,
+    .startupAreaSelect = ${module.driver.mram.name}_start_up_area_select_guard,
+    .callbackSet = ${module.driver.mram.name}_callback_set_guard,
+    .bankSwap = ${module.driver.mram.name}_bank_swap_guard,
+    .infoGet = ${module.driver.mram.name}_info_get_guard,
+    .antiRollbackCounterIncrement = ${module.driver.mram.name}_anti_rollback_counter_increment_guard,
+    .antiRollbackCounterRefresh = ${module.driver.mram.name}_anti_rollback_counter_refresh_guard,
+    .antiRollbackCounterRead = ${module.driver.mram.name}_anti_rollback_counter_read_guard,
+    .userLockableAreaWrite = ${module.driver.mram.name}_user_lockable_area_write_guard,
+};
+const flash_instance_t ${module.driver.mram.name} =
+{
+    .p_api = &amp;${module.driver.mram.name}_nsc_api,
+    .p_ctrl = FSP_SECURE_ARGUMENT,
+    .p_cfg = FSP_SECURE_ARGUMENT,
+};
+                
+            </declarations>
+        </nsc>
+        <api configurable="true">
+            <file>ra/fsp/inc/instances/r_mram.h</file>
+            <file>ra/fsp/inc/api/r_flash_api.h</file>
+        </api>
+    </module>
+</raModuleDescription>

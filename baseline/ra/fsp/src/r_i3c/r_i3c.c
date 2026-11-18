@@ -143,6 +143,11 @@ void i3c_rcv_isr(void);
 void i3c_ibi_isr(void);
 void i3c_eei_isr(void);
 
+#if !BSP_FEATURE_I3C_HAS_HOT_JOIN || !BSP_FEATURE_I3C_HAS_TRANSITION_STALL || \
+    !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+static fsp_err_t i3c_extended_cfg_check(i3c_extended_cfg_t const * p_extend);
+
+#endif
 static uint8_t i3c_address_parity(uint8_t address);
 
 #if I3C_CFG_MASTER_SUPPORT
@@ -233,6 +238,12 @@ fsp_err_t R_I3C_Open (i3c_ctrl_t * const p_api_ctrl, i3c_cfg_t const * const p_c
  #endif
 #endif
 
+#if !BSP_FEATURE_I3C_HAS_HOT_JOIN || !BSP_FEATURE_I3C_HAS_TRANSITION_STALL || \
+    !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    fsp_err_t err = i3c_extended_cfg_check((i3c_extended_cfg_t const *) p_cfg->p_extend);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#endif
+
     /* Initialize the internal state of the driver. */
     memset(p_ctrl, 0, sizeof(i3c_instance_ctrl_t));
 
@@ -282,6 +293,7 @@ fsp_err_t R_I3C_Open (i3c_ctrl_t * const p_api_ctrl, i3c_cfg_t const * const p_c
  * @retval FSP_ERR_ASSERTION              An argument was NULL.
  * @retval FSP_ERR_NOT_OPEN               This instance has not been opened yet.
  * @retval FSP_ERR_INVALID_MODE           This instance is already enabled.
+ * @retval FSP_ERR_UNSUPPORTED            A selected feature is not supported by the peripheral.
  **********************************************************************************************************************/
 fsp_err_t R_I3C_Enable (i3c_ctrl_t * const p_api_ctrl)
 {
@@ -294,6 +306,12 @@ fsp_err_t R_I3C_Enable (i3c_ctrl_t * const p_api_ctrl)
 #endif
 
     i3c_extended_cfg_t const * p_extend = (i3c_extended_cfg_t const *) p_ctrl->p_cfg->p_extend;
+
+#if !BSP_FEATURE_I3C_HAS_HOT_JOIN || !BSP_FEATURE_I3C_HAS_TRANSITION_STALL || \
+    !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    fsp_err_t err = i3c_extended_cfg_check(p_extend);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+#endif
 
     /*
      * Write all remaining configuration settings (See Figure 25.102 I3C Communication Flow in the hardware user
@@ -389,12 +407,18 @@ fsp_err_t R_I3C_Enable (i3c_ctrl_t * const p_api_ctrl)
     /* Write settings to the Normal Transfer Interrupt Enable Register. */
     p_ctrl->p_reg->NTIE = ntie;
 
+#if BSP_FEATURE_I3C_HAS_HOT_JOIN
     /* Write the Hot-Join Ackowlege settings. */
     p_ctrl->p_reg->BCTL_b.HJACKCTL = !p_extend->ibi_control.hot_join_acknowledge;
+#endif
 
     /* Calculate the value of the IBI Notify Control Register. */
+#if BSP_FEATURE_I3C_HAS_HOT_JOIN
     uint32_t ibinctl =
         (uint32_t) (p_extend->ibi_control.notify_rejected_hot_join_requests << R_I3C0_IBINCTL_NRHJCTL_Pos);
+#else
+    uint32_t ibinctl = 0U;
+#endif
     ibinctl |= (uint32_t) (p_extend->ibi_control.notify_rejected_mastership_requests << R_I3C0_IBINCTL_NRMRCTL_Pos);
     ibinctl |= (uint32_t) (p_extend->ibi_control.notify_rejected_interrupt_requests << R_I3C0_IBINCTL_NRSIRCTL_Pos);
 
@@ -404,10 +428,16 @@ fsp_err_t R_I3C_Enable (i3c_ctrl_t * const p_api_ctrl)
     /* Calculate the value of the SCL Clock Stalling Control Register. */
     uint32_t scstlctl = (uint32_t) (p_extend->bitrate_settings.clock_stalling.assigned_address_phase_enable <<
                                     R_I3C0_SCSTLCTL_AAPE_Pos);
+#if BSP_FEATURE_I3C_HAS_TRANSITION_STALL
     scstlctl |= (uint32_t) (p_extend->bitrate_settings.clock_stalling.transition_phase_enable <<
                             R_I3C0_SCSTLCTL_TRAPE_Pos);
+#endif
     scstlctl |= (uint32_t) (p_extend->bitrate_settings.clock_stalling.parity_phase_enable << R_I3C0_SCSTLCTL_PARPE_Pos);
+#if !BSP_FEATURE_I3C_IS_AVAILABLE || BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
     scstlctl |= (uint32_t) (p_extend->bitrate_settings.clock_stalling.ack_phase_enable << R_I3C0_SCSTLCTL_ACKPE_Pos);
+#else
+    scstlctl |= (uint32_t) p_extend->bitrate_settings.clock_stalling.ack_phase_enable << R_I3C0_SCSTLCTL_ACKPE_Pos;
+#endif
     scstlctl |=
         (uint32_t) (p_extend->bitrate_settings.clock_stalling.clock_stalling_time << R_I3C0_SCSTLCTL_STLCYC_Pos);
 
@@ -431,7 +461,9 @@ fsp_err_t R_I3C_Enable (i3c_ctrl_t * const p_api_ctrl)
     uint32_t csecmd =
         (uint32_t) (p_extend->slave_command_response_info.inband_interrupt_enable << R_I3C0_CSECMD_SVIRQE_Pos);
     csecmd |= (uint32_t) (p_extend->slave_command_response_info.mastership_request_enable << R_I3C0_CSECMD_MSRQE_Pos);
+ #if BSP_FEATURE_I3C_HAS_HOT_JOIN
     csecmd |= (uint32_t) (p_extend->slave_command_response_info.hotjoin_request_enable << R_I3C0_CSECMD_HJEVE_Pos);
+ #endif
 
     /* Calculate the value of the CCC Max Data Speed Read Register. */
     uint32_t cmdspr = (uint32_t) p_extend->slave_command_response_info.read_data_rate << R_I3C0_CMDSPR_MSRDR_Pos;
@@ -566,10 +598,17 @@ fsp_err_t R_I3C_DeviceCfgSet (i3c_ctrl_t * const p_api_ctrl, i3c_device_cfg_t co
         /* Write the PID setting to the Slave Device Characteristic Table PID Register. */
         uint8_t * pid = (uint8_t *) p_device_cfg->slave_info.pid;
         p_ctrl->p_reg->SDCTPIDL = (uint32_t) ((pid[4] << 8U) | (pid[5]));
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+        p_ctrl->p_reg->SDCTPIDH = ((uint32_t) pid[0] << 24U) |
+                                    ((uint32_t) pid[1] << 16U) |
+                                    ((uint32_t) pid[2] << 8U) |
+                                    ((uint32_t) pid[3] << 0U);
+#else
         p_ctrl->p_reg->SDCTPIDH = (uint32_t) ((pid[0] << 24U) |
                                               (pid[1] << 16U) |
                                               (pid[2] << 8U) |
                                               (pid[3] << 0U));
+#endif
 #endif
     }
 
@@ -772,8 +811,14 @@ fsp_err_t R_I3C_DynamicAddressAssignmentStart (i3c_ctrl_t * const            p_a
         }
         else
         {
+ #if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+            /* DATBAS0..7: include the final table entry without overflowing the endpoint sum. */
+            FSP_ASSERT((0U < device_count) &&
+                       (device_count <= BSP_FEATURE_I3C_MAX_DEV_COUNT - starting_device_index));
+ #else
             /* The device count must be less than the remaining devices in the device table. */
             FSP_ASSERT(BSP_FEATURE_I3C_MAX_DEV_COUNT > device_count + starting_device_index);
+ #endif
         }
     }
     else
@@ -917,7 +962,11 @@ fsp_err_t R_I3C_CommandSend (i3c_ctrl_t * const p_api_ctrl, i3c_command_descript
     cmd1 |= ((uint32_t) p_ctrl->device_bitrate_mode << I3C_CMD_DESC_XFER_MODE_Pos) & I3C_CMD_DESC_XFER_MODE_Msk;
     cmd1 |= (uint32_t) (p_command_descriptor->rnw << I3C_CMD_DESC_XFER_RNW_Pos);
     cmd1 |= I3C_CMD_DESC_ROC_Msk;
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    cmd1 |= ((uint32_t) !p_command_descriptor->restart << I3C_CMD_DESC_TOC_Pos) & I3C_CMD_DESC_TOC_Msk;
+#else
     cmd1 |= (uint32_t) (!p_command_descriptor->restart << I3C_CMD_DESC_TOC_Pos) & I3C_CMD_DESC_TOC_Msk;
+#endif
     cmd1 |= (uint32_t) (p_command_descriptor->command_code << I3C_CMD_DESC_CMD_Pos);
     cmd1 |= I3C_CMD_DESC_XFER_CP_Msk;
     cmd1 |= (uint32_t) (I3C_EVENT_COMMAND_COMPLETE << I3C_CMD_DESC_TID_Pos);
@@ -929,7 +978,16 @@ fsp_err_t R_I3C_CommandSend (i3c_ctrl_t * const p_api_ctrl, i3c_command_descript
          * See section "25.3.1.1.2 Immediate Transfer Command" in the hardware user manual R01UH0919EJ0100. */
         cmd1 |= I3C_CMD_DESC_CND_ATTR_IMMED_DATA_XFER;
         cmd1 |= (p_command_descriptor->length << I3C_CMD_DESC_IMMED_DATA_XFER_BYTE_CNT_Pos);
+ #if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+        /* BYTE_CNT=0 is a valid payload-free CCC; its buffer may be NULL (HM 41.3.1.1.2). */
+        cmd2 = 0U;
+        if (0U < p_command_descriptor->length)
+        {
+            cmd2 = i3c_next_data_word_calculate(&p_ctrl->write_buffer_descriptor);
+        }
+ #else
         cmd2  = i3c_next_data_word_calculate(&p_ctrl->write_buffer_descriptor);
+ #endif
         p_ctrl->write_buffer_descriptor.count = p_command_descriptor->length;
     }
     else
@@ -1236,6 +1294,10 @@ fsp_err_t R_I3C_IbiWrite (i3c_ctrl_t * const    p_api_ctrl,
   #endif
  #endif
 
+ #if !BSP_FEATURE_I3C_HAS_HOT_JOIN
+    FSP_ERROR_RETURN(I3C_IBI_TYPE_HOT_JOIN != ibi_type, FSP_ERR_UNSUPPORTED);
+ #endif
+
     /* An IBI can't be started if an IBI is already in progress. */
     FSP_ERROR_RETURN(I3C_INTERNAL_STATE_SLAVE_IBI != p_ctrl->internal_state, FSP_ERR_IN_USE);
 
@@ -1384,12 +1446,30 @@ fsp_err_t R_I3C_Close (i3c_ctrl_t * const p_api_ctrl)
 
     i3c_extended_cfg_t * p_extend = (i3c_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
 
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    /* HM 41.2.2 prohibits disabling the bus while commands remain queued. */
+    FSP_ERROR_RETURN((I3C_INTERNAL_STATE_DISABLED == p_ctrl->internal_state) ||
+                     (I3C_INTERNAL_STATE_MASTER_IDLE == p_ctrl->internal_state) ||
+                     (I3C_INTERNAL_STATE_SLAVE_IDLE == p_ctrl->internal_state), FSP_ERR_IN_USE);
+#endif
+
     /* Disable IRQs. */
     R_BSP_IrqDisable(p_extend->resp_irq);
     R_BSP_IrqDisable(p_extend->rx_irq);
     R_BSP_IrqDisable(p_extend->tx_irq);
     R_BSP_IrqDisable(p_extend->rcv_irq);
     R_BSP_IrqDisable(p_extend->ibi_irq);
+
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    R_BSP_IrqDisable(p_extend->eei_irq);
+    R_BSP_IrqStatusClear(p_extend->eei_irq);
+    R_BSP_IrqClearPending(p_extend->eei_irq);
+    R_FSP_IsrContextSet(p_extend->eei_irq, NULL);
+
+    /* A disable request may be deferred until an incoming IBI completes (HM 41.2.2). */
+    p_ctrl->p_reg->BCTL_b.BUSE = 0;
+    FSP_HARDWARE_REGISTER_WAIT(p_ctrl->p_reg->BCTL_b.BUSE, 0U);
+#endif
 
     /* Reset the I3C Peripheral so that it is in a known state. */
     p_ctrl->p_reg->BCTL_b.BUSE = 0;
@@ -1409,6 +1489,44 @@ fsp_err_t R_I3C_Close (i3c_ctrl_t * const p_api_ctrl)
 /*******************************************************************************************************************//**
  * @} (end addtogroup I3C)
  **********************************************************************************************************************/
+
+#if !BSP_FEATURE_I3C_HAS_HOT_JOIN || !BSP_FEATURE_I3C_HAS_TRANSITION_STALL || \
+    !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+
+/*******************************************************************************************************************//**
+ * Reject unsupported configuration before changing driver or peripheral state.
+ *
+ * @param[in] p_extend   Extended configuration for this instance.
+ * @return FSP_ERR_UNSUPPORTED if an absent feature is requested, otherwise FSP_SUCCESS.
+ **********************************************************************************************************************/
+static fsp_err_t i3c_extended_cfg_check (i3c_extended_cfg_t const * p_extend)
+{
+ #if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+  #if I3C_CFG_PARAM_CHECKING_ENABLE
+   #if I3C_CFG_SLAVE_SUPPORT
+    /* HM 41.2.72/73/78: these fields are written to the slave CCC response registers. */
+    FSP_ASSERT(8U <= p_extend->slave_command_response_info.write_length);
+    FSP_ASSERT(16U <= p_extend->slave_command_response_info.read_length);
+    FSP_ASSERT(16000000U >= p_extend->slave_command_response_info.read_turnaround_time);
+   #endif
+  #endif
+ #endif
+ #if !BSP_FEATURE_I3C_HAS_HOT_JOIN
+    FSP_ERROR_RETURN(!p_extend->ibi_control.hot_join_acknowledge, FSP_ERR_UNSUPPORTED);
+    FSP_ERROR_RETURN(!p_extend->ibi_control.notify_rejected_hot_join_requests, FSP_ERR_UNSUPPORTED);
+    FSP_ERROR_RETURN(!p_extend->slave_command_response_info.hotjoin_request_enable, FSP_ERR_UNSUPPORTED);
+ #endif
+ #if !BSP_FEATURE_I3C_HAS_TRANSITION_STALL
+    FSP_ERROR_RETURN(!p_extend->bitrate_settings.clock_stalling.transition_phase_enable, FSP_ERR_UNSUPPORTED);
+ #endif
+ #if !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    FSP_ERROR_RETURN(!p_extend->bitrate_settings.clock_stalling.assigned_address_phase_enable, FSP_ERR_UNSUPPORTED);
+ #endif
+
+    return FSP_SUCCESS;
+}
+
+#endif
 
 /*******************************************************************************************************************//**
  * Compute the odd parity of an I3C address and set the parity bit.
@@ -1454,6 +1572,10 @@ static uint8_t i3c_address_parity (uint8_t address)
 static uint32_t i3c_xfer_command_calculate (uint32_t dev_index, bool rnw, uint32_t bitrate_setting, bool restart)
 {
     uint32_t command_descriptor = 0;
+ #if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    /* HM 41.3.1.2 reserves TIDs above 7. Callback events come from internal_state, not TID. */
+    command_descriptor |= (uint32_t) rnw << I3C_CMD_DESC_TID_Pos;
+ #else
     if (rnw)
     {
         command_descriptor |= (I3C_EVENT_READ_COMPLETE << I3C_CMD_DESC_TID_Pos);
@@ -1462,12 +1584,17 @@ static uint32_t i3c_xfer_command_calculate (uint32_t dev_index, bool rnw, uint32
     {
         command_descriptor |= (I3C_EVENT_WRITE_COMPLETE << I3C_CMD_DESC_TID_Pos);
     }
+ #endif
 
     command_descriptor |= (dev_index << I3C_CMD_DESC_DEV_INDEX_Pos) & I3C_CMD_DESC_DEV_INDEX_Msk;
     command_descriptor |= (bitrate_setting << I3C_CMD_DESC_XFER_MODE_Pos) & I3C_CMD_DESC_XFER_MODE_Msk;
     command_descriptor |= (uint32_t) (rnw << I3C_CMD_DESC_XFER_RNW_Pos);
     command_descriptor |= I3C_CMD_DESC_ROC_Msk;
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    command_descriptor |= ((uint32_t) !restart << I3C_CMD_DESC_TOC_Pos) & I3C_CMD_DESC_TOC_Msk;
+#else
     command_descriptor |= (uint32_t) (!restart << I3C_CMD_DESC_TOC_Pos) & I3C_CMD_DESC_TOC_Msk;
+#endif
 
     return command_descriptor;
 }
@@ -1652,7 +1779,11 @@ BSP_FORCE_INLINE static inline uint32_t i3c_next_data_word_calculate (
     for (uint32_t i = 0; i < sizeof(uint32_t) && count < p_buffer_descriptor->buffer_size; i++)
     {
         /* If there is no more data to write, then exit. */
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+        data_word |= (uint32_t) p_transfer_data[count++] << (i * 8U);
+#else
         data_word |= (uint32_t) (p_transfer_data[count++] << (i * 8));
+#endif
     }
 
 #else
@@ -2306,6 +2437,12 @@ void i3c_eei_isr (void)
     /* Clear the status flags that have been handled. */
     p_ctrl->p_reg->INST &= ~inst_clear_mask;
     p_ctrl->p_reg->BST  &= ~bst_clear_mask;
+
+#if BSP_FEATURE_I3C_IS_AVAILABLE && !BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL
+    /* Confirm only the handled flags have cleared before returning (HM 41.4.1). */
+    FSP_HARDWARE_REGISTER_WAIT((p_ctrl->p_reg->INST & inst_clear_mask), 0U);
+    FSP_HARDWARE_REGISTER_WAIT((p_ctrl->p_reg->BST & bst_clear_mask), 0U);
+#endif
 
     /* Restore context if RTOS is used */
     FSP_CONTEXT_RESTORE

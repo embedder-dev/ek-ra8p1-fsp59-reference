@@ -1,0 +1,16 @@
+ok config set …a8p1/review-drivers/review_r015_cgc_cpu0 (2.5 s)
+applied the given settings to review_r015_cgc_cpu0; saved, content generated (no separate generate needed)
+created g_cgc0 (module.driver.cgc_on_cgc.412262940 — Clock Generation Circuit (r_cgc))
+warning: g_cgc0 is not defined in ra_gen/hal_data.c; check embedder e2 problems
+configuration.xml: saved; read back from the file: g_cgc0 (module.driver.cgc_on_cgc.412262940, r_cgc)
+regenerated from configuration.xml: ra_gen/common_data.c, ra_gen/common_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_cgc_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_cgc_api.h, ra/fsp/inc/instances/r_cgc.h, ra/fsp/src/r_cgc/r_cgc.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -0 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_cgc_cpu0/Debug/review_r015_cgc_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_cgc_cpu0/Debug/review_r015_cgc_cpu0.elf 390184 B 11:50:07, .srec 30726 B 11:50:07, .map 147478 B 11:50:07, .sbd 5476 B 11:50:07
+build: full: ok, 0 errors, 0 warnings (531ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-area>/state/state/4afb3dae/logs/1794912606230-review_r015_cgc_cpu0-full.log

@@ -1,0 +1,9 @@
+ok project create r018_def_dac_b33 (3.7 s)
+created r018_def_dac_b33 at <repo>/validation/ra8p1/compatibility/defaults/r018_def_dac_b33
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m33), core CM33, fsp 5.9.0, toolchain 13.2.1.arm-13-7, rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU1 (r018_def_dac_b33 Debug_Attach.launch), preceding r018_def_dac_b85 (.sbd fresh)
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits)
+preceding r018_def_dac_b85: verified yes 4 s ago (0 errors), .sbd fresh
+r018_def_dac_b85: artifacts (stat from disk): r018_def_dac_b85/Debug/r018_def_dac_b85.elf 284096 B 14:53:43, .srec 17454 B 14:53:43, .map 136930 B 14:53:43, .sbd 5476 B 14:53:43
+content generated in 3.4 s (no separate generate needed)
+next: embedder e2 build <repo>/validation/ra8p1/compatibility/defaults/r018_def_dac_b33
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install 34e7ce, install 54776c, install 29bdfa, the rest stock; journalled)

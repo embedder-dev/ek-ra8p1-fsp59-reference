@@ -1,0 +1,182 @@
+
+<repo>/review/evidence/tcm-codegen/O1.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.R_BSP_WarmStart:
+
+00000000 <R_BSP_WarmStart>:
+   0:	4770      	bx	lr
+
+Disassembly of section .text.SystemInit:
+
+00000000 <SystemInit>:
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4b52      	ldr	r3, [pc, #328]	@ (14c <SystemInit+0x14c>)
+   4:	f44f 0270 	mov.w	r2, #15728640	@ 0xf00000
+   8:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+   c:	4a50      	ldr	r2, [pc, #320]	@ (150 <SystemInit+0x150>)
+   e:	609a      	str	r2, [r3, #8]
+  10:	f3bf 8f5f 	dmb	sy
+  14:	4b4f      	ldr	r3, [pc, #316]	@ (154 <SystemInit+0x154>)
+  16:	f24a 5201 	movw	r2, #42241	@ 0xa501
+  1a:	801a      	strh	r2, [r3, #0]
+  1c:	2208      	movs	r2, #8
+  1e:	741a      	strb	r2, [r3, #16]
+  20:	751a      	strb	r2, [r3, #20]
+  22:	f3bf 8f5f 	dmb	sy
+  26:	2300      	movs	r3, #0
+  28:	461a      	mov	r2, r3
+  2a:	601a      	str	r2, [r3, #0]
+  2c:	f103 5100 	add.w	r1, r3, #536870912	@ 0x20000000
+  30:	600a      	str	r2, [r1, #0]
+  32:	3304      	adds	r3, #4
+  34:	f5b3 3f80 	cmp.w	r3, #65536	@ 0x10000
+  38:	d1f7      	bne.n	2a <SystemInit+0x2a>
+  3a:	f3bf 8f5f 	dmb	sy
+  3e:	4b45      	ldr	r3, [pc, #276]	@ (154 <SystemInit+0x154>)
+  40:	220f      	movs	r2, #15
+  42:	f8a3 2048 	strh.w	r2, [r3, #72]	@ 0x48
+  46:	221c      	movs	r2, #28
+  48:	741a      	strb	r2, [r3, #16]
+  4a:	751a      	strb	r2, [r3, #20]
+  4c:	f3bf 8f5f 	dmb	sy
+  50:	f44f 4225 	mov.w	r2, #42240	@ 0xa500
+  54:	801a      	strh	r2, [r3, #0]
+  56:	f3bf 8f4f 	dsb	sy
+  5a:	4a3f      	ldr	r2, [pc, #252]	@ (158 <SystemInit+0x158>)
+  5c:	4b3f      	ldr	r3, [pc, #252]	@ (15c <SystemInit+0x15c>)
+  5e:	429a      	cmp	r2, r3
+  60:	d20d      	bcs.n	7e <SystemInit+0x7e>
+  62:	4a3f      	ldr	r2, [pc, #252]	@ (160 <SystemInit+0x160>)
+  64:	4b3c      	ldr	r3, [pc, #240]	@ (158 <SystemInit+0x158>)
+  66:	483f      	ldr	r0, [pc, #252]	@ (164 <SystemInit+0x164>)
+  68:	1ac0      	subs	r0, r0, r3
+  6a:	f020 0003 	bic.w	r0, r0, #3
+  6e:	3004      	adds	r0, #4
+  70:	4418      	add	r0, r3
+  72:	f853 1b04 	ldr.w	r1, [r3], #4
+  76:	f842 1b04 	str.w	r1, [r2], #4
+  7a:	4283      	cmp	r3, r0
+  7c:	d1f9      	bne.n	72 <SystemInit+0x72>
+  7e:	4a3a      	ldr	r2, [pc, #232]	@ (168 <SystemInit+0x168>)
+  80:	4b3a      	ldr	r3, [pc, #232]	@ (16c <SystemInit+0x16c>)
+  82:	429a      	cmp	r2, r3
+  84:	d20d      	bcs.n	a2 <SystemInit+0xa2>
+  86:	4a3a      	ldr	r2, [pc, #232]	@ (170 <SystemInit+0x170>)
+  88:	4b37      	ldr	r3, [pc, #220]	@ (168 <SystemInit+0x168>)
+  8a:	483a      	ldr	r0, [pc, #232]	@ (174 <SystemInit+0x174>)
+  8c:	1ac0      	subs	r0, r0, r3
+  8e:	f020 0003 	bic.w	r0, r0, #3
+  92:	3004      	adds	r0, #4
+  94:	4418      	add	r0, r3
+  96:	f853 1b04 	ldr.w	r1, [r3], #4
+  9a:	f842 1b04 	str.w	r1, [r2], #4
+  9e:	4283      	cmp	r3, r0
+  a0:	d1f9      	bne.n	96 <SystemInit+0x96>
+  a2:	4a35      	ldr	r2, [pc, #212]	@ (178 <SystemInit+0x178>)
+  a4:	4b35      	ldr	r3, [pc, #212]	@ (17c <SystemInit+0x17c>)
+  a6:	429a      	cmp	r2, r3
+  a8:	d20b      	bcs.n	c2 <SystemInit+0xc2>
+  aa:	4613      	mov	r3, r2
+  ac:	4a34      	ldr	r2, [pc, #208]	@ (180 <SystemInit+0x180>)
+  ae:	1ad2      	subs	r2, r2, r3
+  b0:	f022 0203 	bic.w	r2, r2, #3
+  b4:	3204      	adds	r2, #4
+  b6:	441a      	add	r2, r3
+  b8:	2100      	movs	r1, #0
+  ba:	f843 1b04 	str.w	r1, [r3], #4
+  be:	4293      	cmp	r3, r2
+  c0:	d1fb      	bne.n	ba <SystemInit+0xba>
+  c2:	f3bf 8f4f 	dsb	sy
+  c6:	f3bf 8f6f 	isb	sy
+  ca:	2000      	movs	r0, #0
+  cc:	f7ff fffe 	bl	0 <SystemInit>
+			cc: R_ARM_THM_CALL	R_BSP_WarmStart
+  d0:	f7ff fffe 	bl	0 <bsp_clock_freq_var_init>
+			d0: R_ARM_THM_CALL	bsp_clock_freq_var_init
+  d4:	4a2b      	ldr	r2, [pc, #172]	@ (184 <SystemInit+0x184>)
+  d6:	6853      	ldr	r3, [r2, #4]
+  d8:	2b00      	cmp	r3, #0
+  da:	d1fc      	bne.n	d6 <SystemInit+0xd6>
+  dc:	4a29      	ldr	r2, [pc, #164]	@ (184 <SystemInit+0x184>)
+  de:	6853      	ldr	r3, [r2, #4]
+  e0:	f043 0301 	orr.w	r3, r3, #1
+  e4:	6053      	str	r3, [r2, #4]
+  e6:	6853      	ldr	r3, [r2, #4]
+  e8:	2b00      	cmp	r3, #0
+  ea:	d1fc      	bne.n	e6 <SystemInit+0xe6>
+  ec:	2001      	movs	r0, #1
+  ee:	4b25      	ldr	r3, [pc, #148]	@ (184 <SystemInit+0x184>)
+  f0:	6018      	str	r0, [r3, #0]
+  f2:	f7ff fffe 	bl	0 <SystemInit>
+			f2: R_ARM_THM_CALL	R_BSP_WarmStart
+  f6:	4b16      	ldr	r3, [pc, #88]	@ (150 <SystemInit+0x150>)
+  f8:	681b      	ldr	r3, [r3, #0]
+  fa:	f5a3 6380 	sub.w	r3, r3, #1024	@ 0x400
+  fe:	f383 880a 	msr	MSPLIM, r3
+ 102:	4821      	ldr	r0, [pc, #132]	@ (188 <SystemInit+0x188>)
+ 104:	4a21      	ldr	r2, [pc, #132]	@ (18c <SystemInit+0x18c>)
+ 106:	1a12      	subs	r2, r2, r0
+ 108:	2100      	movs	r1, #0
+ 10a:	f7ff fffe 	bl	0 <memset>
+			10a: R_ARM_THM_CALL	memset
+ 10e:	4820      	ldr	r0, [pc, #128]	@ (190 <SystemInit+0x190>)
+ 110:	4a20      	ldr	r2, [pc, #128]	@ (194 <SystemInit+0x194>)
+ 112:	1a12      	subs	r2, r2, r0
+ 114:	4920      	ldr	r1, [pc, #128]	@ (198 <SystemInit+0x198>)
+ 116:	f7ff fffe 	bl	0 <memcpy>
+			116: R_ARM_THM_CALL	memcpy
+ 11a:	4b20      	ldr	r3, [pc, #128]	@ (19c <SystemInit+0x19c>)
+ 11c:	4a20      	ldr	r2, [pc, #128]	@ (1a0 <SystemInit+0x1a0>)
+ 11e:	1a9b      	subs	r3, r3, r2
+ 120:	109e      	asrs	r6, r3, #2
+ 122:	2b00      	cmp	r3, #0
+ 124:	dd07      	ble.n	136 <SystemInit+0x136>
+ 126:	4615      	mov	r5, r2
+ 128:	2400      	movs	r4, #0
+ 12a:	f855 3b04 	ldr.w	r3, [r5], #4
+ 12e:	4798      	blx	r3
+ 130:	3401      	adds	r4, #1
+ 132:	42a6      	cmp	r6, r4
+ 134:	dcf9      	bgt.n	12a <SystemInit+0x12a>
+ 136:	f7ff fffe 	bl	0 <SystemCoreClockUpdate>
+			136: R_ARM_THM_CALL	SystemCoreClockUpdate
+ 13a:	2002      	movs	r0, #2
+ 13c:	f7ff fffe 	bl	0 <SystemInit>
+			13c: R_ARM_THM_CALL	R_BSP_WarmStart
+ 140:	f7ff fffe 	bl	0 <bsp_irq_cfg>
+			140: R_ARM_THM_CALL	bsp_irq_cfg
+ 144:	2000      	movs	r0, #0
+ 146:	f7ff fffe 	bl	0 <bsp_init>
+			146: R_ARM_THM_CALL	bsp_init
+ 14a:	bd70      	pop	{r4, r5, r6, pc}
+ 14c:	e000ed00 	.word	0xe000ed00
+ 150:	00000000 	.word	0x00000000
+			150: R_ARM_ABS32	__Vectors
+ 154:	4001c800 	.word	0x4001c800
+	...
+			158: R_ARM_ABS32	__itcm_data_init_start
+			15c: R_ARM_ABS32	__itcm_data_init_end
+			160: R_ARM_ABS32	__itcm_data_start
+ 164:	ffffffff 	.word	0xffffffff
+			164: R_ARM_ABS32	__itcm_data_init_end
+	...
+			168: R_ARM_ABS32	__dtcm_data_init_start
+			16c: R_ARM_ABS32	__dtcm_data_init_end
+			170: R_ARM_ABS32	__dtcm_data_start
+ 174:	ffffffff 	.word	0xffffffff
+			174: R_ARM_ABS32	__dtcm_data_init_end
+	...
+			178: R_ARM_ABS32	__dtcm_bss_start
+			17c: R_ARM_ABS32	__dtcm_bss_end
+ 180:	ffffffff 	.word	0xffffffff
+			180: R_ARM_ABS32	__dtcm_bss_end
+ 184:	4001c000 	.word	0x4001c000
+	...
+			188: R_ARM_ABS32	__bss_start__
+			18c: R_ARM_ABS32	__bss_end__
+			190: R_ARM_ABS32	__data_start__
+			194: R_ARM_ABS32	__data_end__
+			198: R_ARM_ABS32	__etext
+			19c: R_ARM_ABS32	__init_array_end
+			1a0: R_ARM_ABS32	__init_array_start

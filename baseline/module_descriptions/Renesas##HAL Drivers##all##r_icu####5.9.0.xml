@@ -25,6 +25,9 @@ extern "C" {
         <constraint display="Requires ICU Peripheral">
           "${interface.mcu.icu_ext_irq.external}" === "1"
         </constraint>
+        <constraint display="Physical external IRQ channel must have one owner in this project; assign each channel exclusively to one core">
+            !testExists("${interface.mcu.icu.common_regs}") || ("${interface.peripheral.irq${module.driver.external_irq.channel}}" === "1")
+        </constraint>
         <constraint display="Channel not available on selected MCU">
             "${interface.mcu.icu_ext_irq.external.${module.driver.external_irq.channel}}" === "1"
         </constraint>

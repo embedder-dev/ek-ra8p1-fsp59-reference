@@ -11,6 +11,10 @@
 #include "r_adc_b_cfg.h"
 #include "r_adc_b.h"
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+ #include <string.h>
+#endif
+
 /**********************************************************************************************************************
  * Macro definitions
  **********************************************************************************************************************/
@@ -64,8 +68,21 @@ static void adc_b_enable_interrupts(adc_b_instance_ctrl_t * p_instance_ctrl);
 static void adc_b_open_pga(adc_b_extended_cfg_t * p_extend);
 
 #endif
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+static fsp_err_t adc_b_calculate_wait_time(adc_b_instance_ctrl_t * p_instance_ctrl, adc_b_scan_cfg_t * p_scan_data);
+static void adc_b_sample_hold_configure(adc_b_extended_cfg_t const * p_extend);
+static void adc_b_calibration_settings(adc_b_extended_cfg_t const * p_extend, uint32_t unit, bool sample_hold);
+static fsp_err_t adc_b_source_clock_get(adc_b_extended_cfg_t const * p_extend, uint32_t * p_source_hz);
+static fsp_err_t adc_b_timing_check(adc_b_extended_cfg_t const * p_extend);
+static fsp_err_t adc_b_source_mode_check(adc_b_scan_cfg_t const * p_scan);
+static fsp_err_t adc_b_start_check(uint32_t groups);
+#else
 static void      adc_b_calculate_wait_time(adc_b_instance_ctrl_t * p_instance_ctrl, adc_b_scan_cfg_t * p_scan_data);
+#endif
 static uint32_t  adc_b_update_calibrate_state(adc_b_instance_ctrl_t * p_instance_ctrl);
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+static uint32_t  adc_b_calibration_end(adc_b_instance_ctrl_t * p_instance_ctrl, bool conversion_error, bool overflow);
+#endif
 static void      adc_b_force_stop(adc_b_instance_ctrl_t * p_instance_ctrl);
 static void      adc_b_isr_enable(adc_b_instance_ctrl_t * p_instance_ctrl, IRQn_Type irq, uint8_t ipl);
 static IRQn_Type adc_b_isr_handler(adc_event_t          event,
@@ -75,6 +92,10 @@ static IRQn_Type adc_b_isr_handler(adc_event_t          event,
 
 #if (ADC_B_CFG_PARAM_CHECKING_ENABLE)
 static bool adc_channel_is_sample_hold_enabled(adc_channel_t channel, uint8_t sample_and_hold_enable_mask);
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+static fsp_err_t adc_b_open_variant_check(adc_cfg_t const * p_cfg);
+static fsp_err_t adc_b_scan_variant_check(adc_b_extended_cfg_t const * p_extend, adc_b_scan_cfg_t const * p_scan);
+ #endif
 
 #endif
 
@@ -158,6 +179,16 @@ fsp_err_t R_ADC_B_Open (adc_ctrl_t * p_ctrl, adc_cfg_t const * const p_cfg)
     FSP_ASSERT(NULL != p_instance_ctrl);
     FSP_ASSERT(NULL != p_cfg);
     FSP_ERROR_RETURN(ADC_B_OPEN != p_instance_ctrl->opened, FSP_ERR_ALREADY_OPEN);
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    fsp_err_t err = adc_b_open_variant_check(p_cfg);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+ #endif
+#endif
+
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    /* Electrical timing admission must precede module release, even without parameter checking. */
+    fsp_err_t timing_err = adc_b_timing_check(p_cfg->p_extend);
+    FSP_ERROR_RETURN(FSP_SUCCESS == timing_err, timing_err);
 #endif
 
     /* Save configurations. */
@@ -196,9 +227,27 @@ fsp_err_t R_ADC_B_Open (adc_ctrl_t * p_ctrl, adc_cfg_t const * const p_cfg)
                p_extend->adc_b_converter_mode[1].method == ADC_B_CONVERSION_METHOD_HYBRID);
 #endif
     R_ADC_B->ADMDR = p_extend->adc_b_mode;
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    R_ADC_B->ADACMDR = ((p_extend->high_accuracy_enable & 1U) << R_ADC_B0_ADACMDR_ADHACMD0_Pos) |
+                      (((p_extend->high_accuracy_enable >> 1U) & 1U) << R_ADC_B0_ADACMDR_ADHACMD1_Pos);
+#endif
 
     /* Disable Group Scan Priority */
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    uint32_t priority = 0U;
+    for (uint32_t unit = 0U; unit < 2U; unit++)
+    {
+        if (p_extend->group_priority_enable & (1U << unit))
+        {
+            /* HM table 54.38: PGS/RSCN/LGRRS all set; GRP follows SAR continuous mode. */
+            uint32_t mode = (uint32_t) p_extend->adc_b_converter_mode[unit].mode;
+            priority |= (7U | (mode << 3U)) << (unit * 8U);
+        }
+    }
+    R_ADC_B->ADGSPCR = priority;
+#else
     R_ADC_B->ADGSPCR = 0;
+#endif
 
     /* Configure A/D conversion state */
     R_ADC_B->ADCNVSTR = p_extend->conversion_state;
@@ -224,7 +273,11 @@ fsp_err_t R_ADC_B_Open (adc_ctrl_t * p_ctrl, adc_cfg_t const * const p_cfg)
     /* Set user offset, user gain and limiter clip tables */
     for (uint8_t i = 0; i < 8; i++)
     {
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+        *ADC_B_REG_ADDRESS(R_ADC_B->ADUOFTR0, i, 0x4) = (uint16_t) p_extend->user_offset_tables[i];
+#else
         *ADC_B_REG_ADDRESS(R_ADC_B->ADUOFTR0, i, 0x4) = (uint32_t) p_extend->user_offset_tables[i];
+#endif
         *ADC_B_REG_ADDRESS(R_ADC_B->ADUGTR0, i, 0x4)  = p_extend->user_gain_tables[i];
         *ADC_B_REG_ADDRESS(R_ADC_B->ADLIMTR0, i, 0x4) = p_extend->limiter_clip_tables[i];
     }
@@ -300,6 +353,18 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
 
     adc_b_extended_cfg_t * p_extend = (adc_b_extended_cfg_t *) p_instance_ctrl->p_cfg->p_extend;
 
+#if ADC_B_CFG_PARAM_CHECKING_ENABLE
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    fsp_err_t err = adc_b_scan_variant_check(p_extend, p_scan_data);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+ #endif
+#endif
+
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    fsp_err_t source_err = adc_b_source_mode_check(p_scan_data);
+    FSP_ERROR_RETURN(FSP_SUCCESS == source_err, source_err);
+#endif
+
     /* Clear any previous channel configuration, specifically group selections */
     p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_NONE;
     for (uint8_t channel = 0; channel < ADC_B_VIRTUAL_CHANNEL_COUNT; channel++)
@@ -338,6 +403,7 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
      *============================================================================================================*/
     bool sync_operation_enabled = !p_extend->sync_operation_control_bits.adc_0_disable_sync ||
                                   !p_extend->sync_operation_control_bits.adc_1_disable_sync;
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE != 1
     if (sync_operation_enabled)
     {
         /* Set the Synchronous Operation Period to a value larger than successive approximation time at Self-Calibration. */
@@ -350,6 +416,7 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
                             R_ADC_B0_ADCALSTCR_CALADSST_Pos;
         FSP_ERROR_RETURN((caladsst + caladcst) % adsycyc == 0, FSP_ERR_INVALID_STATE);
     }
+#endif
 #endif
     p_instance_ctrl->cached_adsystr  = ADC_GROUP_MASK_NONE;
     p_instance_ctrl->cached_adtrgenr = ADC_GROUP_MASK_NONE;
@@ -364,7 +431,11 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
          *   - See section 36.3.17.2, Restrictions on Synchronous Operation, in the RA6T2 User Manual, R01UH0951EJ0100
          *============================================================================================================*/
         adc_b_unit_id_t converter_selection = p_adc_group->converter_selection;
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+        uint32_t        cst                 = (converter_selection ? cst1 : cst0);
+ #else
         uint32_t        cst                 = (converter_selection ? cst0 : cst1);
+ #endif
         if (sync_operation_enabled)
         {
             /* Set the Synchronous Operation Period to a value larger than successive approximation time of ADCm (m = 0, 1) */
@@ -401,19 +472,36 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
 
             /* Check that channel is valid for configured unit */
             adc_channel_t        channel_id    = (adc_channel_t) p_virtual_channel_cfg->channel_cfg_bits.channel;
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+            adc_b_channel_mask_t channel_mask;
+            if (ADC_B_CHANNEL_IS_EXTERNAL(channel_id))
+            {
+                channel_mask = (adc_b_channel_mask_t) (1ULL << channel_id);
+            }
+            else
+            {
+                channel_mask = (adc_b_channel_mask_t) (1ULL <<
+                    (channel_id - ADC_CHANNEL_FIRST_INTERNAL + ADC_B_CHANNEL_MASK_EXT_OFFSET));
+            }
+ #else
             adc_b_channel_mask_t extended_mask =
                 (adc_b_channel_mask_t) (1ULL <<
                                         (channel_id - ADC_CHANNEL_FIRST_INTERNAL + ADC_B_CHANNEL_MASK_EXT_OFFSET));
             adc_b_channel_mask_t physical_mask = (adc_b_channel_mask_t) (1 << channel_id);
             adc_b_channel_mask_t channel_mask  =
                 (channel_id > ADC_CHANNEL_LAST_EXTERNAL) ? extended_mask : physical_mask;
+ #endif
             FSP_ERROR_RETURN(ADC_B_CHANNEL_VALID_FOR_UNIT(channel_mask, converter_selection), FSP_ERR_INVALID_CHANNEL);
 
             /* Check synchronous operation */
             if (sync_operation_enabled)
             {
                 /* Set so that the sum of the sampling times of the analog channels and successive approximation time of ADCm (m = 0, 1) is an integral multiple of the Synchronous Operation Period */
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+                uint16_t sst = p_extend->sampling_state_table[p_virtual_channel_cfg->channel_cfg_bits.sample_table_id];
+ #else
                 uint16_t sst = p_extend->sampling_state_table[virtual_channel_id];
+ #endif
                 FSP_ERROR_RETURN((sst + cst) % adsycyc == 0, FSP_ERR_INVALID_STATE);
 
                 /*============================================================================================================
@@ -443,6 +531,7 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
                     /* Set the hold time of the channel-dedicated sample-and-hold circuits to be the same as the successive conversion time of the A/D converter Unit m (m=0, 1). */
                     FSP_ERROR_RETURN(shhst == cst, FSP_ERR_INVALID_STATE);
 
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE != 1
                     /* Set the A/D conversion synchronization cycle to a value larger than the hold time in the calibration operation of the channel-dedicated sample-and-hold circuit. */
                     uint32_t adcalshcr = p_extend->calibration_sample_and_hold;
                     uint8_t  calshhst  = (adcalshcr & R_ADC_B0_ADCALSHCR_CALSHHST_Msk) >>
@@ -453,6 +542,7 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
                     uint8_t calshsst = (adcalshcr & R_ADC_B0_ADCALSHCR_CALSHSST_Msk) >>
                                        R_ADC_B0_ADCALSHCR_CALSHSST_Pos;
                     FSP_ERROR_RETURN(calshsst + calshhst == adsycyc, FSP_ERR_INVALID_STATE);
+ #endif
                 }
             }
 #endif
@@ -479,11 +569,28 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
                          *  - TEMPRLR accepts only accepts write-access twice per reset. This is currently its only use. New use will require re-evaluation of design. */
                         if (!R_SYSTEM->TEMPRCR_b.TSNKEEP)
                         {
+ #if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+  #if BSP_TZ_NONSECURE_BUILD
+                            /* PRC5 exists only in PRCR_S; secure startup must close the TSN latch first. */
+                            return FSP_ERR_INVALID_STATE;
+  #else
+                            FSP_CRITICAL_SECTION_DEFINE;
+                            FSP_CRITICAL_SECTION_ENTER;
+                            uint16_t prcr = R_SYSTEM->PRCR_S;
+                            R_SYSTEM->PRCR_S = (uint16_t) (prcr | ADC_B_PCR_PRKEY | R_SYSTEM_PRCR_S_PRC5_Msk);
+                            R_SYSTEM->TEMPRLR_b.LOCK    = 0;
+                            R_SYSTEM->TEMPRCR_b.TSNKEEP = 1;
+                            R_SYSTEM->TEMPRLR_b.LOCK    = 1;
+                            R_SYSTEM->PRCR_S = (uint16_t) (prcr | ADC_B_PCR_PRKEY);
+                            FSP_CRITICAL_SECTION_EXIT;
+  #endif
+ #else
                             R_SYSTEM->PRCR              = (ADC_B_PCR_PRKEY | R_SYSTEM_PRCR_PRC5_Msk); // Enable TEMPRLR and TEMPRCR
                             R_SYSTEM->TEMPRLR_b.LOCK    = 0;                                          // Unlock TEMPRCR
                             R_SYSTEM->TEMPRCR_b.TSNKEEP = 1;                                          // Enable TSN
                             R_SYSTEM->TEMPRLR_b.LOCK    = 1;                                          // Lock TEMPRCR
                             R_SYSTEM->PRCR              = (ADC_B_PCR_PRKEY);                          // Disable TEMPRLR and TEMPRCR
+ #endif
                         }
 #endif
                         R_TSN_CTRL->TSCR_b.TSEN = 1;
@@ -510,7 +617,13 @@ fsp_err_t R_ADC_B_ScanCfg (adc_ctrl_t * p_ctrl, void const * const p_scan_cfg)
     }
 
     /* Recalculate ADC Stop wait time */
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    fsp_err_t wait_err = adc_b_calculate_wait_time(p_instance_ctrl, p_scan_data);
+    FSP_ERROR_RETURN(FSP_SUCCESS == wait_err, wait_err);
+    adc_b_sample_hold_configure(p_extend);
+#else
     adc_b_calculate_wait_time(p_instance_ctrl, p_scan_data);
+#endif
 
     /* Enable/Disable scan groups according to configuration */
     R_ADC_B->ADSGER = scan_group_enable_mask;
@@ -607,10 +720,23 @@ fsp_err_t R_ADC_B_ScanStart (adc_ctrl_t * p_ctrl)
     FSP_ERROR_RETURN((ADC_B_CONVERTER_STATE_READY == p_instance_ctrl->adc_state), FSP_ERR_INVALID_STATE);
 #endif
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    FSP_CRITICAL_SECTION_DEFINE;
+    FSP_CRITICAL_SECTION_ENTER;
+    fsp_err_t err = adc_b_start_check(p_instance_ctrl->cached_adtrgenr | p_instance_ctrl->cached_adsystr);
+    if (FSP_SUCCESS == err)
+    {
+        R_ADC_B->ADTRGENR = p_instance_ctrl->cached_adtrgenr;
+        R_ADC_B->ADSYSTR  = p_instance_ctrl->cached_adsystr;
+    }
+    FSP_CRITICAL_SECTION_EXIT;
+    return err;
+#else
     R_ADC_B->ADTRGENR = p_instance_ctrl->cached_adtrgenr;
     R_ADC_B->ADSYSTR  = p_instance_ctrl->cached_adsystr;
 
     return FSP_SUCCESS;
+#endif
 }
 
 /*******************************************************************************************************************//**
@@ -649,10 +775,24 @@ fsp_err_t R_ADC_B_ScanGroupStart (adc_ctrl_t * p_ctrl, adc_group_mask_t group_ma
     FSP_ERROR_RETURN((ADC_B_CONVERTER_STATE_READY == p_instance_ctrl->adc_state), FSP_ERR_INVALID_STATE);
 #endif
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    uint32_t groups = group_mask & (p_instance_ctrl->cached_adtrgenr | p_instance_ctrl->cached_adsystr);
+    FSP_CRITICAL_SECTION_DEFINE;
+    FSP_CRITICAL_SECTION_ENTER;
+    fsp_err_t err = adc_b_start_check(groups);
+    if (FSP_SUCCESS == err)
+    {
+        R_ADC_B->ADTRGENR |= (group_mask & p_instance_ctrl->cached_adtrgenr);
+        R_ADC_B->ADSYSTR  |= (group_mask & p_instance_ctrl->cached_adsystr);
+    }
+    FSP_CRITICAL_SECTION_EXIT;
+    return err;
+#else
     R_ADC_B->ADTRGENR |= (group_mask & p_instance_ctrl->cached_adtrgenr);
     R_ADC_B->ADSYSTR  |= (group_mask & p_instance_ctrl->cached_adsystr);
 
     return FSP_SUCCESS;
+#endif
 }
 
 /*******************************************************************************************************************//**
@@ -812,18 +952,40 @@ fsp_err_t R_ADC_B_FifoRead (adc_ctrl_t * p_ctrl, adc_group_mask_t const group_ma
     FSP_PARAMETER_NOT_USED(p_ctrl);
 #endif
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    const volatile uint32_t * p_fifo_data = ADC_B_REG_ADDRESS(R_ADC_B->ADFIFODR0, group_id,
+                                                            sizeof(R_ADC_B->ADFIFODR0));
+    const volatile uint32_t * p_fifo_status = ADC_B_REG_ADDRESS(R_ADC_B->ADFIFOSR0, group_id / 2U,
+                                                              sizeof(R_ADC_B->ADFIFOSR0));
+    uint32_t remaining_count = (*p_fifo_status >> ((group_id % 2U) ?
+                               R_ADC_B0_ADFIFOSR0_FIFOST1_Pos : R_ADC_B0_ADFIFOSR0_FIFOST0_Pos)) &
+                              R_ADC_B0_ADFIFOSR0_FIFOST0_Msk;
+    /* HM 54.5.10.2 also describes 0xF as empty; never subtract it from the eight-stage capacity. */
+    uint8_t count = (remaining_count < ADC_B_FIFO_STAGE_COUNT) ?
+                    (uint8_t) (ADC_B_FIFO_STAGE_COUNT - remaining_count) : 0U;
+#else
     uint32_t * p_fifo_data     = ADC_B_REG_ADDRESS(R_ADC_B->ADFIFODR0, group_id, sizeof(R_ADC_B->ADFIFODR0));
     uint32_t * p_fifo_status   = ADC_B_REG_ADDRESS(R_ADC_B->ADFIFOSR0, group_id / 2U, sizeof(R_ADC_B->ADFIFOSR0));
     uint32_t   remaining_count = *p_fifo_status & (R_ADC_B0_ADFIFOSR0_FIFOST0_Msk | R_ADC_B0_ADFIFOSR0_FIFOST1_Msk);
 
     remaining_count >>= ((group_id % 2) ? R_ADC_B0_ADFIFOSR0_FIFOST1_Pos : R_ADC_B0_ADFIFOSR0_FIFOST0_Pos);
     uint8_t count = (ADC_B_FIFO_STAGE_COUNT - (uint8_t) remaining_count);
+#endif
     p_data->count = count;
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    for (uint8_t i = 0; i < count; i++)
+    {
+        /* HM 54.5.10.5 requires one 32-bit FIFO pop; copy only the captured RAM value. */
+        uint32_t fifo_data = *p_fifo_data;
+        memcpy(&p_data->fifo_data[i], &fifo_data, sizeof(fifo_data));
+    }
+#else
     volatile adc_b_fifo_data_t * p_data_dest = &p_data->fifo_data[0];
     for (uint8_t i = 0; i < count; i++)
     {
         p_data_dest[i] = *(adc_b_fifo_data_t *) p_fifo_data;
     }
+#endif
 
     fsp_err_t err = (count ? FSP_SUCCESS : FSP_ERR_UNDERFLOW);
     FSP_ERROR_LOG(err);
@@ -989,6 +1151,17 @@ fsp_err_t R_ADC_B_Calibrate (adc_ctrl_t * const p_ctrl, void const * p_extend)
     R_ADC_B->ADOVFCHSCR0 = R_ADC_B0_ADOVFCHSCR0_OVFCHCn_Msk;
     R_ADC_B->ADOVFEXSCR  = R_ADC_B_EXTENDED_OVERFLOW_FLAG_CLEAR_Msk;
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    /* HM 54.3.8.3/54.3.19.2: calibrate asynchronously; CALSHSST is SHSST + 1,
+     * so one fixed sync period cannot divide both sampling-plus-hold totals. */
+    adc_b_extended_cfg_t const * p_adc_extend = p_instance_ctrl->p_cfg->p_extend;
+    R_ADC_B->ADSYCR = p_adc_extend->sync_operation_control | R_ADC_B0_ADSYCR_ADSYDIS0_Msk |
+                      R_ADC_B0_ADSYCR_ADSYDIS1_Msk;
+
+    /* HM table 54.17: enable S&H only after the two converter calibrations. */
+    R_ADC_B->ADSHCR0 = 0U;
+    R_ADC_B->ADSHCR1 = 0U;
+#endif
     uint32_t adcalstr = adc_b_update_calibrate_state(p_instance_ctrl);
     R_ADC_B->ADCALSTR = adcalstr;      // Initiate calibration
 
@@ -1025,6 +1198,193 @@ fsp_err_t R_ADC_B_OffsetSet (adc_ctrl_t * const p_ctrl, adc_channel_t const reg_
  * @param p_instance_ctrl - Pointer to adc_b instance configuration
  * @return None
  **********************************************************************************************************************/
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+static fsp_err_t adc_b_source_clock_get (adc_b_extended_cfg_t const * p_extend, uint32_t * p_source_hz)
+{
+    uint32_t pclka = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_PCLKA);
+    uint32_t source_hz = pclka;
+    uint32_t source = p_extend->clock_control_bits.source_selection;
+    if (ADC_B_CLOCK_SOURCE_PCLKA != source)
+    {
+        uint32_t control;
+        uint32_t divider;
+        if (ADC_B_CLOCK_SOURCE_GPT == source)
+        {
+            control = FSP_STYPE3_REG8_READ(R_SYSTEM->GPTCKCR, BSP_CFG_CLOCKS_SECURE);
+            divider = FSP_STYPE3_REG8_READ(R_SYSTEM->GPTCKDIVCR, BSP_CFG_CLOCKS_SECURE);
+        }
+        else
+        {
+            control = FSP_STYPE3_REG8_READ(R_SYSTEM->ADCCKCR, BSP_CFG_CLOCKS_SECURE);
+            divider = FSP_STYPE3_REG8_READ(R_SYSTEM->ADCCKDIVCR, BSP_CFG_CLOCKS_SECURE);
+        }
+
+        /* HM 9.2.51/52: /3 and /5 GPT settings cannot clock ADC16H. */
+        static uint8_t const divisors[] = {1U, 2U, 4U, 6U, 8U, 0U, 0U, 10U, 16U, 32U};
+        FSP_ERROR_RETURN((0U == (control & 0xC0U)) && (divider < sizeof(divisors)) &&
+                         (0U != divisors[divider]), FSP_ERR_INVALID_STATE);
+        source_hz = R_BSP_SourceClockHzGet((fsp_priv_source_clock_t) (control & 0xFU)) / divisors[divider];
+    }
+
+    FSP_ERROR_RETURN((0U != pclka) && (0U != source_hz), FSP_ERR_INVALID_STATE);
+    *p_source_hz = source_hz;
+    return FSP_SUCCESS;
+}
+
+static fsp_err_t adc_b_timing_check (adc_b_extended_cfg_t const * p_extend)
+{
+    FSP_ERROR_RETURN((NULL != p_extend) &&
+                     (p_extend->clock_control_bits.source_selection <= ADC_B_CLOCK_SOURCE_PCLKA) &&
+                     (p_extend->clock_control_bits.divider <= ADC_B_CLOCK_DIV_5), FSP_ERR_INVALID_ARGUMENT);
+    uint32_t source_hz;
+    fsp_err_t err = adc_b_source_clock_get(p_extend, &source_hz);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    uint32_t divider = p_extend->clock_control_bits.divider + 1U;
+    uint32_t cst0 = (p_extend->conversion_state & R_ADC_B0_ADCNVSTR_CST0_Msk) >> R_ADC_B0_ADCNVSTR_CST0_Pos;
+    uint32_t cst1 = (p_extend->conversion_state & R_ADC_B0_ADCNVSTR_CST1_Msk) >> R_ADC_B0_ADCNVSTR_CST1_Pos;
+    uint64_t time = (uint64_t) cst0 * divider * 1000000000ULL;
+    /* HM 54.2.4.10 and 70.6 tables 70.99/100: equal CST, 100..200 ns (200 ns below 2.7 V). */
+    FSP_ERROR_RETURN((cst0 == cst1) && (cst0 >= 3U) &&
+                     (source_hz >= 25000000U * divider) && (source_hz <= 60000000U * divider) &&
+                     (time >= (uint64_t) source_hz * (p_extend->low_voltage ? 200U : 100U)) &&
+                     (time <= (uint64_t) source_hz * 200U), FSP_ERR_INVALID_ARGUMENT);
+    return FSP_SUCCESS;
+}
+
+static fsp_err_t adc_b_source_mode_check (adc_b_scan_cfg_t const * p_scan)
+{
+    FSP_ERROR_RETURN((NULL != p_scan) && (NULL != p_scan->p_adc_groups) &&
+                     (p_scan->group_count > 0U) && (p_scan->group_count <= 9U), FSP_ERR_INVALID_ARGUMENT);
+    for (uint32_t g = 0U; g < p_scan->group_count; g++)
+    {
+        adc_b_group_cfg_t const * p_group = p_scan->p_adc_groups[g];
+        FSP_ERROR_RETURN((NULL != p_group) && (NULL != p_group->p_virtual_channels) &&
+                         (p_group->virtual_channel_count > 0U) && (p_group->virtual_channel_count <= 8U) &&
+                         ((uint32_t) p_group->converter_selection <= 1U), FSP_ERR_INVALID_ARGUMENT);
+        for (uint32_t v = 0U; v < p_group->virtual_channel_count; v++)
+        {
+            adc_b_virtual_channel_cfg_t const * p_vc = p_group->p_virtual_channels[v];
+            FSP_ERROR_RETURN(NULL != p_vc, FSP_ERR_INVALID_ARGUMENT);
+            uint32_t channel = p_vc->channel_cfg_bits.channel;
+            bool diagnosis = (96U == channel) || (97U == channel) ||
+                             ((channel >= 112U) && (channel <= 114U)) ||
+                             ((channel >= 116U) && (channel <= 118U));
+            FSP_ERROR_RETURN((channel <= ADC_CHANNEL_LAST_EXTERNAL) ||
+                             ((channel >= ADC_CHANNEL_FIRST_INTERNAL) && (channel <= ADC_CHANNEL_LAST_INTERNAL)),
+                             FSP_ERR_INVALID_CHANNEL);
+            adc_b_channel_mask_t mask = (adc_b_channel_mask_t) (1ULL <<
+                ((channel <= ADC_CHANNEL_LAST_EXTERNAL) ? channel :
+                 (channel - ADC_CHANNEL_FIRST_INTERNAL + ADC_B_CHANNEL_MASK_EXT_OFFSET)));
+            FSP_ERROR_RETURN(ADC_B_CHANNEL_VALID_FOR_UNIT(mask, p_group->converter_selection), FSP_ERR_INVALID_CHANNEL);
+            bool differential = 0U != p_vc->channel_cfg_bits.differential;
+            /* HM tables 54.4/54.5: only even AN000..AN010 and diagnosis support differential input. */
+            FSP_ERROR_RETURN(diagnosis ? differential :
+                             (!differential || ((channel <= 10U) && (0U == (channel & 1U)))),
+                             FSP_ERR_INVALID_ARGUMENT);
+            /* HM 54.5.6.1: the result sign follows the input mode, not the conversion method. */
+            FSP_ERROR_RETURN(differential != (0U != p_vc->channel_control_c_bits.data_is_unsigned),
+                             FSP_ERR_INVALID_ARGUMENT);
+        }
+    }
+    return FSP_SUCCESS;
+}
+
+static fsp_err_t adc_b_start_check (uint32_t groups)
+{
+    /* Include armed triggers and conversions already running; a completed software scan is not an owner. */
+    groups |= R_ADC_B->ADTRGENR | R_ADC_B->ADGRSR;
+    groups &= R_ADC_B->ADSGER;
+    uint64_t sources[2] = {0U, 0U};
+    for (uint32_t vc = 0U; vc < ADC_B_VIRTUAL_CHANNEL_COUNT; vc++)
+    {
+        volatile uint32_t const * p_channel = ADC_B_REG_ADDRESS(R_ADC_B->ADCHCR0, vc, 0x10);
+        uint32_t config = *p_channel;
+        uint32_t group = (config & R_ADC_B0_ADCHCR0_SGSEL_Msk) >> R_ADC_B0_ADCHCR0_SGSEL_Pos;
+        if ((group > 0U) && (group <= 9U) && (groups & (1UL << (group - 1U))))
+        {
+            group--;
+            volatile uint32_t const * p_converter = ADC_B_REG_ADDRESS(R_ADC_B->ADSGCR0, group / 4U, 4U);
+            uint32_t unit = (*p_converter >> ((group % 4U) * 8U)) & 1U;
+            uint32_t channel = (config & R_ADC_B0_ADCHCR0_CNVCS_Msk) >> R_ADC_B0_ADCHCR0_CNVCS_Pos;
+            /* Shared inputs only, HM tables 54.4/54.5 note 1. Unit-local and diagnosis sources do not overlap. */
+            if (((channel >= 16U) && (channel <= 22U)) ||
+                ((channel >= 100U) && (channel <= 102U)) || (104U == channel) || (105U == channel))
+            {
+                uint32_t bit = (channel <= 22U) ? channel : channel - 96U + 32U;
+                sources[unit] |= 1ULL << bit;
+            }
+        }
+    }
+    FSP_ERROR_RETURN(0U == (sources[0] & sources[1]), FSP_ERR_INVALID_STATE);
+    return FSP_SUCCESS;
+}
+
+static fsp_err_t adc_b_calculate_wait_time (adc_b_instance_ctrl_t * p_instance_ctrl, adc_b_scan_cfg_t * p_scan_data)
+{
+    adc_b_extended_cfg_t const * p_extend = p_instance_ctrl->p_cfg->p_extend;
+    uint32_t wait_cycles = 0U;
+    for (uint32_t group = 0U; group < p_scan_data->group_count; group++)
+    {
+        adc_b_group_cfg_t const * p_group = p_scan_data->p_adc_groups[group];
+        if (p_instance_ctrl->cached_adtrgenr & (1UL << p_group->scan_group_id))
+        {
+            bool synchronous = 0U == (p_extend->sync_operation_control &
+                                      (1UL << (R_ADC_B0_ADSYCR_ADSYDIS0_Pos + p_group->converter_selection)));
+            uint32_t cycles = p_extend->start_trigger_delay_table[p_group->scan_group_id] +
+                              (synchronous ? 2U * p_extend->sync_operation_control_bits.period_cycle : 4U);
+            if (cycles > wait_cycles)
+            {
+                wait_cycles = cycles;
+            }
+        }
+    }
+
+    uint32_t pclka = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_PCLKA);
+    uint32_t source_hz;
+    fsp_err_t err = adc_b_source_clock_get(p_extend, &source_hz);
+    FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
+    /* HM 54.6.4.2 and A3.2: floor(Twait / (tPCLKA * minimum 2 read cycles)) + 1. */
+    uint64_t numerator = (uint64_t) wait_cycles * pclka * (p_extend->clock_control_bits.divider + 1U);
+    p_instance_ctrl->trigger_disable_wait_cycles = (uint32_t) (numerator / (2ULL * source_hz)) + 1U;
+    return FSP_SUCCESS;
+}
+
+static void adc_b_sample_hold_configure (adc_b_extended_cfg_t const * p_extend)
+{
+    uint32_t modes[2] = {0U, 0U};
+    for (uint32_t vc = 0U; vc < ADC_B_VIRTUAL_CHANNEL_COUNT; vc++)
+    {
+        volatile uint32_t const * p_channel = ADC_B_REG_ADDRESS(R_ADC_B->ADCHCR0, vc, 0x10);
+        uint32_t config = *p_channel;
+        uint32_t channel = (config & R_ADC_B0_ADCHCR0_CNVCS_Msk) >> R_ADC_B0_ADCHCR0_CNVCS_Pos;
+        if ((config & R_ADC_B0_ADCHCR0_SGSEL_Msk) && (config & R_ADC_B0_ADCHCR0_AINMD_Msk) &&
+            (channel <= ADC_CHANNEL_11))
+        {
+            modes[channel / 6U] |= 1UL << (16U + (channel % 6U) / 2U);
+        }
+    }
+
+    uint32_t enable0 = p_extend->sample_and_hold_enable_mask & ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_012;
+    uint32_t enable1 = (p_extend->sample_and_hold_enable_mask & ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_456) >> 4U;
+    R_ADC_B->ADSHCR0 = enable0 | (modes[0] & (enable0 << 16U));
+    R_ADC_B->ADSHCR1 = enable1 | (modes[1] & (enable1 << 16U));
+}
+
+static void adc_b_calibration_settings (adc_b_extended_cfg_t const * p_extend, uint32_t unit, bool sample_hold)
+{
+    uint32_t cst = (p_extend->conversion_state >> (unit * 8U)) & R_ADC_B0_ADCNVSTR_CST0_Msk;
+    R_ADC_B->ADCALSTCR = (p_extend->calibration_adc_state & R_ADC_B0_ADCALSTCR_CALADSST_Msk) |
+                         (cst << R_ADC_B0_ADCALSTCR_CALADCST_Pos);
+    if (sample_hold)
+    {
+        uint32_t sh = unit ? p_extend->sample_and_hold_config_456 : p_extend->sample_and_hold_config_012;
+        uint32_t sst = (sh & R_ADC_B0_ADSHSTR0_SHSST_Msk) >> R_ADC_B0_ADSHSTR0_SHSST_Pos;
+        uint32_t hst = (sh & R_ADC_B0_ADSHSTR0_SHHST_Msk) >> R_ADC_B0_ADSHSTR0_SHHST_Pos;
+        R_ADC_B->ADCALSHCR = ((sst + 1U) << R_ADC_B0_ADCALSHCR_CALSHSST_Pos) |
+                             (hst << R_ADC_B0_ADCALSHCR_CALSHHST_Pos);
+    }
+}
+#else
 static void adc_b_calculate_wait_time (adc_b_instance_ctrl_t * p_instance_ctrl, adc_b_scan_cfg_t * p_scan_data)
 {
     adc_b_extended_cfg_t * p_extend = (adc_b_extended_cfg_t *) p_instance_ctrl->p_cfg->p_extend;
@@ -1060,6 +1420,7 @@ static void adc_b_calculate_wait_time (adc_b_instance_ctrl_t * p_instance_ctrl, 
 
     p_instance_ctrl->trigger_disable_wait_cycles = wait_cycles + 1;
 }
+#endif
 
 /***********************************************************************************************************************
  * @brief Helper function - Perform ADC calibration according to Table 36.15 of the RA6T2 User Manual, R01UH0951EJ0130
@@ -1068,6 +1429,56 @@ static void adc_b_calculate_wait_time (adc_b_instance_ctrl_t * p_instance_ctrl, 
  **********************************************************************************************************************/
 static uint32_t adc_b_update_calibrate_state (adc_b_instance_ctrl_t * p_instance_ctrl)
 {
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    /* HM table 54.17: ADC0, ADC1, then SH0..2 and SH4..6, with only one unit active at a time. */
+    adc_b_extended_cfg_t const * p_extend = p_instance_ctrl->p_cfg->p_extend;
+    switch (p_instance_ctrl->adc_state)
+    {
+        case ADC_B_CONVERTER_STATE_NONE:
+        {
+            adc_b_calibration_settings(p_extend, 0U, false);
+            p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_ADC_0_CALIBRATING;
+            return R_ADC_B_ADCALSTR_ADC_0_CAL_Msk | R_ADC_B_ADCALSTR_GAIN_OFFSET_0_CAL_Msk;
+        }
+        case ADC_B_CONVERTER_STATE_ADC_0_CALIBRATING:
+        {
+            adc_b_calibration_settings(p_extend, 1U, false);
+            p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_ADC_1_CALIBRATING;
+            return R_ADC_B_ADCALSTR_ADC_1_CAL_Msk | R_ADC_B_ADCALSTR_GAIN_OFFSET_1_CAL_Msk;
+        }
+        case ADC_B_CONVERTER_STATE_ADC_1_CALIBRATING:
+        {
+            adc_b_sample_hold_configure(p_extend);
+            p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_SH_0_2_CALIBRATING;
+            if (p_extend->sample_and_hold_enable_mask & ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_012)
+            {
+                adc_b_calibration_settings(p_extend, 0U, true);
+                return R_ADC_B_ADCALSTR_SAMPLE_HOLD_0_CAL_Msk;
+            }
+            return adc_b_update_calibrate_state(p_instance_ctrl);
+        }
+        case ADC_B_CONVERTER_STATE_SH_0_2_CALIBRATING:
+        {
+            p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_SH_4_6_CALIBRATING;
+            if (p_extend->sample_and_hold_enable_mask & ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_456)
+            {
+                adc_b_calibration_settings(p_extend, 1U, true);
+                return R_ADC_B_ADCALSTR_SAMPLE_HOLD_1_CAL_Msk;
+            }
+            return adc_b_update_calibrate_state(p_instance_ctrl);
+        }
+        case ADC_B_CONVERTER_STATE_SH_4_6_CALIBRATING:
+        case ADC_B_CONVERTER_STATE_READY:
+        {
+            p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_READY;
+            return 0U;
+        }
+        default:
+        {
+            return 0U;
+        }
+    }
+#else
     /* Converters must be calibrated sequentially.
      * Converter calibration must be performed before Sample-and-Hold calibration. */
     uint32_t adcalstr = 0;
@@ -1152,6 +1563,7 @@ static uint32_t adc_b_update_calibrate_state (adc_b_instance_ctrl_t * p_instance
     }
 
     return adcalstr;
+#endif
 }
 
 /***********************************************************************************************************************
@@ -1277,6 +1689,16 @@ static IRQn_Type adc_b_isr_handler (adc_event_t          event,
     IRQn_Type               irq             = R_FSP_CurrentIrqGet();
     adc_b_instance_ctrl_t * p_instance_ctrl = (adc_b_instance_ctrl_t *) R_FSP_IsrContextGet(irq);
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    /* Error IRQs may clear hardware flags before the calibration-end IRQ runs. */
+    if (((ADC_EVENT_CONVERSION_ERROR == event) || (ADC_EVENT_OVERFLOW == event)) &&
+        (ADC_B_CONVERTER_STATE_NONE < p_instance_ctrl->adc_state) &&
+        (ADC_B_CONVERTER_STATE_READY > p_instance_ctrl->adc_state))
+    {
+        p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_CALIBRATION_FAIL;
+    }
+#endif
+
     if (p_instance_ctrl->p_callback)
     {
         adc_callback_args_t args;
@@ -1356,8 +1778,192 @@ static void adc_b_call_callback (adc_b_instance_ctrl_t * p_ctrl, adc_callback_ar
  * @param sample_and_hold_enable_mask - Enable mask from configuration structure
  * @return None
  **********************************************************************************************************************/
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+/* Reject invalid register encodings before touching hardware. */
+static fsp_err_t adc_b_open_variant_check (adc_cfg_t const * p_cfg)
+{
+    adc_b_extended_cfg_t const * p_extend = p_cfg->p_extend;
+    FSP_ASSERT(NULL != p_extend);
+    FSP_ASSERT(NULL != p_extend->p_isr_cfg);
+    FSP_ERROR_RETURN((p_extend->clock_control_bits.source_selection <= 2U) &&
+                     (p_extend->clock_control_bits.divider <= ADC_B_CLOCK_DIV_5) &&
+                     (0U == (p_extend->clock_control_data & ~0x00070003U)), FSP_ERR_INVALID_ARGUMENT);
+    FSP_ERROR_RETURN((p_extend->sync_operation_control_bits.period_cycle >= 5U) &&
+                     (0U == (p_extend->sync_operation_control & ~0x000300FFU)), FSP_ERR_INVALID_ARGUMENT);
+    FSP_ERROR_RETURN(0U == (p_extend->group_priority_enable & ~3U), FSP_ERR_INVALID_ARGUMENT);
+    FSP_ERROR_RETURN(0U == (p_extend->high_accuracy_enable & ~3U), FSP_ERR_INVALID_ARGUMENT);
+    FSP_ERROR_RETURN((p_extend->p_isr_cfg->calibration_end_irq_adc_0 >= 0) &&
+                     (p_extend->p_isr_cfg->calibration_end_irq_adc_1 >= 0) &&
+                     (p_extend->p_isr_cfg->calibration_end_irq_adc_0 !=
+                      p_extend->p_isr_cfg->calibration_end_irq_adc_1), FSP_ERR_IRQ_BSP_DISABLED);
+    for (uint32_t unit = 0U; unit < 2U; unit++)
+    {
+        uint32_t method = (uint32_t) p_extend->adc_b_converter_mode[unit].method;
+        uint32_t mode = (uint32_t) p_extend->adc_b_converter_mode[unit].mode;
+        bool high_accuracy = 0U != (p_extend->high_accuracy_enable & (1U << unit));
+        for (uint32_t filter = 0U; filter < 4U; filter++)
+        {
+            uint32_t selection = (p_extend->adc_filter_selection[unit].bits >> (filter * 8U)) & 3U;
+            FSP_ERROR_RETURN(selection <= 1U, FSP_ERR_INVALID_ARGUMENT);
+        }
+
+        uint32_t sh = unit ? p_extend->sample_and_hold_config_456 : p_extend->sample_and_hold_config_012;
+        uint32_t sh_enable = unit ? ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_456 : ADC_B_SAMPLE_AND_HOLD_MASK_UNIT_012;
+        FSP_ERROR_RETURN((0U == (p_extend->sample_and_hold_enable_mask & sh_enable)) ||
+                         ((sh & R_ADC_B0_ADSHSTR0_SHSST_Msk) < R_ADC_B0_ADSHSTR0_SHSST_Msk),
+                         FSP_ERR_INVALID_ARGUMENT);
+
+        /* HM 54.11.16/18: Hybrid requires high accuracy; oversampling prohibits it. */
+        FSP_ERROR_RETURN(((ADC_B_CONVERSION_METHOD_HYBRID != method) || high_accuracy) &&
+                         ((ADC_B_CONVERSION_METHOD_OVERSAMPLE != method) || !high_accuracy), FSP_ERR_INVALID_MODE);
+        FSP_ERROR_RETURN((method <= ADC_B_CONVERSION_METHOD_HYBRID) &&
+                         (mode <= ADC_B_CONVERTER_MODE_BACKGROUND_SCAN) &&
+                         ((ADC_B_CONVERTER_MODE_BACKGROUND_SCAN != mode) ||
+                          (ADC_B_CONVERSION_METHOD_HYBRID == method)), FSP_ERR_INVALID_MODE);
+        if (p_extend->group_priority_enable & (1U << unit))
+        {
+            FSP_ERROR_RETURN(ADC_B_CONVERSION_METHOD_SAR == method, FSP_ERR_INVALID_MODE);
+        }
+    }
+    for (uint32_t i = 0U; i < 8U; i++)
+    {
+        FSP_ERROR_RETURN(p_extend->user_gain_tables[i] <= 0xFFFFU, FSP_ERR_INVALID_ARGUMENT);
+        FSP_ERROR_RETURN((p_extend->user_offset_tables[i] >= INT16_MIN) &&
+                         (p_extend->user_offset_tables[i] <= INT16_MAX), FSP_ERR_INVALID_ARGUMENT);
+    }
+    return FSP_SUCCESS;
+}
+
+static fsp_err_t adc_b_scan_variant_check (adc_b_extended_cfg_t const * p_extend, adc_b_scan_cfg_t const * p_scan)
+{
+    FSP_ASSERT(NULL != p_scan->p_adc_groups);
+    FSP_ERROR_RETURN((p_scan->group_count > 0U) && (p_scan->group_count <= 9U), FSP_ERR_INVALID_ARGUMENT);
+    uint8_t highest[2] = {UINT8_MAX, UINT8_MAX};
+    uint32_t groups = 0U;
+    uint32_t sh_seen = 0U;
+    uint32_t sh_differential = 0U;
+    for (uint32_t g = 0U; g < p_scan->group_count; g++)
+    {
+        adc_b_group_cfg_t const * p_group = p_scan->p_adc_groups[g];
+        FSP_ASSERT(NULL != p_group);
+        FSP_ASSERT(NULL != p_group->p_virtual_channels);
+        FSP_ERROR_RETURN(((uint32_t) p_group->scan_group_id <= 8U) &&
+                         ((uint32_t) p_group->converter_selection <= 1U), FSP_ERR_INVALID_ARGUMENT);
+        uint32_t bit = 1U << p_group->scan_group_id;
+        FSP_ERROR_RETURN(0U == (groups & bit), FSP_ERR_INVALID_ARGUMENT);
+        groups |= bit;
+        if ((uint8_t) p_group->scan_group_id < highest[p_group->converter_selection])
+        {
+            highest[p_group->converter_selection] = (uint8_t) p_group->scan_group_id;
+        }
+    }
+    for (uint32_t g = 0U; g < p_scan->group_count; g++)
+    {
+        adc_b_group_cfg_t const * p_group = p_scan->p_adc_groups[g];
+        uint32_t method = (uint32_t) p_extend->adc_b_converter_mode[p_group->converter_selection].method;
+        bool hybrid = ADC_B_CONVERSION_METHOD_HYBRID == method;
+        uint32_t max_channels = hybrid ? 4U : 8U;
+        FSP_ERROR_RETURN((p_group->virtual_channel_count >= (hybrid ? 2U : 1U)) &&
+                         (p_group->virtual_channel_count <= max_channels), FSP_ERR_INVALID_ARGUMENT);
+        uint32_t filters = 0U;
+        uint32_t first_ordinary = ADC_B_VIRTUAL_CHANNEL_COUNT;
+        uint32_t last_sh = 0U;
+        bool sh_present = false;
+        for (uint32_t v = 0U; v < p_group->virtual_channel_count; v++)
+        {
+            adc_b_virtual_channel_cfg_t const * p_vc = p_group->p_virtual_channels[v];
+            FSP_ASSERT(NULL != p_vc);
+            adc_channel_t channel = (adc_channel_t) p_vc->channel_cfg_bits.channel;
+            FSP_ERROR_RETURN(((uint32_t) p_vc->channel_id < ADC_B_VIRTUAL_CHANNEL_COUNT) &&
+                             (ADC_B_CHANNEL_IS_EXTERNAL(channel) || ADC_B_CHANNEL_IS_INTERNAL(channel)),
+                             FSP_ERR_INVALID_CHANNEL);
+            uint32_t filter = p_vc->channel_control_a_bits.digital_filter_id;
+            FSP_ERROR_RETURN((filter <= 4U) && (!hybrid || (0U != filter)), FSP_ERR_INVALID_ARGUMENT);
+            if (0U != filter)
+            {
+                uint32_t bit = 1UL << filter;
+                uint32_t selection = (p_extend->adc_filter_selection[p_group->converter_selection].bits >>
+                                      ((filter - 1U) * 8U)) & 3U;
+                FSP_ERROR_RETURN((1U == selection) && (!hybrid || (0U == (filters & bit))),
+                                 FSP_ERR_INVALID_ARGUMENT);
+                filters |= bit;
+            }
+
+            if (adc_channel_is_sample_hold_enabled(channel, p_extend->sample_and_hold_enable_mask))
+            {
+                uint32_t bit = 1UL << ((uint32_t) channel / 2U);
+                bool differential = 0U != p_vc->channel_cfg_bits.differential;
+                FSP_ERROR_RETURN((0U == (sh_seen & bit)) || (differential == (0U != (sh_differential & bit))),
+                                 FSP_ERR_INVALID_ARGUMENT);
+                sh_seen |= bit;
+                if (differential)
+                {
+                    sh_differential |= bit;
+                }
+
+                sh_present = true;
+                if ((uint32_t) p_vc->channel_id > last_sh)
+                {
+                    last_sh = (uint32_t) p_vc->channel_id;
+                }
+            }
+            else if ((uint32_t) p_vc->channel_id < first_ordinary)
+            {
+                first_ordinary = (uint32_t) p_vc->channel_id;
+            }
+
+            if (p_extend->high_accuracy_enable & (1U << p_group->converter_selection))
+            {
+                uint32_t cst = (p_extend->conversion_state >>
+                                (p_group->converter_selection ? R_ADC_B0_ADCNVSTR_CST1_Pos :
+                                 R_ADC_B0_ADCNVSTR_CST0_Pos)) & R_ADC_B0_ADCNVSTR_CST0_Msk;
+                uint32_t sst = p_extend->sampling_state_table[p_vc->channel_cfg_bits.sample_table_id];
+                /* HM 54.11.18: SST >= 1.6*CST, >= 4, even; synchronous quotient is 1 or even. */
+                FSP_ERROR_RETURN((sst >= 4U) && (sst <= R_ADC_B0_ADSSTR0_SST0_Msk) &&
+                                 (sst * 5U >= cst * 8U) && (0U == (sst & 1U)), FSP_ERR_INVALID_STATE);
+                if (0U == (p_extend->sync_operation_control & (1UL <<
+                           (R_ADC_B0_ADSYCR_ADSYDIS0_Pos + p_group->converter_selection))))
+                {
+                    uint32_t period = p_extend->sync_operation_control_bits.period_cycle;
+                    uint32_t cycles = sst + cst;
+                    FSP_ERROR_RETURN((0U != period) && (0U == (cycles % period)) &&
+                                     ((cycles == period) || (0U == ((cycles / period) & 1U))),
+                                     FSP_ERR_INVALID_STATE);
+                }
+            }
+            uint32_t offset = p_vc->channel_control_a_bits.offset_table_id;
+            FSP_ERROR_RETURN((offset <= 8U) && (p_vc->channel_control_a_bits.gain_table_id <= 8U),
+                             FSP_ERR_INVALID_ARGUMENT);
+            if (p_extend->single_ended_overflow_strict && !p_vc->channel_cfg_bits.differential)
+            {
+                /* TN-RA*-A0172A/E: AVEMD=00 and effective offset=0 for reliable below-VREFL overflow. */
+                FSP_ERROR_RETURN((0U == p_vc->channel_control_b_bits.addition_average_mode) &&
+                                 ((0U == offset) || (0 == p_extend->user_offset_tables[offset - 1U])),
+                                 FSP_ERR_INVALID_ARGUMENT);
+            }
+            if ((p_extend->group_priority_enable & (1U << p_group->converter_selection)) &&
+                ((uint8_t) p_group->scan_group_id != highest[p_group->converter_selection]))
+            {
+                FSP_ERROR_RETURN(!adc_channel_is_sample_hold_enabled(channel, p_extend->sample_and_hold_enable_mask),
+                                 FSP_ERR_INVALID_ARGUMENT);
+            }
+        }
+
+        /* HM 54.3.16.6(3): hardware scans by VC number, not by this array's order. */
+        FSP_ERROR_RETURN(!sh_present || (last_sh < first_ordinary), FSP_ERR_INVALID_ARGUMENT);
+    }
+    return FSP_SUCCESS;
+}
+#endif
+
 static bool adc_channel_is_sample_hold_enabled (adc_channel_t channel, uint8_t sample_and_hold_enable_mask)
 {
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    if ((uint32_t) channel > ADC_CHANNEL_11)
+    {
+        return false;
+    }
+#endif
     /* sample and hold connected to channels in pairs from 0/1 to 10/11, corresponding to Sample and Hold IDs 0-2 and 4-6 */
     bool sh_available = (channel <= ADC_CHANNEL_11);
     bool sh_enabled   = 1 << (channel / 2) & (sample_and_hold_enable_mask >> (channel / 6));
@@ -1365,6 +1971,63 @@ static bool adc_channel_is_sample_hold_enabled (adc_channel_t channel, uint8_t s
     return sh_available && sh_enabled;
 }
 
+#endif
+
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+static uint32_t adc_b_calibration_end (adc_b_instance_ctrl_t * p_instance_ctrl, bool conversion_error, bool overflow)
+{
+    FSP_CRITICAL_SECTION_DEFINE;
+    FSP_CRITICAL_SECTION_ENTER;
+    if (conversion_error || overflow || (ADC_B_CONVERTER_STATE_CALIBRATION_FAIL == p_instance_ctrl->adc_state))
+    {
+        p_instance_ctrl->adc_state = ADC_B_CONVERTER_STATE_CALIBRATION_FAIL;
+        adc_b_extended_cfg_t const * p_extend = p_instance_ctrl->p_cfg->p_extend;
+        R_ADC_B->ADSYCR = p_extend->sync_operation_control;
+        R_ADC_B->ADCALSTR = 0U;
+
+        adc_b_channel_mask_t channel_mask = ADC_B_CHANNEL_MASK_NONE;
+        if (overflow)
+        {
+            uint32_t physical_channels = R_ADC_B->ADOVFCHSR0;
+            uint32_t extended_channels = R_ADC_B->ADOVFEXSR;
+            uint64_t extended_mask     = ((uint64_t) extended_channels) << ADC_B_CHANNEL_MASK_EXT_OFFSET;
+            channel_mask = (adc_b_channel_mask_t) (physical_channels | extended_mask);
+        }
+
+        FSP_CRITICAL_SECTION_EXIT;
+
+        /* adc_event_t is ordinal, so simultaneous errors require separate callbacks. */
+        if (conversion_error)
+        {
+            adc_b_isr_handler(ADC_EVENT_CONVERSION_ERROR, ADC_GROUP_MASK_NONE, ADC_B_CHANNEL_MASK_NONE,
+                              ADC_B_UNIT_MASK_UNDEFINED);
+        }
+
+        if (overflow)
+        {
+            adc_b_isr_handler(ADC_EVENT_OVERFLOW, ADC_GROUP_MASK_NONE, channel_mask, ADC_B_UNIT_MASK_UNDEFINED);
+        }
+
+        return 0U;
+    }
+
+    uint32_t adcalstr = adc_b_update_calibrate_state(p_instance_ctrl);
+    R_ADC_B->ADCALSTR = adcalstr;
+    bool complete = ADC_B_CONVERTER_STATE_READY == p_instance_ctrl->adc_state;
+    if (complete)
+    {
+        adc_b_extended_cfg_t const * p_extend = p_instance_ctrl->p_cfg->p_extend;
+        R_ADC_B->ADSYCR = p_extend->sync_operation_control;
+    }
+    FSP_CRITICAL_SECTION_EXIT;
+    if (complete)
+    {
+        adc_b_isr_handler(ADC_EVENT_CALIBRATION_COMPLETE, ADC_GROUP_MASK_NONE, ADC_B_CHANNEL_MASK_NONE,
+                          ADC_B_UNIT_MASK_UNDEFINED);
+    }
+
+    return adcalstr;
+}
 #endif
 
 /***********************************************************************************************************************
@@ -1381,6 +2044,16 @@ void adc_b_calend0_isr (void)
     /* Save context if RTOS is used */
     FSP_CONTEXT_SAVE
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    IRQn_Type               irq             = R_FSP_CurrentIrqGet();
+    adc_b_instance_ctrl_t * p_instance_ctrl = (adc_b_instance_ctrl_t *) R_FSP_IsrContextGet(irq);
+    bool conversion_error = R_ADC_B->ADERSR_b.ADERF0;
+    bool overflow = R_ADC_B->ADOVFERSR_b.ADOVFEF0;
+    R_ADC_B->ADCALENDSCR = R_ADC_B0_ADCALENDSCR_CALENDC0_Msk;
+    R_BSP_IrqStatusClear(irq);
+    FSP_HARDWARE_REGISTER_WAIT(R_ADC_B->ADSR, 0x00);
+    adc_b_calibration_end(p_instance_ctrl, conversion_error, overflow);
+#else
     adc_event_t          event        = ADC_EVENT_CALIBRATION_COMPLETE;
     adc_b_channel_mask_t channel_mask = ADC_B_CHANNEL_MASK_NONE;
 
@@ -1420,6 +2093,7 @@ void adc_b_calend0_isr (void)
      * - See table 36.2.10.1 in the RA6T2 user manual, R01UH0951EJ0130 */
     FSP_HARDWARE_REGISTER_WAIT(R_ADC_B->ADSR, 0x00);
     R_ADC_B->ADCALSTR = adcalstr;
+#endif
 
     /* Restore context if RTOS is used */
     FSP_CONTEXT_RESTORE
@@ -1435,6 +2109,16 @@ void adc_b_calend1_isr (void)
     /* Save context if RTOS is used */
     FSP_CONTEXT_SAVE
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    IRQn_Type               irq             = R_FSP_CurrentIrqGet();
+    adc_b_instance_ctrl_t * p_instance_ctrl = (adc_b_instance_ctrl_t *) R_FSP_IsrContextGet(irq);
+    bool conversion_error = R_ADC_B->ADERSR_b.ADERF1;
+    bool overflow = R_ADC_B->ADOVFERSR_b.ADOVFEF1;
+    R_ADC_B->ADCALENDSCR = R_ADC_B0_ADCALENDSCR_CALENDC1_Msk;
+    R_BSP_IrqStatusClear(irq);
+    FSP_HARDWARE_REGISTER_WAIT(R_ADC_B->ADSR, 0x00);
+    adc_b_calibration_end(p_instance_ctrl, conversion_error, overflow);
+#else
     adc_event_t          event        = ADC_EVENT_CALIBRATION_COMPLETE;
     adc_b_channel_mask_t channel_mask = ADC_B_CHANNEL_MASK_NONE;
 
@@ -1474,6 +2158,7 @@ void adc_b_calend1_isr (void)
      * - See table 36.2.10.1 in the RA6T2 user manual, R01UH0951EJ0130 */
     FSP_HARDWARE_REGISTER_WAIT(R_ADC_B->ADSR, 0x00);
     R_ADC_B->ADCALSTR = adcalstr;
+#endif
 
     /* Restore context if RTOS is used */
     FSP_CONTEXT_RESTORE
@@ -1837,6 +2522,16 @@ void adc_b_fifoovf_isr (void)
 
     adc_group_mask_t group_mask = (adc_group_mask_t) R_ADC_B->ADFIFOERSR_b.FIFOOVFn;
 
+#if BSP_FEATURE_ADC_B_REGISTER_TYPE == 1
+    /* HM 54.5.10.4: reset FIFO pointers only after stopping conversion and disabling triggers.
+     * Acknowledge this event before user code, which may restart conversion or receive a new overflow. */
+    R_ADC_B->ADFIFOERSCR_b.FIFOOVFCn = group_mask;
+    R_BSP_IrqStatusClear(R_FSP_CurrentIrqGet());
+    (void) adc_b_isr_handler(ADC_EVENT_FIFO_OVERFLOW,
+                            group_mask,
+                            ADC_B_CHANNEL_MASK_NONE,
+                            ADC_B_UNIT_MASK_UNDEFINED);
+#else
     IRQn_Type irq = adc_b_isr_handler(ADC_EVENT_FIFO_OVERFLOW,
                                       group_mask,
                                       ADC_B_CHANNEL_MASK_NONE,
@@ -1845,6 +2540,7 @@ void adc_b_fifoovf_isr (void)
     R_ADC_B->ADFIFODCR               = group_mask;
     R_ADC_B->ADFIFOERSCR_b.FIFOOVFCn = group_mask;
     R_BSP_IrqStatusClear(irq);
+#endif
 
     /* Restore context if RTOS is used */
     FSP_CONTEXT_RESTORE

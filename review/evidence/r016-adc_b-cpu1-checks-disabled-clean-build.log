@@ -1,0 +1,17 @@
+ok build …p1/review-drivers/review_r015_adc_b_cpu1 (2.3 s)
+verified: yes — <repo>/validation/ra8p1/review-drivers/review_r015_adc_b_cpu1/Debug/review_r015_adc_b_cpu1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): review_r015_adc_b_cpu1/Debug/review_r015_adc_b_cpu1.elf 357004 B 12:14:35, .srec 25690 B 12:14:35, .map 145673 B 12:14:35, .sbd 5622 B 12:14:36
+preceding review_r015_adc_clock_owner: verified yes 22 min ago (0 errors), .sbd fresh
+review_r015_adc_clock_owner: artifacts (stat from disk): review_r015_adc_clock_owner/Debug/review_r015_adc_clock_owner.elf 284300 B 11:52:25, .srec 17572 B 11:52:25, .map 134998 B 11:52:25, .sbd 5477 B 11:52:25
+clean: ok, 0 errors, 0 warnings (81ms)
+full: ok, 0 errors, 0 warnings (698ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-area>/state/state/4afb3dae/logs/1794914074162-review_r015_adc_b_cpu1-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 433fc5, install edce92, install 54776c, the rest stock; journalled)
+chain (build order): review_r015_adc_clock_owner -> review_r015_adc_b_cpu1
+  review_r015_adc_clock_owner: core CM85, -mcpu=cortex-m85+nopacbti, debug SEGGERJLINKARM -t R7KA8P1KF_CPU0 (review_r015_adc_clock_owner Debug_Flat.launch)
+  review_r015_adc_b_cpu1: core CM33, -mcpu=cortex-m33, debug SEGGERJLINKARM -t R7KA8P1KF_CPU1 (review_r015_adc_b_cpu1 Debug_Attach.launch), preceding review_r015_adc_clock_owner (review_r015_adc_clock_owner/Debug/review_r015_adc_clock_owner.sbd fresh)
+memory: OVERLAP review_r015_adc_clock_owner FLASH 0x2000000-0x207FFFF vs review_r015_adc_b_cpu1 FLASH 0x2008000-0x207FFFF; review_r015_adc_clock_owner RAM 0x22000000-0x220CFFFF vs review_r015_adc_b_cpu1 RAM 0x22002000-0x220CFFFF; review_r015_adc_clock_owner FLASH_CPU1 0x2080000-0x20FFFFF vs review_r015_adc_b_cpu1 FLASH_CPU1 0x2080000-0x20FFFFF; review_r015_adc_clock_owner RAM_CPU1 0x220D0000-0x2219FFFF vs review_r015_adc_b_cpu1 RAM_CPU1 0x220D0000-0x2219FFFF
+launch group: review_r015_adc_b_cpu1 Debug_Multicore Launch Group starts review_r015_adc_b_cpu1 Debug_Multicore, review_r015_adc_b_cpu1 Debug_Attach
+pair: review_r015_adc_clock_owner cortex-m85+nopacbti R7KA8P1KF_CPU0 | review_r015_adc_b_cpu1 cortex-m33 R7KA8P1KF_CPU1; memory OVERLAPS

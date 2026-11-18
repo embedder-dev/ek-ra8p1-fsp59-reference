@@ -1,0 +1,1402 @@
+{
+  "owner": "tools/ra8p1/registers.json",
+  "insert_types_before": {
+    "R_BUS_Type": [
+      {
+        "name": "R_BUS_CSa_Type",
+        "size": "0x10",
+        "members": [
+          {
+            "name": "MOD",
+            "offset": "0x2",
+            "width": 16,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "WRMOD",
+                "pos": 0,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "EWENB",
+                "pos": 3,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "PRENB",
+                "pos": 8,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "PWENB",
+                "pos": 9,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "PRMOD",
+                "pos": 15,
+                "bits": 1,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.8, p.603",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/08-15.3.8-csnmod-csn-mode-register-n-0-to-7.md",
+            "svd_register": "BUS.CS0-7MOD",
+            "svd_reset": "0x0",
+            "manual_reset": {
+              "value": "0x0",
+              "known_mask": "0xffff"
+            }
+          },
+          {
+            "name": "WCR1",
+            "offset": "0x4",
+            "width": 32,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "CSPWWAIT",
+                "pos": 0,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "CSPRWAIT",
+                "pos": 8,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "CSWWAIT",
+                "pos": 16,
+                "bits": 5,
+                "access": "R/W"
+              },
+              {
+                "name": "CSRWAIT",
+                "pos": 24,
+                "bits": 5,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.9, p.604",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/09-15.3.9-csnwcr1-csn-wait-control-register-1-n-0-t.md",
+            "svd_register": "BUS.CS0-7WCR1",
+            "svd_reset": "0x7070707"
+          },
+          {
+            "name": "WCR2",
+            "offset": "0x8",
+            "width": 32,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "CSROFF",
+                "pos": 0,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "CSWOFF",
+                "pos": 4,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "WDOFF",
+                "pos": 8,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "AWAIT",
+                "pos": 12,
+                "bits": 2,
+                "access": "R/W"
+              },
+              {
+                "name": "RDON",
+                "pos": 16,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "WRON",
+                "pos": 20,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "WDON",
+                "pos": 24,
+                "bits": 3,
+                "access": "R/W"
+              },
+              {
+                "name": "CSON",
+                "pos": 28,
+                "bits": 3,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.10, p.606",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/10-15.3.10-csnwcr2-csn-wait-control-register-2-n-0.md",
+            "svd_register": "BUS.CS0-7WCR2",
+            "svd_reset": "0x7"
+          }
+        ],
+        "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.8, p.603",
+        "manual_path": "22-15.-buses/03-15.3-register-descriptions/08-15.3.8-csnmod-csn-mode-register-n-0-to-7.md"
+      },
+      {
+        "name": "R_BUS_CSb_Type",
+        "size": "0x10",
+        "members": [
+          {
+            "name": "CR",
+            "offset": "0x2",
+            "width": 16,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "EXENB",
+                "pos": 0,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "BSIZE",
+                "pos": 4,
+                "bits": 2,
+                "access": "R/W"
+              },
+              {
+                "name": "EMODE",
+                "pos": 8,
+                "bits": 1,
+                "access": "R/W"
+              },
+              {
+                "name": "MPXEN",
+                "pos": 12,
+                "bits": 1,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.5, p.599",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/05-15.3.5-csncr-csn-control-register-n-0-to-7.md",
+            "svd_register": "BUS.CS0CR",
+            "svd_reset": "0x0",
+            "manual_reset_by_cs": {
+              "0": {
+                "value": "0x21",
+                "known_mask": "0xffff"
+              },
+              "1..7": {
+                "value": "0x0",
+                "known_mask": "0xffff"
+              }
+            },
+            "svd_reset_by_cs": {
+              "0": "0x0",
+              "1..7": "0x0"
+            },
+            "reset_note": "HM p.599 reset footnote1 sets CS0 EXENB and BSIZE bit5 to1 (0x0021); supplied SVD CS0CR reset is0. Preserve both sources; no production reset constant is inferred."
+          },
+          {
+            "name": "REC",
+            "offset": "0xa",
+            "width": 16,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "RRCV",
+                "pos": 0,
+                "bits": 4,
+                "access": "R/W"
+              },
+              {
+                "name": "WRCV",
+                "pos": 8,
+                "bits": 4,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.6, p.600",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/06-15.3.6-csnrec-csn-recovery-cycle-register-n-0-to.md",
+            "svd_register": "BUS.CS0-7REC",
+            "svd_reset": "0x0",
+            "manual_reset": {
+              "value": "0x0",
+              "known_mask": "0xffff"
+            }
+          }
+        ],
+        "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.5, p.599",
+        "manual_path": "22-15.-buses/03-15.3-register-descriptions/05-15.3.5-csncr-csn-control-register-n-0-to-7.md"
+      },
+      {
+        "name": "R_BUS_BUSERRb_Type",
+        "size": "0x10",
+        "members": [
+          {
+            "name": "ERRSTAT",
+            "offset": "0x0",
+            "width": 8,
+            "access": "R",
+            "fields": [
+              {
+                "name": "SLERRSTAT",
+                "pos": 0,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MMERRSTAT",
+                "pos": 3,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "ILERRSTAT",
+                "pos": 4,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MSERRSTAT",
+                "pos": 5,
+                "bits": 1,
+                "access": "R"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.26, p.621",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/26-15.3.26-buserrstat-master-name-bus-error-status.md",
+            "svd_register": "BUS.BUSERRSTATCPU0",
+            "svd_reset": "0x0",
+            "manual_reset": {
+              "value": "0x0",
+              "known_mask": "0xff"
+            }
+          },
+          {
+            "name": "ERRCLR",
+            "offset": "0x4",
+            "width": 8,
+            "access": "W",
+            "fields": [
+              {
+                "name": "SLERRCLR",
+                "pos": 0,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MMERRCLR",
+                "pos": 3,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "ILERRCLR",
+                "pos": 4,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MSERRCLR",
+                "pos": 5,
+                "bits": 1,
+                "access": "W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.27, p.623",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/27-15.3.27-buserrclr-master-name-bus-error-clear-re.md",
+            "svd_register": "BUS.BUSERRCLRCPU0",
+            "svd_reset": "0x0",
+            "manual_reset": {
+              "value": "0x0",
+              "known_mask": "0xff"
+            }
+          },
+          {
+            "name": "IRQEN",
+            "offset": "0x8",
+            "width": 8,
+            "access": "R/W",
+            "fields": [
+              {
+                "name": "EN",
+                "pos": 0,
+                "bits": 1,
+                "access": "R/W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.32, p.627",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/32-15.3.32-busirqen-master-name-bus-error-interrupt.md",
+            "svd_register": "BUS.BUSIRQENCPU0",
+            "svd_reset": "0x0",
+            "manual_reset": {
+              "value": "0x0",
+              "known_mask": "0xff"
+            }
+          }
+        ],
+        "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.26, p.621",
+        "manual_path": "22-15.-buses/03-15.3-register-descriptions/26-15.3.26-buserrstat-master-name-bus-error-status.md"
+      },
+      {
+        "name": "R_BUS_MBWERR_Type",
+        "size": "0xc",
+        "members": [
+          {
+            "name": "ERRSTAT",
+            "offset": "0x0",
+            "width": 32,
+            "access": "R",
+            "fields": [
+              {
+                "name": "MBWERR0",
+                "pos": 0,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR1",
+                "pos": 1,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR8",
+                "pos": 8,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR9",
+                "pos": 9,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR16",
+                "pos": 16,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR17",
+                "pos": 17,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR18",
+                "pos": 18,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR19",
+                "pos": 19,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR20",
+                "pos": 20,
+                "bits": 1,
+                "access": "R"
+              },
+              {
+                "name": "MBWERR21",
+                "pos": 21,
+                "bits": 1,
+                "access": "R"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.30, p.625",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/30-15.3.30-mbwerrstat-master-bufferable-write-error.md",
+            "svd_register": "BUS.MBWERRSTAT",
+            "svd_reset": "0x0"
+          },
+          {
+            "name": "ERRCLR",
+            "offset": "0x8",
+            "width": 32,
+            "access": "W",
+            "fields": [
+              {
+                "name": "MBWECLR0",
+                "pos": 0,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR1",
+                "pos": 1,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR8",
+                "pos": 8,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR9",
+                "pos": 9,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR16",
+                "pos": 16,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR17",
+                "pos": 17,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR18",
+                "pos": 18,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR19",
+                "pos": 19,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR20",
+                "pos": 20,
+                "bits": 1,
+                "access": "W"
+              },
+              {
+                "name": "MBWECLR21",
+                "pos": 21,
+                "bits": 1,
+                "access": "W"
+              }
+            ],
+            "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.31, p.626",
+            "manual_path": "22-15.-buses/03-15.3-register-descriptions/31-15.3.31-mbwerrclr-master-bufferable-write-error.md",
+            "svd_register": "BUS.MBWERRCLR",
+            "svd_reset": "0x0"
+          }
+        ],
+        "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.30, p.625",
+        "manual_path": "22-15.-buses/03-15.3-register-descriptions/30-15.3.30-mbwerrstat-master-bufferable-write-error.md"
+      }
+    ]
+  },
+  "extend_types": [
+    {
+      "name": "R_BUS_Type",
+      "size": "0x1b0c",
+      "members": [
+        {
+          "name": "CSa",
+          "offset": "0x0",
+          "type": "R_BUS_CSa_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.8, p.603",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/08-15.3.8-csnmod-csn-mode-register-n-0-to-7.md",
+          "count": 8
+        },
+        {
+          "name": "CSb",
+          "offset": "0x800",
+          "type": "R_BUS_CSb_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.5, p.599",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/05-15.3.5-csncr-csn-control-register-n-0-to-7.md",
+          "count": 8
+        },
+        {
+          "name": "CSRECEN",
+          "offset": "0x880",
+          "width": 16,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "RCVEN0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN2",
+              "pos": 2,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN3",
+              "pos": 3,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN4",
+              "pos": 4,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN5",
+              "pos": 5,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN6",
+              "pos": 6,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVEN7",
+              "pos": 7,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM2",
+              "pos": 10,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM3",
+              "pos": 11,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM4",
+              "pos": 12,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM5",
+              "pos": 13,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM6",
+              "pos": 14,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "RCVENM7",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.7, p.601",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/07-15.3.7-csrecen-cs-recovery-cycle-insertion-enabl.md",
+          "svd_register": "BUS.CSRECEN",
+          "svd_reset": "0x3e3e",
+          "manual_reset": {
+            "value": "0x3e3e",
+            "known_mask": "0xffff"
+          }
+        },
+        {
+          "name": "BUSMABTGRAPHBI",
+          "offset": "0x1100",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.23, p.618",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/23-15.3.23-busmabtgraphbi-bus-master-arbitration-co.md",
+          "svd_register": "BUS.BUSMABTGRAPHBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT1MRC0BI",
+          "offset": "0x1200",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.25, p.620",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/25-15.3.25-bussabt1mrc0bi-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT1MRC0BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0MRE0BI",
+          "offset": "0x1208",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0MRE0BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0S0BI",
+          "offset": "0x1220",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0S0BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0S1BI",
+          "offset": "0x1228",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0S1BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0S2BI",
+          "offset": "0x1230",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0S2BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0S3BI",
+          "offset": "0x1238",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0S3BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0ECBI",
+          "offset": "0x1250",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0ECBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0OSPI0BI",
+          "offset": "0x1258",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0OSPI0BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0OSPI1BI",
+          "offset": "0x1260",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0OSPI1BI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0CPU0SAHBI",
+          "offset": "0x1268",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0CPU0SAHBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0CPU1TCMBI",
+          "offset": "0x1270",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0CPU1TCMBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0PBBI",
+          "offset": "0x1278",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0PBBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0PABI",
+          "offset": "0x1280",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0PABI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0PIBI",
+          "offset": "0x1288",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0PIBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSSABT0PSBI",
+          "offset": "0x1290",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "ARBS",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.24, p.619",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/24-15.3.24-bussabt0-slave-bus-slave-arbitration-con.md",
+          "svd_register": "BUS.BUSSABT0PSBI",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "BUSERRb",
+          "offset": "0x1a00",
+          "type": "R_BUS_BUSERRb_Type",
+          "element_size": 16,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.26, p.621",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/26-15.3.26-buserrstat-master-name-bus-error-status.md",
+          "count": 11
+        },
+        {
+          "name": "MBWERR",
+          "offset": "0x1b00",
+          "type": "R_BUS_MBWERR_Type",
+          "element_size": 12,
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §15.3.30, p.625",
+          "manual_path": "22-15.-buses/03-15.3-register-descriptions/30-15.3.30-mbwerrstat-master-bufferable-write-error.md"
+        }
+      ]
+    },
+    {
+      "name": "R_CPSCU_Type",
+      "size": "0x618",
+      "members": [
+        {
+          "name": "DEBUGSAR",
+          "offset": "0x180",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DBGSA0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.9.5.1, p.140",
+          "manual_path": "09-2.-cpu/09-2.9-register-descriptions/05-2.9.5-dbgreg.md",
+          "svd_register": "CPSCU.DEBUGSAR",
+          "svd_reset": "0x0",
+          "note": "HM §2.9.5.1 documents CPSCU_NS alias; compact SVD omits that alias, not the physical register."
+        },
+        {
+          "name": "IPCSAR",
+          "offset": "0x610",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "SAIPCSEM0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCSEM1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCNMI0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCNMI1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCIR0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCIR1",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCIR2",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "SAIPCIR3",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.1, p.205",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/01-3.2.1-ipcsar-ipc-security-attribution-register.md",
+          "svd_register": "CPSCU.IPCSAR",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "IPCPAR",
+          "offset": "0x614",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "PAIPCSEM0",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCSEM1",
+              "pos": 1,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCNMI0",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCNMI1",
+              "pos": 9,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCIR0",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCIR1",
+              "pos": 17,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCIR2",
+              "pos": 18,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "PAIPCIR3",
+              "pos": 19,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §3.2.2, p.208",
+          "manual_path": "10-3.-inter-processor-communication-ipc/02-3.2-register-descriptions/02-3.2.2-ipcpar-ipc-privileged-attribution-register.md",
+          "svd_register": "CPSCU.IPCPAR",
+          "svd_reset": "0xf0303",
+          "manual_reset": {
+            "value": "0xf0303",
+            "known_mask": "0xf0303"
+          },
+          "reset_note": "HM p.208 reserved bits are x (read undefined, write1); supplied SVD records0 for them. Do not convert reserved reset bits to known zeros."
+        }
+      ]
+    },
+    {
+      "name": "R_CACHE_Type",
+      "size": "0x208",
+      "members": [
+        {
+          "name": "CCATAA",
+          "offset": "0x14",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OFFSET",
+              "pos": 2,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ENTRY",
+              "pos": 5,
+              "bits": 7,
+              "access": "R/W"
+            },
+            {
+              "name": "TARGET",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "RW",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WAY",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.6, p.168",
+          "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/06-2.16.3.6-ccataa-c-cache-test-access-address.md",
+          "svd_register": "CACHE.CCATAA",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "CCATAD_DATA",
+          "offset": "0x18",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.7, p.169",
+          "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/07-2.16.3.7-ccatad-data-c-cache-test-access-data-da.md",
+          "svd_register": "CACHE.CCATAD_DATA",
+          "svd_reset": "0x0",
+          "aliases": [
+            "CCATAD"
+          ],
+          "views": [
+            {
+              "name": "CCATAD_ECC",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ECC",
+                  "pos": 0,
+                  "bits": 7,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.8, p.170",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/08-2.16.3.8-ccatad-ecc-c-cache-test-access-data-ecc.md",
+              "svd_register": "CACHE.CCATAD_ECC",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "CCATAD_TAG",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "D",
+                  "pos": 0,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "V",
+                  "pos": 1,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "TAG",
+                  "pos": 12,
+                  "bits": 20,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.9, p.171",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/09-2.16.3.9-ccatad-tag-c-cache-test-access-data-tag.md",
+              "svd_register": "CACHE.CCATAD_TAG",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "CCATAD_LRU",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "LRU",
+                  "pos": 0,
+                  "bits": 5,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.10, p.171",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/10-2.16.3.10-ccatad-lru-c-cache-test-access-data-lr.md",
+              "svd_register": "CACHE.CCATAD_LRU",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "CCATAD_TAGECC",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "TAGECC",
+                  "pos": 0,
+                  "bits": 7,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.11, p.172",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/11-2.16.3.11-ccatad-tagecc-c-cache-test-access-data.md",
+              "svd_register": "CACHE.CCATAD_TAGECC",
+              "svd_reset": "0x0"
+            }
+          ]
+        },
+        {
+          "name": "SCATAA",
+          "offset": "0x54",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OFFSET",
+              "pos": 2,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "ENTRY",
+              "pos": 5,
+              "bits": 7,
+              "access": "R/W"
+            },
+            {
+              "name": "TARGET",
+              "pos": 16,
+              "bits": 3,
+              "access": "R/W"
+            },
+            {
+              "name": "RW",
+              "pos": 23,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "WAY",
+              "pos": 30,
+              "bits": 2,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.16, p.177",
+          "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/16-2.16.3.16-scataa-s-cache-test-access-address.md",
+          "svd_register": "CACHE.SCATAA",
+          "svd_reset": "0x0"
+        },
+        {
+          "name": "SCATAD_DATA",
+          "offset": "0x58",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DATA",
+              "pos": 0,
+              "bits": 32,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.17, p.178",
+          "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/17-2.16.3.17-scatad-data-s-cache-test-access-data-d.md",
+          "svd_register": "CACHE.SCATAD_DATA",
+          "svd_reset": "0x0",
+          "aliases": [
+            "SCATAD"
+          ],
+          "views": [
+            {
+              "name": "SCATAD_ECC",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "ECC",
+                  "pos": 0,
+                  "bits": 7,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.18, p.179",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/18-2.16.3.18-scatad-ecc-s-cache-test-access-data-ec.md",
+              "svd_register": "CACHE.SCATAD_ECC",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "SCATAD_TAG",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "D",
+                  "pos": 0,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "V",
+                  "pos": 1,
+                  "bits": 1,
+                  "access": "R/W"
+                },
+                {
+                  "name": "TAG",
+                  "pos": 12,
+                  "bits": 20,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.19, p.180",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/19-2.16.3.19-scatad-tag-s-cache-test-access-data-ta.md",
+              "svd_register": "CACHE.SCATAD_TAG",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "SCATAD_LRU",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "LRU",
+                  "pos": 0,
+                  "bits": 5,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.20, p.180",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/20-2.16.3.20-scatad-lru-s-cache-test-access-data-lr.md",
+              "svd_register": "CACHE.SCATAD_LRU",
+              "svd_reset": "0x0"
+            },
+            {
+              "name": "SCATAD_TAGECC",
+              "offset": 0,
+              "width": 32,
+              "access": "R/W",
+              "fields": [
+                {
+                  "name": "TAGECC",
+                  "pos": 0,
+                  "bits": 7,
+                  "access": "R/W"
+                }
+              ],
+              "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 §2.16.3.21, p.181",
+              "manual_path": "09-2.-cpu/16-2.16-cm33-cache-c-cache-and-s-cache/03-2.16.3-register-descriptions/21-2.16.3.21-scatad-tagecc-s-cache-test-access-data.md",
+              "note": "Manual-only view: HM §2.16.3.21 p.181; no corresponding SVD record."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+ok generate validation/ra8p1/review-r015 (801 ms)
+generated project content for review_r015_cpu0 (<repo>/validation/ra8p1/review-r015)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ra8p1/review-r015

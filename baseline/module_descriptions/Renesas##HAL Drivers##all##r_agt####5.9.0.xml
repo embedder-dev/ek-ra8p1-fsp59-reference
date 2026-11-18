@@ -84,6 +84,36 @@
             (("${module.driver.timer.bit_width}" === "module.driver.timer.bit_width.32") &amp;&amp; ("${interface.mcu.agtw.external.${module.driver.timer.channel}}" === "1")) ||
             ("${module.driver.timer.bit_width}" != "module.driver.timer.bit_width.32") || ("${interface.mcu.agt.external}" != "${interface.mcu.agtw.external}")
         </constraint>
+        <constraint display="Register type 1 software one-shot requires the underflow interrupt">
+            !testExists("${interface.mcu.agt.register_type.1}") ||
+            "${module.driver.timer.mode}" != "module.driver.timer.mode.mode_one_shot" ||
+            "${module.driver.timer.ipl}" != "_disabled"
+        </constraint>
+        <constraint display="Register type 1 underflow source requires AGT1 and at most 65536 raw counts">
+            !testExists("${interface.mcu.agt.register_type.1}") ||
+            "${module.driver.timer.count_source}" != "module.driver.timer.count_source.clock_agt_underflow" ||
+            ((Number("${module.driver.timer.channel}") === 1) &amp;&amp;
+             (Number("${module.driver.timer.period}") &lt;= 65536))
+        </constraint>
+        <constraint display="Register type 1 measurement modes prohibit compare outputs">
+            !testExists("${interface.mcu.agt.register_type.1}") ||
+            "${module.driver.timer.measurement_mode}" === "module.driver.timer.measurement_mode.measure_disabled" ||
+            (("${module.driver.timer.agtoa_output_enable}" === "module.driver.timer.agtoa_output_enable.false") &amp;&amp;
+             ("${module.driver.timer.agtob_output_enable}" === "module.driver.timer.agtob_output_enable.false"))
+        </constraint>
+        <constraint display="Register type 1 PWM requires a nonzero, nonconstant duty cycle">
+            !testExists("${interface.mcu.agt.register_type.1}") ||
+            "${module.driver.timer.mode}" != "module.driver.timer.mode.mode_pwm" ||
+            ((Number("${module.driver.timer.duty_cycle}") &gt; 0) &amp;&amp;
+             (Number("${module.driver.timer.duty_cycle}") &lt; 100))
+        </constraint>
+        <constraint display="Register type 1 asynchronous source requires PCLKB at least twice the divided count clock">
+            !testExists("${interface.mcu.agt.register_type.1}") ||
+            (("${module.driver.timer.count_source}" != "module.driver.timer.count_source.clock_loco") &amp;&amp;
+             ("${module.driver.timer.count_source}" != "module.driver.timer.count_source.clock_fsub")) ||
+            (Number("${board.clock.peripheral.agt}") * 128 &gt;=
+             (("${module.driver.timer.count_source}" === "module.driver.timer.count_source.clock_loco") ? 72090 : 65536))
+        </constraint>
         <requires id="module.driver.timer.requires.agt" interface="interface.mcu.agt" visible="false" display="Requires AGT peripheral" />
         <provides interface="interface.driver.timer" />
         <provides interface="interface.driver.timer.${module.driver.timer.name}" />
@@ -180,6 +210,10 @@
 '    {' +
 '        max_divider = 3;' +
 '    }' +
+'    if (testExists("${interface.mcu.agt.register_type.1}") && ("AGT_CLOCK_AGT_UNDERFLOW" == count_source_string))' +
+'    {' +
+'        max_divider = 0;' +
+'    }' +
 '    while (period_counts > timer_counter_max)' +
 '    {' +
 '        period_counts /= 2;' +
@@ -204,6 +238,16 @@
 '        }' +
 '    }' +
 '' +
+'    /* TN-A0158: retain the original period at an event-safe asynchronous divider. */' +
+'    if (testExists("${interface.mcu.agt.register_type.1}") && (("AGT_CLOCK_LOCO" == count_source_string) || ("AGT_CLOCK_SUBCLOCK" == count_source_string)))' +
+'    {' +
+'        var maximum_source = ("AGT_CLOCK_LOCO" == count_source_string) ? 36045 : 32768;' +
+'        while ((divider < 7) && (${board.clock.peripheral.agt} * Math.pow(2, divider) < 2 * maximum_source))' +
+'        {' +
+'            period_counts /= 2;' +
+'            divider += 1;' +
+'        }' +
+'    }' +
 '    /* Round period down. */' +
 '    period_counts = Math.floor(period_counts);' +
 '' +
@@ -211,7 +255,10 @@
 '    if (period_counts === 0)' +
 '    {' +
 '        period_counts = 1;' +
+'        if (!testExists("${interface.mcu.agt.register_type.1}") || (("AGT_CLOCK_LOCO" != count_source_string) && ("AGT_CLOCK_SUBCLOCK" != count_source_string)))' +
+'        {' +
 '        divider = 0;' +
+'        }' +
 '    }' +
 '' +
 '    /* Calculate the duty cycle. */' +
@@ -336,6 +383,8 @@
         <symbol id="symbol.driver.timer.guard.macro.open" value="FSP_GUARD_${module.driver.timer.name}_R_AGT_Open"/>
         <symbol id="symbol.driver.timer.guard.callback_set" value="${module.driver.timer.name}_callback_set_guard"/>
         <symbol id="symbol.driver.timer.guard.macro.callback_set" value="FSP_GUARD_${module.driver.timer.name}_R_AGT_CallbackSet"/>
+        <symbol id="symbol.driver.timer.guard.compare_match_set" value="${module.driver.timer.name}_compare_match_set_guard"/>
+        <symbol id="symbol.driver.timer.guard.macro.compare_match_set" value="FSP_GUARD_${module.driver.timer.name}_R_AGT_CompareMatchSet"/>
         <symbol id="symbol.driver.timer.nsc_api" value="${module.driver.timer.name}_nsc_api"/>
         <symbol id="symbol.driver.timer.cfg" value="${module.driver.timer.name}_cfg"/>
         <symbol id="symbol.driver.timer.ctrl" value="${module.driver.timer.name}_ctrl"/>
@@ -399,6 +448,10 @@ const timer_instance_t ${module.driver.timer.name} =
         <guard>
             <header>
 
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_compare_match_set_guard(timer_ctrl_t *const p_ctrl, uint32_t const compare_match_value, timer_compare_match_t const match_channel);
+#endif
+
 BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_close_guard(timer_ctrl_t *const p_ctrl);
 
 BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_period_set_guard(timer_ctrl_t *const p_ctrl, uint32_t const period_counts);
@@ -428,6 +481,14 @@ BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_callback_set_guar
                 <![CDATA[
                     #include "guard.h"
 
+
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_compare_match_set_guard (timer_ctrl_t *const p_ctrl, uint32_t const compare_match_value, timer_compare_match_t const match_channel)
+{
+    FSP_PARAMETER_NOT_USED(p_ctrl);
+    return R_AGT_CompareMatchSet(&${module.driver.timer.name}_ctrl, compare_match_value, match_channel);
+}
+#endif
 
 BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_close_guard (timer_ctrl_t *const p_ctrl)
 {
@@ -559,6 +620,10 @@ BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_callback_set_guar
         <nsc>
             <header>
 
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+#define FSP_GUARD_${module.driver.timer.name}_R_AGT_CompareMatchSet(compare_match_value, match_channel) ${module.driver.timer.name}_compare_match_set_guard(FSP_SECURE_ARGUMENT, compare_match_value, match_channel)
+#endif
+
 #define FSP_GUARD_${module.driver.timer.name}_R_AGT_Close() ${module.driver.timer.name}_close_guard(FSP_SECURE_ARGUMENT)
 
 #define FSP_GUARD_${module.driver.timer.name}_R_AGT_PeriodSet(period_counts) ${module.driver.timer.name}_period_set_guard(FSP_SECURE_ARGUMENT, period_counts)
@@ -584,6 +649,10 @@ BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_callback_set_guar
 #define FSP_GUARD_${module.driver.timer.name}_R_AGT_CallbackSet(p_callback, p_context, p_callback_memory) ${module.driver.timer.name}_callback_set_guard(FSP_SECURE_ARGUMENT, p_callback, p_context, p_callback_memory)
 
 
+
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_compare_match_set_guard(timer_ctrl_t *const p_ctrl, uint32_t const compare_match_value, timer_compare_match_t const match_channel);
+#endif
 
 BSP_CMSE_NONSECURE_ENTRY fsp_err_t ${module.driver.timer.name}_close_guard(timer_ctrl_t *const p_ctrl);
 
@@ -616,6 +685,9 @@ extern const timer_instance_t ${module.driver.timer.name};
                 <![CDATA[
 static const timer_api_t ${module.driver.timer.name}_nsc_api =
 {
+#if BSP_FEATURE_AGT_REGISTER_TYPE == 1
+    .compareMatchSet = ${module.driver.timer.name}_compare_match_set_guard,
+#endif
     .close = ${module.driver.timer.name}_close_guard,
     .periodSet = ${module.driver.timer.name}_period_set_guard,
     .dutyCycleSet = ${module.driver.timer.name}_duty_cycle_set_guard,

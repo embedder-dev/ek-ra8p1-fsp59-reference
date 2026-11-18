@@ -1,0 +1,97 @@
+{
+  "types": [
+    {
+      "name": "R_DAC_B0_Type",
+      "size": "0x10",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.1, p.3501\u20133503",
+      "members": [
+        {
+          "name": "DADR",
+          "offset": "0x0000",
+          "width": 16,
+          "access": "R/W",
+          "fields": [],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.1, p.3501",
+          "manual_path": "62-55.-12-bit-d-a-converter-dac12/02-55.2-register-descriptions.md",
+          "note": "The DADR prose explicitly defines 16-bit read/write access; data formatting is controlled by DACR1.DPSEL."
+        },
+        {
+          "name": "DACR0",
+          "offset": "0x0004",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DACEN",
+              "pos": 0,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DAE",
+              "pos": 15,
+              "bits": 1,
+              "access": "R/W"
+            },
+            {
+              "name": "DAOUTDIS",
+              "pos": 31,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.2, p.3501",
+          "manual_path": "62-55.-12-bit-d-a-converter-dac12/02-55.2-register-descriptions.md"
+        },
+        {
+          "name": "DACR1",
+          "offset": "0x0008",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "DPSEL",
+              "pos": 16,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.3, p.3503",
+          "manual_path": "62-55.-12-bit-d-a-converter-dac12/02-55.2-register-descriptions.md"
+        },
+        {
+          "name": "DACR2",
+          "offset": "0x000C",
+          "width": 32,
+          "access": "R/W",
+          "fields": [
+            {
+              "name": "OFSSEL",
+              "pos": 8,
+              "bits": 1,
+              "access": "R/W"
+            }
+          ],
+          "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.4, p.3503",
+          "manual_path": "62-55.-12-bit-d-a-converter-dac12/02-55.2-register-descriptions.md"
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "name": "R_DAC_B0",
+      "type": "R_DAC_B0_Type",
+      "secure": "0x40233000",
+      "nonsecure": "0x50233000",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.1, p.3501"
+    },
+    {
+      "name": "R_DAC_B1",
+      "type": "R_DAC_B0_Type",
+      "secure": "0x40233100",
+      "nonsecure": "0x50233100",
+      "source": "RA8P1 HM R01UH1064EJ0130 Rev.1.30 \u00a755.2.1, p.3501"
+    }
+  ]
+}

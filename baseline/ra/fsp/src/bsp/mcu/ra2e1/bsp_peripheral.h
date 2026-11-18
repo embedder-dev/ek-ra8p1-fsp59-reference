@@ -128,6 +128,7 @@
 #define BSP_PERIPHERAL_MMF_PRESENT               (0)
 #define BSP_PERIPHERAL_MPU_PRESENT               (1)
 #define BSP_PERIPHERAL_MPU_CHANNEL_MASK          (0x1U)
+#define BSP_PERIPHERAL_MRAM_PRESENT                                           (0)
 #define BSP_PERIPHERAL_MRMS_PRESENT              (0)
 #define BSP_PERIPHERAL_MRRGE_PRESENT             (0)
 #define BSP_PERIPHERAL_MSTP_PRESENT              (1)
@@ -207,5 +208,9 @@
 #define BSP_PERIPHERAL_WDT_CHANNEL_MASK          (0x1U)
 
 // *UNCRUSTIFY-ON*
+
+#define BSP_PERIPHERAL_PDM_PRESENT                                            (0)
+
+#define BSP_PERIPHERAL_PDM_CHANNEL_MASK                                       (0x00)
 
 #endif

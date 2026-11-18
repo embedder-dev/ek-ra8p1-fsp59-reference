@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "features": {
+    "BSP_FEATURE_GPT_ODC_REGISTER_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 24.2-24.4 pp.1164-1173: PDG GTDLYCR, four channels and 128-step delay registers, independent of GPTEH"
+    },
+    "BSP_FEATURE_OSPI_B_HAS_UNIT_ADDRESS_MAP": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 5.2 Figure 5.4 p.241 (image verified): OSPI0 256MiB/CS; OSPI1 128MiB/CS above SDRAM"
+    },
+    "BSP_FEATURE_OSPI_B_DEVICE_START_ADDRESS(unit,channel)": {
+      "legacy": "0UL", "target": "((unit) == 0U ? ((channel) == 0U ? 0x80000000UL : 0x90000000UL) : ((channel) == 0U ? 0x70000000UL : 0x78000000UL))",
+      "source": "RA8P1 HM 5.2 Figure 5.4 p.241: OSPI1 CS0 begins at 0x70000000, NOT SDRAM base 0x68000000"
+    },
+    "BSP_FEATURE_OSPI_B_DEVICE_SIZE(unit)": {
+      "legacy": "0UL", "target": "((unit) == 0U ? 0x10000000UL : 0x08000000UL)",
+      "source": "RA8P1 HM 5.2 Figure 5.4 p.241: OSPI0 has 256MiB windows; OSPI1 has 128MiB windows"
+    },
+    "BSP_FEATURE_AGT_REGISTER_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 25.2.1 p.1175: AGT16-only register view; original FSP 5.9 aggregate headers retain AGT32 views even on devices with zero AGTW channels"
+    },
+    "BSP_FEATURE_CGC_HAS_MRAM_CLOCKS": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 9.2.2-3 pp.327,330: MRPCK in SCKDIVCR and MRICK with CPUCK0/CPUCK1/NPUCK in 16-bit SCKDIVCR2"
+    },
+    "BSP_FEATURE_BSP_HAS_BCLKA_CLOCK": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 9.2.12 and 9.2.60-66 pp.338-339,377-383: asynchronous external bus clock selection and handshake"
+    },
+    "BSP_FEATURE_BSP_HAS_ESW_CLOCK": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 9.2.61-66 pp.378-383: EtherSW and EtherSW-PHY clock source/divider handshakes"
+    },
+    "BSP_FEATURE_BSP_POWER_DOMAIN_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 11.2.2 p.439, 11.2.14 pp.453-454 and 11.5.1 p.483: PGCSAR.NONSEC1 attribution and PDCTRGD graphics-domain sequencing"
+    },
+    "BSP_FEATURE_SCI_SPI_HAS_SCKSEL": {
+      "legacy": "(BSP_FEATURE_SCI_VERSION == 2UL)", "target": "0UL",
+      "source": "RA8P1 HM 39.2.9 pp.2220-2222: CCR4 bits 23:18 reserved; original FSP 5.9 SCI version 2 headers implement SCKSEL, including RA6T2 whose programmed value is zero"
+    },
+    "BSP_FEATURE_SDRAM_SDTR_HAS_RAI": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 15.3.20: SDTR row-active interval field is named RAI rather than sibling RAS"
+    },
+    "BSP_FEATURE_ADC_B_REGISTER_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 54.2.1.3-4 and 54.2.7: ADC16H clock, synchronization, offset and Q2.14 gain layout"
+    },
+    "BSP_FEATURE_GLCDC_HAS_GLOBAL_GAMMA_SWITCH": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 64.2.29 p.3791: single GAM_SW at offset0x1304 enables the gamma correction block"
+    },
+    "BSP_FEATURE_I3C_HAS_ADDRESS_PHASE_STALL": {
+      "legacy": "BSP_FEATURE_I3C_IS_AVAILABLE", "target": "0UL",
+      "source": "RA8P1 HM 41.2.26 p.2486: setting AAPE is explicitly prohibited; legacy I3C implementations retain the original address-phase stall path"
+    },
+    "BSP_FEATURE_I3C_HAS_HOT_JOIN": {
+      "legacy": "BSP_FEATURE_I3C_IS_AVAILABLE", "target": "0UL",
+      "source": "RA8P1 HM 41.2.2, 41.2.11, 41.2.70 pp.2459-2460,2469,2537-2538: HJACKCTL, NRHJCTL and HJEVE are reserved; existing FSP 5.9 I3C instances retain hot-join support"
+    },
+    "BSP_FEATURE_I3C_HAS_TRANSITION_STALL": {
+      "legacy": "BSP_FEATURE_I3C_IS_AVAILABLE", "target": "0UL",
+      "source": "RA8P1 HM 41.2.26 pp.2485-2486: transition-phase stalling field TRAPE is reserved; existing FSP 5.9 I3C instances retain the original path"
+    },
+    "BSP_FEATURE_LPM_LPSCR_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 11.2.21 pp.459-460 and 11.2.40 pp.476-477: standby LPMD=5, SYOCDCR has no DOCDF"
+    },
+    "BSP_FEATURE_MIPI_DSI_STATUS_CLEAR_TYPE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 66.2.15/55/59 pp.3865-3867,3912-3913,3917-3919: RXSCR.RXTE, SQCH0SCR.DABORT/SIZEERR and SQCH1SCR.DABORT are reserved"
+    },
+    "BSP_FEATURE_MRAM_IS_AVAILABLE": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 60.1: MRAM controller and flash API implementation"
+    },
+    "BSP_FEATURE_DAC_B_CHANNEL_MASK": {
+      "legacy": "0UL", "target": "0x03UL",
+      "source": "RA8P1 HM 55.1 and 11.2.9: independent DAC120 and DAC121 units"
+    },
+    "BSP_FEATURE_ICU_HAS_COMMON_REGS": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 14.2: ICU_COMMON shared interrupt routing separate from CPU-local ICU"
+    },
+    "BSP_FEATURE_BSP_MSTP_ADC_MSTPD21": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 11.2.9: ADC16H module stop on MSTPCRD bit 21"
+    },
+    "BSP_FEATURE_BSP_MSTP_PER_CORE_DMAC_DTC": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 11.2.6: separate DMAC and DTC module stop for CPU0 and CPU1"
+    },
+    "BSP_FEATURE_BSP_VBATT_HAS_VBTBPCR1": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 12.2.11-12: backup supply switching/detector use VBTBPCR1 and VBTBPCR2"
+    },
+    "BSP_FEATURE_BSP_HAS_PRCR_S": {
+      "legacy": "0UL", "target": "1UL",
+      "source": "RA8P1 HM 13.2.1: secure/nonsecure PRCR, PRC4 protection and readback"
+    },
+    "BSP_FEATURE_PDM_CHANNELS": {
+      "legacy": "0UL", "target": "0x07UL",
+      "source": "RA8P1 HM 50.1: three PDM processing channels"
+    },
+    "BSP_FEATURE_BSP_HAS_SECONDARY_CORE": {
+      "legacy": "0UL",
+      "target": "1UL",
+      "source": "RA8P1 HM 2.6.1, p.118: primary CPU activates the secondary CPU"
+    },
+    "BSP_FEATURE_WDT_PER_CORE": {
+      "legacy": "0UL",
+      "target": "1UL",
+      "source": "RA8P1 HM 28.1-28.2, pp.1266-1268: WDT0 for CPU0, WDT1 for CPU1; 0x100 unit stride"
+    },
+    "BSP_FEATURE_BSP_HAS_CTCM": {
+      "legacy": "0UL",
+      "target": "(BSP_CFG_CPU_CORE == 1)",
+      "source": "RA8P1 HM 2.17, pp.191-192: CPU1 C-TCM and S-TCM, 64 KiB each"
+    }
+  },
+  "peripherals": {
+    "BSP_PERIPHERAL_PDM_PRESENT": {
+      "legacy": "0", "target": "1",
+      "source": "RA8P1 HM 50.1: three-channel PDM interface"
+    },
+    "BSP_PERIPHERAL_PDM_CHANNEL_MASK": {
+      "legacy": "0x00", "target": "0x07",
+      "source": "RA8P1 HM 50.1: PDM channels 0 through 2"
+    },
+    "BSP_PERIPHERAL_MRAM_PRESENT": {
+      "legacy": "0",
+      "target": "1",
+      "source": "RA8P1 HM 60.1, pp.3552-3554: MRAM replaces code flash"
+    }
+  }
+}

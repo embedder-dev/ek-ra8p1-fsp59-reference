@@ -65,6 +65,10 @@
 
  #include "tx_cmsis.h"
 
+ #if RM_THREADX_PORT_CFG_HW_STACK_MONITOR_ENABLE && !BSP_FEATURE_BSP_HAS_SP_MON
+  #error "Renesas SPMON is unavailable; use the CPU stack limit support on this device"
+ #endif
+
 /* Determine non-secure callable functions can be accessed in threads.  */
 
  #if defined(__ARM_FEATURE_CMSE) && !defined(TX_SINGLE_MODE_SECURE) && !defined(TX_SINGLE_MODE_NON_SECURE)
