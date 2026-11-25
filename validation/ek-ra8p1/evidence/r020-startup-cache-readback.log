@@ -1,0 +1,137 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: passed (the script's result line reported success)
+
+Summary: Traced BSP startup checkpoints
+
+Data:
+{
+  "connection": {
+    "ok": true,
+    "server_type": "jlink",
+    "server_state": "running",
+    "client_state": "connected",
+    "server_ownership": "implicit"
+  },
+  "reset": {
+    "connected": true,
+    "core": 0,
+    "scope": "connection",
+    "halted": true,
+    "running": false,
+    "threads": [
+      {
+        "id": "1",
+        "target-id": "Thread 57005",
+        "frame": {
+          "level": "0",
+          "addr": "0x02003f68",
+          "func": "Reset_Handler",
+          "args": [],
+          "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "line": "50",
+          "arch": "armv8.1-m.main"
+        },
+        "state": "stopped"
+      }
+    ],
+    "reset": "default",
+    "output": "Resetting target\r\n",
+    "ok": true,
+    "backend": "jlink"
+  },
+  "checkpoints": [
+    {
+      "wanted": "0x2003b06",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2987,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2987)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02003b06",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "1"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x2",
+        "mosccr": "0x0",
+        "oscsf": "0x8"
+      },
+      "registers": {
+        "r0": "0x80000000",
+        "r1": "0x10000000",
+        "r2": "0x4001e000",
+        "r6": "0x1",
+        "lr": "0x2003c3b"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n",
+      "core_ccr": "0xe000ed14:\t0x000e0201\n",
+      "core_mscr": "0xe001e000:\t0x00013004\n"
+    },
+    {
+      "wanted": "0x2003b32",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 3392,
+          "frame": "bsp_prv_bclka_clock_set (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3392)",
+          "functionName": "bsp_prv_bclka_clock_set",
+          "address": "0x02003b32",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "2"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x1110",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x3",
+        "prcr_s": "0x3",
+        "mrcfreq": "0x18",
+        "mrefreq": "0x18",
+        "vscr": "0x1",
+        "mosccr": "0x0",
+        "oscsf": "0x28"
+      },
+      "registers": {
+        "r0": "0x0",
+        "r1": "0x16e3600",
+        "r2": "0xa500",
+        "r6": "0x0",
+        "lr": "0x20038b5"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n",
+      "core_ccr": "0xe000ed14:\t0x000e0201\n",
+      "core_mscr": "0xe001e000:\t0x00013004\n"
+    }
+  ]
+}
+
+Success: yes
+
+Stdout:
+{"success": true, "summary": "Traced BSP startup checkpoints", "data": {"connection": {"ok": true, "server_type": "jlink", "server_state": "running", "client_state": "connected", "server_ownership": "implicit"}, "reset": {"connected": true, "core": 0, "scope": "connection", "halted": true, "running": false, "threads": [{"id": "1", "target-id": "Thread 57005", "frame": {"level": "0", "addr": "0x02003f68", "func": "Reset_Handler", "args": [], "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "line": "50", "arch": "armv8.1-m.main"}, "state": "stopped"}], "reset": "default", "output": "Resetting target\r\n", "ok": true, "backend": "jlink"}, "checkpoints": [{"wanted": "0x2003b06", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2987, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2987)", "functionName": "bsp_clock_init", "address": "0x02003b06", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "1"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x2", "mosccr": "0x0", "oscsf": "0x8"}, "registers": {"r0": "0x80000000", "r1": "0x10000000", "r2": "0x4001e000", "r6": "0x1", "lr": "0x2003c3b"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n", "core_ccr": "0xe000ed14:\t0x000e0201\n", "core_mscr": "0xe001e000:\t0x00013004\n"}, {"wanted": "0x2003b32", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 3392, "frame": "bsp_prv_bclka_clock_set (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3392)", "functionName": "bsp_prv_bclka_clock_set", "address": "0x02003b32", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "2"}}, "state": {"sckdivcr": "0x1110", "sckdivcr2": "0x0", "sckscr": "0x3", "prcr_s": "0x3", "mrcfreq": "0x18", "mrefreq": "0x18", "vscr": "0x1", "mosccr": "0x0", "oscsf": "0x28"}, "registers": {"r0": "0x0", "r1": "0x16e3600", "r2": "0xa500", "r6": "0x0", "lr": "0x20038b5"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n", "core_ccr": "0xe000ed14:\t0x000e0201\n", "core_mscr": "0xe001e000:\t0x00013004\n"}]}}

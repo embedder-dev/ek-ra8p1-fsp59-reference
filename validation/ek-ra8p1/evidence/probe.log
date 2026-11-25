@@ -1,0 +1,107 @@
+SEGGER J-Link Commander V9.42 (Compiled May  6 2026 12:32:34)
+DLL version V9.42, compiled May  6 2026 12:31:31
+
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>ExitOnError 1
+J-Link Commander will now exit on Error
+J-Link>IsHalted
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...O.K.
+Firmware: J-Link OB-RA4M2 compiled May  6 2026 16:18:23
+Hardware version: V1.00
+J-Link uptime (since boot): 0d 00h 31m 35s
+S/N: 1080841014
+USB speed mode: Full speed (12 MBit/s)
+VTref=3.300V
+Target connection not established yet but required for command.
+Device "R7KA8P1KF_CPU0" selected.
+
+
+Connecting to target via SWD
+ConfigTargetSettings() start
+Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+ConfigTargetSettings() end - Took 74us
+InitTarget() start
+Identifying target device...
+SWD selected. Executing JTAG -> SWD switching sequence...
+Initializing DAP...
+DAP initialized successfully.
+Determining TrustZone configuration...
+  Secure Debug: Enabled (SSD)
+Enabling secondary core...
+  Secondary core already enabled. Performing attach...
+Determining currently configured transfer type by reading the AHB-AP CSW register.
+Transfer type does not match DLM state. Changing transfer type accordingly.
+Primary CPU:   CPU0 (CM85), OFS bit=0x00000001
+Secondary CPU: CPU1 (CM33)
+Note: Detected primary CPU is based on the 'Device Configuration Information Register for Debug' register. Verify register value if primary/secondary is unexpected (https://kb.segger.com/Renesas_RA8).
+InitTarget() end - Took 1.47s
+Found SW-DP with ID 0x6BA02477
+Failed to power up DAP
+ConfigTargetSettings() start
+Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+ConfigTargetSettings() end - Took 9us
+InitTarget() start
+Identifying target device...
+SWD selected. Executing JTAG -> SWD switching sequence...
+Initializing DAP...
+DAP initialized successfully.
+Determining TrustZone configuration...
+  Secure Debug: Enabled (SSD)
+Determining currently configured transfer type by reading the AHB-AP CSW register.
+  --> Correct transfer type configured. Done.
+Primary CPU:   CPU0 (CM85), OFS bit=0x00000001
+Secondary CPU: CPU1 (CM33)
+Note: Detected primary CPU is based on the 'Device Configuration Information Register for Debug' register. Verify register value if primary/secondary is unexpected (https://kb.segger.com/Renesas_RA8).
+InitTarget() end - Took 4.69ms
+Found SW-DP with ID 0x6BA02477
+DPIDR: 0x6BA02477
+CoreSight SoC-400 or earlier
+AP map detection skipped. Manually configured AP map found.
+AP[0]: AHB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[1]: APB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[2]: AHB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FE000
+CPUID register: 0x411FD231. Implementer code: 0x41 (ARM)
+Feature set: Mainline
+Cache: L1 I/D-cache present
+Found Cortex-M85 r1p1, Little endian.
+FPUnit: 8 code (BP) slots and 0 literal slots
+Security extension: implemented
+Secure debug: enabled
+PACBTI extension: implemented
+CoreSight components:
+ROMTbl[0] @ E00FE000
+[0][0]: E00FF000 CID B105100D PID 000BB4D4 ROM Table
+ROMTbl[1] @ E00FF000
+[1][0]: E000E000 CID B105900D PID 000BBD23 DEVARCH 47702A04 DEVTYPE 00 ???
+[1][1]: E0001000 CID B105900D PID 000BBD23 DEVARCH 47711A02 DEVTYPE 00 DWT
+[1][2]: E0002000 CID B105900D PID 000BBD23 DEVARCH 47701A03 DEVTYPE 00 FPB
+[1][3]: E0000000 CID B105900D PID 000BBD23 DEVARCH 47701A01 DEVTYPE 43 ITM
+[1][5]: E0041000 CID B105900D PID 004BBD23 DEVARCH 47754A13 DEVTYPE 13 ETM
+[1][6]: E0003000 CID B105900D PID 000BBD23 DEVARCH 47700A06 DEVTYPE 16 ???
+[1][7]: E0042000 CID B105900D PID 000BBD23 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+[0][1]: E0040000 CID 05900D00 PID 0BBD23B1 ???
+I-Cache L1: 16 KB, 256 Sets, 32 Bytes/Line, 2-Way
+D-Cache L1: 16 KB, 128 Sets, 32 Bytes/Line, 4-Way
+Memory zones:
+  Zone: "Default" Description: Default access mode
+Cortex-M85 identified.
+CPU is not halted.
+J-Link>mem32 0xE000ED00 1
+E000ED00 = 411FD231 
+J-Link>mem32 0x02C1EC38 4
+02C1EC38 = 414B3752 4B315038 41434C46 20202043 
+J-Link>mem32 0xE000EDF0 1
+E000EDF0 = 00150001 
+J-Link>mem8 0x4000F054 1
+4000F054 = 00 
+J-Link>mem16 0x4000F064 1
+4000F064 = 0000 
+J-Link>q
+
+Script processing completed.
+

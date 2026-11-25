@@ -1,0 +1,9 @@
+02004c90 00000008 t __r_mram_program_veneer
+22000000 00000004 t mram_exception
+22000004 00000362 t r_mram_program
+22000a00 000001c0 b vectors
+22000bc0 00000800 b pattern
+22001620 B __StackLimit
+22002620 B __StackTop
+22000004 <r_mram_program>:
+22000004 <r_mram_program>:

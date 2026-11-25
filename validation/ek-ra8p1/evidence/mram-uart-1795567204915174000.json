@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "phase": "write",
+    "uart": [
+      "MRAM ERASE verified 2048 bytes of ff",
+      "MRAM WRITE verified 2048 bytes; awaiting host readback",
+      "ACK mram-write"
+    ],
+    "transcript": "validation/ek-ra8p1/evidence/mram-uart-1795567204915174000.json"
+  },
+  "summary": "mram-write confirmed by firmware"
+}

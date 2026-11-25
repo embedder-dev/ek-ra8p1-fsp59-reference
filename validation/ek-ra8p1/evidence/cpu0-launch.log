@@ -1,0 +1,26 @@
+ok launch-info validation/ek-ra8p1/ek_ra8p1_cpu0 (4 ms)
+ek_ra8p1_cpu0 at <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0
+launch: ek_ra8p1_cpu0 Debug_Flat.launch
+probe: SEGGER J-Link, interface SWD, speed 4000 kHz, select USB (the first J-Link found)
+device: R7KA8P1KF_CPU0 (connect and load)
+load 1: ek_ra8p1_cpu0 <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf (built 2026-11-24T23:47:59.719Z) entry 0x02002019
+  0x02000000-0x0200324f 12.6 KB  FLASH            .text
+  0x02003250-0x020032af 96 B     FLASH            .data
+  0x02c9f040-0x02c9f043 4 B      OPTION_SETTING   .option_setting_ofs0
+  0x02c9f044-0x02c9f047 4 B      OPTION_SETTING   .option_setting_ofs2
+  0x02c9f0c0-0x02c9f0c3 4 B      OPTION_SETTING   .option_setting_ofs1_sec
+  0x02c9f0c4-0x02c9f0c7 4 B      OPTION_SETTING   .option_setting_ofs3_sec
+  0x02c9f120-0x02c9f123 4 B      OPTION_SETTING   .option_setting_ofs1_sel
+  0x02c9f124-0x02c9f127 4 B      OPTION_SETTING   .option_setting_ofs3_sel
+option memory: 6 option-setting section(s); loading these images programs them:
+  .option_setting_ofs0 0x02c9f040 4 B (OPTION_SETTING): all 0xFF (erased value)
+  .option_setting_ofs2 0x02c9f044 4 B (OPTION_SETTING): set words 0x02c9f044=0xffffffef
+  .option_setting_ofs1_sec 0x02c9f0c0 4 B (OPTION_SETTING): set words 0x02c9f0c0=0xfdffffff
+  .option_setting_ofs3_sec 0x02c9f0c4 4 B (OPTION_SETTING): set words 0x02c9f0c4=0x5ffe0000
+  .option_setting_ofs1_sel 0x02c9f120 4 B (OPTION_SETTING): set words 0x02c9f120=0x00000000
+  .option_setting_ofs3_sel 0x02c9f124 4 B (OPTION_SETTING): set words 0x02c9f124=0x00000000
+  --emit refuses them without --allow-option-memory; gdb.jlink_connect and gdb.load_file program them too. Show the values to the user and get consent first: wrong OFS, security or ID-code settings can lock the device.
+J-Link software: SEGGER J-Link V9.42 at /Applications/SEGGER/JLink_V942 (JLinkExe, JLinkGDBServer); e2's bundled library Segger_v9.42.0, Segger_v9.64.0 (library only: no JLinkExe or GDB server)
+next (flash tool): embedder e2 launch-info ./validation/ek-ra8p1/ek_ra8p1_cpu0 --emit jlink --allow-option-memory (after consent), then pass the printed command to the flash tool
+next (gdb_start_server): device "R7KA8P1KF_CPU0", interface "SWD", force_backend "jlink" (the tool runs at 4000 kHz)
+next (hardware_script_run): gdb.jlink_connect(device="R7KA8P1KF_CPU0", elf="<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf", interface="SWD") (loads = programs the image; also programs option memory: user consent first)

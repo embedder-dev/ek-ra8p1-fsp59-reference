@@ -1,0 +1,8 @@
+ok packs install (863 ms)
+plan 02f2e1 (dry run; nothing written)
+pack folder: <e2-area>/.eclipse/com.renesas.platform_1273726404/internal/projectgen/ra/packs
+  replace Renesas.RA_mcu_ra8p1.5.9.0.pack  1d56e7e2 -> 679a0a00
+  unchanged: 36
+support files: 1 stale and 0 left-over file(s) removed; e2 re-extracts 1 pack(s) on its next start
+guard: this replaces or removes installed packs, so --apply also needs --replace-stock
+next: embedder e2 packs install --manifest packs/r020 --fsp 5.9.0 --replace-stock --apply --plan 02f2e1

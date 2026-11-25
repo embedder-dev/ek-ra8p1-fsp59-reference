@@ -1,0 +1,11 @@
+{
+  "success": false,
+  "data": {
+    "phase": "arm",
+    "uart": [
+      "MRAM BLOCK interrupt, debug or CPU1 state"
+    ],
+    "transcript": "validation/ek-ra8p1/evidence/mram-uart-1795566812010519000.json"
+  },
+  "summary": "MRAM BLOCK interrupt, debug or CPU1 state"
+}

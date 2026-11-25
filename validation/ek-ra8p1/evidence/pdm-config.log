@@ -1,0 +1,28 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (2.8 s)
+applied <repo>/validation/ek-ra8p1/cpu0-pdm.json to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+created g_bench_pdm (module.driver.pdm_on_pdm.1738675750 — PDM (r_pdm), channel 2)
+  bsp config.bsp.fsp.secondary_core_start: config.bsp.fsp.secondary_core_start.enabled -> config.bsp.fsp.secondary_core_start.disabled (configuration.xml: config.bsp.fsp.secondary_core_start.disabled)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.name: g_pdm0 -> g_bench_pdm (configuration.xml: g_bench_pdm)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.channel: 2 -> 2 (configuration.xml: 2)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.physical_input: 2 -> 2 (configuration.xml: 2)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.input: module.driver.pdm.input.rising -> module.driver.pdm.input.rising (configuration.xml: module.driver.pdm.input.rising)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.sample_format: module.driver.pdm.sample_format.0 -> module.driver.pdm.sample_format.0 (configuration.xml: module.driver.pdm.sample_format.0)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.clock_div: module.driver.pdm.clock_div.0 -> module.driver.pdm.clock_div.1 (configuration.xml: module.driver.pdm.clock_div.1)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.sinc_order: module.driver.pdm.sinc_order.4 -> module.driver.pdm.sinc_order.4 (configuration.xml: module.driver.pdm.sinc_order.4)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.fifo_threshold: module.driver.pdm.fifo_threshold.4 -> module.driver.pdm.fifo_threshold.3 (configuration.xml: module.driver.pdm.fifo_threshold.3)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.microphone_delay_us: 0 -> 35000 (configuration.xml: 35000)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.error_enable: module.driver.pdm.error_enable.none -> module.driver.pdm.error_enable.none (configuration.xml: module.driver.pdm.error_enable.none)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.p_callback: NULL -> bench_pdm_callback (configuration.xml: bench_pdm_callback)
+  module.driver.pdm_on_pdm.1738675750 module.driver.pdm.ipl: board.icu.common.irq.priority12 -> board.icu.common.irq.priority12 (configuration.xml: board.icu.common.irq.priority12)
+  pin:p812 p812.gpio_mode: p812.gpio_mode.gpio_mode_peripheral -> p812.gpio_mode.gpio_mode_peripheral (pin setting; not read back from configuration.xml)
+  pin:p812 p812: p812.pdm2.pdmclk2 -> p812.pdm2.pdmclk2 (pin setting; not read back from configuration.xml)
+  pin:p502 p502.gpio_mode: p502.gpio_mode.gpio_mode_peripheral -> p502.gpio_mode.gpio_mode_peripheral (pin setting; not read back from configuration.xml)
+  pin:p502 p502: p502.pdm2.pdmdat2 -> p502.pdm2.pdmdat2 (pin setting; not read back from configuration.xml)
+generated: ra_gen/hal_data.c defines g_bench_pdm_ctrl; ra_gen/hal_data.h declares them
+configuration.xml: saved; read back from the file: g_bench_pdm (module.driver.pdm_on_pdm.1738675750, r_pdm, channel 2, physical_input 2, input rising, sample_format 0, clock_div 1, sinc_order 4, fifo_threshold 3, microphone_delay_us 35000, error_enable none, p_callback bench_pdm_callback, ipl board.icu.common.irq.priority12); bsp secondary_core_start config.bsp.fsp.secondary_core_start.disabled
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h, ra_gen/vector_data.c, ra_gen/vector_data.h (VECTOR_DATA_IRQ_COUNT (5) -> (7); +VECTOR_NUMBER_PDM_DAT2 ((IRQn_Type) 5); +PDM_DAT2_IRQn ((IRQn_Type) 5); +VECTOR_NUMBER_PDM_ERR2 ((IRQn_Type) 6); +PDM_ERR2_IRQn ((IRQn_Type) 6); +1 more)
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_pdm_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_pdm_api.h, ra/fsp/inc/instances/r_pdm.h, ra/fsp/src/r_pdm/r_pdm.c
+e2 bookkeeping, safe to ignore: changed: .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -2 lines), ra_cfg.txt (+22 -9 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

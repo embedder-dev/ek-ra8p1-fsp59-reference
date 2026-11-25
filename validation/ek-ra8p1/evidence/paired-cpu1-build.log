@@ -1,0 +1,17 @@
+ok build validation/ek-ra8p1/ek_ra8p1_cpu1 (2.8 s)
+verified: yes — <repo>/validation/ek-ra8p1/ek_ra8p1_cpu1/Debug/ek_ra8p1_cpu1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): ek_ra8p1_cpu1/Debug/ek_ra8p1_cpu1.elf 168780 B 16:26:46, .srec 6800 B 16:26:46, .map 131063 B 16:26:46, .sbd 5624 B 16:26:47
+preceding ek_ra8p1_cpu0: verified yes 17 s ago (0 errors), .sbd fresh
+ek_ra8p1_cpu0: artifacts (stat from disk): ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf 743328 B 16:26:30, .srec 63208 B 16:26:30, .map 185448 B 16:26:30, .sbd 5495 B 16:26:30
+clean: ok, 0 errors, 0 warnings (79ms)
+full: ok, 0 errors, 0 warnings (799ms)
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-state>/state/8ea8a593/logs/1795566405053-ek_ra8p1_cpu1-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 56d1ab, install 02f2e1, the rest stock; journalled)
+chain (build order): ek_ra8p1_cpu0 -> ek_ra8p1_cpu1
+  ek_ra8p1_cpu0: core CM85, -mcpu=cortex-m85+nopacbti, debug SEGGERJLINKARM -t R7KA8P1KF_CPU0 (ek_ra8p1_cpu0 Debug_Flat.launch)
+  ek_ra8p1_cpu1: core CM33, -mcpu=cortex-m33, debug SEGGERJLINKARM -t R7KA8P1KF_CPU1 (ek_ra8p1_cpu1 Debug_Attach.launch), preceding ek_ra8p1_cpu0 (ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.sbd fresh)
+memory: OVERLAP ek_ra8p1_cpu0 FLASH 0x2000000-0x207FFFF vs ek_ra8p1_cpu1 FLASH 0x2008000-0x207FFFF; ek_ra8p1_cpu0 RAM 0x22000000-0x220CFFFF vs ek_ra8p1_cpu1 RAM 0x22002000-0x220CFFFF; ek_ra8p1_cpu0 FLASH_CPU1 0x2080000-0x20FFFFF vs ek_ra8p1_cpu1 FLASH_CPU1 0x2080000-0x20FFFFF; ek_ra8p1_cpu0 RAM_CPU1 0x220D0000-0x2219FFFF vs ek_ra8p1_cpu1 RAM_CPU1 0x220D0000-0x2219FFFF
+launch group: ek_ra8p1_cpu1 Debug_Multicore Launch Group starts ek_ra8p1_cpu1 Debug_Multicore, ek_ra8p1_cpu1 Debug_Attach
+pair: ek_ra8p1_cpu0 cortex-m85+nopacbti R7KA8P1KF_CPU0 | ek_ra8p1_cpu1 cortex-m33 R7KA8P1KF_CPU1; memory OVERLAPS

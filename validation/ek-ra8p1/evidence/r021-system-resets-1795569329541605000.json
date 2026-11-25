@@ -1,0 +1,793 @@
+{
+  "success": true,
+  "summary": "10 system resets matched the clock and boot profile",
+  "data": {
+    "elf_sha256": "57a01118f5e3681aa2e458f840039d42b0b189909d349ebfeb1ec3fe7c17e18f",
+    "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+    "image": "paired",
+    "requested": 10,
+    "trials": [
+      {
+        "index": 1,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849085325041,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 2,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849260419125,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 3,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849411531250,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 4,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849558974375,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 5,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849713291541,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 6,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257849866620541,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 7,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257850017335250,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 8,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257850207050291,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 9,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257850360722500,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      },
+      {
+        "index": 10,
+        "reset": {
+          "connected": true,
+          "core": 0,
+          "scope": "connection",
+          "halted": true,
+          "running": false,
+          "threads": [
+            {
+              "id": "1",
+              "target-id": "Thread 57005",
+              "frame": {
+                "level": "0",
+                "addr": "0x020040c0",
+                "func": "Reset_Handler",
+                "args": [],
+                "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+                "line": "50",
+                "arch": "armv8.1-m.main"
+              },
+              "state": "stopped"
+            }
+          ],
+          "reset": "default",
+          "output": "Resetting target\r\n",
+          "ok": true,
+          "backend": "jlink"
+        },
+        "start_ns": 257850541198375,
+        "uart": [
+          "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:14:39",
+          "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200",
+          "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080",
+          "WDT BOOT RSTSR1=00000004 WDT0RF=0",
+          "READY"
+        ],
+        "oracle": {
+          "success": true,
+          "expected": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "MOSCSF": 1,
+            "CST": 1,
+            "GTPR": 239999,
+            "ACT": 1
+          },
+          "observed": {
+            "build_tag": "r021 CPU0 Nov 24 2026 17:14:39",
+            "SCKSCR": "03",
+            "SCKDIVCR": "00001110",
+            "SCKDIVCR2": "00000000",
+            "OSCSF": "28",
+            "SCICKCR": "03",
+            "SCI8_CCR2": "80000c10",
+            "SCI8_CCR3": "00009200",
+            "GTCR": "00000001",
+            "GTPR": 239999,
+            "CPU1ACTCSR": "0080",
+            "RSTSR1": "00000004",
+            "WDT0RF": 0,
+            "MOSCSF": 1,
+            "CST": 1,
+            "ACT": 1
+          },
+          "records": [
+            "BOOT",
+            "CLOCK",
+            "GPT0",
+            "WDT",
+            "READY"
+          ],
+          "errors": []
+        }
+      }
+    ],
+    "readback_match": true
+  }
+}

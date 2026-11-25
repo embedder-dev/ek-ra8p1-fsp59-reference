@@ -1,0 +1,114 @@
+test_async_capabilities_are_independently_gated (test_ra8p1_clocks.ClockProductionTests.test_async_capabilities_are_independently_gated) ... ok
+test_async_configuration_rejects_prohibited_options (test_ra8p1_clocks.ClockProductionTests.test_async_configuration_rejects_prohibited_options) ... ok
+test_async_frequency_legal_and_prohibited_register_encodings (test_ra8p1_clocks.ClockProductionTests.test_async_frequency_legal_and_prohibited_register_encodings) ... ok
+test_async_startup_handshakes_sources_and_warm_pll_detachment (test_ra8p1_clocks.ClockProductionTests.test_async_startup_handshakes_sources_and_warm_pll_detachment) ... ok
+test_each_core_and_all_system_clock_fields (test_ra8p1_clocks.ClockProductionTests.test_each_core_and_all_system_clock_fields) ... ok
+test_hard_reset_extra_clock_step_preserves_every_divider_field (test_ra8p1_clocks.ClockProductionTests.test_hard_reset_extra_clock_step_preserves_every_divider_field) ... ok
+test_legacy_startup_executable_sections_match_pristine_head (test_ra8p1_clocks.ClockProductionTests.test_legacy_startup_executable_sections_match_pristine_head) ... FAIL
+test_mram_wait_notifications_and_prefetch_boundaries (test_ra8p1_clocks.ClockProductionTests.test_mram_wait_notifications_and_prefetch_boundaries) ... ok
+test_all_older_devices_preprocessed_and_executable_parity (test_ra8p1_review_clock_registers.ReviewClockRegisterTests.test_all_older_devices_preprocessed_and_executable_parity) ... FAIL
+test_target_both_plls_multiplier_boundaries_and_fractions (test_ra8p1_review_clock_registers.ReviewClockRegisterTests.test_target_both_plls_multiplier_boundaries_and_fractions) ... ok
+test_target_fll_all_hoco_choices_and_disabled (test_ra8p1_review_clock_registers.ReviewClockRegisterTests.test_target_fll_all_hoco_choices_and_disabled) ... ok
+test_target_keyed_protection_and_octa_settings (test_ra8p1_review_clock_registers.ReviewClockRegisterTests.test_target_keyed_protection_and_octa_settings) ... ok
+test_all_legal_type6_dividers_match_manual (test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_all_legal_type6_dividers_match_manual) ... ok
+test_every_legacy_device_retains_original_preprocessed_helper (test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_every_legacy_device_retains_original_preprocessed_helper) ... ERROR
+test_legacy_executable_sections_match_pristine_head (test_ra8p1_cgc.CgcProductionTests.test_legacy_executable_sections_match_pristine_head) ... FAIL
+test_peripheral_capabilities_independently_gated (test_ra8p1_cgc.CgcProductionTests.test_peripheral_capabilities_independently_gated) ... ok
+test_production_cgc_behavior (test_ra8p1_cgc.CgcProductionTests.test_production_cgc_behavior) ... ok
+test_001_output_specific_limit (test_ra8p1_review_cgc.ReviewCgcTests.test_001_output_specific_limit) ... ok
+test_002_prospective_hoco_cpu0_limit (test_ra8p1_review_cgc.ReviewCgcTests.test_002_prospective_hoco_cpu0_limit) ... ok
+test_003_all_async_selectors_and_pll_inputs (test_ra8p1_review_cgc.ReviewCgcTests.test_003_all_async_selectors_and_pll_inputs) ... ok
+test_004_direct_hoco_fll_settling (test_ra8p1_review_cgc.ReviewCgcTests.test_004_direct_hoco_fll_settling) ... ok
+test_005_stop_hoco_before_disabling_fll (test_ra8p1_review_cgc.ReviewCgcTests.test_005_stop_hoco_before_disabling_fll) ... ok
+test_006_sosc_required_while_fll_enabled (test_ra8p1_review_cgc.ReviewCgcTests.test_006_sosc_required_while_fll_enabled) ... ok
+test_007_stabilization_reference_order (test_ra8p1_review_cgc.ReviewCgcTests.test_007_stabilization_reference_order) ... ok
+test_008_none_uses_running_pll_source (test_ra8p1_review_cgc.ReviewCgcTests.test_008_none_uses_running_pll_source) ... ok
+test_009_busy_precedes_loco_access (test_ra8p1_review_cgc.ReviewCgcTests.test_009_busy_precedes_loco_access) ... ok
+test_010_primary_nmi_ownership_and_rmw (test_ra8p1_review_cgc.ReviewCgcTests.test_010_primary_nmi_ownership_and_rmw) ... ok
+test_all_legacy_preprocessed_parity_and_crlf (test_ra8p1_review_cgc.ReviewCgcTests.test_all_legacy_preprocessed_parity_and_crlf) ... FAIL
+test_legacy_complete_tu_executable_parity (test_ra8p1_review_cgc.ReviewCgcTests.test_legacy_complete_tu_executable_parity) ... FAIL
+
+======================================================================
+ERROR: test_every_legacy_device_retains_original_preprocessed_helper (test_ra8p1_review_clock_divider.ClockDividerReviewTests.test_every_legacy_device_retains_original_preprocessed_helper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_clock_divider.py", line 47, in test_every_legacy_device_retains_original_preprocessed_helper
+    original = subprocess.run(["git", "-C", str(ROOT / "baseline"), "show",
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               "HEAD:ra/fsp/src/bsp/mcu/all/bsp_common.h"],
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              check=True, capture_output=True, text=True).stdout
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '-C', '<repo>/baseline', 'show', 'HEAD:ra/fsp/src/bsp/mcu/all/bsp_common.h']' returned non-zero exit status 128.
+
+======================================================================
+FAIL: test_legacy_startup_executable_sections_match_pristine_head (test_ra8p1_clocks.ClockProductionTests.test_legacy_startup_executable_sections_match_pristine_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_clocks.py", line 363, in test_legacy_startup_executable_sections_match_pristine_head
+    self.assertEqual(result.returncode, 0, result.stderr.decode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 128 != 0 : fatal: path 'baseline/ra/fsp/src/bsp/mcu/all/bsp_clocks.c' exists, but not 'ra/fsp/src/bsp/mcu/all/bsp_clocks.c'
+hint: Did you mean 'HEAD:baseline/ra/fsp/src/bsp/mcu/all/bsp_clocks.c' aka 'HEAD:./ra/fsp/src/bsp/mcu/all/bsp_clocks.c'?
+
+
+======================================================================
+FAIL: test_all_older_devices_preprocessed_and_executable_parity (test_ra8p1_review_clock_registers.ReviewClockRegisterTests.test_all_older_devices_preprocessed_and_executable_parity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_clock_registers.py", line 228, in test_all_older_devices_preprocessed_and_executable_parity
+    pristine = self.run_command(["git", "-C", str(BASELINE), "show",
+                                 "HEAD:ra/fsp/src/bsp/mcu/all/bsp_clocks.c"])
+  File "<repo>/tools/test_ra8p1_review_clock_registers.py", line 83, in run_command
+    self.assertEqual(result.returncode, 0, " ".join(map(str, command)) + "\n"
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     + result.stdout + result.stderr)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 128 != 0 : git -C <repo>/baseline show HEAD:ra/fsp/src/bsp/mcu/all/bsp_clocks.c
+fatal: path 'baseline/ra/fsp/src/bsp/mcu/all/bsp_clocks.c' exists, but not 'ra/fsp/src/bsp/mcu/all/bsp_clocks.c'
+hint: Did you mean 'HEAD:baseline/ra/fsp/src/bsp/mcu/all/bsp_clocks.c' aka 'HEAD:./ra/fsp/src/bsp/mcu/all/bsp_clocks.c'?
+
+
+======================================================================
+FAIL: test_legacy_executable_sections_match_pristine_head (test_ra8p1_cgc.CgcProductionTests.test_legacy_executable_sections_match_pristine_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_cgc.py", line 73, in test_legacy_executable_sections_match_pristine_head
+    self.assertEqual(pristine.returncode, 0, pristine.stderr.decode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 128 != 0 : fatal: path 'baseline/ra/fsp/src/r_cgc/r_cgc.c' exists, but not 'ra/fsp/src/r_cgc/r_cgc.c'
+hint: Did you mean 'HEAD:baseline/ra/fsp/src/r_cgc/r_cgc.c' aka 'HEAD:./ra/fsp/src/r_cgc/r_cgc.c'?
+
+
+======================================================================
+FAIL: test_all_legacy_preprocessed_parity_and_crlf (test_ra8p1_review_cgc.ReviewCgcTests.test_all_legacy_preprocessed_parity_and_crlf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_cgc.py", line 84, in test_all_legacy_preprocessed_parity_and_crlf
+    self.assertEqual(before.returncode, 0, before.stderr.decode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 128 != 0 : fatal: path 'baseline/ra/fsp/src/r_cgc/r_cgc.c' exists, but not 'ra/fsp/src/r_cgc/r_cgc.c'
+hint: Did you mean 'HEAD:baseline/ra/fsp/src/r_cgc/r_cgc.c' aka 'HEAD:./ra/fsp/src/r_cgc/r_cgc.c'?
+
+
+======================================================================
+FAIL: test_legacy_complete_tu_executable_parity (test_ra8p1_review_cgc.ReviewCgcTests.test_legacy_complete_tu_executable_parity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_cgc.py", line 79, in test_legacy_complete_tu_executable_parity
+    test.test_legacy_executable_sections_match_pristine_head()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<repo>/tools/test_ra8p1_cgc.py", line 73, in test_legacy_executable_sections_match_pristine_head
+    self.assertEqual(pristine.returncode, 0, pristine.stderr.decode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 128 != 0 : fatal: path 'baseline/ra/fsp/src/r_cgc/r_cgc.c' exists, but not 'ra/fsp/src/r_cgc/r_cgc.c'
+hint: Did you mean 'HEAD:baseline/ra/fsp/src/r_cgc/r_cgc.c' aka 'HEAD:./ra/fsp/src/r_cgc/r_cgc.c'?
+
+
+----------------------------------------------------------------------
+Ran 29 tests in 49.378s
+
+FAILED (failures=5, errors=1)

@@ -1,0 +1,9 @@
+test_async_startup_handshakes_sources_and_warm_pll_detachment (test_ra8p1_clocks.ClockProductionTests.test_async_startup_handshakes_sources_and_warm_pll_detachment) ... ok
+test_hard_reset_extra_clock_step_preserves_every_divider_field (test_ra8p1_clocks.ClockProductionTests.test_hard_reset_extra_clock_step_preserves_every_divider_field) ... ok
+test_mram_wait_notifications_and_prefetch_boundaries (test_ra8p1_clocks.ClockProductionTests.test_mram_wait_notifications_and_prefetch_boundaries) ... ok
+test_production_cgc_behavior (test_ra8p1_cgc.CgcProductionTests.test_production_cgc_behavior) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 52.173s
+
+OK

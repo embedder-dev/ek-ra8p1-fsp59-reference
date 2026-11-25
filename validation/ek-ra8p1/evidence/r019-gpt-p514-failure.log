@@ -1,0 +1,146 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: failed (the script's result line reported failure)
+
+Skipped Providers (named by the script but not ready):
+Saleae Logic 2: No Saleae device detected via USB. Connect a Logic analyzer and retry.
+DSLogic: No DSLogic analyzer detected via USB.
+PicoScope: No PicoScope detected via USB. Connect the scope and retry.
+
+Summary: RuntimeError: P514 (m0): DIO0: 7 rising edges; need 8; Mean 57.2500 ms outside 20 ms ±1%
+
+Data:
+{
+  "device_id": "210415BE5124",
+  "uart_port": "/dev/cu.usbmodem0010808410141",
+  "uart_baud": 115200,
+  "requested_sample_rate_sps": 10000,
+  "requested_duration_s": 0.4,
+  "uart": [
+    {
+      "command": "idle",
+      "ack": "ACK idle"
+    },
+    {
+      "command": "m0",
+      "ack": "ACK m0"
+    }
+  ],
+  "captures": [
+    {
+      "command": "m0",
+      "pin": "P514",
+      "expected_period_ms": 20,
+      "expected_dio": null,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_umd7venx/ra8p1_m0_P514/digital.csv"
+      ],
+      "errors": [
+        "DIO0: 7 rising edges; need 8",
+        "Mean 57.2500 ms outside 20 ms ±1%"
+      ],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        0
+      ],
+      "rising_edges": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 0,
+      "rising_sample_indices": [
+        526,
+        1099,
+        1671,
+        2244,
+        2816,
+        3389,
+        3961
+      ],
+      "mean_period_ms": 57.25,
+      "min_period_ms": 57.2,
+      "max_period_ms": 57.3,
+      "period_error_pct": 186.25,
+      "analysis_path": "<tmp>/embedder_digilent_umd7venx/ra8p1_m0_P514/analysis.json"
+    }
+  ],
+  "mapping": {},
+  "action": "mapping"
+}
+
+Published Captures:
+[
+  {
+    "captureId": "62fdad2a008d4996afad604f52c63691",
+    "sessionId": "<session>",
+    "name": "Capture 15:59:06",
+    "createdAt": "2026-11-24T23:59:06.764Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D0",
+        "index": 0,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  }
+]
+
+Success: no
+
+Stdout:
+Preparing waveform…
+{"success": false, "summary": "RuntimeError: P514 (m0): DIO0: 7 rising edges; need 8; Mean 57.2500 ms outside 20 ms \u00b11%", "data": {"device_id": "210415BE5124", "uart_port": "/dev/cu.usbmodem0010808410141", "uart_baud": 115200, "requested_sample_rate_sps": 10000, "requested_duration_s": 0.4, "uart": [{"command": "idle", "ack": "ACK idle"}, {"command": "m0", "ack": "ACK m0"}], "captures": [{"command": "m0", "pin": "P514", "expected_period_ms": 20, "expected_dio": null, "raw_csv_paths": ["<tmp>/embedder_digilent_umd7venx/ra8p1_m0_P514/digital.csv"], "errors": ["DIO0: 7 rising edges; need 8", "Mean 57.2500 ms outside 20 ms \u00b11%"], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [0], "rising_edges": [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 0, "rising_sample_indices": [526, 1099, 1671, 2244, 2816, 3389, 3961], "mean_period_ms": 57.25, "min_period_ms": 57.2, "max_period_ms": 57.3, "period_error_pct": 186.25, "analysis_path": "<tmp>/embedder_digilent_umd7venx/ra8p1_m0_P514/analysis.json"}], "mapping": {}, "action": "mapping"}}

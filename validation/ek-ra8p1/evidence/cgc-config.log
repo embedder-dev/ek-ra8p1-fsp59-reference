@@ -1,0 +1,13 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (2.9 s)
+applied <repo>/validation/ek-ra8p1/cpu0-cgc.json to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+created g_cgc (module.driver.cgc_on_cgc.935345765 — Clock Generation Circuit (r_cgc))
+  bsp config.bsp.common.main: 0x400 -> 0x1000 (configuration.xml: 0x1000)
+  module.driver.cgc_on_cgc.935345765 module.driver.cgc.name: g_cgc0 -> g_cgc (configuration.xml: g_cgc)
+warning: g_cgc is not defined in ra_gen/hal_data.c; check embedder e2 problems
+configuration.xml: saved; read back from the file: g_cgc (module.driver.cgc_on_cgc.935345765, r_cgc); bsp main 0x1000
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/bsp_clock_cfg.h (BSP_CFG_CLOCK_SOURCE (BSP_CLOCKS_SOURCE_CLOCK_HOCO) -> (BSP_CLOCKS_SOURCE_CLOCK_MAIN_OSC); BSP_CFG_PCLKA_DIV (BSP_CLOCKS_SYS_CLOCK_DIV_1) -> (BSP_CLOCKS_SYS_CLOCK_DIV_2); BSP_CFG_ADCCLK_SOURCE (BSP_CLOCKS_SOURCE_CLOCK_HOCO) -> (BSP_CLOCKS_CLOCK_DISABLED)), ra_gen/common_data.c, ra_gen/common_data.h, ra_gen/hal_data.c (-ADC_B_TRIGGER_ADC_B0; -ADC_B_TRIGGER_ADC_B0_B; -ADC_B_TRIGGER_ADC_B1; -ADC_B_TRIGGER_ADC_B1_B), ra_gen/hal_data.h, ra_gen/vector_data.c, ra_gen/vector_data.h (VECTOR_DATA_IRQ_COUNT (23) -> (5); BSP_ICU_VECTOR_NUM_ENTRIES (23) -> (5); -VECTOR_NUMBER_ADC_LIMCLPI; -ADC_LIMCLPI_IRQn; -VECTOR_NUMBER_ADC_ERR0; +33 more)
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_cgc_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_cgc_api.h, ra/fsp/inc/instances/r_cgc.h, ra/fsp/src/r_cgc/r_cgc.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+3 -3 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -4 lines), ra_cfg.txt (+15 -767 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

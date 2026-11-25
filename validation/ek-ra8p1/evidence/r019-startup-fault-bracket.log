@@ -1,0 +1,87 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: failed (the script's result line reported failure)
+
+Summary: CPU0 did not reach 0x2001bd4
+
+Data:
+{
+  "connection": {
+    "ok": true,
+    "server_type": "jlink",
+    "server_state": "running",
+    "client_state": "connected",
+    "server_ownership": "implicit"
+  },
+  "reset": "Resetting target\r\n",
+  "checkpoints": [
+    {
+      "wanted": "0x2001b76",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2822,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2822)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02001b76",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "1"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bd4",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "signal-received",
+          "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "line": 70,
+          "frame": "Default_Handler (../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70)",
+          "functionName": "Default_Handler",
+          "address": "0x02002014",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "signalName": "SIGTRAP",
+          "signalMeaning": "Trace/breakpoint trap",
+          "threadId": "1",
+          "stoppedThreads": "all"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa"
+      },
+      "faults": "0xe000ed28:\t0x00000400\t0x40000000\n"
+    }
+  ]
+}
+
+Success: no
+
+Stdout:
+{"success": false, "summary": "CPU0 did not reach 0x2001bd4", "data": {"connection": {"ok": true, "server_type": "jlink", "server_state": "running", "client_state": "connected", "server_ownership": "implicit"}, "reset": "Resetting target\r\n", "checkpoints": [{"wanted": "0x2001b76", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2822, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2822)", "functionName": "bsp_clock_init", "address": "0x02001b76", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "1"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bd4", "stop": {"ok": true, "timed_out": false, "event": {"reason": "signal-received", "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "line": 70, "frame": "Default_Handler (../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70)", "functionName": "Default_Handler", "address": "0x02002014", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "signalName": "SIGTRAP", "signalMeaning": "Trace/breakpoint trap", "threadId": "1", "stoppedThreads": "all"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa"}, "faults": "0xe000ed28:\t0x00000400\t0x40000000\n"}]}}

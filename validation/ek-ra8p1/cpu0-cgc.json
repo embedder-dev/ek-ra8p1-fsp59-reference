@@ -1,0 +1,5 @@
+{
+  "modules": [
+    {"id": "module.driver.cgc_on_cgc", "name": "g_cgc"}
+  ]
+}

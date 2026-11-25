@@ -1,0 +1,18 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (1.8 s)
+applied <repo>/validation/ek-ra8p1/cpu0-wdt.json to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+created g_bench_wdt (module.driver.watchdog_on_wdt.154097540 — Watchdog (r_wdt))
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.name: g_wdt0 -> g_bench_wdt (configuration.xml: g_bench_wdt)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.timeout: module.driver.watchdog.timeout.16384 -> module.driver.watchdog.timeout.4096 (configuration.xml: module.driver.watchdog.timeout.4096)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.clock_division: module.driver.watchdog.clock_division.8192 -> module.driver.watchdog.clock_division.8192 (configuration.xml: module.driver.watchdog.clock_division.8192)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.window_start: module.driver.watchdog.window_start.100 -> module.driver.watchdog.window_start.75 (configuration.xml: module.driver.watchdog.window_start.75)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.window_end: module.driver.watchdog.window_end.0 -> module.driver.watchdog.window_end.25 (configuration.xml: module.driver.watchdog.window_end.25)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.reset_control: module.driver.watchdog.reset_control.reset -> module.driver.watchdog.reset_control.reset (configuration.xml: module.driver.watchdog.reset_control.reset)
+  module.driver.watchdog_on_wdt.154097540 module.driver.watchdog.stop_control: module.driver.watchdog.stop_control.enable -> module.driver.watchdog.stop_control.disable (configuration.xml: module.driver.watchdog.stop_control.disable)
+generated: ra_gen/hal_data.c defines g_bench_wdt (wdt_instance_t), g_bench_wdt_ctrl, g_bench_wdt_cfg; ra_gen/hal_data.h declares them
+configuration.xml: saved; read back from the file: g_bench_wdt (module.driver.watchdog_on_wdt.154097540, r_wdt, timeout 4096, clock_division 8192, window_start 75, window_end 25, reset_control reset, stop_control disable)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_wdt_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_wdt_api.h, ra/fsp/inc/instances/r_wdt.h, ra/fsp/src/r_wdt/r_wdt.c
+e2 bookkeeping, safe to ignore: changed: .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines), ra_cfg.txt (+14 -0 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

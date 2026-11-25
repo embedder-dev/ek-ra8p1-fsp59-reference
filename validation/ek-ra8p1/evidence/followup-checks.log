@@ -1,0 +1,8 @@
+MRAM original backup matches; outside-code hashes unchanged; final scratch remains blank after both optional downloads.
+mram: J-Link verified 1 application image(s); all six sampled option words unchanged.
+paired: J-Link verified 2 application image(s); all six sampled option words unchanged.
+pdm: J-Link verified 1 application image(s); all six sampled option words unchanged.
+CPU0 started Cortex-M33; CPU1 heartbeat advanced with CPU0 console alive
+Two non-constant MIC1 captures, 2048 samples each, with no errors or overruns
+mram-write confirmed by firmware
+mram-clean confirmed by firmware

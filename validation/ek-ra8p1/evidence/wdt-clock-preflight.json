@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "summary": "Read WDT0 and MRAM clock preflight; did not arm",
+  "data": {
+    "connection": {
+      "ok": true,
+      "server_type": "jlink",
+      "server_state": "running",
+      "client_state": "connected",
+      "server_ownership": "implicit"
+    },
+    "ofs0": "0xffffffff",
+    "dbgstopcr": "0x00000007",
+    "dhcsr": "0x00130003",
+    "rstsr1": "0x00000004",
+    "cpu1actcsr": "0x0000",
+    "sckdivcr": "0x00001110",
+    "sckdivcr2": "0x0000",
+    "mrcfreq": "0x00000018",
+    "mrefreq": "0x00000018",
+    "register_start": true,
+    "ocd_wdt0_masked": true,
+    "debug_enabled": true,
+    "wdt0_reset_flag": false,
+    "final_status": {
+      "connected": true,
+      "core": 0,
+      "scope": "connection",
+      "halted": false,
+      "running": true,
+      "threads": [
+        {
+          "id": "1",
+          "groupId": "i1",
+          "targetId": "Thread 57005",
+          "state": "running"
+        }
+      ],
+      "stateSource": "mi-async",
+      "ok": true,
+      "backend": "jlink"
+    }
+  }
+}

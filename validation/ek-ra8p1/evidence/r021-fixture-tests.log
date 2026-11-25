@@ -1,0 +1,37 @@
+test_bad_elf_identity_and_entry (test_image_guard.ElfAuditTests.test_bad_elf_identity_and_entry) ... ok
+test_cpu0_exclusive_end_and_forbidden_destinations (test_image_guard.ElfAuditTests.test_cpu0_exclusive_end_and_forbidden_destinations) ... ok
+test_cpu1_owns_its_mram_sram_and_tcm_mapping (test_image_guard.ElfAuditTests.test_cpu1_owns_its_mram_sram_and_tcm_mapping) ... ok
+test_option_names_and_addresses_cannot_masquerade (test_image_guard.ElfAuditTests.test_option_names_and_addresses_cannot_masquerade) ... ok
+test_option_table_matches_r019_gcc_linkers (test_image_guard.ElfAuditTests.test_option_table_matches_r019_gcc_linkers) ... ok
+test_rejects_uncovered_segment_padding_and_broken_mappings (test_image_guard.ElfAuditTests.test_rejects_uncovered_segment_padding_and_broken_mappings) ... ok
+test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits (test_image_guard.ElfAuditTests.test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits) ... ok
+test_accepts_equivalent_different_record_boundaries (test_image_guard.SrecordTests.test_accepts_equivalent_different_record_boundaries) ... ok
+test_cli_build_verify_hashes_and_rejects_tampering (test_image_guard.SrecordTests.test_cli_build_verify_hashes_and_rejects_tampering) ... ok
+test_rejects_checksums_count_format_and_termination (test_image_guard.SrecordTests.test_rejects_checksums_count_format_and_termination) ... ok
+test_rejects_scratch_other_core_and_option_records_before_equality (test_image_guard.SrecordTests.test_rejects_scratch_other_core_and_option_records_before_equality) ... ok
+test_rejects_valid_checksum_payload_omission_and_gap_changes (test_image_guard.SrecordTests.test_rejects_valid_checksum_payload_omission_and_gap_changes) ... ok
+test_default_run_checks_each_50_capture_boundary (test_pdm_soak.SoakTests.test_default_run_checks_each_50_capture_boundary) ... ok
+test_evidence_is_flushed_before_next_send_and_paths_are_unique (test_pdm_soak.SoakTests.test_evidence_is_flushed_before_next_send_and_paths_are_unique) ... ok
+test_failed_or_corrupt_capture_stops_without_retry (test_pdm_soak.SoakTests.test_failed_or_corrupt_capture_stops_without_retry) ... ok
+test_inactive_cpu1_at_initial_or_final_checkpoint_fails (test_pdm_soak.SoakTests.test_inactive_cpu1_at_initial_or_final_checkpoint_fails) ... ok
+test_missing_or_unterminated_ack_times_out_and_logs_partial_response (test_pdm_soak.SoakTests.test_missing_or_unterminated_ack_times_out_and_logs_partial_response) ... ok
+test_partial_chunk_and_response_split_across_uart_reads (test_pdm_soak.SoakTests.test_partial_chunk_and_response_split_across_uart_reads) ... ok
+test_profile_accepts_maximum_count (test_pdm_soak.SoakTests.test_profile_accepts_maximum_count) ... ok
+test_profile_rejects_invalid_counts_without_io (test_pdm_soak.SoakTests.test_profile_rejects_invalid_counts_without_io) ... ok
+test_stale_live_ack_is_not_counted_as_a_fresh_response (test_pdm_soak.SoakTests.test_stale_live_ack_is_not_counted_as_a_fresh_response) ... ok
+test_cli_file_and_stdin_status_and_json (test_reset_oracle.ResetOracleTests.test_cli_file_and_stdin_status_and_json) ... ok
+test_corrupt_framing_is_not_ignored (test_reset_oracle.ResetOracleTests.test_corrupt_framing_is_not_ignored) ... ok
+test_cpu1_modes_check_only_the_act_bit (test_reset_oracle.ResetOracleTests.test_cpu1_modes_check_only_the_act_bit) ... ok
+test_healthy_transcript_and_snapshot (test_reset_oracle.ResetOracleTests.test_healthy_transcript_and_snapshot) ... ok
+test_missing_and_duplicate_required_records (test_reset_oracle.ResetOracleTests.test_missing_and_duplicate_required_records) ... ok
+test_other_value_mismatches (test_reset_oracle.ResetOracleTests.test_other_value_mismatches) ... ok
+test_out_of_order_records (test_reset_oracle.ResetOracleTests.test_out_of_order_records) ... ok
+test_reported_pdm_divider_fails_despite_other_matching_fields (test_reset_oracle.ResetOracleTests.test_reported_pdm_divider_fails_despite_other_matching_fields) ... ok
+test_single_digit_gcc_date_and_ready_without_line_ending (test_reset_oracle.ResetOracleTests.test_single_digit_gcc_date_and_ready_without_line_ending) ... ok
+test_wdt_diagnostic_and_crlf (test_reset_oracle.ResetOracleTests.test_wdt_diagnostic_and_crlf) ... ok
+test_type6_startup_voltage_transitions (test_startup_dvfs.StartupDvfsTests.test_type6_startup_voltage_transitions) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 4.310s
+
+OK

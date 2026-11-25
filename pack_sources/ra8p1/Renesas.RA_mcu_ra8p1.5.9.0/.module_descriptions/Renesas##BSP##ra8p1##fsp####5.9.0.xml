@@ -1314,6 +1314,8 @@
             #if (BSP_CFG_CPU_CORE == 0) &amp;&amp; (${config.bsp.fsp.secondary_core_start} != 0U)
                 #define BSP_CFG_SECONDARY_CORE_START_ADDRESS (${config.bsp.fsp.secondary_core_start})
             #endif
+            /* A disabled GPTCLK leaves the hardware on the reset oscillator unless GPT selects PCLKD. */
+            #define BSP_CFG_GPT_COUNT_CLOCK_SOURCE (BSP_CFG_GPTCLK_SOURCE == BSP_CLOCKS_CLOCK_DISABLED)
             #define BSP_CFG_MRPCLK_DIV BSP_CFG_FCLK_DIV
             #define BSP_CFG_CPUCLK0_DIV BSP_CFG_CPUCLK_DIV
             #define BSP_CFG_CPUCLK1_DIV BSP_CFG_EXTRACLK1_DIV

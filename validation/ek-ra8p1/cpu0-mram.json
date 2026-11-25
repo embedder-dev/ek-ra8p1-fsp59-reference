@@ -1,0 +1,14 @@
+{
+  "modules": [
+    {
+      "id": "module.driver.flash_on_mram",
+      "name": "g_bench_mram",
+      "properties": {
+        "write_start": "34076672",
+        "write_end": "34078720",
+        "timeout": "1000000",
+        "extra": "disabled"
+      }
+    }
+  ]
+}

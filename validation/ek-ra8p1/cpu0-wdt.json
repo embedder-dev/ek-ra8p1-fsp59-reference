@@ -1,0 +1,16 @@
+{
+  "modules": [
+    {
+      "id": "module.driver.watchdog_on_wdt",
+      "name": "g_bench_wdt",
+      "properties": {
+        "timeout": "4096",
+        "clock_division": "8192",
+        "window_start": "75",
+        "window_end": "25",
+        "reset_control": "reset",
+        "stop_control": "disable"
+      }
+    }
+  ]
+}

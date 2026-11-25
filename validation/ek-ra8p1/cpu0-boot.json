@@ -1,0 +1,6 @@
+{
+  "modules": [
+    {"id": "r_sci_b_uart", "name": "g_console", "properties": {"channel": "8", "baud": "115200", "callback": "console_callback", "rxi_ipl": "priority5", "txi_ipl": "priority5", "tei_ipl": "priority5", "eri_ipl": "priority5"}},
+    {"id": "r_gpt", "name": "g_marker", "properties": {"channel": "0", "period": "10", "unit": "unit_period_msec", "p_callback": "marker_callback", "ipl": "priority6"}}
+  ]
+}

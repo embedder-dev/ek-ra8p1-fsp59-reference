@@ -1,0 +1,28 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (7.8 s)
+applied <repo>/validation/ek-ra8p1/cpu0-boot.json to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+created g_console (module.driver.uart_on_sci_b_uart.477953318 — UART (r_sci_b_uart), channel 8)
+created g_marker (module.driver.timer_on_gpt.1868187052 — Timer, General PWM (r_gpt), channel 0)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.name: g_uart0 -> g_console (configuration.xml: g_console)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.channel: 0 -> 8 (configuration.xml: 8)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.baud: 115200 -> 115200 (configuration.xml: 115200)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.callback: NULL -> console_callback (configuration.xml: console_callback)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.rxi_ipl: board.icu.common.irq.priority12 -> board.icu.common.irq.priority5 (configuration.xml: board.icu.common.irq.priority5)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.txi_ipl: board.icu.common.irq.priority12 -> board.icu.common.irq.priority5 (configuration.xml: board.icu.common.irq.priority5)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.tei_ipl: board.icu.common.irq.priority12 -> board.icu.common.irq.priority5 (configuration.xml: board.icu.common.irq.priority5)
+  module.driver.uart_on_sci_b_uart.477953318 module.driver.uart.eri_ipl: board.icu.common.irq.priority12 -> board.icu.common.irq.priority5 (configuration.xml: board.icu.common.irq.priority5)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.name: g_timer0 -> g_marker (configuration.xml: g_marker)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.channel: 0 -> 0 (configuration.xml: 0)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.period: 0x10000 -> 10 (configuration.xml: 10)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.unit: module.driver.timer.unit.unit_period_raw_counts -> module.driver.timer.unit.unit_period_msec (configuration.xml: module.driver.timer.unit.unit_period_msec)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.p_callback: NULL -> marker_callback (configuration.xml: marker_callback)
+  module.driver.timer_on_gpt.1868187052 module.driver.timer.ipl: _disabled -> board.icu.common.irq.priority6 (configuration.xml: board.icu.common.irq.priority6)
+generated: ra_gen/hal_data.c defines g_console (uart_instance_t), g_console_ctrl, g_console_baud_setting, g_console_cfg_extend, g_console_cfg; ra_gen/hal_data.h declares g_console_ctrl, g_console_cfg_extend, g_console_cfg, g_console
+generated: ra_gen/hal_data.c defines g_marker (timer_instance_t), g_marker_ctrl, g_marker_pwm_extend, g_marker_extend, g_marker_cfg; ra_gen/hal_data.h declares g_marker_ctrl, g_marker_cfg, g_marker
+configuration.xml: saved; read back from the file: g_console (module.driver.uart_on_sci_b_uart.477953318, r_sci_b_uart, channel 8, baud 115200, callback console_callback, rxi_ipl board.icu.common.irq.priority5, txi_ipl board.icu.common.irq.priority5, tei_ipl board.icu.common.irq.priority5, eri_ipl board.icu.common.irq.priority5); g_marker (module.driver.timer_on_gpt.1868187052, r_gpt, channel 0, period 10, unit unit_period_msec, p_callback marker_callback, ipl board.icu.common.irq.priority6)
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h, ra_gen/hal_data.c (+RA_NOT_DEFINED (1)), ra_gen/hal_data.h, ra_gen/vector_data.c, ra_gen/vector_data.h (VECTOR_DATA_IRQ_COUNT (0) -> (5); +VECTOR_NUMBER_SCI8_RXI ((IRQn_Type) 0); +SCI8_RXI_IRQn ((IRQn_Type) 0); +VECTOR_NUMBER_SCI8_TXI ((IRQn_Type) 1); +SCI8_TXI_IRQn ((IRQn_Type) 1); +7 more)
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_gpt_cfg.h, ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_timer_api.h, ra/fsp/inc/api/r_transfer_api.h, ra/fsp/inc/api/r_uart_api.h, ra/fsp/inc/instances/r_gpt.h (+3 more)
+other files changed: src/hal_entry.c
+e2 bookkeeping, safe to ignore: changed: .secure_xml (+1 -0 lines), .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+4 -0 lines); new: ra_cfg.txt; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

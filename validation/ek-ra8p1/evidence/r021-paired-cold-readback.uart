@@ -1,0 +1,7 @@
+Operator confirmed complete power-off/on with no debug session. VCOM disconnected and re-enumerated. The startup banner was not captured over that VCOM transition. First command response before connecting the debugger:
+
+> clocks
+GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0080
+ACK clocks
+
+The later symbols-only check (no reset or load) confirmed the full clock readback and advancing Cortex-M33 DTCM counter; see cpu1-live-1795570212389980000.json.

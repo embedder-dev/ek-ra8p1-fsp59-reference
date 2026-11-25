@@ -1,0 +1,108 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: passed (the script's result line reported success)
+
+Summary: Application MRAM readback
+
+Data:
+{
+  "connection": {
+    "ok": true,
+    "server_type": "jlink",
+    "server_state": "running",
+    "client_state": "connected",
+    "server_ownership": "implicit"
+  },
+  "reset": {
+    "connected": true,
+    "core": 0,
+    "scope": "connection",
+    "halted": true,
+    "running": false,
+    "threads": [
+      {
+        "id": "1",
+        "target-id": "Thread 57005",
+        "frame": {
+          "level": "0",
+          "addr": "0x02002018",
+          "func": "Reset_Handler",
+          "args": [],
+          "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "line": "50",
+          "arch": "armv8.1-m.main"
+        },
+        "state": "stopped"
+      }
+    ],
+    "reset": "default",
+    "output": "Resetting target\r\n",
+    "ok": true,
+    "backend": "jlink"
+  },
+  "status": {
+    "connected": true,
+    "core": 0,
+    "scope": "connection",
+    "halted": true,
+    "running": false,
+    "threads": [
+      {
+        "id": "1",
+        "target-id": "Thread 57005",
+        "frame": {
+          "level": "0",
+          "addr": "0x02002018",
+          "func": "Reset_Handler",
+          "args": [],
+          "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+          "line": "50",
+          "arch": "armv8.1-m.main"
+        },
+        "state": "stopped"
+      }
+    ],
+    "ok": true,
+    "backend": "jlink"
+  },
+  "pc": "0x2002018 <Reset_Handler>",
+  "fault_registers": "0xe000ed28:\t0x00000000\t0x00000000\n",
+  "system_dividers": "0x4001e020:\t0x00000000\n",
+  "timer_clock": {
+    "source": "0x4001e05d:\t0x01\n",
+    "divider": "0x4001e05c:\t0x00\n",
+    "bypass": "0x40323f10:\t0x00000000\n",
+    "module_stop": "0x40203010:\t0xffffffff\n"
+  },
+  "readback": [
+    {
+      "section": ".text",
+      "lma": "0x2000000",
+      "length": 12880,
+      "sha256": "e49969f03b3fef50c5c49f850ece08be537e3133f6a672cb291a10cc0c801ba7",
+      "first_mismatch": null,
+      "match": true
+    },
+    {
+      "section": ".data",
+      "lma": "0x2003250",
+      "length": 96,
+      "sha256": "f9edd5abc33d238adbbb7ba7ec9f2e88f8b3437aeb2c87025c85acbef1444692",
+      "first_mismatch": null,
+      "match": true
+    }
+  ]
+}
+
+Success: yes
+
+Stdout:
+{"success": true, "summary": "Application MRAM readback", "data": {"connection": {"ok": true, "server_type": "jlink", "server_state": "running", "client_state": "connected", "server_ownership": "implicit"}, "reset": {"connected": true, "core": 0, "scope": "connection", "halted": true, "running": false, "threads": [{"id": "1", "target-id": "Thread 57005", "frame": {"level": "0", "addr": "0x02002018", "func": "Reset_Handler", "args": [], "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "line": "50", "arch": "armv8.1-m.main"}, "state": "stopped"}], "reset": "default", "output": "Resetting target\r\n", "ok": true, "backend": "jlink"}, "status": {"connected": true, "core": 0, "scope": "connection", "halted": true, "running": false, "threads": [{"id": "1", "target-id": "Thread 57005", "frame": {"level": "0", "addr": "0x02002018", "func": "Reset_Handler", "args": [], "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "fullname": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "line": "50", "arch": "armv8.1-m.main"}, "state": "stopped"}], "ok": true, "backend": "jlink"}, "pc": "0x2002018 <Reset_Handler>", "fault_registers": "0xe000ed28:\t0x00000000\t0x00000000\n", "system_dividers": "0x4001e020:\t0x00000000\n", "timer_clock": {"source": "0x4001e05d:\t0x01\n", "divider": "0x4001e05c:\t0x00\n", "bypass": "0x40323f10:\t0x00000000\n", "module_stop": "0x40203010:\t0xffffffff\n"}, "readback": [{"section": ".text", "lma": "0x2000000", "length": 12880, "sha256": "e49969f03b3fef50c5c49f850ece08be537e3133f6a672cb291a10cc0c801ba7", "first_mismatch": null, "match": true}, {"section": ".data", "lma": "0x2003250", "length": 96, "sha256": "f9edd5abc33d238adbbb7ba7ec9f2e88f8b3437aeb2c87025c85acbef1444692", "first_mismatch": null, "match": true}]}}

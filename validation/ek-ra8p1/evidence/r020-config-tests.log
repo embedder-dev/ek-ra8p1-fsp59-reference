@@ -1,0 +1,45 @@
+test_all_new_shared_constraints_bypass_legacy_without_target_values (test_ra8p1_review_config.ConfigMetadataReviewTests.test_all_new_shared_constraints_bypass_legacy_without_target_values) ... ERROR
+test_both_plls_keep_ids_but_compute_all_fractional_options_exactly (test_ra8p1_review_config.ConfigMetadataReviewTests.test_both_plls_keep_ids_but_compute_all_fractional_options_exactly) ... ok
+test_canfd_ratio_is_consumer_only (test_ra8p1_review_config.ConfigMetadataReviewTests.test_canfd_ratio_is_consumer_only) ... ok
+test_clock_only_constraints_have_no_unresolvable_model_references (test_ra8p1_review_config.ConfigMetadataReviewTests.test_clock_only_constraints_have_no_unresolvable_model_references) ... ok
+test_cpu1_dma_and_mmpu_composite_policy (test_ra8p1_review_config.ConfigMetadataReviewTests.test_cpu1_dma_and_mmpu_composite_policy) ... ok
+test_dedicated_clock_source_ceilings_are_before_division (test_ra8p1_review_config.ConfigMetadataReviewTests.test_dedicated_clock_source_ceilings_are_before_division) ... ok
+test_eight_dedicated_domains_include_high_dividers_with_real_macro_names (test_ra8p1_review_config.ConfigMetadataReviewTests.test_eight_dedicated_domains_include_high_dividers_with_real_macro_names) ... ok
+test_fractional_frequency_reaches_every_output_and_macro (test_ra8p1_review_config.ConfigMetadataReviewTests.test_fractional_frequency_reaches_every_output_and_macro) ... ok
+test_mram_ratio_five_and_enabled_gpt_strict_comparison (test_ra8p1_review_config.ConfigMetadataReviewTests.test_mram_ratio_five_and_enabled_gpt_strict_comparison) ... ok
+test_nmi_common_and_per_core_policy_bits_are_independent (test_ra8p1_review_config.ConfigMetadataReviewTests.test_nmi_common_and_per_core_policy_bits_are_independent) ... ok
+test_part_specific_pll1p_limit_and_low_vcc_bus_boundaries (test_ra8p1_review_config.ConfigMetadataReviewTests.test_part_specific_pll1p_limit_and_low_vcc_bus_boundaries) ... ok
+test_per_unit_dac_and_ospi_dotf_secure_attribution_formulas (test_ra8p1_review_config.ConfigMetadataReviewTests.test_per_unit_dac_and_ospi_dotf_secure_attribution_formulas) ... ok
+test_range_two_limits_and_default_range_one (test_ra8p1_review_config.ConfigMetadataReviewTests.test_range_two_limits_and_default_range_one) ... ok
+test_reject_every_nondefault_fsbl_option_and_all_address_provisioning (test_ra8p1_review_config.ConfigMetadataReviewTests.test_reject_every_nondefault_fsbl_option_and_all_address_provisioning) ... ok
+test_target_capabilities_and_corrected_channel_options (test_ra8p1_review_config.ConfigMetadataReviewTests.test_target_capabilities_and_corrected_channel_options) ... ok
+test_unsupported_provisioning_also_fails_generated_compile (test_ra8p1_review_config.ConfigMetadataReviewTests.test_unsupported_provisioning_also_fails_generated_compile) ... ok
+test_all_twenty_crc_selections_match_explicit_manual_addresses (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_all_twenty_crc_selections_match_explicit_manual_addresses) ... ok
+test_comparator_mask_and_enum_are_complete_with_original_default (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_comparator_mask_and_enum_are_complete_with_original_default) ... ok
+test_crc_existing_legal_ids_and_default_remain_unchanged (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_crc_existing_legal_ids_and_default_remain_unchanged) ... ok
+test_generic_comparator_provides_expose_exactly_four_channels (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_generic_comparator_provides_expose_exactly_four_channels) ... ok
+test_missing_crc_choices_have_exact_lower_fourteen_bit_codes (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_missing_crc_choices_have_exact_lower_fourteen_bit_codes) ... ok
+test_original_pvd_monitor_and_threshold_defaults_remain_valid (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_original_pvd_monitor_and_threshold_defaults_remain_valid) ... ok
+test_part_external_eligibility_is_not_promoted_from_generic_presence (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_part_external_eligibility_is_not_promoted_from_generic_presence) ... ok
+test_prohibited_pvd_codes_and_stale_ids_are_no_longer_selectable (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_prohibited_pvd_codes_and_stale_ids_are_no_longer_selectable) ... ok
+test_pvd_levels_keep_every_legal_id_and_exact_encoding_for_both_monitors (test_ra8p1_review_config_completeness.TargetConfigurationCompletenessTests.test_pvd_levels_keep_every_legal_id_and_exact_encoding_for_both_monitors) ... ok
+
+======================================================================
+ERROR: test_all_new_shared_constraints_bypass_legacy_without_target_values (test_ra8p1_review_config.ConfigMetadataReviewTests.test_all_new_shared_constraints_bypass_legacy_without_target_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo>/tools/test_ra8p1_review_config.py", line 325, in test_all_new_shared_constraints_bypass_legacy_without_target_values
+    hashlib.sha256(archive.read_bytes()).hexdigest())
+                   ~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<repo>/reference/vendor/FSP_Packs_v5.9.0.zip'
+
+----------------------------------------------------------------------
+Ran 25 tests in 5.893s
+
+FAILED (errors=1)

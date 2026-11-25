@@ -1,0 +1,216 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: passed (the script's result line reported success)
+
+Summary: Traced BSP startup checkpoints
+
+Data:
+{
+  "connection": {
+    "ok": true,
+    "server_type": "jlink",
+    "server_state": "running",
+    "client_state": "connected",
+    "server_ownership": "implicit"
+  },
+  "reset": "Resetting target\r\n",
+  "checkpoints": [
+    {
+      "wanted": "0x2001b7e",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 3781,
+          "frame": "bsp_prv_sosc_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3781)",
+          "functionName": "bsp_prv_sosc_init",
+          "address": "0x02001b7e",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "1"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x2",
+        "mosccr": "0x1",
+        "oscsf": "0x0"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bb2",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2977,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2977)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02001bb2",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "2"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x2",
+        "mosccr": "0x0",
+        "oscsf": "0x0"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bc6",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2987,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2987)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02001bc6",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "3"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x2",
+        "mosccr": "0x0",
+        "oscsf": "0x8"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bc8",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2988,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2988)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02001bc8",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "4"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x1",
+        "mosccr": "0x0",
+        "oscsf": "0x8"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bd4",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 3021,
+          "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3021)",
+          "functionName": "bsp_clock_init",
+          "address": "0x02001bd4",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "5"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x1",
+        "mosccr": "0x0",
+        "oscsf": "0x8"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    },
+    {
+      "wanted": "0x2001bee",
+      "stop": {
+        "ok": true,
+        "timed_out": false,
+        "event": {
+          "reason": "breakpoint-hit",
+          "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "line": 2035,
+          "frame": "bsp_prv_clock_set_hard_reset (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2035)",
+          "functionName": "bsp_prv_clock_set_hard_reset",
+          "address": "0x02001bee",
+          "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c",
+          "threadId": "1",
+          "stoppedThreads": "all",
+          "breakpointNumber": "6"
+        }
+      },
+      "state": {
+        "sckdivcr": "0x0",
+        "sckdivcr2": "0x0",
+        "sckscr": "0x1",
+        "prcr_s": "0x3",
+        "mrcfreq": "0xa",
+        "mrefreq": "0xa",
+        "vscr": "0x1",
+        "mosccr": "0x0",
+        "oscsf": "0x28"
+      },
+      "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"
+    }
+  ]
+}
+
+Success: yes
+
+Stdout:
+{"success": true, "summary": "Traced BSP startup checkpoints", "data": {"connection": {"ok": true, "server_type": "jlink", "server_state": "running", "client_state": "connected", "server_ownership": "implicit"}, "reset": "Resetting target\r\n", "checkpoints": [{"wanted": "0x2001b7e", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 3781, "frame": "bsp_prv_sosc_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3781)", "functionName": "bsp_prv_sosc_init", "address": "0x02001b7e", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "1"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x2", "mosccr": "0x1", "oscsf": "0x0"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bb2", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2977, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2977)", "functionName": "bsp_clock_init", "address": "0x02001bb2", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "2"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x2", "mosccr": "0x0", "oscsf": "0x0"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bc6", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2987, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2987)", "functionName": "bsp_clock_init", "address": "0x02001bc6", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "3"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x2", "mosccr": "0x0", "oscsf": "0x8"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bc8", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2988, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2988)", "functionName": "bsp_clock_init", "address": "0x02001bc8", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "4"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x1", "mosccr": "0x0", "oscsf": "0x8"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bd4", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 3021, "frame": "bsp_clock_init (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3021)", "functionName": "bsp_clock_init", "address": "0x02001bd4", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "5"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x1", "mosccr": "0x0", "oscsf": "0x8"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}, {"wanted": "0x2001bee", "stop": {"ok": true, "timed_out": false, "event": {"reason": "breakpoint-hit", "file": "../ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "line": 2035, "frame": "bsp_prv_clock_set_hard_reset (../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2035)", "functionName": "bsp_prv_clock_set_hard_reset", "address": "0x02001bee", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/mcu/all/bsp_clocks.c", "threadId": "1", "stoppedThreads": "all", "breakpointNumber": "6"}}, "state": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa", "vscr": "0x1", "mosccr": "0x0", "oscsf": "0x28"}, "faults": "0xe000ed28:\t0x00000000\t0x00000000\n"}]}}

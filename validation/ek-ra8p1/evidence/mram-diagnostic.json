@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "data": {
+    "phase": "diagnostic",
+    "connection": {
+      "ok": true,
+      "server_type": "jlink",
+      "server_state": "running",
+      "client_state": "connected",
+      "server_ownership": "implicit"
+    },
+    "cpu1actcsr": "0x0000",
+    "sas": "0xffffffff",
+    "cmsamon": "0x00ff8000",
+    "bps_sec7": "0xffffffff",
+    "pbps_sec1": "0xffffffff",
+    "mrcpc0": "0x0000",
+    "mrcpc1": "0x0000",
+    "mrcbprot0": "0x0000",
+    "mrcbprot1": "0x0000",
+    "mrcps": "0x20",
+    "ofs0": "0xffffffff",
+    "wdtsr": "0x0000",
+    "mre_zs": "0xfd",
+    "mastat": "0x00",
+    "mctrstatr": "0x00",
+    "mstatr": "0x00008000",
+    "mentryr": "0x0000",
+    "mrcraes": "0x00",
+    "mrceecc": "0x0000",
+    "mrcdecc": "0x0000",
+    "scratch_sha256": "901fa87c0bd4e28c48842332ba8b3b27411fa2aab3e64512cdb273abfd26aa59",
+    "scratch_nonblank_bytes": 1181
+  },
+  "summary": "MRAM diagnostic readback complete"
+}

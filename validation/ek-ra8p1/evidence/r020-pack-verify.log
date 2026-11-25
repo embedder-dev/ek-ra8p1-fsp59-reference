@@ -1,0 +1,6 @@
+ok packs verify (2.8 s)
+packs: FSP 5.9.0 candidate (37 pack(s) from manifest, the rest stock; journalled)
+packs (layer 1) vs manifest: 126 installed; 126 identical, 0 differ, 0 extra, 0 missing
+support files (layer 2): 2736 checked in 126 packs; 2667 match their pack, 20 in shared folders now hold another FSP version's copy (not checked), 49 e2 does not track (templates and similar; not checked)
+project sources (layer 3) ek_ra8p1_cpu0: 105 pack files checked; 105 match, 0 stale (unchanged since an older pack), 0 edited locally (kept), 0 missing
+verdict: all three layers match

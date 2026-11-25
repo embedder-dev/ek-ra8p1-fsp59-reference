@@ -1,0 +1,501 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: passed (the script's result line reported success)
+
+Skipped Providers (named by the script but not ready):
+Saleae Logic 2: No Saleae device detected via USB. Connect a Logic analyzer and retry.
+DSLogic: No DSLogic analyzer detected via USB.
+PicoScope: No PicoScope detected via USB. Connect the scope and retry.
+
+Summary: Four distinct DIO mappings passed at 20 ms ±1%
+
+Data:
+{
+  "device_id": "210415BE5124",
+  "uart_port": "/dev/cu.usbmodem0010808410141",
+  "uart_baud": 115200,
+  "requested_sample_rate_sps": 10000,
+  "requested_duration_s": 0.4,
+  "uart": [
+    {
+      "command": "idle",
+      "ack": "ACK idle"
+    },
+    {
+      "command": "m0",
+      "ack": "ACK m0"
+    },
+    {
+      "command": "m1",
+      "ack": "ACK m1"
+    },
+    {
+      "command": "m2",
+      "ack": "ACK m2"
+    },
+    {
+      "command": "m3",
+      "ack": "ACK m3"
+    },
+    {
+      "command": "idle",
+      "ack": "ACK idle"
+    }
+  ],
+  "captures": [
+    {
+      "command": "m0",
+      "pin": "P514",
+      "expected_period_ms": 20,
+      "expected_dio": null,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m0_P514/digital.csv"
+      ],
+      "errors": [],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        0
+      ],
+      "rising_edges": [
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 0,
+      "rising_sample_indices": [
+        77,
+        277,
+        477,
+        677,
+        877,
+        1077,
+        1277,
+        1477,
+        1677,
+        1877,
+        2077,
+        2277,
+        2477,
+        2677,
+        2877,
+        3077,
+        3277,
+        3477,
+        3677,
+        3877
+      ],
+      "mean_period_ms": 20,
+      "min_period_ms": 20,
+      "max_period_ms": 20,
+      "period_error_pct": 0,
+      "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m0_P514/analysis.json"
+    },
+    {
+      "command": "m1",
+      "pin": "P111",
+      "expected_period_ms": 20,
+      "expected_dio": null,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m1_P111/digital.csv"
+      ],
+      "errors": [],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        1
+      ],
+      "rising_edges": [
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 1,
+      "rising_sample_indices": [
+        29,
+        229,
+        429,
+        629,
+        829,
+        1029,
+        1229,
+        1429,
+        1629,
+        1829,
+        2029,
+        2229,
+        2429,
+        2629,
+        2829,
+        3029,
+        3229,
+        3429,
+        3629,
+        3829
+      ],
+      "mean_period_ms": 20,
+      "min_period_ms": 20,
+      "max_period_ms": 20,
+      "period_error_pct": 0,
+      "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m1_P111/analysis.json"
+    },
+    {
+      "command": "m2",
+      "pin": "P806",
+      "expected_period_ms": 20,
+      "expected_dio": null,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m2_P806/digital.csv"
+      ],
+      "errors": [],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        2
+      ],
+      "rising_edges": [
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 2,
+      "rising_sample_indices": [
+        31,
+        231,
+        431,
+        631,
+        831,
+        1031,
+        1231,
+        1431,
+        1631,
+        1831,
+        2031,
+        2231,
+        2431,
+        2631,
+        2831,
+        3031,
+        3231,
+        3431,
+        3631,
+        3831
+      ],
+      "mean_period_ms": 20,
+      "min_period_ms": 20,
+      "max_period_ms": 20,
+      "period_error_pct": 0,
+      "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m2_P806/analysis.json"
+    },
+    {
+      "command": "m3",
+      "pin": "P807",
+      "expected_period_ms": 20,
+      "expected_dio": null,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m3_P807/digital.csv"
+      ],
+      "errors": [],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        3
+      ],
+      "rising_edges": [
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 3,
+      "rising_sample_indices": [
+        148,
+        348,
+        548,
+        748,
+        948,
+        1148,
+        1348,
+        1548,
+        1748,
+        1948,
+        2148,
+        2348,
+        2548,
+        2748,
+        2948,
+        3148,
+        3348,
+        3548,
+        3748,
+        3948
+      ],
+      "mean_period_ms": 20,
+      "min_period_ms": 20,
+      "max_period_ms": 20,
+      "period_error_pct": 0,
+      "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m3_P807/analysis.json"
+    }
+  ],
+  "mapping": {
+    "P514": 0,
+    "P111": 1,
+    "P806": 2,
+    "P807": 3
+  },
+  "action": "mapping"
+}
+
+Published Captures:
+[
+  {
+    "captureId": "a61d1e118cba4345ad5b918578d66ea9",
+    "sessionId": "<session>",
+    "name": "Capture 16:03:27",
+    "createdAt": "2026-11-25T00:03:27.694Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D0",
+        "index": 0,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  },
+  {
+    "captureId": "3f323fa18fa14e32b91d21ef96cae29b",
+    "sessionId": "<session>",
+    "name": "Capture 16:03:29",
+    "createdAt": "2026-11-25T00:03:29.298Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D1",
+        "index": 1,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  },
+  {
+    "captureId": "828e03ffcd8d44daa8637c7b6fcfbdd5",
+    "sessionId": "<session>",
+    "name": "Capture 16:03:30",
+    "createdAt": "2026-11-25T00:03:30.910Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D2",
+        "index": 2,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  },
+  {
+    "captureId": "b99bbe1ed32f4eb8b25a933c7a4d304f",
+    "sessionId": "<session>",
+    "name": "Capture 16:03:32",
+    "createdAt": "2026-11-25T00:03:32.486Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D3",
+        "index": 3,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  }
+]
+
+Success: yes
+
+Stdout:
+Preparing waveform…
+Preparing waveform…
+Preparing waveform…
+Preparing waveform…
+{"success": true, "summary": "Four distinct DIO mappings passed at 20 ms \u00b11%", "data": {"device_id": "210415BE5124", "uart_port": "/dev/cu.usbmodem0010808410141", "uart_baud": 115200, "requested_sample_rate_sps": 10000, "requested_duration_s": 0.4, "uart": [{"command": "idle", "ack": "ACK idle"}, {"command": "m0", "ack": "ACK m0"}, {"command": "m1", "ack": "ACK m1"}, {"command": "m2", "ack": "ACK m2"}, {"command": "m3", "ack": "ACK m3"}, {"command": "idle", "ack": "ACK idle"}], "captures": [{"command": "m0", "pin": "P514", "expected_period_ms": 20, "expected_dio": null, "raw_csv_paths": ["<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m0_P514/digital.csv"], "errors": [], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [0], "rising_edges": [20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 0, "rising_sample_indices": [77, 277, 477, 677, 877, 1077, 1277, 1477, 1677, 1877, 2077, 2277, 2477, 2677, 2877, 3077, 3277, 3477, 3677, 3877], "mean_period_ms": 20.0, "min_period_ms": 20.0, "max_period_ms": 20.0, "period_error_pct": 0.0, "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m0_P514/analysis.json"}, {"command": "m1", "pin": "P111", "expected_period_ms": 20, "expected_dio": null, "raw_csv_paths": ["<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m1_P111/digital.csv"], "errors": [], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [1], "rising_edges": [0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 1, "rising_sample_indices": [29, 229, 429, 629, 829, 1029, 1229, 1429, 1629, 1829, 2029, 2229, 2429, 2629, 2829, 3029, 3229, 3429, 3629, 3829], "mean_period_ms": 20.0, "min_period_ms": 20.0, "max_period_ms": 20.0, "period_error_pct": 0.0, "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m1_P111/analysis.json"}, {"command": "m2", "pin": "P806", "expected_period_ms": 20, "expected_dio": null, "raw_csv_paths": ["<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m2_P806/digital.csv"], "errors": [], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [2], "rising_edges": [0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 2, "rising_sample_indices": [31, 231, 431, 631, 831, 1031, 1231, 1431, 1631, 1831, 2031, 2231, 2431, 2631, 2831, 3031, 3231, 3431, 3631, 3831], "mean_period_ms": 20.0, "min_period_ms": 20.0, "max_period_ms": 20.0, "period_error_pct": 0.0, "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m2_P806/analysis.json"}, {"command": "m3", "pin": "P807", "expected_period_ms": 20, "expected_dio": null, "raw_csv_paths": ["<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m3_P807/digital.csv"], "errors": [], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [3], "rising_edges": [0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 3, "rising_sample_indices": [148, 348, 548, 748, 948, 1148, 1348, 1548, 1748, 1948, 2148, 2348, 2548, 2748, 2948, 3148, 3348, 3548, 3748, 3948], "mean_period_ms": 20.0, "min_period_ms": 20.0, "max_period_ms": 20.0, "period_error_pct": 0.0, "analysis_path": "<tmp>/embedder_digilent_5xxvd6ui/ra8p1_m3_P807/analysis.json"}], "mapping": {"P514": 0, "P111": 1, "P806": 2, "P807": 3}, "action": "mapping"}}

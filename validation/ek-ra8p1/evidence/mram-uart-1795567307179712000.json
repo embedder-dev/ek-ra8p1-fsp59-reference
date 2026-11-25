@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "phase": "clean",
+    "uart": [
+      "MRAM CLEAN verified 2048 bytes of ff",
+      "ACK mram-clean"
+    ],
+    "transcript": "validation/ek-ra8p1/evidence/mram-uart-1795567307179712000.json"
+  },
+  "summary": "mram-clean confirmed by firmware"
+}

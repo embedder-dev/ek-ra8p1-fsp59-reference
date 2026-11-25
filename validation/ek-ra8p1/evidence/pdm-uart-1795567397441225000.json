@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "summary": "Two non-constant MIC1 captures, 2048 samples each, with no errors or overruns",
+  "data": {
+    "transcript": "validation/ek-ra8p1/evidence/pdm-uart-1795567397441225000.json",
+    "captures": [
+      [
+        "PDM preflight PCLKB=24000000 MCSTP=0 P812=1b010c00 P502=1b010c02",
+        "PDM capture samples=2048 complete=1 errors=0 overruns=0 flags=0x00000000 timeout=0",
+        "PDM PCM min=-931 max=1062 mean=228 mean_abs=273 clips=0",
+        "PDM PASS",
+        "ACK pdm"
+      ],
+      [
+        "PDM preflight PCLKB=24000000 MCSTP=0 P812=1b010c00 P502=1b010c02",
+        "PDM capture samples=2048 complete=1 errors=0 overruns=0 flags=0x00000000 timeout=0",
+        "PDM PCM min=-1635 max=628 mean=126 mean_abs=198 clips=0",
+        "PDM PASS",
+        "ACK pdm"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+test_bad_elf_identity_and_entry (test_image_guard.ElfAuditTests.test_bad_elf_identity_and_entry) ... ok
+test_cpu0_exclusive_end_and_forbidden_destinations (test_image_guard.ElfAuditTests.test_cpu0_exclusive_end_and_forbidden_destinations) ... ok
+test_cpu1_owns_its_mram_sram_and_tcm_mapping (test_image_guard.ElfAuditTests.test_cpu1_owns_its_mram_sram_and_tcm_mapping) ... ok
+test_option_names_and_addresses_cannot_masquerade (test_image_guard.ElfAuditTests.test_option_names_and_addresses_cannot_masquerade) ... ok
+test_option_table_matches_r019_gcc_linkers (test_image_guard.ElfAuditTests.test_option_table_matches_r019_gcc_linkers) ... ok
+test_rejects_uncovered_segment_padding_and_broken_mappings (test_image_guard.ElfAuditTests.test_rejects_uncovered_segment_padding_and_broken_mappings) ... ok
+test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits (test_image_guard.ElfAuditTests.test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits) ... ok
+test_accepts_equivalent_different_record_boundaries (test_image_guard.SrecordTests.test_accepts_equivalent_different_record_boundaries) ... ok
+test_cli_build_verify_hashes_and_rejects_tampering (test_image_guard.SrecordTests.test_cli_build_verify_hashes_and_rejects_tampering) ... ok
+test_rejects_checksums_count_format_and_termination (test_image_guard.SrecordTests.test_rejects_checksums_count_format_and_termination) ... ok
+test_rejects_scratch_other_core_and_option_records_before_equality (test_image_guard.SrecordTests.test_rejects_scratch_other_core_and_option_records_before_equality) ... ok
+test_rejects_valid_checksum_payload_omission_and_gap_changes (test_image_guard.SrecordTests.test_rejects_valid_checksum_payload_omission_and_gap_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.404s
+
+OK

@@ -1,0 +1,17 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (1.8 s)
+applied <repo>/validation/ek-ra8p1/cpu0-mram.json to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+created g_bench_mram (module.driver.flash_on_mram.208309123 — MRAM (r_mram))
+  bsp config.bsp.fsp.secondary_core_start: config.bsp.fsp.secondary_core_start.enabled -> config.bsp.fsp.secondary_core_start.disabled (configuration.xml: config.bsp.fsp.secondary_core_start.disabled)
+  module.driver.flash_on_mram.208309123 module.driver.mram.name: g_mram0 -> g_bench_mram (configuration.xml: g_bench_mram)
+  module.driver.flash_on_mram.208309123 module.driver.mram.write_start: 0 -> 34076672 (configuration.xml: 34076672)
+  module.driver.flash_on_mram.208309123 module.driver.mram.write_end: 0 -> 34078720 (configuration.xml: 34078720)
+  module.driver.flash_on_mram.208309123 module.driver.mram.timeout: 1000000 -> 1000000 (configuration.xml: 1000000)
+  module.driver.flash_on_mram.208309123 module.driver.mram.extra: module.driver.mram.extra.disabled -> module.driver.mram.extra.disabled (configuration.xml: module.driver.mram.extra.disabled)
+generated: ra_gen/hal_data.c defines g_bench_mram (flash_instance_t), g_bench_mram_ctrl, g_bench_mram_ext_cfg, g_bench_mram_cfg; ra_gen/hal_data.h declares g_bench_mram_ctrl, g_bench_mram_cfg, g_bench_mram
+configuration.xml: saved; read back from the file: g_bench_mram (module.driver.flash_on_mram.208309123, r_mram, write_start 34076672, write_end 34078720, timeout 1000000, extra disabled); bsp secondary_core_start config.bsp.fsp.secondary_core_start.disabled
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h (BSP_CFG_SECONDARY_CORE_START_ADDRESS (0x02080000U) -> (0U)), ra_gen/hal_data.c, ra_gen/hal_data.h
+new, generated from configuration.xml: ra_cfg/fsp_cfg/r_mram_cfg.h
+new FSP sources from packs: ra/fsp/inc/api/r_flash_api.h, ra/fsp/inc/instances/r_mram.h, ra/fsp/src/r_mram/r_mram.c
+e2 bookkeeping, safe to ignore: changed: .settings/com.renesas.cdt.ddsc.packs.componentfiles.prefs (+2 -0 lines), ra_cfg.txt (+13 -1 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml, .settings/com.renesas.cdt.ddsc.contentgen.options.prefs
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

@@ -1,0 +1,31 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (3.7 s)
+applied the given settings to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+  bsp config.bsp.fsp.secondary_core_start: config.bsp.fsp.secondary_core_start.enabled -> config.bsp.fsp.secondary_core_start.disabled (configuration.xml: config.bsp.fsp.secondary_core_start.disabled)
+configuration.xml: saved; read back from the file: bsp secondary_core_start config.bsp.fsp.secondary_core_start.disabled
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h (BSP_CFG_SECONDARY_CORE_START_ADDRESS (0x02080000U) -> (0U))
+e2 bookkeeping, safe to ignore: changed: ra_cfg.txt (+1 -1 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0
+                #define BSP_CFG_SECONDARY_CORE_START_ADDRESS (0U)
+ok build validation/ek-ra8p1/ek_ra8p1_cpu0 (7.3 s)
+verified: yes — <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf (0 errors, 4 warnings, relinked now, Debug)
+artifacts (stat from disk): ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf 809508 B 17:15:45, .srec 70264 B 17:15:45, .map 189359 B 17:15:45, .sbd 5494 B 17:15:46
+clean: ok, 0 errors, 0 warnings (275ms)
+full: ok, 0 errors, 4 warnings (3s.404ms)
+  ../src/bench_cgc.c:37: warning: function returns an aggregate [-Waggregate-return]
+  ../src/bench_cgc.c:133: warning: function call has aggregate value [-Waggregate-return]
+  ../src/bench_cgc.c:169: warning: function call has aggregate value [-Waggregate-return]
+configuration.xml: unchanged
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+log: <e2-state>/state/8ea8a593/logs/1795569340133-ek_ra8p1_cpu0-full.log
+packs: FSP 5.9.0 candidate (37 pack(s) from install 56d1ab, install aa9cff, the rest stock; journalled)
+warning: ek_ra8p1_cpu0.sbd (rewritten 17:15:46) is now newer than ek_ra8p1_cpu1.elf (17:14:50); run embedder e2 build ./validation/ek-ra8p1/ek_ra8p1_cpu1
+ok problems validation/ek-ra8p1/ek_ra8p1_cpu0 (956 ms)
+configurator problems: 0 (build already verified)
+ok packs verify (6.8 s)
+packs: FSP 5.9.0 candidate (37 pack(s) from manifest, the rest stock; journalled)
+packs (layer 1) vs manifest: 126 installed; 126 identical, 0 differ, 0 extra, 0 missing
+support files (layer 2): 2736 checked in 126 packs; 2667 match their pack, 20 in shared folders now hold another FSP version's copy (not checked), 49 e2 does not track (templates and similar; not checked)
+project sources (layer 3) ek_ra8p1_cpu0: 114 pack files checked; 114 match, 0 stale (unchanged since an older pack), 0 edited locally (kept), 0 missing
+verdict: all three layers match
+{"core":"cpu0","permitted_range":["0x02000000","0x0207f800"],"entry":"0x020040c1","elf_sha256":"8e2da928e18cb32150f7e4ac0a69fb858d2f3ea19d7c246ff40e2e91ba1a22f7","srec_sha256":"0d1a829f750cf599981562182b41ad584d1725b37e4d1abb59d3c56c580c81ab","byte_count":23348,"ranges":[["0x02000000","0x02005b34"]],"sections":[{"name":".text","vma":"0x02000000","lma":"0x02000000","size":23252},{"name":".data","vma":"0x22000000","lma":"0x02005ad4","size":96}],"excluded_options":[{"name":".option_setting_ofs0","lma":"0x02c9f040","size":4,"sha256":"ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e"},{"name":".option_setting_ofs2","lma":"0x02c9f044","size":4,"sha256":"769831b65931fb02f356645cef4b5a15fd64a0b886689d48e0161964ca1a18dc"},{"name":".option_setting_ofs1_sec","lma":"0x02c9f0c0","size":4,"sha256":"0bb1e1322a1ae02761b81c8d67d7b50ae18421c20bc9b5df51a117cd79aa9c60"},{"name":".option_setting_ofs3_sec","lma":"0x02c9f0c4","size":4,"sha256":"0b233052a368dc19aabbb245db294be92befd8589334d9a8d1b0404cfd66fc38"},{"name":".option_setting_ofs1_sel","lma":"0x02c9f120","size":4,"sha256":"df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"},{"name":".option_setting_ofs3_sel","lma":"0x02c9f124","size":4,"sha256":"df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"}]}

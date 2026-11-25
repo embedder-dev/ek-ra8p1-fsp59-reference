@@ -1,0 +1,29 @@
+error project create r021_legacy_ra8m1 (887 ms): E2_TOOLCHAIN_MISSING
+toolchain GNU ARM Embedded 13.2.1 is not installed in this e2 studio
+hint: Installed toolchains: GNU ARM Embedded 13.2.1.arm-13-7; LLVM Embedded Toolchain for Arm 21.1.1. Pass --toolchain <family> and --toolchain-version <version> from this list.
+ok project create r021_legacy_ra8m1 (7.3 s)
+created r021_legacy_ra8m1 at <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra8m1
+location: <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra8m1 (--location <e2-state>/sandbox/board-cKsbwV/projects is a parent folder)
+verified: yes — <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra8m1/Debug/r021_legacy_ra8m1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r021_legacy_ra8m1/Debug/r021_legacy_ra8m1.elf 233800 B 17:37:47, .srec 11720 B 17:37:47, .map 140394 B 17:37:47, .sbd 7613 B 17:37:47
+read back from configuration.xml/.cproject/.launch: board board.ra8m1ek (EK-RA8M1), device R7FA8M1AHECBD (cortex-m85), core CM85, fsp 5.9.0, toolchain GNU ARM 13.2.1.arm-13-7 (gcc-arm-embedded), rtos No RTOS, debugger SEGGERJLINKARM target R7FA8M1AH (r021_legacy_ra8m1 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits), toolchain GNU ARM Embedded 13.2.1.arm-13-7 (given)
+content generated in 4.4 s (no separate generate needed)
+build: full: ok, 0 errors, 0 warnings (903ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-state>/sandbox/board-cKsbwV/e2home/state/fcb1a53a/logs/1795570665607-r021_legacy_ra8m1-full.log
+packs: FSP 5.9.0 126 packs, origin unknown (no stock archive registered: embedder e2 packs stock add <FSP_Packs zip>)
+ok project create r021_legacy_ra6m5 (5.5 s)
+created r021_legacy_ra6m5 at <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra6m5
+location: <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra6m5 (--location <e2-state>/sandbox/board-cKsbwV/projects is a parent folder)
+verified: yes — <e2-state>/sandbox/board-cKsbwV/projects/r021_legacy_ra6m5/Debug/r021_legacy_ra6m5.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r021_legacy_ra6m5/Debug/r021_legacy_ra6m5.elf 192184 B 17:37:53, .srec 9176 B 17:37:53, .map 134084 B 17:37:53, .sbd 7952 B 17:37:53
+read back from configuration.xml/.cproject/.launch: board board.ra6m5ek (EK-RA6M5), device R7FA6M5BH3CFC (cortex-m33), core CM33, fsp 5.9.0, toolchain GNU ARM 13.2.1.arm-13-7 (gcc-arm-embedded), rtos No RTOS, debugger SEGGERJLINKARM target R7FA6M5BH (r021_legacy_ra6m5 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits), toolchain GNU ARM Embedded 13.2.1.arm-13-7 (given)
+content generated in 3.5 s (no separate generate needed)
+build: full: ok, 0 errors, 0 warnings (519ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-state>/sandbox/board-cKsbwV/e2home/state/fcb1a53a/logs/1795570672223-r021_legacy_ra6m5-full.log
+packs: FSP 5.9.0 126 packs, origin unknown (no stock archive registered: embedder e2 packs stock add <FSP_Packs zip>)

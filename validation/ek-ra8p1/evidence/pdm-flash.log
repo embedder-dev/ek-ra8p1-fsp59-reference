@@ -1,0 +1,152 @@
+SEGGER J-Link Commander V9.42 (Compiled May  6 2026 12:32:34)
+DLL version V9.42, compiled May  6 2026 12:31:31
+
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>ExitOnError 1
+J-Link Commander will now exit on Error
+J-Link>IsHalted
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...O.K.
+Firmware: J-Link OB-RA4M2 compiled May  6 2026 16:18:23
+Hardware version: V1.00
+J-Link uptime (since boot): 0d 00h 01m 25s
+S/N: 1080841014
+USB speed mode: Full speed (12 MBit/s)
+VTref=3.300V
+Target connection not established yet but required for command.
+Device "R7KA8P1KF_CPU0" selected.
+
+
+Connecting to target via SWD
+ConfigTargetSettings() start
+Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+ConfigTargetSettings() end - Took 583us
+InitTarget() start
+Identifying target device...
+SWD selected. Executing JTAG -> SWD switching sequence...
+Initializing DAP...
+DAP initialized successfully.
+Determining TrustZone configuration...
+  Secure Debug: Enabled (SSD)
+Determining currently configured transfer type by reading the AHB-AP CSW register.
+  --> Correct transfer type configured. Done.
+Primary CPU:   CPU0 (CM85), OFS bit=0x00000001
+Secondary CPU: CPU1 (CM33)
+Note: Detected primary CPU is based on the 'Device Configuration Information Register for Debug' register. Verify register value if primary/secondary is unexpected (https://kb.segger.com/Renesas_RA8).
+InitTarget() end - Took 4.77ms
+Found SW-DP with ID 0x6BA02477
+DPIDR: 0x6BA02477
+CoreSight SoC-400 or earlier
+AP map detection skipped. Manually configured AP map found.
+AP[0]: AHB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[1]: APB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[2]: AHB-AP (IDR: Not set, ADDR: 0x00000000)
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FE000
+CPUID register: 0x411FD231. Implementer code: 0x41 (ARM)
+Feature set: Mainline
+Cache: L1 I/D-cache present
+Found Cortex-M85 r1p1, Little endian.
+FPUnit: 8 code (BP) slots and 0 literal slots
+Security extension: implemented
+Secure debug: enabled
+PACBTI extension: implemented
+CoreSight components:
+ROMTbl[0] @ E00FE000
+[0][0]: E00FF000 CID B105100D PID 000BB4D4 ROM Table
+ROMTbl[1] @ E00FF000
+[1][0]: E000E000 CID B105900D PID 000BBD23 DEVARCH 47702A04 DEVTYPE 00 ???
+[1][1]: E0001000 CID B105900D PID 000BBD23 DEVARCH 47711A02 DEVTYPE 00 DWT
+[1][2]: E0002000 CID B105900D PID 000BBD23 DEVARCH 47701A03 DEVTYPE 00 FPB
+[1][3]: E0000000 CID B105900D PID 000BBD23 DEVARCH 47701A01 DEVTYPE 43 ITM
+[1][5]: E0041000 CID B105900D PID 004BBD23 DEVARCH 47754A13 DEVTYPE 13 ETM
+[1][6]: E0003000 CID B105900D PID 000BBD23 DEVARCH 47700A06 DEVTYPE 16 ???
+[1][7]: E0042000 CID B105900D PID 000BBD23 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+[0][1]: E0040000 CID 05900D00 PID 0BBD23B1 ???
+I-Cache L1: 16 KB, 256 Sets, 32 Bytes/Line, 2-Way
+D-Cache L1: 16 KB, 128 Sets, 32 Bytes/Line, 4-Way
+Memory zones:
+  Zone: "Default" Description: Default access mode
+Cortex-M85 identified.
+CPU is not halted.
+J-Link>r
+Reset delay: 0 ms
+ResetTarget() start
+Reset: ARMv8M core with Security Extension enabled detected. Switch to secure domain.
+Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Reset: Reset device via AIRCR.SYSRESETREQ.
+ResetTarget() end - Took 57.6ms
+Device specific reset executed.
+J-Link>h
+PC = 02003678, CycleCnt = 00000000
+R0 = 00000000, R1 = 00000000, R2 = 00000000, R3 = 00000000
+R4 = 00000000, R5 = 00000000, R6 = 00000000, R7 = 00000000
+R8 = 00000000, R9 = 00000000, R10= 00000000, R11= 00000000
+R12= 00000000
+SP(R13)= 22001318, MSP= 22001318, PSP= 00000000, R14(LR) = FFFFFFFF
+XPSR = 01000000: APSR = nzcvq, EPSR = 01000000, IPSR = 000 (NoException)
+CFBP = 00000000, CONTROL = 00, FAULTMASK = 00, BASEPRI = 00, PRIMASK = 00
+
+FPS0 = 00000000, FPS1 = 00000000, FPS2 = 00000000, FPS3 = 00000000
+FPS4 = 00000000, FPS5 = 00000000, FPS6 = 00000000, FPS7 = 00000000
+FPS8 = 00000000, FPS9 = 00000000, FPS10= 00000000, FPS11= 00000000
+FPS12= 00000000, FPS13= 00000000, FPS14= 00000000, FPS15= 00000000
+FPS16= 00000000, FPS17= 00000000, FPS18= 00000000, FPS19= 00000000
+FPS20= 00000000, FPS21= 00000000, FPS22= 00000000, FPS23= 00000000
+FPS24= 00000000, FPS25= 00000000, FPS26= 00000000, FPS27= 00000000
+FPS28= 00000000, FPS29= 00000000, FPS30= 00000000, FPS31= 00000000
+FPSCR= 00040000
+J-Link>IsHalted
+CPU is halted (PC = 0x02003678).
+J-Link>mem32 0xE000EDF0 1
+E000EDF0 = 00130003 
+J-Link>mem16 0x4000F064 1
+4000F064 = 0000 
+J-Link>SaveBin validation/ek-ra8p1/evidence/pdm-scratch-before.bin 0x0207F800 0x800
+Opening binary file for writing... [validation/ek-ra8p1/evidence/pdm-scratch-before.bin]
+Reading 2048 bytes from addr 0x0207F800 into file...O.K.
+J-Link>mem32 0x02C9F040 2
+02C9F040 = FFFFFFFF FFFFFFEF 
+J-Link>mem32 0x02C9F0C0 2
+02C9F0C0 = FDFFFFFF FFFFFFFF 
+J-Link>mem32 0x02C9F120 2
+02C9F120 = 00000000 00000000 
+J-Link>exec SetFlashDLNoRMWThreshold = 0xFFFFFFFF
+J-Link>LoadFile validation/ek-ra8p1/evidence/cpu0-pdm-safe.srec 0 noreset
+'loadfile': Skipping reset & halt of MCU before download.
+Downloading file [validation/ek-ra8p1/evidence/cpu0-pdm-safe.srec]...
+Comparing flash   [000%]000%]050%]050%]100%] Done.
+Erasing flash     [000%]000%]100%] Done.
+Programming flash [000%]000%]005%]005%]015%]015%]025%]025%]030%]030%]040%]040%]050%]050%]055%]055%]065%]065%]075%]075%]080%]080%]090%]090%]100%] Done.
+Verifying flash   [000%]000%]100%] Done.
+J-Link: Flash download: Bank 0 @ 0x02000000: 1 range affected (24576 bytes)
+J-Link: Flash download: Total: 0.903s (Prepare: 0.233s, Compare: 0.027s, Erase: 0.045s, Program: 0.454s, Verify: 0.010s, Restore: 0.132s)
+J-Link: Flash download: Program & Verify speed: 51 KB/s
+O.K.
+J-Link>SaveBin validation/ek-ra8p1/evidence/pdm-scratch-after.bin 0x0207F800 0x800
+Opening binary file for writing... [validation/ek-ra8p1/evidence/pdm-scratch-after.bin]
+Reading 2048 bytes from addr 0x0207F800 into file...O.K.
+J-Link>mem32 0x02C9F040 2
+02C9F040 = FFFFFFFF FFFFFFEF 
+J-Link>mem32 0x02C9F0C0 2
+02C9F0C0 = FDFFFFFF FFFFFFFF 
+J-Link>mem32 0x02C9F120 2
+02C9F120 = 00000000 00000000 
+J-Link>r
+Reset delay: 0 ms
+ResetTarget() start
+Reset: ARMv8M core with Security Extension enabled detected. Switch to secure domain.
+Reset: Halt core after reset via DEMCR.VC_CORERESET.
+Reset: Reset device via AIRCR.SYSRESETREQ.
+ResetTarget() end - Took 60.4ms
+Device specific reset executed.
+J-Link>IsHalted
+CPU is halted (PC = 0x02003F68).
+J-Link>g
+Memory map 'after startup completion point' is active
+J-Link>q
+
+Script processing completed.
+

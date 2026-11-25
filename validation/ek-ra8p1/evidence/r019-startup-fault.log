@@ -1,0 +1,62 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: failed (the script's result line reported failure)
+
+Summary: CPU0 did not stop at clock set entry
+
+Data:
+{
+  "connection": {
+    "ok": true,
+    "server_type": "jlink",
+    "server_state": "running",
+    "client_state": "connected",
+    "server_ownership": "implicit"
+  },
+  "reset": "Resetting target\r\n",
+  "entry_event": {
+    "ok": true,
+    "timed_out": false,
+    "event": {
+      "reason": "signal-received",
+      "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+      "line": 70,
+      "frame": "Default_Handler (../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70)",
+      "functionName": "Default_Handler",
+      "address": "0x02002014",
+      "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c",
+      "signalName": "SIGTRAP",
+      "signalMeaning": "Trace/breakpoint trap",
+      "threadId": "1",
+      "stoppedThreads": "all"
+    }
+  },
+  "first_stop": {
+    "sckdivcr": "0x0",
+    "sckdivcr2": "0x0",
+    "sckscr": "0x1",
+    "prcr_s": "0x3",
+    "mrcfreq": "0xa",
+    "mrefreq": "0xa"
+  },
+  "first_registers": {
+    "pc": "0x2002014",
+    "lr": "-0x23",
+    "xpsr": "0x16777219",
+    "sp": "0x22000650"
+  },
+  "faults": "0xe000ed28:\t0x00000400\t0x40000000\t0x00000002\t0x00000000\n0xe000ed38:\t0x00000000\t0x00000048\n",
+  "stack_words": "0x22000650 <g_main_stack+864>:\t0x80000000\t0x10000000\t0x3c00f895\t0x00000001\n0x22000660 <g_main_stack+880>:\t0x00000000\t0x02001cfb\t0x02001bde\t0x81100000\n0x22000670 <g_main_stack+896>:\t0x220000c8\t0x020003e1\t0x00000003\t0x00000000\n0x22000680 <g_main_stack+912>:\t0x204b4341\t0x636f6c63\t0x0a0d736b\t0x02006900\n",
+  "backtrace": "#0  Default_Handler () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70\n#1  <signal handler called>\n#2  0x02001bde in bsp_prv_clock_set_hard_reset () at ../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2035\n#3  bsp_clock_init () at ../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3078\n#4  0x020020ae in SystemInit () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c:399\n#5  0x0200201e in Reset_Handler () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:50\n"
+}
+
+Success: no
+
+Stdout:
+{"success": false, "summary": "CPU0 did not stop at clock set entry", "data": {"connection": {"ok": true, "server_type": "jlink", "server_state": "running", "client_state": "connected", "server_ownership": "implicit"}, "reset": "Resetting target\r\n", "entry_event": {"ok": true, "timed_out": false, "event": {"reason": "signal-received", "file": "../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "line": 70, "frame": "Default_Handler (../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70)", "functionName": "Default_Handler", "address": "0x02002014", "fullPath": "<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c", "signalName": "SIGTRAP", "signalMeaning": "Trace/breakpoint trap", "threadId": "1", "stoppedThreads": "all"}}, "first_stop": {"sckdivcr": "0x0", "sckdivcr2": "0x0", "sckscr": "0x1", "prcr_s": "0x3", "mrcfreq": "0xa", "mrefreq": "0xa"}, "first_registers": {"pc": "0x2002014", "lr": "-0x23", "xpsr": "0x16777219", "sp": "0x22000650"}, "faults": "0xe000ed28:\t0x00000400\t0x40000000\t0x00000002\t0x00000000\n0xe000ed38:\t0x00000000\t0x00000048\n", "stack_words": "0x22000650 <g_main_stack+864>:\t0x80000000\t0x10000000\t0x3c00f895\t0x00000001\n0x22000660 <g_main_stack+880>:\t0x00000000\t0x02001cfb\t0x02001bde\t0x81100000\n0x22000670 <g_main_stack+896>:\t0x220000c8\t0x020003e1\t0x00000003\t0x00000000\n0x22000680 <g_main_stack+912>:\t0x204b4341\t0x636f6c63\t0x0a0d736b\t0x02006900\n", "backtrace": "#0  Default_Handler () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:70\n#1  <signal handler called>\n#2  0x02001bde in bsp_prv_clock_set_hard_reset () at ../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:2035\n#3  bsp_clock_init () at ../ra/fsp/src/bsp/mcu/all/bsp_clocks.c:3078\n#4  0x020020ae in SystemInit () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c:399\n#5  0x0200201e in Reset_Handler () at ../ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c:50\n"}}

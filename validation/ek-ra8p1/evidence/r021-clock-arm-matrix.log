@@ -1,0 +1,4 @@
+CPU0 checks=0: compiled production bsp_clocks.c using arm-none-eabi-gcc, no warnings
+CPU0 checks=1: compiled production bsp_clocks.c using arm-none-eabi-gcc, no warnings
+CPU1 checks=0: compiled production bsp_clocks.c using arm-none-eabi-gcc, no warnings
+CPU1 checks=1: compiled production bsp_clocks.c using arm-none-eabi-gcc, no warnings

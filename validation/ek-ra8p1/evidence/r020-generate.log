@@ -1,0 +1,7 @@
+ok generate validation/ek-ra8p1/ek_ra8p1_cpu0 (3.6 s)
+generated project content for ek_ra8p1_cpu0 (<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0)
+configuration.xml: unchanged
+stale checked-in generated files regenerated from configuration.xml (expected; do not edit them): ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h (+BSP_CFG_GPT_COUNT_CLOCK_SOURCE (BSP_CFG_GPTCLK_SOURCE == BSP_CLOCKS_CLOCK_DISABLED))
+e2 bookkeeping, safe to ignore: rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

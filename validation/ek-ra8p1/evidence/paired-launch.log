@@ -1,0 +1,31 @@
+ok launch-info validation/ek-ra8p1/ek_ra8p1_cpu1 (6 ms)
+ek_ra8p1_cpu0 + ek_ra8p1_cpu1 (CPU0/CPU1 pair) at <repo>/validation/ek-ra8p1
+launch: ek_ra8p1_cpu1 Debug_Multicore Launch Group.launch runs ek_ra8p1_cpu1 Debug_Multicore then ek_ra8p1_cpu1 Debug_Attach
+probe: SEGGER J-Link, interface SWD, speed 4000 kHz, select USB (the first J-Link found)
+device: R7KA8P1KF_CPU0 (connect and load), R7KA8P1KF_CPU1 (debug ek_ra8p1_cpu1, attach)
+load 1: ek_ra8p1_cpu0 <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf (built 2026-11-25T00:26:30.136Z) entry 0x02003679
+  0x02000000-0x020051a3 20.4 KB  FLASH            .text
+  0x020051a4-0x02005203 96 B     FLASH            .data
+  0x02c9f040-0x02c9f043 4 B      OPTION_SETTING   .option_setting_ofs0
+  0x02c9f044-0x02c9f047 4 B      OPTION_SETTING   .option_setting_ofs2
+  0x02c9f0c0-0x02c9f0c3 4 B      OPTION_SETTING   .option_setting_ofs1_sec
+  0x02c9f0c4-0x02c9f0c7 4 B      OPTION_SETTING   .option_setting_ofs3_sec
+  0x02c9f120-0x02c9f123 4 B      OPTION_SETTING   .option_setting_ofs1_sel
+  0x02c9f124-0x02c9f127 4 B      OPTION_SETTING   .option_setting_ofs3_sel
+load 2: ek_ra8p1_cpu1 <repo>/validation/ek-ra8p1/ek_ra8p1_cpu1/Debug/ek_ra8p1_cpu1.elf (built 2026-11-25T00:26:46.714Z) entry 0x02080699
+  0x02080000-0x020808b7 2.2 KB   FLASH_CPU1       .text
+  0x020808b8-0x020808bf 8 B      FLASH_CPU1       .data
+pair order: ek_ra8p1_cpu0.elf then ek_ra8p1_cpu1.elf through R7KA8P1KF_CPU0, then reset and run (e2 does the same: CPU0 starts CPU1)
+option memory: 6 option-setting section(s); loading these images programs them:
+  .option_setting_ofs0 0x02c9f040 4 B (OPTION_SETTING): all 0xFF (erased value)
+  .option_setting_ofs2 0x02c9f044 4 B (OPTION_SETTING): set words 0x02c9f044=0xffffffef
+  .option_setting_ofs1_sec 0x02c9f0c0 4 B (OPTION_SETTING): set words 0x02c9f0c0=0xfdffffff
+  .option_setting_ofs3_sec 0x02c9f0c4 4 B (OPTION_SETTING): set words 0x02c9f0c4=0x5ffe0000
+  .option_setting_ofs1_sel 0x02c9f120 4 B (OPTION_SETTING): set words 0x02c9f120=0x00000000
+  .option_setting_ofs3_sel 0x02c9f124 4 B (OPTION_SETTING): set words 0x02c9f124=0x00000000
+  --emit refuses them without --allow-option-memory; gdb.jlink_connect and gdb.load_file program them too. Show the values to the user and get consent first: wrong OFS, security or ID-code settings can lock the device.
+J-Link software: SEGGER J-Link V9.42 at /Applications/SEGGER/JLink_V942 (JLinkExe, JLinkGDBServer); e2's bundled library Segger_v9.42.0, Segger_v9.64.0 (library only: no JLinkExe or GDB server)
+next (flash tool): embedder e2 launch-info ./validation/ek-ra8p1/ek_ra8p1_cpu1 --pair --emit jlink --allow-option-memory (after consent), then pass the printed command to the flash tool
+next (gdb_start_server): device "R7KA8P1KF_CPU0", interface "SWD", force_backend "jlink" (the tool runs at 4000 kHz)
+next (hardware_script_run): gdb.jlink_connect(device="R7KA8P1KF_CPU0", elf="<repo>/validation/ek-ra8p1/ek_ra8p1_cpu0/Debug/ek_ra8p1_cpu0.elf", interface="SWD"); gdb.load_file("<repo>/validation/ek-ra8p1/ek_ra8p1_cpu1/Debug/ek_ra8p1_cpu1.elf") (loads = programs the image; also programs option memory: user consent first)
+next (hardware_script_run): gdb.jlink_connect(device="R7KA8P1KF_CPU1", elf="<repo>/validation/ek-ra8p1/ek_ra8p1_cpu1/Debug/ek_ra8p1_cpu1.elf", interface="SWD", attach=True) (symbols only, no load)

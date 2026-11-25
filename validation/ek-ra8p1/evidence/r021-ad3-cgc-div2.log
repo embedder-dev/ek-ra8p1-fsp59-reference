@@ -1,0 +1,150 @@
+Hardware Script Result
+
+Providers: serial, itm, rtt, gdb, digilent, xmos
+
+Exit Code: 0
+
+Timed Out: no
+
+Outcome: passed (the script's result line reported success)
+
+Skipped Providers (named by the script but not ready):
+Saleae Logic 2: No Saleae device detected via USB. Connect a Logic analyzer and retry.
+DSLogic: No DSLogic analyzer detected via USB.
+PicoScope: No PicoScope detected via USB. Connect the scope and retry.
+
+Summary: P514/DIO0: 40.0000 ms (expected 40 ms ±1%)
+
+Data:
+{
+  "device_id": "210415BE5124",
+  "uart_port": "/dev/cu.usbmodem0010808410141",
+  "uart_baud": 115200,
+  "requested_sample_rate_sps": 10000,
+  "requested_duration_s": 0.4,
+  "uart": [
+    {
+      "command": "m0",
+      "ack": "ACK m0"
+    },
+    {
+      "command": "c1",
+      "ack": "ACK c1"
+    },
+    {
+      "command": "idle",
+      "ack": "ACK idle"
+    }
+  ],
+  "captures": [
+    {
+      "command": "c1",
+      "pin": "P514",
+      "expected_period_ms": 40,
+      "expected_dio": 0,
+      "raw_csv_paths": [
+        "<tmp>/embedder_digilent_90i2wjeq/ra8p1_c1_P514/digital.csv"
+      ],
+      "errors": [],
+      "sample_rate_sps": 10000,
+      "sample_count": 4000,
+      "duration_s": 0.4,
+      "lost_samples": null,
+      "corrupted_samples": null,
+      "moving_dio": [
+        0
+      ],
+      "rising_edges": [
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "falling_edges": [
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dio": 0,
+      "rising_sample_indices": [
+        292,
+        692,
+        1092,
+        1492,
+        1892,
+        2292,
+        2692,
+        3092,
+        3492,
+        3892
+      ],
+      "mean_period_ms": 40,
+      "min_period_ms": 40,
+      "max_period_ms": 40,
+      "period_error_pct": 0,
+      "analysis_path": "<tmp>/embedder_digilent_90i2wjeq/ra8p1_c1_P514/analysis.json"
+    }
+  ],
+  "mapping": {},
+  "action": "timing"
+}
+
+Published Captures:
+[
+  {
+    "captureId": "b8bba9025d8340bfb322e2867e7a3dcf",
+    "sessionId": "<session>",
+    "name": "Capture 17:18:07",
+    "createdAt": "2026-11-25T01:18:07.526Z",
+    "sampleRate": 10000,
+    "durationSec": 0.4,
+    "sampleCount": 4000,
+    "digitalChannels": [
+      {
+        "name": "D0",
+        "index": 0,
+        "kind": "digital"
+      }
+    ],
+    "analogChannels": [],
+    "analyzers": [],
+    "digitalCsvRelPath": "digital.csv",
+    "analogCsvRelPath": null,
+    "salRelPath": null,
+    "pcapRelPath": null,
+    "captureFilter": null,
+    "scriptName": "ra8p1_capture.py",
+    "kind": "logic"
+  }
+]
+
+Success: yes
+
+Stdout:
+Preparing waveform…
+{"success": true, "summary": "P514/DIO0: 40.0000 ms (expected 40 ms \u00b11%)", "data": {"device_id": "210415BE5124", "uart_port": "/dev/cu.usbmodem0010808410141", "uart_baud": 115200, "requested_sample_rate_sps": 10000, "requested_duration_s": 0.4, "uart": [{"command": "m0", "ack": "ACK m0"}, {"command": "c1", "ack": "ACK c1"}, {"command": "idle", "ack": "ACK idle"}], "captures": [{"command": "c1", "pin": "P514", "expected_period_ms": 40, "expected_dio": 0, "raw_csv_paths": ["<tmp>/embedder_digilent_90i2wjeq/ra8p1_c1_P514/digital.csv"], "errors": [], "sample_rate_sps": 10000.0, "sample_count": 4000, "duration_s": 0.4, "lost_samples": null, "corrupted_samples": null, "moving_dio": [0], "rising_edges": [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "falling_edges": [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dio": 0, "rising_sample_indices": [292, 692, 1092, 1492, 1892, 2292, 2692, 3092, 3492, 3892], "mean_period_ms": 40.0, "min_period_ms": 40.0, "max_period_ms": 40.0, "period_error_pct": 0.0, "analysis_path": "<tmp>/embedder_digilent_90i2wjeq/ra8p1_c1_P514/analysis.json"}], "mapping": {}, "action": "timing"}}

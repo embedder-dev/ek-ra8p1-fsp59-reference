@@ -1,0 +1,12 @@
+e2: starting e2 studio worker (lane 0)
+ok packs install (4.8 s)
+plan 02f2e1
+pack folder: <e2-area>/.eclipse/com.renesas.platform_1273726404/internal/projectgen/ra/packs
+  replace Renesas.RA_mcu_ra8p1.5.9.0.pack  1d56e7e2 -> 679a0a00
+  unchanged: 36
+support files: 1 stale and 0 left-over file(s) removed; e2 re-extracts 1 pack(s) on its next start
+applied; journal <e2-state>/packs/f5606d9b/journal.json
+workers stopped: 1; e2 restarted (and processed packs on request): 1 support file(s) re-extracted, 0 new
+packs: FSP 5.9.0 candidate (37 pack(s) from install 56d1ab, install 02f2e1, the rest stock; journalled)
+support files (layer 2): 42 checked in 1 packs; 42 match their pack
+undo: embedder e2 packs rollback (dry run first)

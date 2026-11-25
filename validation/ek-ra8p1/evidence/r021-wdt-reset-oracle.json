@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "expected": {
+    "build_tag": "r021 CPU0 Nov 24 2026 17:21:35",
+    "SCKSCR": "03",
+    "SCKDIVCR": "00001110",
+    "SCKDIVCR2": "00000000",
+    "MOSCSF": 1,
+    "CST": 1,
+    "GTPR": 239999,
+    "ACT": 0
+  },
+  "observed": {
+    "build_tag": "r021 CPU0 Nov 24 2026 17:21:35",
+    "SCKSCR": "03",
+    "SCKDIVCR": "00001110",
+    "SCKDIVCR2": "00000000",
+    "OSCSF": "28",
+    "SCICKCR": "03",
+    "SCI8_CCR2": "80000c10",
+    "SCI8_CCR3": "00009200",
+    "GTCR": "00000001",
+    "GTPR": 239999,
+    "CPU1ACTCSR": "0000",
+    "RSTSR1": "00000002",
+    "WDT0RF": 1,
+    "MOSCSF": 1,
+    "CST": 1,
+    "ACT": 0
+  },
+  "records": [
+    "BOOT",
+    "CLOCK",
+    "GPT0",
+    "WDT",
+    "READY"
+  ],
+  "errors": []
+}

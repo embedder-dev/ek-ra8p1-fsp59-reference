@@ -1,0 +1,88 @@
+{
+  "success": true,
+  "summary": "Seven in-window reloads over three timeouts, WDT0 reset cause and unarmed recovery",
+  "data": {
+    "transcript": "validation/ek-ra8p1/evidence/wdt-uart-1795569949545186000.json",
+    "events": [
+      {
+        "time_s": 0.1465,
+        "line": "WDT BOOT RSTSR1=00000000 WDT0RF=0"
+      },
+      {
+        "time_s": 0.1465,
+        "line": "ACK wdt"
+      },
+      {
+        "time_s": 0.1654,
+        "line": "WDT PREARM DHCSR=03110000 DBGSTOPCR=00000007"
+      },
+      {
+        "time_s": 0.1654,
+        "line": "WDT START 4096 counts PCLKB=12000000 /8192"
+      },
+      {
+        "time_s": 1.6087,
+        "line": "WDT REFRESH n=1 count=07ff reload=0ffd"
+      },
+      {
+        "time_s": 3.1131,
+        "line": "WDT REFRESH n=2 count=07ff reload=0ffd"
+      },
+      {
+        "time_s": 4.4059,
+        "line": "WDT REFRESH n=3 count=07fd reload=0ffd"
+      },
+      {
+        "time_s": 5.787,
+        "line": "WDT REFRESH n=4 count=07ff reload=0ffd"
+      },
+      {
+        "time_s": 7.1636,
+        "line": "WDT REFRESH n=5 count=07fd reload=0ffd"
+      },
+      {
+        "time_s": 8.6,
+        "line": "WDT REFRESH n=6 count=07ff reload=0ffd"
+      },
+      {
+        "time_s": 9.9718,
+        "line": "WDT REFRESH n=7 count=07fd reload=0ffd"
+      },
+      {
+        "time_s": 9.9718,
+        "line": "WDT STOP no more refreshes; expecting WDT0 reset"
+      },
+      {
+        "time_s": 13.077,
+        "line": "BOOT EK-RA8P1 r021 CPU0 Nov 24 2026 17:21:35"
+      },
+      {
+        "time_s": 13.077,
+        "line": "CLOCK SCKSCR=03 SCKDIVCR=00001110 SCKDIVCR2=00000000 OSCSF=28 SCICKCR=03 SCI8_CCR2=80000c10 SCI8_CCR3=00009200"
+      },
+      {
+        "time_s": 13.077,
+        "line": "GPT0 GTCR=00000001 GTPR=239999 CPU1ACTCSR=0000"
+      },
+      {
+        "time_s": 13.077,
+        "line": "WDT BOOT RSTSR1=00000002 WDT0RF=1"
+      },
+      {
+        "time_s": 13.077,
+        "line": "READY"
+      },
+      {
+        "time_s": 16.1406,
+        "line": "WDT BOOT RSTSR1=00000002 WDT0RF=1"
+      },
+      {
+        "time_s": 16.1406,
+        "line": "ACK wdt"
+      }
+    ],
+    "refresh_phase_s": 9.8064,
+    "stop_to_reset_report_s": 3.1052,
+    "recovery_observation": []
+  }
+}

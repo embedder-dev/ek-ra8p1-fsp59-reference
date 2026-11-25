@@ -1,0 +1,18 @@
+Read-only preflight: [0x0207f800, 0x02080000)
+Original: 2048 bytes; 1181 not 0xff; SHA-256 901fa87c0bd4e28c48842332ba8b3b27411fa2aab3e64512cdb273abfd26aa59
+Every listed snapshot is byte-for-byte equal to the original captured before the first CPU0 bench download.
+analog-scratch-after.bin
+analog-scratch-before.bin
+analog-stack-scratch-after.bin
+analog-stack-scratch-before.bin
+cgc-scratch-after.bin
+cgc-scratch-before.bin
+r020-scratch-after.bin
+r020-scratch-before.bin
+scratch-after-boot.bin
+scratch-before-boot.bin
+wdt-extended-scratch-after.bin
+wdt-extended-scratch-before.bin
+wdt-scratch-after.bin
+wdt-scratch-before.bin
+Erase/write not attempted: ownership of pre-existing data is unknown.

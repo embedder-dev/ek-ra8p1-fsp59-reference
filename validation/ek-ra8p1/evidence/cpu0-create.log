@@ -1,0 +1,8 @@
+ok project create ek_ra8p1_cpu0 (6.6 s)
+created ek_ra8p1_cpu0 at <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0
+location: <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0 (--location <repo>/validation/ek-ra8p1 is a parent folder)
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m85), core CM85, fsp 5.9.0, toolchain GNU ARM 13.2.1.arm-13-7 (gcc-arm-embedded), rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU0 (ek_ra8p1_cpu0 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (given), toolchain GNU ARM Embedded 13.2.1.arm-13-7 (family given, version default)
+content generated in 5.8 s (no separate generate needed)
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0
+packs: FSP 5.9.0 candidate (37 pack(s) from install 56d1ab, the rest stock; journalled)

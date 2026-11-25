@@ -1,0 +1,17 @@
+{
+  "success": false,
+  "summary": "TimeoutError: Did not see READY",
+  "data": {
+    "transcript": "validation/ek-ra8p1/evidence/wdt-uart-1795569573891169000.json",
+    "events": [
+      {
+        "time_s": 0.0567,
+        "line": "WDT BOOT RSTSR1=00000000 WDT0RF=0"
+      },
+      {
+        "time_s": 0.0567,
+        "line": "ACK wdt"
+      }
+    ]
+  }
+}

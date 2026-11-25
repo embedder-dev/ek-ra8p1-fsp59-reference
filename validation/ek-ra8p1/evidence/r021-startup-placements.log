@@ -1,0 +1,21 @@
+57a01118f5e3681aa2e458f840039d42b0b189909d349ebfeb1ec3fe7c17e18f  validation/ek-ra8p1/evidence/r021-paired-build/ek_ra8p1_cpu0.elf
+02000000 T __Vectors
+02003a78 T bsp_clock_init
+020040c0 T Reset_Handler
+22002350 B __StackLimit
+22002350 b g_main_stack
+22003350 B __StackTop
+8e2da928e18cb32150f7e4ac0a69fb858d2f3ea19d7c246ff40e2e91ba1a22f7  validation/ek-ra8p1/evidence/r021-standalone-build/ek_ra8p1_cpu0.elf
+02000000 T __Vectors
+02003a78 T bsp_clock_init
+020040c0 T Reset_Handler
+22002350 B __StackLimit
+22002350 b g_main_stack
+22003350 B __StackTop
+2f11d048fae76e3e6b0b3e44c6d87bd454dc4652cb7e1e1c250f442266280dcf  validation/ek-ra8p1/evidence/r021-wdt-build/ek_ra8p1_cpu0.elf
+02000000 T __Vectors
+02003ea8 T bsp_clock_init
+020044f0 T Reset_Handler
+22002360 B __StackLimit
+22002360 b g_main_stack
+22003360 B __StackTop

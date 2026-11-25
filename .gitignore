@@ -2,6 +2,7 @@
 /.codex/
 /.embedder/*
 !/.embedder/pin-model/
+!/.embedder/hardware/
 /.firecrawl/
 /.gstack/
 

@@ -1,0 +1,4 @@
+ra8m1 checks=0: preprocessed tokens and whole non-debug ARM object byte-identical; sha256=2b63262243f32cfdb7313360cfd3cfc80b6365f0293d7f2a5144f0526c4e8b5d
+ra8m1 checks=1: preprocessed tokens and whole non-debug ARM object byte-identical; sha256=2b63262243f32cfdb7313360cfd3cfc80b6365f0293d7f2a5144f0526c4e8b5d
+ra6m5 checks=0: preprocessed tokens and whole non-debug ARM object byte-identical; sha256=41e55b2657a462ddd668c5757e6e6f16bfe87192aba63c954de76176017f3f4e
+ra6m5 checks=1: preprocessed tokens and whole non-debug ARM object byte-identical; sha256=41e55b2657a462ddd668c5757e6e6f16bfe87192aba63c954de76176017f3f4e

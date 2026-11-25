@@ -1,0 +1,2605 @@
+{
+  "packs": {
+    "Amazon.FreeRTOS-Kernel.11.1.0+fsp.5.9.0.pack": {
+      "entries": {
+        ".module_descriptions/AWS##RTOS##FreeRTOS##all####11.1.0+fsp.5.9.0.xml": {
+          "after_sha256": "bb87401141688bc369c6dfe98d9c1f02c121cb9599bbc47163253419d05e8c70",
+          "before_sha256": "ffec218d388fb3397e9bfcea976392622e7f306a4c7984f96c72fff0abe84920"
+        },
+        "ra/fsp/src/rm_freertos_port/port.c": {
+          "after_sha256": "34c8b4ad828d336058518f1c7b1d165c0cff0a931d9be0cb298e82dbc086bd99",
+          "before_sha256": "ef79bf47dc068eba386e92612582f99ef6de30b3e7c630e936c084f5625b9eaa"
+        }
+      },
+      "status": "modified"
+    },
+    "Microsoft.ThreadX.6.4.0+fsp.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/src/rm_threadx_port/tx_initialize_low_level.c": {
+          "after_sha256": "70ef00087f16fd37755716ea9d7da615a98ef56453ed60a21b756dd38c92c524",
+          "before_sha256": "43386e00a92de120566fc9281ad899fe9ca912f98e403b78e1b7758bfe81eacf"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_port.h": {
+          "after_sha256": "e1eaa5817f604087234ba167d4074b31ad3db6cf09c702bb34067940d0e13978",
+          "before_sha256": "b9c0a0854f435b953a5cc5755565d0ea60ac9706241335f6187bb16dc818f77b"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.c": {
+          "after_sha256": "f7a5b953972f671521493e0d1d4d5ac6d4e447ae25e78e28e25a5442f690e8d8",
+          "before_sha256": "5ae1f887ddc8e390ec97e2a1b23607d9dc82b535b909e260a51f5f270f11d45d"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_thread_schedule.c": {
+          "after_sha256": "ace4690ee99f26a350f970aa73667fda62a33f462c31d7d71d964b890b93e02f",
+          "before_sha256": "8dd983e67632035583b3c0c44105f62ed39a5b35a717d9733956affc9261629a"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA.5.9.0.pack": {
+      "entries": {
+        ".module_descriptions/Renesas##Common##all##fsp_common####5.9.0.xml": {
+          "after_sha256": "d04f5d0ba60cf19acce20a6bf88f960fcae648aa4c3eee076c1c43f05b410429",
+          "before_sha256": "b4dcd9d441168308c2568ca71a5628500736c4a75ef49d71ee6f7c6cfa6c52d4"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_adc_b####5.9.0.xml": {
+          "after_sha256": "f0da0c15a75faf1e58fac3a32c309e39ec99d709111b7caf3a77d3708c499fe0",
+          "before_sha256": "8d01034f5dc3ce27cc06df6e873588bd4946fcb83d8ca8f1ca5e30d31e927d02"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_agt####5.9.0.xml": {
+          "after_sha256": "1feca8352f446223b7b05ccd1b50e92980c01acea6ba01b4383d457fb1fab50e",
+          "before_sha256": "ee4259a5fd28c97a23f53e29b2025c47f4d71daf1dbe40ddd655cf0caa12626e"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_canfd####5.9.0.xml": {
+          "after_sha256": "e5c6987f27c0526fb709ac72e96295fb2407b9a41b5176b2e342cb198d16f5c9",
+          "before_sha256": "423162e262e62e6d762d47e1456a81a83226b0031eab1462283704c5c6db8207"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_dac_b####5.9.0.xml": {
+          "after_sha256": "eb04639bb2ca41fa1d8305d27bd8bd8ce9206302ef79e03cb2d51c3e76455556",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_glcdc####5.9.0.xml": {
+          "after_sha256": "8ec7fdeafb669aea4bd494ebe6c95c8bd55a7aac134822cacafbe4d481606b05",
+          "before_sha256": "5810e442c334da8045d977ff538b2047b4ec0816d62e7bf0610403826f038290"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_i3c####5.9.0.xml": {
+          "after_sha256": "91874ab2061994c2c9d79962216ac7567dab10f711f69a66ba606bdb56e9981c",
+          "before_sha256": "be91b591832b9df410f466e1395f2d9de564832dc84aa90f1c45b1d73b464503"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_icu####5.9.0.xml": {
+          "after_sha256": "3722d7b7eaca8bdc02bf3372e58c436f364e3f0ac971883e8e2984ba8c6908ae",
+          "before_sha256": "34b1fc607c3b8d5150845bf4f972647d5036c16ebee544f7a6586e5bea83e3a9"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_ioport####5.9.0.xml": {
+          "after_sha256": "545bea927d08711e6e6e6ba5bfe3a684cef6ce648f5df912719f9b972c0ad316",
+          "before_sha256": "066d9079b85b301e2f4a271678fe233ef03bc5c601fafa425baacc826881eef3"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_mipi_dsi####5.9.0.xml": {
+          "after_sha256": "b744b3175f94281f8639b483891fe211404c58b8a3570d547014049041e1e528",
+          "before_sha256": "a1c0294855edbcba4b552f25740927b416aaee9a38aab5858c73f94efc1da3b1"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_mipi_phy####5.9.0.xml": {
+          "after_sha256": "d3d15d59c280bdf86c82ece760ab5dba3e0507c22319b294a3a9ad97b6e9277f",
+          "before_sha256": "0549853540149487f081385fc97b4b4a0d5ee45b10bf9c24f8c78f0a0e05a2f8"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_mram####5.9.0.xml": {
+          "after_sha256": "3693e50a7688539dc3a86ec1cc2419fb83b557fa5e38f13caa80ee437d1cc341",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_ospi_b####5.9.0.xml": {
+          "after_sha256": "ec98f8a01656c69e5743a2fd213f3439623379ba5d853b9a5c777cbfdca81dc1",
+          "before_sha256": "eee274540d304c0205f515e5ac9c26a44900318952a32a0cef950acd0cc84b52"
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_pdm####5.9.0.xml": {
+          "after_sha256": "0b2821e6fef95c937d7a1d72e2ee8fdddcf4942bb605dca7ebc68c6f95f7c05a",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##HAL Drivers##all##r_sci_b_spi####5.9.0.xml": {
+          "after_sha256": "69cf1209dce6beaf3c1064c37cfa4d6abcf2837dfb4f628d5e95b3c35380a099",
+          "before_sha256": "0b27b91dd8955e7803482458831c537ef071799a6d804ffdd3bb06bcc7983220"
+        },
+        "Renesas.RA.pdsc": {
+          "after_sha256": "d0a0099b45bb0ee308934a0478a461a214c10e60c611e8e5216a888fb5078c1c",
+          "before_sha256": "db97b85dc1bbe8c0c0e1b0eb6c8956a5a00536e4aa8e012011f32e6e4c308d1f"
+        },
+        "ra/fsp/inc/api/r_pdm_api.h": {
+          "after_sha256": "9bf0788bd769b84f70aad63287bb2749c368e51c546998af1fdc8ee4c06310ce",
+          "before_sha256": null
+        },
+        "ra/fsp/inc/instances/r_adc_b.h": {
+          "after_sha256": "aa958aa8ff59948cc46484b47dd0c45227608ab4d4c2f8f1c3f4d677d42a86d8",
+          "before_sha256": "bfc12bbe85a0565a31946b355074047bea773268fba89793fd48948536841f7c"
+        },
+        "ra/fsp/inc/instances/r_agt.h": {
+          "after_sha256": "2ee8c77cffb6afdfdc98f26ce0f4426f5379ba5323774e5c2c805fa5027735a6",
+          "before_sha256": "0a5539e823db0c18abcb46b7465ef3ce39505240fc58f0c58203d165073fbd5b"
+        },
+        "ra/fsp/inc/instances/r_dac_b.h": {
+          "after_sha256": "6a3a5bb38588946bbb053e47c673777237ee29198b8126595dc2ec8e81b07495",
+          "before_sha256": null
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/inc/instances/r_mram.h": {
+          "after_sha256": "8a7d08b2d7bf405776adb060b969a0bc530a40ee047cffd2839169476e0f91f8",
+          "before_sha256": null
+        },
+        "ra/fsp/inc/instances/r_pdm.h": {
+          "after_sha256": "7f272f8c8c8810b99854f2e2b91f9b0b31b1ba2ea64b820c739934ffd0bad526",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/renesas.h": {
+          "after_sha256": "fb98a1072f659d95990e58765e1f99ebedc3f745ff3c21aff18ce338ef605f02",
+          "before_sha256": "5b00a62d2b62151efc0cc3af86ba23bfc51d934c1efb6c1ab83e68a2edc293f5"
+        },
+        "ra/fsp/src/r_adc_b/r_adc_b.c": {
+          "after_sha256": "2aa74042313a2a35b1e216a1ca36da10370f25df5f17bd1aab0033eeaabf5888",
+          "before_sha256": "9a3816f64aa86c121e982e56cb2ef73f4bb38dc6ab1a1313bf5a947db4727b7e"
+        },
+        "ra/fsp/src/r_agt/r_agt.c": {
+          "after_sha256": "a64907540afaf1111dc5f2608570e3e2550a26ef814665c670e4ee2524c63a4a",
+          "before_sha256": "cd1ed7e40adab7ad7fda11a2920463435a7d37f1d672464e673a44ac816de2c4"
+        },
+        "ra/fsp/src/r_cgc/r_cgc.c": {
+          "after_sha256": "15dd5ac0627e2b84223208cad7599ef804f0f49fa6d675e0e72bd36e4775c747",
+          "before_sha256": "f5036a0e37ad963d261de6788d5f7d45c29dd034f2451d9be0bfa61f0a574b40"
+        },
+        "ra/fsp/src/r_dac_b/r_dac_b.c": {
+          "after_sha256": "186759cec3b85d877ffe88298c35d9ffcd38f8c33f381f57bb1a6c1789fa74e6",
+          "before_sha256": null
+        },
+        "ra/fsp/src/r_glcdc/r_glcdc.c": {
+          "after_sha256": "3ad2068efdbe32f7025cdb8cdf1bf54f33ec9c3a266b9b0b54347f461f20aa5c",
+          "before_sha256": "dd3095999448aae74aec40517a97639eb4a84c48bcc670f38e35252b421f069a"
+        },
+        "ra/fsp/src/r_gpt/r_gpt.c": {
+          "after_sha256": "cfc8c6ff65cdfec5ad6c7c604a61b52038ed32b4050a4a5c48375e785d3d0b82",
+          "before_sha256": "06ece68f384d1ccff2c0b33f135abcc4c75fefbefee725c804a81673ab26c5f6"
+        },
+        "ra/fsp/src/r_i3c/r_i3c.c": {
+          "after_sha256": "8d9a6a7bf3cb9cc49ee8e8c9bfc9c56e91b06c13584fa14731642b10b0ccfb32",
+          "before_sha256": "b0cc0e2ad00f77a6ad504dc0c5e932a8a52fcc4a9a30334f1da2d3886fe9d014"
+        },
+        "ra/fsp/src/r_icu/r_icu.c": {
+          "after_sha256": "d7c17ab480a9639ec687a16b21b9bb6ce0291c2055f402b404bc779a61f4fc02",
+          "before_sha256": "d2d1a53ba8437dbb1ad708bb796ba5337adc5dd3e289c7989b767d736a4a0cf8"
+        },
+        "ra/fsp/src/r_lpm/r_lpm.c": {
+          "after_sha256": "199ce98bff66eebe89910b448d5f23f4d1883abdcc0fd9bfda27abb908efae01",
+          "before_sha256": "04acde6dcfbbf423c3d3dfb2838371d5cc5cd558c06e5d76deb74e8b526170a8"
+        },
+        "ra/fsp/src/r_mipi_dsi/r_mipi_dsi.c": {
+          "after_sha256": "6a9e5bcbcb68a20c5dd643a52bccd23c17686b1d39af808fe9020c0ddc522fef",
+          "before_sha256": "6f6335dafad11c9f6005191b03bc7add485e88ba61350da687f95cb68bbab494"
+        },
+        "ra/fsp/src/r_mipi_phy/r_mipi_phy.c": {
+          "after_sha256": "6dc088d115fe845c9690865bd76b209a14f42bb2116175c0585f3d94bbefbac9",
+          "before_sha256": "e49913fba8e2bd47d58e830505c6b21e4e8c64dbe4433c1fe34cdd90c2440874"
+        },
+        "ra/fsp/src/r_mram/r_mram.c": {
+          "after_sha256": "a94821ed6c609666bcbe9c6539b69722bba07cfb8041166adc45200fb5c40bd5",
+          "before_sha256": null
+        },
+        "ra/fsp/src/r_ospi_b/r_ospi_b.c": {
+          "after_sha256": "8d576a1197e286a85be3efc6c274c22098196f5fa38bc03cd2ab8cf5e007530a",
+          "before_sha256": "acc8d813ad3bb40e28d14f9a5dd9556bb961cba4d774a49e2685e6f969353c3f"
+        },
+        "ra/fsp/src/r_pdm/r_pdm.c": {
+          "after_sha256": "ea804f4b800b095312c67fa167f8a8427e4b13107361d7ff2228db758f886f1e",
+          "before_sha256": null
+        },
+        "ra/fsp/src/r_sci_b_spi/r_sci_b_spi.c": {
+          "after_sha256": "0cf23abc0ecc0bba0de7b7929f1ae89ab2032d997c2f354e5a4f62b5d4fdc893",
+          "before_sha256": "4987160400807857ab1ca82200bf777b3c8d5a02ee4153a7942d408d73e5f09e"
+        },
+        "ra/fsp/src/r_wdt/r_wdt.c": {
+          "after_sha256": "a650447fc3b178117531194ea148558d9dd6caf2930ac20ef4686201dc9247a4",
+          "before_sha256": "68794f2d6967a32b0d29098b92fcf2f3c95e2bf6e62df79adebce00bc741c2fc"
+        },
+        "ra/fsp/src/rm_freertos_port/port.c": {
+          "after_sha256": "34c8b4ad828d336058518f1c7b1d165c0cff0a931d9be0cb298e82dbc086bd99",
+          "before_sha256": "ef79bf47dc068eba386e92612582f99ef6de30b3e7c630e936c084f5625b9eaa"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_initialize_low_level.c": {
+          "after_sha256": "70ef00087f16fd37755716ea9d7da615a98ef56453ed60a21b756dd38c92c524",
+          "before_sha256": "43386e00a92de120566fc9281ad899fe9ca912f98e403b78e1b7758bfe81eacf"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_port.h": {
+          "after_sha256": "e1eaa5817f604087234ba167d4074b31ad3db6cf09c702bb34067940d0e13978",
+          "before_sha256": "b9c0a0854f435b953a5cc5755565d0ea60ac9706241335f6187bb16dc818f77b"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_port_wait_thread_ready.c": {
+          "after_sha256": "f7a5b953972f671521493e0d1d4d5ac6d4e447ae25e78e28e25a5442f690e8d8",
+          "before_sha256": "581d06cd00ba533c369bd426f42112891815d6e92e1bcdf095f382e7e0373b1d"
+        },
+        "ra/fsp/src/rm_threadx_port/tx_thread_schedule.c": {
+          "after_sha256": "ace4690ee99f26a350f970aa73667fda62a33f462c31d7d71d964b890b93e02f",
+          "before_sha256": "8dd983e67632035583b3c0c44105f62ed39a5b35a717d9733956affc9261629a"
+        },
+        "toolingSupport.xml": {
+          "after_sha256": "fc502b39c9774fbc24b90cc02157bbbd4350299b8bd9e25d8ba687a2a93667dd",
+          "before_sha256": "e6b9dcf6583ce2f63aea2ebeb36790ababa10f32ee8038edd0c05e4ea9964a27"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_board_ra8p1_ek.5.9.0.pack": {
+      "entries": {
+        ".module_descriptions/Renesas##BSP##Board##ra8p1_ek####5.9.0##configuration.xml": {
+          "after_sha256": "cc3b66a6bdb15ed92a41e877a28b79f3fe9e17126986f62263c99bff14a75518",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##BSP##Board##ra8p1_ek####5.9.0.xml": {
+          "after_sha256": "9c0e6f524342f6402a99528fb4f4bb190752439e2eddc45bb28f8c65c4a1d741",
+          "before_sha256": null
+        },
+        "Renesas.RA_board_ra8p1_ek.pdsc": {
+          "after_sha256": "3f7db1b68986206e8bba0c350e40f2708bc0d055cfb7010dbe2bcecbcf415e38",
+          "before_sha256": null
+        },
+        "ra/board/ra8p1_ek/board.h": {
+          "after_sha256": "b34de2e194feeff3fdcbe0d13b779dddbf269c29366298ae6ea33135f10fc96f",
+          "before_sha256": null
+        },
+        "ra/board/ra8p1_ek/board_init.c": {
+          "after_sha256": "92d0db633046746dd6b5003079f0d422d25b35db856d341d938502bfd23d0d50",
+          "before_sha256": null
+        },
+        "ra/board/ra8p1_ek/board_init.h": {
+          "after_sha256": "a7054e994a1ffdff371f18c8fb724f61612f58a18034d6ab250a3ab5a9927932",
+          "before_sha256": null
+        },
+        "ra/board/ra8p1_ek/board_leds.c": {
+          "after_sha256": "18f8ea3b6de51c65d9c39bc49195423d6f57ba08b66d9eb20fbdc1e1e0a3bb93",
+          "before_sha256": null
+        },
+        "ra/board/ra8p1_ek/board_leds.h": {
+          "after_sha256": "c6cf8f0f1c19f379350be454df5ac9e7aa2f0d1178b126ba8d41693ca898dc20",
+          "before_sha256": null
+        },
+        "toolingSupport.xml": {
+          "after_sha256": "913ad0a19db16f956c6bdd312c65ca901676a69eee0d172cafca9a9184071210",
+          "before_sha256": null
+        }
+      },
+      "status": "added"
+    },
+    "Renesas.RA_mcu_ra0e1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra0e1/bsp_feature.h": {
+          "after_sha256": "5094a1ea766af1c3f0e66e3cd04d0e5a68b7bc1d6f140acb2f4204df92f2097a",
+          "before_sha256": "193c84599807e753277f604cd58676546405feca831a413758d711cef56b9bdf"
+        },
+        "ra/fsp/src/bsp/mcu/ra0e1/bsp_peripheral.h": {
+          "after_sha256": "e121cdbdc1b2a34a8e58dae4194bb6dfbe39f9e8dba8b35f1c52853cfb1437bf",
+          "before_sha256": "45a7ac12ffc2e6a571d89575ae9eb3f9f0bf8fc23a132e0f10a66616175063fa"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra0e2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra0e2/bsp_feature.h": {
+          "after_sha256": "450b8bfc5e1a81a4c0c7d666cffa081df96b6df7dc953175323b6155b2af8059",
+          "before_sha256": "4760a1900342598b7ad7326a5ea370f4ca0b2d0264f449e908167bf8184d2d11"
+        },
+        "ra/fsp/src/bsp/mcu/ra0e2/bsp_peripheral.h": {
+          "after_sha256": "7f574ecf076cd9d75f3d93a834b6a9188cb6387a4e8d5d63349ff0e35e50947b",
+          "before_sha256": "28a6cf10ffb0fee204005088f816774b3c754b12317ae9d1241fc2ff4204e704"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2a1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2a1/bsp_feature.h": {
+          "after_sha256": "932ceaf3626e3b8da0a240234c61eb3a780ac190ac8028529db339a3b62d3af6",
+          "before_sha256": "08d743f3cbbc1a3d63799b3f004c842182c88e235a3937c432491a59615f136a"
+        },
+        "ra/fsp/src/bsp/mcu/ra2a1/bsp_peripheral.h": {
+          "after_sha256": "71c11e33fd47f1e22278ff81f672cdcdccbf84c2d648da8e40f2519b1d478854",
+          "before_sha256": "18780654e76e0b3fa0cba29acc57a3ea6be4c35953f8adf3422e2ef23a1efa8d"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2a2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2a2/bsp_feature.h": {
+          "after_sha256": "95afcbd719bda6d5f69cfedfbc7648e89bcf240bb28eee9b569f2e7344123971",
+          "before_sha256": "7424a0708f114a8cb4aaf101bab41becfab30e9703217e4c84fb3a7d7cfd7158"
+        },
+        "ra/fsp/src/bsp/mcu/ra2a2/bsp_peripheral.h": {
+          "after_sha256": "d14b729580a5c17cb498da0975a7783448221bfccb40639c8e99a121d0bd3693",
+          "before_sha256": "d47993d0b0dcdce15b7b91d05e3c85bf8e48203d8f83bc6dfe3b8047e55474bf"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2e1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e1/bsp_feature.h": {
+          "after_sha256": "9192ec84f00269d6fd7dde34b58a1bc75b7304a7fc6ee63c5884c227c941c141",
+          "before_sha256": "008c2bf1fa4a89f5e51363bb4ab7cd445be05ed0482426733ea8c481b4e4d6a6"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e1/bsp_peripheral.h": {
+          "after_sha256": "ce8d20dca7998a6b906f178021a89d67575206357090864e30c513df169732ec",
+          "before_sha256": "5993755f51b9b29165d1df400039aceb0341669398a854c8d4e47922dce3933f"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2e2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e2/bsp_feature.h": {
+          "after_sha256": "138122b8e27731d3a9d25677252fb8791248b43d88122d4e6b868e0e12090f5b",
+          "before_sha256": "543e34ad6918a001b4ede04069a5b2016a51fb57a29a0906e5d570544deef442"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e2/bsp_peripheral.h": {
+          "after_sha256": "921b09ef00bf91795b3a167cca3325ea22361a726d78eaeaa9f0bec832047f33",
+          "before_sha256": "dbe44df73fbc0e0f28bc412980b343784bf5cd7169229b3188b1ad462eefa4ad"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2e3.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e3/bsp_feature.h": {
+          "after_sha256": "3639be89f4df6ff1496c2637449c8ca8795cc3e2fb6356d5ef0b1e3063967a14",
+          "before_sha256": "e7748c77ec93bf4b3a3957e95c6ad7e906f556ec5b8ea00b5a8ab69bead99325"
+        },
+        "ra/fsp/src/bsp/mcu/ra2e3/bsp_peripheral.h": {
+          "after_sha256": "3a356f19b8b87a93aa0d12ef718489098842385b10e25a2ade20f67a9d62e95b",
+          "before_sha256": "c6a2f1d64eda84f6bbf2b7622e5f71c0aab2cfee44568b14951bfad995de09a1"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2l1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2l1/bsp_feature.h": {
+          "after_sha256": "d5f89750cec7aedf456e58fc1763d9aa4edede6ef2c12b33744a2f1ac8a376a2",
+          "before_sha256": "3f467e76fa39411641227c966ed9033693dca2b3c2988c59dac408ddff290803"
+        },
+        "ra/fsp/src/bsp/mcu/ra2l1/bsp_peripheral.h": {
+          "after_sha256": "8960d899c38a3d368da412528ada2c901e4d1e2be01c6e0c8468aa187c70ad2c",
+          "before_sha256": "32de5f5812d7660681d2a359927f4f17662a409d14680f45ddef1d4418a26adf"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra2l2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra2l2/bsp_feature.h": {
+          "after_sha256": "f5ab5ef5375152061e150fe57fbb2058cbf337c2eedd0bf9f5f2ee399dae0306",
+          "before_sha256": "4369c7408388ae25e8c8d6e9bfbeb196a5ab8553ffbc8dac921296645a2261c4"
+        },
+        "ra/fsp/src/bsp/mcu/ra2l2/bsp_peripheral.h": {
+          "after_sha256": "bcc74c8e32ad66a3bb76545419ce4768710c515fc751596620f2d3b00acd247d",
+          "before_sha256": "31645ee3df53678da2abbc56b079ac4a1acad1ce00ce21b19eb7f91e8a5e05ba"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4e1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4e1/bsp_feature.h": {
+          "after_sha256": "29cd7545ce03bd8b3dc5343c4e0f7bf5591083b2b70271e53281d9e87d023803",
+          "before_sha256": "846660fe38986663a5a9d70e1e9e08666023068b4b8ecb38035ea0a036d4eecf"
+        },
+        "ra/fsp/src/bsp/mcu/ra4e1/bsp_peripheral.h": {
+          "after_sha256": "6641d8298a5ff2d0998b2bd13f53b35b8965270c8fef768c3bfb7a2b4094c710",
+          "before_sha256": "0aae6536417bbe2b39230defd89c7af6ae2ab67d4a89409bba23ed30d9f748cb"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4e2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4e2/bsp_feature.h": {
+          "after_sha256": "7b01e61268e4c2e18447e08850c8124d25849642641a689428c9dfeb8d2d4300",
+          "before_sha256": "a49d0091a0c99195ecd9fe4c211ce592cc41705efba90c0624ce8de3d71a865e"
+        },
+        "ra/fsp/src/bsp/mcu/ra4e2/bsp_peripheral.h": {
+          "after_sha256": "4098bbebdcd6ea5432ca45156d80cc84e83bd1cd555da0c1fed085dbf267f0d7",
+          "before_sha256": "f14579ab9f8f5f4f6f69e6ea1e49b2209ae0b339a2bff17d7e035ba4b77917bb"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4l1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4l1/bsp_feature.h": {
+          "after_sha256": "b9f643df16c75e5a9e238aae1ad12f94a39528b8629c83c1a98313bf1b322f2e",
+          "before_sha256": "1d04d168bacc4bdc7c7ae307c828f1a93bf6e61d240888df8f74145daebce69d"
+        },
+        "ra/fsp/src/bsp/mcu/ra4l1/bsp_peripheral.h": {
+          "after_sha256": "464905e4e6143c3229007de427ae4f46b306f372eb4f3fa69a8ce232e2177380",
+          "before_sha256": "c2d8501d1c10904c0d3fbd75d6c3c90355ebf6d85dff1eaf1828156f5f002491"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4m1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m1/bsp_feature.h": {
+          "after_sha256": "7c6827e48f47761510c0d1d1630171180ee573a8951797ebbcb77f2a11779f61",
+          "before_sha256": "c5f4cdfd946060e970808c15d61457d8843e56a2c5a190d6b966190d8b665f10"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m1/bsp_peripheral.h": {
+          "after_sha256": "81bc50465e8a2f7a056d78bf9f62c41bb4c3fc39ce931131883213e085502339",
+          "before_sha256": "da39cb1d52937a0834d94aaffb9cb840da2691432413486f0b638d875f147433"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4m2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m2/bsp_feature.h": {
+          "after_sha256": "ed01865512955b8553b381d47593317833688118971d64206fbde0f15083f725",
+          "before_sha256": "5726cd3fb40262bfe997457a7f87fef3f57547beb716ed85a061fab92a5b04f3"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m2/bsp_peripheral.h": {
+          "after_sha256": "35ab91a414bf3cac9278529bf8cc93c01e5594a839e3456a7bf5075c06334fcf",
+          "before_sha256": "edfbc8d7b56490f1da4aaa06a7eb1f48a6b82a9f70942622e77e8abe8b40be29"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4m3.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m3/bsp_feature.h": {
+          "after_sha256": "49e0f3ad6bbe8099e02d37ab1cce890adabed9a8d2190b6f2f97f67cfaf27bf2",
+          "before_sha256": "999c8b831e7b0b7c2d0b4377f7ec37e8b9a0cee279d25794eef1aab87d9c1066"
+        },
+        "ra/fsp/src/bsp/mcu/ra4m3/bsp_peripheral.h": {
+          "after_sha256": "4896f68dc9123a54dc8d001d4ebcffe522c543aa4c95aa1e2a24453edf0bd171",
+          "before_sha256": "be579b3b626614b4148f659a820a531cc3e97df5c53dcd375721feb01e8ea34f"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4t1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4t1/bsp_feature.h": {
+          "after_sha256": "6ac659b3eb167a66d54944f15a249194413a40b3e72b7d20d5fcbf22d3c6a9e1",
+          "before_sha256": "89cb4444b8a8cf00fe2cf92ed94c92ac638a8abe2f68c8b84c99f2b1534ff45e"
+        },
+        "ra/fsp/src/bsp/mcu/ra4t1/bsp_peripheral.h": {
+          "after_sha256": "78aeea8c31aa059187b1fc6c1890ad4c282df5da3bd8b9d8a0f456dd1cfd8fa8",
+          "before_sha256": "45a3b06f8417c3a41d055ad32b90cb2a49072e24083cabae463ae071a6955fe8"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra4w1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra4w1/bsp_feature.h": {
+          "after_sha256": "dd704503ae5ab8216cf62a58a3deeccf24fd6af9c8b05e3163c5b4d485736a39",
+          "before_sha256": "149b6a7a5b48899fa5ba88d966ec02de7a0087568f30a79c6151bb1549afc823"
+        },
+        "ra/fsp/src/bsp/mcu/ra4w1/bsp_peripheral.h": {
+          "after_sha256": "ec148f2a771678b18779f707463de97e9dae57164e48d3022e56078e131f7dd1",
+          "before_sha256": "8fe87df2bb85fac7a18c3d7dd867802b1ed86f779e6662bba3172c10d7374428"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6e1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6e1/bsp_feature.h": {
+          "after_sha256": "9d4398d83ba05ac510e5554242ab34a9a85d4e4c4ef60ebf47db60243354c13d",
+          "before_sha256": "7b5366521d646b34545b4525397ee246520f0f14a16910c37027b880b1ad0369"
+        },
+        "ra/fsp/src/bsp/mcu/ra6e1/bsp_peripheral.h": {
+          "after_sha256": "284153c0f69da2333417d739e9deff9d82f20bf0d6a8cb7040e0256f420161ef",
+          "before_sha256": "11c24b065c926f96654aeff81c72327ea44f505546c743294b31221c505af426"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6e2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6e2/bsp_feature.h": {
+          "after_sha256": "f6b7dc20d07c2e1308fcae8564f0e9428892376ee43b00ba25905e790adf6894",
+          "before_sha256": "cbef6168d5a052670dedb173cd6ae5c9d948e256c16910308061667047bcad1a"
+        },
+        "ra/fsp/src/bsp/mcu/ra6e2/bsp_peripheral.h": {
+          "after_sha256": "24059bbd26133af6de9284ccec5e07ebeb8beb1eb537ffa329b3af8f78aa8787",
+          "before_sha256": "386a68be02906e33833755e93320d62b4e2a4e3bc192227f176d2c68a54b54f1"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6m1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m1/bsp_feature.h": {
+          "after_sha256": "4fb52d39cb50a20459b1e348feca1c0f706783304116297b86bb072ca7202541",
+          "before_sha256": "816c2057bb8f6aac4d5e259b2bd4548befbe2cea55a1bb8573719d9eddc57889"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m1/bsp_peripheral.h": {
+          "after_sha256": "a07441819164e09bb841e59560758abdd119974121211428b6c9b9016b722c2b",
+          "before_sha256": "ac5d8a7377e4042cba603848a0fab4ac939a0133e5dd1bdead5982ea90c2c0c2"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6m2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m2/bsp_feature.h": {
+          "after_sha256": "5b0603f16cc5ac2e075e75259657d8bd7324c2d5bd541313fae583c455a20cc8",
+          "before_sha256": "3d1d547e5c6be7b130a7fb193839deaf5388b91a9497cb8463a6f70deccc9461"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m2/bsp_peripheral.h": {
+          "after_sha256": "964a128aec868f235821d67fc1d263b1a2fe3543e63a46542cab1f67bfe8fc5c",
+          "before_sha256": "f383c1732f3978c3b0e8fdd475b14eaf05d2a0bdd3b7380bd1957324a0533efc"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6m3.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m3/bsp_feature.h": {
+          "after_sha256": "ade3d08f1ea57be4ea7bf129fdb8c4eccc3ca4426aa5064235a279c17f5c75df",
+          "before_sha256": "c5f7110f5f905a1cc7b5c0fdc8c9ba72eb83b4024a048c9bc89997146e4db1b2"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m3/bsp_peripheral.h": {
+          "after_sha256": "310b5ea7e7c5bcdf19150214ee94203df08693a5d9367321d13a78a662476268",
+          "before_sha256": "3cdc719544ed0e0724ebead6512dc3d40e530eca94e7784a8513201230c989fa"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6m4.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m4/bsp_feature.h": {
+          "after_sha256": "ebbbe1185dfce0673187eafb011ccda4c667a543da22d3e9562730be18f81ee7",
+          "before_sha256": "aeee9417ecb41b0062fae74d65a77a69e5ea747b64116c35d59bc90abc1e7de8"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m4/bsp_peripheral.h": {
+          "after_sha256": "9181e891c96c9014cf7f7c62eda1b5b3c23fe19bafc584591af6b44c1fcddd72",
+          "before_sha256": "8d07565a1ca9bae9c25115f5129c8e9dd9a0d07a4579798c099ee3a1b07a74cf"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6m5.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m5/bsp_feature.h": {
+          "after_sha256": "2fc366107ccd98b4eff0822c631384bacfbb154afa5592c8a1834109e3875ebe",
+          "before_sha256": "9e3012b37aee16a7fb76fa8e8e21a530e806c458ee673cf6dccd26fce69bc7f9"
+        },
+        "ra/fsp/src/bsp/mcu/ra6m5/bsp_peripheral.h": {
+          "after_sha256": "8ad331e8e2f50b0cac5125fab06c8ae71356981a889ae38ee18629043f3200bc",
+          "before_sha256": "f8b6b2ffad5e96690a568f7834bfefb359809ef7c752947da472d58c5bbf7741"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6t1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t1/bsp_feature.h": {
+          "after_sha256": "a6a81e51ecb58f06b297b60ceb5fb6fc91a5116773a187fa5590b98af4e3387e",
+          "before_sha256": "b29f4b2b71f8c8b4a8fc5b381cec390d5dc6e7bcfaafd12db7c28f08f511e3df"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t1/bsp_peripheral.h": {
+          "after_sha256": "48d1ae429864a4d84455b5dc706aed9539fd4874599233f171459b37fa6f4014",
+          "before_sha256": "5b9403a828a456db9f2804e6fe3471b3c3725099241ef802a02cd0dc862e55a4"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6t2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t2/bsp_feature.h": {
+          "after_sha256": "da364958738ca3ee846d468172876792f1a5cd0253bd6fa76a8ae5d39b1437bf",
+          "before_sha256": "2c1bf9f25563b42fb6680649a15eb74728ec69609256b4d3538aa771a293bbe5"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t2/bsp_peripheral.h": {
+          "after_sha256": "cabd718c4a21b817e7aa7faf3bcbfcc66eb6986588a62ff682a40dd5f0119e61",
+          "before_sha256": "1709fbe6b1835463a79086b4a79d80fa5a530aad7d89a8f280e34f96682cb761"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra6t3.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t3/bsp_feature.h": {
+          "after_sha256": "42edc1342c899c79f94ba700c319beb097ca35cf0933021195bad6aaa8297e74",
+          "before_sha256": "42c7b7fe13304babdb953cfe2a118a485a0f6b9989d4f1ed9515d19c265a1141"
+        },
+        "ra/fsp/src/bsp/mcu/ra6t3/bsp_peripheral.h": {
+          "after_sha256": "fbec1e8e406b501881b43e32a3c8a35bace2ea7d43e44d9b13c54ce8ae11b191",
+          "before_sha256": "0e1b7fa85a6fa3b8625092f0834ca21c508510d96c128e8fab6ca81d4bab801c"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra8d1.5.9.0.pack": {
+      "entries": {
+        ".module_descriptions/Renesas##BSP##ra8d1##fsp####5.9.0.xml": {
+          "after_sha256": "c37c4260b068fd132013d78299efc3c157c05347dfa6edd7455d2b295865cc53",
+          "before_sha256": "13cd72a1eb31f067cb6fe2b4727e2157dbe58178908f65b3a363ac1cc304ba82"
+        },
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra8d1/bsp_feature.h": {
+          "after_sha256": "950f1d8201928ae5fc4b989f8649e83e6a55ec63e6f8b0dcb4d5aa641ecd8590",
+          "before_sha256": "130954072542a5e81ea00ebb3da4620223ee0507b31777a39fcd887b97dea772"
+        },
+        "ra/fsp/src/bsp/mcu/ra8d1/bsp_peripheral.h": {
+          "after_sha256": "0a13df73b6dfb04bfd3360735c091100f20e3a13ec0875df3ce25d585122458a",
+          "before_sha256": "59ca3e450562169343ddfa71f4678b08b19b7c5ce04ffd7f70244062c9e42c53"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra8e1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra8e1/bsp_feature.h": {
+          "after_sha256": "5e8ff7c2dbd96370745ad02d262b070cdb77244331c1b31efbdf5e13ecb3b288",
+          "before_sha256": "e29cb6d368b7d9549679f6fef1e1120b0cdac36083214be0a511d5f9516f0a08"
+        },
+        "ra/fsp/src/bsp/mcu/ra8e1/bsp_peripheral.h": {
+          "after_sha256": "203becbcf0cc9fc919f12e44fff8ff8c6ff46736a47a8dd7940f3d8d9a4b3acc",
+          "before_sha256": "ee1d84a7b2feb1d48cdedf0533486ce280ff33b034ce6d379f5d3169cebae252"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra8e2.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra8e2/bsp_feature.h": {
+          "after_sha256": "3aae6b298862b31223ea1b742e8bd3385c5fef28f86057956a9b50593774f3fe",
+          "before_sha256": "2c1583c6c7c18b6cbf8aabe9cf967fe48ca2fbdd9493fd4c472a7a979c97de2e"
+        },
+        "ra/fsp/src/bsp/mcu/ra8e2/bsp_peripheral.h": {
+          "after_sha256": "246f2c32231ef8d74e8507b37ff16313bc29ae995a7e0e3c6feab8139fc0a0e1",
+          "before_sha256": "483e3f8c5224aa2e57c3eb063788419a24ce65b12c6e82c310822f927a4a842d"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra8m1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra8m1/bsp_feature.h": {
+          "after_sha256": "4a9ccc9aa8733d18a1bc854580c3cfedbdd7541513d1b874c8456678e74edb3a",
+          "before_sha256": "f56e1570da66082b98b683121581ec2be43a0411596f9aa674865a59b1089627"
+        },
+        "ra/fsp/src/bsp/mcu/ra8m1/bsp_peripheral.h": {
+          "after_sha256": "9ea8602a66fe6000cfba2a41774194dee0cea46e5e7d327adb7f5bac17d2efda",
+          "before_sha256": "df01d47c270f987f8271218068030fb9444c1a0b70099a2b64cf649b9857f08c"
+        }
+      },
+      "status": "modified"
+    },
+    "Renesas.RA_mcu_ra8p1.5.9.0.pack": {
+      "entries": {
+        ".mcu/.devices/dbg/dbgra8p1.xml": {
+          "after_sha256": "dfc03bf422b6118939b37cc88746b1768a52dc865d2a26e1c452dde5acfb381f",
+          "before_sha256": null
+        },
+        ".mcu/.devices/gdb/ra8p1.5.9.0.xml": {
+          "after_sha256": "a55151a8aafbf70913d765b38448431466fcde74f2ab2eaa797ba7f305c99c9e",
+          "before_sha256": null
+        },
+        ".mcu/.devices/pg/memoryr7ka8p1kflcac.xmi": {
+          "after_sha256": "bfd7af9cf8fcb27cbac303e52c613983ebca035de0ded63e9cd17d7e8b2e9422",
+          "before_sha256": null
+        },
+        ".mcu/.devices/pg/pgra8p1.xmi": {
+          "after_sha256": "dde125885cf21d820e17e96e08b11ab0140577d36f7f555a5bdab9314d0027d7",
+          "before_sha256": null
+        },
+        ".mcu/.devices/zone/R7KA8P1KFLCAC.rzone": {
+          "after_sha256": "91599ed040d14ebe689bde18373ce9f056d72e17af2b62eb338d076f0703b31c",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1ADDCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1ADDCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1ADLCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1ADLCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1AFDCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1AFDCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1AFLCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1AFLCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BDDCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BDDCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BDLCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BDLCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BFDCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BFDCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BFLCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1BFLCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1JFDCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1JFDCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1JFLCAB.pincfg": {
+          "after_sha256": "1ce0f27d7b484d8cd3cef8337fc838c8d197ec038f9c21cb43697ce830accbd6",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1JFLCAC.pincfg": {
+          "after_sha256": "64785bd9b1502b4bfd0d96cafae785aecfb655d23bb3537bf3b9f5eb08b5a967",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1KFDCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1KFDCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1KFLCAB.pincfg": {
+          "after_sha256": "4c11bd8147ed0d76d2d4a2a32f61403318bd74d0796d75fe9908fe21cf6c7a98",
+          "before_sha256": null
+        },
+        ".mcu/.pinconfig/R7KA8P1KFLCAC.pincfg": {
+          "after_sha256": "b3006b593b495a5304801e877051c7ceb442f288ef9ec39e5d33a84d6f6ad9c4",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1AxxCAB.xml": {
+          "after_sha256": "7f8a11c57970e7456a079fc89d3d15f4b08e4089527fe6daf431c58b4ebde7b0",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1AxxCAC.xml": {
+          "after_sha256": "fa459db97f78f3b94c14b1a117954e75b1ab46aa6756bc37450513cd3fb2b577",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1BxxCAB.xml": {
+          "after_sha256": "e8b71cc8762ea8c3d79f614fa56407fffe54a7091de33f9d257dcf7c2ecacf16",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1BxxCAC.xml": {
+          "after_sha256": "4a6906e64a4fa5f5ec231511b71c18bf6e13992892d7687e7d64656efaf39168",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1JxxCAB.xml": {
+          "after_sha256": "07e0df70f0fc44ee1ea2deaab0f2ce33da4b8a0a1af325aa3ff9c2eaca09f50a",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1JxxCAC.xml": {
+          "after_sha256": "5f44536af18592c78525b44b9687a9d9c87956212277c9829d381a1ccba1cfc7",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1KxxCAB.xml": {
+          "after_sha256": "49f4b38fada1c6384d15bde4b4e7ced66c33b941c771e2e3042a3391287d038d",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/PinCfgR7KA8P1KxxCAC.xml": {
+          "after_sha256": "f42029458b936c7c5373674fefe25509d64241bfdbf8a1da801c29dab8f40054",
+          "before_sha256": null
+        },
+        ".mcu/.pinmapping/pluginra8p1.xml": {
+          "after_sha256": "101778509d389837fab64e4001376599f3bc5cdd8765be278311a952390912df",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##BSP##ra8p1##device####5.9.0.xml": {
+          "after_sha256": "51668fe14356f337fc0d56fd91675560772537d0043354cecbd2f49178f36e0b",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##BSP##ra8p1##device##R7KA8P1KFLCAC##5.9.0.xml": {
+          "after_sha256": "7dcff953f5b9b11be783e6de08f105d762b5c4c103a4d46cc9047e95832d3890",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##BSP##ra8p1##events####5.9.0.xml": {
+          "after_sha256": "0a9cca0121a5af8e3b394c3cad5ca61ac016e377245d6e26414773e88c4226cb",
+          "before_sha256": null
+        },
+        ".module_descriptions/Renesas##BSP##ra8p1##fsp####5.9.0.xml": {
+          "after_sha256": "2d888953855954b611755d3e089744a06c002ddfdf768164d0c02060b6e33db9",
+          "before_sha256": null
+        },
+        "Renesas.RA_mcu_ra8p1.pdsc": {
+          "after_sha256": "5aeb4b141b0ef08659ab73053c07e556f11585341c196a50261adba2c6758ea3",
+          "before_sha256": null
+        },
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": null
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/R7KA8P1KF.h": {
+          "after_sha256": "107f45b814eb28df79a4183d03d8afca9cab8e89c85c2a3864347666ffbff147",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.c": {
+          "after_sha256": "9c5f757adf7a49d852941fa4c41f8cf2df0dad015a7ce0c5820656048e59486d",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/board_sdram.h": {
+          "after_sha256": "e062b50d9686b46bbfe95ca8f6b2a7cf54d26bb4d43f32039d88e211d3fe92e9",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.c": {
+          "after_sha256": "0ed2464f0d224c05ea44f99f108a4ccd1715a7417b2211d9aaf8960883cb8779",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h": {
+          "after_sha256": "bf2873a899321da194ca13cbd8dbf68d420aebac8b2290567e758ac89d35ac28",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_delay.c": {
+          "after_sha256": "285f035ed3279d2864a5d5bcc353ab908cd824a0e8c64ab91aa71ad515a190f7",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_delay.h": {
+          "after_sha256": "e42dfe069cc3e5303b8cfc2393b6c0717594aa4133c681427d3c00f1d3d3fedc",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_exceptions.h": {
+          "after_sha256": "35c2448e12e1a2bbab508e81b82682cd71a8299f0bea171aa8c5f533ce26dd05",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_group_irq.c": {
+          "after_sha256": "35eb346e13f2a1282c6c533f0fda0c4678b40c8ef1afa57fbdbf914e221383c6",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_group_irq.h": {
+          "after_sha256": "e4b1dc30eed3708485bfe96a0762191a7e582fc5a854bfcb41edcdafdf5d4e54",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_guard.c": {
+          "after_sha256": "43bf9ba8ee0a35334fa3df303d86e8b3ba18d6386099bfa4dd1e24023a60daf0",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_guard.h": {
+          "after_sha256": "7716bf8c8bda4c610fe6651397d26c240e84e03466f442c52bdecb04685cc964",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_io.c": {
+          "after_sha256": "99463e1803b84bf40733f7b891027b12b0f9cc0eecf78721563149a89f401506",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_io.h": {
+          "after_sha256": "6339bbb87f2c37dbf77dded58f32caf35fe72e66cd96fa3a2ebf98bd368a3f08",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.h": {
+          "after_sha256": "d78f8b8c914d864200f206233f59e0408407db6a14cddba04f0da7666045dcf8",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_macl.c": {
+          "after_sha256": "ca16905577e0fc62353134f9df2c2026995d84d08bacd4dad8cf69838018ae45",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_macl.h": {
+          "after_sha256": "7c5c632008a75041618926db9808f3deb6f2738b40415b80f754550f2c453673",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h": {
+          "after_sha256": "8771b8faa5adf5e31a05ae50ea197b74da61951f50ab3d50b802b342d9803090",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_mmf.h": {
+          "after_sha256": "78b55d07d1dd620ef8de855869c541b5d162102aa324c13698f6f19dd1f8b667",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.h": {
+          "after_sha256": "fd3bb55379d879ddbd4f976c302ade932f91c95b7eb3b32e1e5e829a916ed9cb",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sbrk.c": {
+          "after_sha256": "7ea0d4d6b283c5f11000f6f36a369c562ae23617cbf70d10995af0c1d5698fcf",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.h": {
+          "after_sha256": "e7e0a98506c2a268d55e9d63674b8d56b61651d32dcc284b18b78d86b98939db",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.h": {
+          "after_sha256": "9a70e89dd4053e13422e7d3daf963e3315b60ad392ea8be453f9850e8fe03590",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_tfu.h": {
+          "after_sha256": "d677e81bb765b4e70104531c76fc0ccc7c85e9ad5a510dd25877490fdc0b2157",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/ra8p1/bsp_elc.h": {
+          "after_sha256": "51d0f360e068b6e5041bb202017b246a96ec0c1c6cc7cd559534c8534cf9df3a",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/ra8p1/bsp_feature.h": {
+          "after_sha256": "31e7b110c3581071228efccb05afc9fe4c2438c65b8238ffd7c94a8f91df7d0c",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/ra8p1/bsp_mcu_info.h": {
+          "after_sha256": "d1e9237f2b6d9795ce8ec50dbd609d39d96dfe1e291787543f7c7048a32e27ef",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/ra8p1/bsp_override.h": {
+          "after_sha256": "8fe236df8a0d4357354afb83c22b417d12f3d5308962c2f7b4bc09c7291fac22",
+          "before_sha256": null
+        },
+        "ra/fsp/src/bsp/mcu/ra8p1/bsp_peripheral.h": {
+          "after_sha256": "1cc672ad7f516eb0f5f0941cfc74f6ab555b3169d27b1607a953c4fddab97edf",
+          "before_sha256": null
+        },
+        "script/ac6/fsp_keep.via": {
+          "after_sha256": "752b987eb4787619a5be05e8702b7b999fa3e68c06fc3c77612bb510ffb6d4cf",
+          "before_sha256": null
+        },
+        "script/fsp.icf": {
+          "after_sha256": "75fde7909e8154a02e25d63c26295d7d95a09edfc0c96df073ec4361ddba11a5",
+          "before_sha256": null
+        },
+        "script/fsp.ld": {
+          "after_sha256": "9670d64510d625de810547dd2fe2cd600edd38b94d73bcd7877f81b872719524",
+          "before_sha256": null
+        },
+        "script/fsp.lld": {
+          "after_sha256": "dfb65fecf739c3811ca3c74cdb91927dc7c3d03cee47ec5bdc51f546ef48338c",
+          "before_sha256": null
+        },
+        "script/fsp.scat": {
+          "after_sha256": "9cbfa665177222c38de380afcf885d5b6c6f8ef9c056d1acf2ac1b130b7c7d91",
+          "before_sha256": null
+        },
+        "script/fsp_cpu1.icf": {
+          "after_sha256": "5c32d5f530360ea66dadf14b99c1dcaf365ed2a5b156ad6e09982133e67ff1c1",
+          "before_sha256": null
+        },
+        "script/fsp_cpu1.ld": {
+          "after_sha256": "22201ccaa5f15070df9f406c566d988ebb1bbe8fae49ed2643aa7982dd84c340",
+          "before_sha256": null
+        },
+        "script/fsp_cpu1.lld": {
+          "after_sha256": "fcf5550a1f3e082c91b4e7176cfb7e6613c6b0c5d613480ec193c87799b3d67a",
+          "before_sha256": null
+        },
+        "script/fsp_cpu1.scat": {
+          "after_sha256": "551e9fcc4db47bf89c632d849ca62e5fa6ebec4791cc344a8100ac3188b5071a",
+          "before_sha256": null
+        },
+        "toolingSupport.xml": {
+          "after_sha256": "fcc118ad7ce49fb914d75adf16c6acefb8bdd4d36d7801684abd931301277548",
+          "before_sha256": null
+        }
+      },
+      "status": "added"
+    },
+    "Renesas.RA_mcu_ra8t1.5.9.0.pack": {
+      "entries": {
+        "ra/fsp/inc/fsp_features.h": {
+          "after_sha256": "6e20104aae5438af8e395a777e2c0a4fba7087ace67c19b0d8d6567eb41482b3",
+          "before_sha256": "88b939f6fbb4f645091a087bacdd4c88bd4008eb30dc267fbb774352dc19695a"
+        },
+        "ra/fsp/inc/instances/r_ioport.h": {
+          "after_sha256": "b2c89b675039f1d04f29c8b9b297a77a1da7c82c3ca47e40d6db4be0a1aafd58",
+          "before_sha256": "5a501ba5878f9c58e9037ba350b374f1a2f36eb999c22048384f4d3d17bc51a5"
+        },
+        "ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.c": {
+          "after_sha256": "b492a7bd4f701c458d0bebeda9cd015aa63c14f84e2e6ac1b759c5df46a57069",
+          "before_sha256": "06fa2f3e0184eb94f81061eeb2a865999aa548898201ca65a655bfc29e0363b1"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.c": {
+          "after_sha256": "d361d31127c9f9c9bd45633b3991a4d26f2c6ffed71ac291087693348ab10d91",
+          "before_sha256": "bf4074660c1b22bee431df378f0cee460e1e36306bdc4ac9994dc25e216a1b8e"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_clocks.h": {
+          "after_sha256": "6c189cd09ecd7b6dbc353a6e3c1f4d8514851e27bbebdf87d3b27007638f3847",
+          "before_sha256": "db9db3275f7441faac3dcae6242ddf18f8a8e64b8e686c20fd356da07cd06fd5"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_common.h": {
+          "after_sha256": "ea4ff2081d7150a4291f4dfd518229420ab64c5206f3b51875d81004f52d441d",
+          "before_sha256": "3dff91f164ad8c12594eda73504aa5116677c1cd0352d520d65e9fa75159af90"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_irq.c": {
+          "after_sha256": "090294f4f179cfbc44eda1b2869e3bf61122394f196c7f99debec68fdcbc8506",
+          "before_sha256": "7c8997e9f24860e89526b440321ed0f50feef684abb17076b119fa090da5d694"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_module_stop.h": {
+          "after_sha256": "d1ba635df134d3bda8ab3e72c65b0c6512411c7bbc48a7b3413edf6daab1008f",
+          "before_sha256": "fc67fdc496fdb3324bd57dd6c91b86c667bb8dc91a4faf8309984b8ed1c760e6"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_register_protection.c": {
+          "after_sha256": "185f3ee4bcec70864e5ddb60598f4a9a4321b1f1632faf8fd0d36c855c1f7442",
+          "before_sha256": "7316abf20b1a2a7459ff4624fa3b0419b8f1c0feb89f6a8d995306f3babe62aa"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c": {
+          "after_sha256": "40c932923a4676d06aea780efd7bb98f3f620c668f37c772240333b803336a4f",
+          "before_sha256": "c78d7710400a61023b6f34cdca03cd77e72fc2c66a259d86a868d9e71ec9abcd"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_sdram.c": {
+          "after_sha256": "a0e79752d3f055ba66903e0668140e07aee3101e615273ca5be43dd3b24911b2",
+          "before_sha256": "33cca913250431103094a46799096e88b42c2418d7c171f58103ddaafc40f21d"
+        },
+        "ra/fsp/src/bsp/mcu/all/bsp_security.c": {
+          "after_sha256": "82e771c523fdb1ea733cebe7987f2a4aa6db9c20648aa270051e29e4c21dcbfa",
+          "before_sha256": "a5ccdc65068788873b30c7929000b3990ff16bc80b7ba44451b3ffa9dbbd0067"
+        },
+        "ra/fsp/src/bsp/mcu/ra8t1/bsp_feature.h": {
+          "after_sha256": "807754cc388377ce9e0c9cacf7a04f378802864c41d03a26a1547df5d235a43b",
+          "before_sha256": "17e58106b4a6852e77d1f7d69105544d551d1d70e1a0d0f1825567685f798e73"
+        },
+        "ra/fsp/src/bsp/mcu/ra8t1/bsp_peripheral.h": {
+          "after_sha256": "76a37cd198a7785cdd76b92a3e7bb4efb2fc93fef5c3e11245ef1245a5bedf94",
+          "before_sha256": "3340210be2a6b3a6f2680f27e9350b34dfe8b0a2e5c66a8dbc35986459ebf0dd"
+        }
+      },
+      "status": "modified"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+ok config set validation/ek-ra8p1/ek_ra8p1_cpu0 (1.3 s)
+applied the given settings to ek_ra8p1_cpu0; saved, content generated (no separate generate needed)
+  bsp config.bsp.fsp.secondary_core_start: config.bsp.fsp.secondary_core_start.disabled -> config.bsp.fsp.secondary_core_start.enabled (configuration.xml: config.bsp.fsp.secondary_core_start.enabled)
+configuration.xml: saved; read back from the file: bsp secondary_core_start config.bsp.fsp.secondary_core_start.enabled
+regenerated from configuration.xml: ra_cfg/fsp_cfg/bsp/bsp_mcu_family_cfg.h (BSP_CFG_SECONDARY_CORE_START_ADDRESS (0U) -> (0x02080000U))
+e2 bookkeeping, safe to ignore: changed: ra_cfg.txt (+1 -1 lines); rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone, .secure_xml
+configurator problems: 0
+next: embedder e2 build <repo>/validation/ek-ra8p1/ek_ra8p1_cpu0

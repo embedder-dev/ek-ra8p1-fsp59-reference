@@ -2981,11 +2981,46 @@ void bsp_clock_init (void)
 #endif
 
 #if (6U == BSP_FEATURE_CGC_PLLCCR_TYPE)
-    /* Startup precedes CM85 cache/TCM initialization. VSCR_1 covers the high-frequency range
-     * for all domains; complete the transition before starting either PLL (HM 11.7). */
     FSP_HARDWARE_REGISTER_WAIT(R_SYSTEM->VSCR_b.VSCMTSF, 0U);
+ #if defined(__CORTEX_M) && (85U == __CORTEX_M)
+
+    /* Rev. A forbids CM85 cache and TCM access during DVFS (HM Table 1.1, §11.7).
+     * Startup runs from code MRAM with its stack in SRAM, but reset can leave the I-cache enabled. */
+    uint32_t cache_enable = SCB->CCR;
+    uint32_t cache_mask   = MEMSYSCTL_MSCR_DCACTIVE_Msk | MEMSYSCTL_MSCR_ICACTIVE_Msk;
+    uint32_t cache_active = MEMSYSCTL->MSCR & cache_mask;
+    if (0U != (cache_enable & SCB_CCR_DC_Msk))
+    {
+        SCB_DisableDCache();
+    }
+
+    if (0U != (cache_enable & SCB_CCR_IC_Msk))
+    {
+        SCB_DisableICache();
+    }
+
+    MEMSYSCTL->MSCR &= ~cache_mask;
+    __DSB();
+    __ISB();
+ #endif
+
+    /* VSCR_1 covers the high-frequency range. Complete the transition before starting either PLL. */
     R_SYSTEM->VSCR = 1U;
     FSP_HARDWARE_REGISTER_WAIT(R_SYSTEM->VSCR_b.VSCMTSF, 0U);
+ #if defined(__CORTEX_M) && (85U == __CORTEX_M)
+    MEMSYSCTL->MSCR |= cache_active;
+    __DSB();
+    __ISB();
+    if (0U != (cache_enable & SCB_CCR_IC_Msk))
+    {
+        SCB_EnableICache();
+    }
+
+    if (0U != (cache_enable & SCB_CCR_DC_Msk))
+    {
+        SCB_EnableDCache();
+    }
+ #endif
 #endif
 
     /* Start clocks that require other clocks. At this point, all dependent clocks are running and stable if needed. */

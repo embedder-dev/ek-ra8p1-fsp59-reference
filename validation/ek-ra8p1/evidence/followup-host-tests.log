@@ -1,0 +1,43 @@
+test_bad_elf_identity_and_entry (test_image_guard.ElfAuditTests.test_bad_elf_identity_and_entry) ... ok
+test_cpu0_exclusive_end_and_forbidden_destinations (test_image_guard.ElfAuditTests.test_cpu0_exclusive_end_and_forbidden_destinations) ... ok
+test_cpu1_owns_its_mram_sram_and_tcm_mapping (test_image_guard.ElfAuditTests.test_cpu1_owns_its_mram_sram_and_tcm_mapping) ... ok
+test_option_names_and_addresses_cannot_masquerade (test_image_guard.ElfAuditTests.test_option_names_and_addresses_cannot_masquerade) ... ok
+test_option_table_matches_r019_gcc_linkers (test_image_guard.ElfAuditTests.test_option_table_matches_r019_gcc_linkers) ... ok
+test_rejects_uncovered_segment_padding_and_broken_mappings (test_image_guard.ElfAuditTests.test_rejects_uncovered_segment_padding_and_broken_mappings) ... ok
+test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits (test_image_guard.ElfAuditTests.test_sparse_cpu0_includes_ram_initializer_excludes_only_options_and_nobits) ... ok
+test_accepts_equivalent_different_record_boundaries (test_image_guard.SrecordTests.test_accepts_equivalent_different_record_boundaries) ... ok
+test_cli_build_verify_hashes_and_rejects_tampering (test_image_guard.SrecordTests.test_cli_build_verify_hashes_and_rejects_tampering) ... ok
+test_rejects_checksums_count_format_and_termination (test_image_guard.SrecordTests.test_rejects_checksums_count_format_and_termination) ... ok
+test_rejects_scratch_other_core_and_option_records_before_equality (test_image_guard.SrecordTests.test_rejects_scratch_other_core_and_option_records_before_equality) ... ok
+test_rejects_valid_checksum_payload_omission_and_gap_changes (test_image_guard.SrecordTests.test_rejects_valid_checksum_payload_omission_and_gap_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.257s
+
+OK
+test_hm_inpsel_mapping_uses_supplied_physical_pin_groups (test_ra8p1_review_pdm.PdmReviewMetadataTests.test_hm_inpsel_mapping_uses_supplied_physical_pin_groups) ... ok
+test_stereo_constraint_rejects_missing_and_mismatched_source (test_ra8p1_review_pdm.PdmReviewMetadataTests.test_stereo_constraint_rejects_missing_and_mismatched_source) ... ok
+test_pdm001_overwrite_injected_during_fifo_drain (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm001_overwrite_injected_during_fifo_drain) ... ok
+test_pdm002_error_at_icu_clear_is_repended (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm002_error_at_icu_clear_is_repended) ... ok
+test_pdm002_threshold_crossing_at_icu_clear_is_repended (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm002_threshold_crossing_at_icu_clear_is_repended) ... ok
+test_pdm003_all_settling_modes_cover_guaranteed_moco_minimum (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm003_all_settling_modes_cover_guaranteed_moco_minimum) ... ok
+test_pdm004_source_cannot_stop_before_consumer (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_source_cannot_stop_before_consumer) ... ok
+test_pdm004_source_mandatory_and_matched (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_source_mandatory_and_matched) ... ok
+test_pdm004_start_rechecks_source (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_start_rechecks_source) ... ok
+test_pdm004_unused_consumer_divider_can_differ_with_equal_decimation (test_ra8p1_review_pdm.PdmReviewProductionTests.test_pdm004_unused_consumer_divider_can_differ_with_equal_decimation) ... ok
+test_positive_clean_completion (test_ra8p1_review_pdm.PdmReviewProductionTests.test_positive_clean_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.901s
+
+OK
+test_secure_production_matrix (test_ra8p1_review_mram.ReviewMramTests.test_secure_production_matrix) ... ok
+test_cpu1_cache_failure_stops_before_programming (test_ra8p1_review_mram.ReviewMramTests.test_cpu1_cache_failure_stops_before_programming) ... ok
+test_nonsecure_no_register_access (test_ra8p1_review_mram.ReviewMramTests.test_nonsecure_no_register_access) ... ok
+test_helper_in_actual_tcm_alias (test_ra8p1_review_mram.ReviewMramTests.test_helper_in_actual_tcm_alias) ... ok
+test_mdf_safety_defaults_and_standard_api (test_ra8p1_review_mram.ReviewMramTests.test_mdf_safety_defaults_and_standard_api) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 9.548s
+
+OK

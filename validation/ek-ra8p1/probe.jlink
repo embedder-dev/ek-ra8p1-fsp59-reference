@@ -1,0 +1,8 @@
+ExitOnError 1
+IsHalted
+mem32 0xE000ED00 1
+mem32 0x02C1EC38 4
+mem32 0xE000EDF0 1
+mem8 0x4000F054 1
+mem16 0x4000F064 1
+q

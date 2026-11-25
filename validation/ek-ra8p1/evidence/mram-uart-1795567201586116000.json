@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "phase": "arm",
+    "uart": [
+      "MRAM ARMED 0207f800..02080000; no writes",
+      "ACK mram-arm"
+    ],
+    "transcript": "validation/ek-ra8p1/evidence/mram-uart-1795567201586116000.json"
+  },
+  "summary": "mram-arm confirmed by firmware"
+}

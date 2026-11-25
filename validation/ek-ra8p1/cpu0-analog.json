@@ -1,0 +1,37 @@
+{
+  "modules": [
+    {
+      "id": "r_adc_b",
+      "name": "g_analog_adc",
+      "properties": {
+        "adc_clock_source": "adcclk",
+        "adc_clock_divider": "div_1",
+        "adc_0_method": "sar_mode",
+        "adc_0_mode": "single_scan",
+        "adc_0_conversion_state": "5",
+        "adc_1_conversion_state": "5",
+        "sampling_table_id_0": "95",
+        "scan_group_0_enable": "enable",
+        "scan_group_0_converter_selection": "adc_0",
+        "scan_group_0_scan_end_isr_enable": "enable",
+        "scan_end_ipl_group_0": "priority12",
+        "calibration_end_ipl_adc": "priority12",
+        "virtual_channel_0_scan_group": "scan_group_0",
+        "virtual_channel_0_channel_select": "an001",
+        "virtual_channel_0_input_mode_selection": "single_ended",
+        "virtual_channel_0_data_format": "12_bit_data_format",
+        "p_callback": "bench_analog_adc_callback"
+      }
+    },
+    {
+      "id": "r_dac_b",
+      "name": "g_analog_dac",
+      "properties": {"channel": "0", "data_format": "right", "voltage_mode": "normal", "output": "pin"}
+    }
+  ],
+  "pins": [
+    {"component": "p001", "configs": {"p001.gpio_mode": "p001.gpio_mode.gpio_mode_an"}, "connections": {"p001": "p001.adc0.an001"}},
+    {"component": "p014", "configs": {"p014.gpio_mode": "p014.gpio_mode.gpio_mode_an"}, "connections": {"p014": "p014.dac120.da0"}},
+    {"component": "p013", "configs": {"p013.gpio_mode": "p013.gpio_mode.disabled"}, "connections": {"p013": "p013.none"}}
+  ]
+}

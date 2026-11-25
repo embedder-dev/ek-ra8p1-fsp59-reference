@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "phase": "resume",
+    "uart": [
+      "MRAM RESUMED verified pattern; cleanup only; no writes",
+      "ACK mram-resume"
+    ],
+    "transcript": "validation/ek-ra8p1/evidence/mram-uart-1795567304111085000.json"
+  },
+  "summary": "mram-resume confirmed by firmware"
+}

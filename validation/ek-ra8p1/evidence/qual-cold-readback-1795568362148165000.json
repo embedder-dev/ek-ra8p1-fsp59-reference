@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "summary": "Application MRAM readback (not a boot verdict)",
+  "data": {
+    "elf_sha256": "70047b64b024918fcb912497a1719ca33cb69b6af129f2d73cd7534e29439824",
+    "connection": {
+      "ok": true,
+      "server_type": "jlink",
+      "server_state": "running",
+      "client_state": "connected",
+      "server_ownership": "implicit"
+    },
+    "qualification": "cold",
+    "status": {
+      "connected": true,
+      "core": 0,
+      "scope": "connection",
+      "halted": true,
+      "running": false,
+      "threads": [
+        {
+          "id": "1",
+          "target-id": "Thread 57005",
+          "frame": {
+            "level": "0",
+            "addr": "0xeffffffe",
+            "func": "<signal handler called>"
+          },
+          "state": "stopped"
+        }
+      ],
+      "ok": true,
+      "backend": "jlink"
+    },
+    "pc": "0xeffffffe",
+    "fault_registers": "0xe000ed28:\t0x00080000\t0x40000000\n",
+    "system_dividers": "0x4001e020:\t0x00000000\n",
+    "readback": [
+      {
+        "section": ".text",
+        "lma": "0x2000000",
+        "length": 22908,
+        "sha256": "955157f12e572599f80869b50021224b7b0f24812e0e0b3486659e32a2bc7bc5",
+        "first_mismatch": null,
+        "match": true
+      },
+      {
+        "section": ".data",
+        "lma": "0x200597c",
+        "length": 96,
+        "sha256": "2b37b928f94f6e6365955ed2bf561caf5cc9e25b0bb76019878f5cbac8cc02f8",
+        "first_mismatch": null,
+        "match": true
+      }
+    ]
+  }
+}

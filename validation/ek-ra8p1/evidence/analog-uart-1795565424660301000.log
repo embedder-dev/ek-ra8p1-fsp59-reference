@@ -1,0 +1,42 @@
+ANALOG clock OSCSF=29 ADCCKCR=00 ADCCKDIVCR=00 HOCO=48000000 PCLKA=48000000
+ANALOG level i=0 dac=384 exp=384 raw=390,390,389,390 err=6,6,5,6 mean=390 min=389 max=390 bound=ok
+ANALOG level i=1 dac=1024 exp=1024 raw=1028,1028,1028,1027 err=4,4,4,3 mean=1028 min=1027 max=1028 bound=ok
+ANALOG level i=2 dac=2048 exp=2048 raw=2049,2049,2049,2049 err=1,1,1,1 mean=2049 min=2049 max=2049 bound=ok
+ANALOG level i=3 dac=3072 exp=3072 raw=3071,3071,3071,3071 err=-1,-1,-1,-1 mean=3071 min=3071 max=3071 bound=ok
+ANALOG level i=4 dac=3712 exp=3712 raw=3710,3709,3710,3709 err=-2,-3,-2,-3 mean=3710 min=3709 max=3710 bound=ok
+ANALOG ramp i=0 dac=384 exp=384 raw=389,390,390,390 err=5,6,6,6 mean=390 min=389 max=390 bound=ok
+ANALOG ramp i=1 dac=488 exp=488 raw=494,493,493,493 err=6,5,5,5 mean=493 min=493 max=494 bound=ok
+ANALOG ramp i=2 dac=592 exp=592 raw=597,596,597,598 err=5,4,5,6 mean=597 min=596 max=598 bound=ok
+ANALOG ramp i=3 dac=696 exp=696 raw=701,700,701,700 err=5,4,5,4 mean=701 min=700 max=701 bound=ok
+ANALOG ramp i=4 dac=800 exp=800 raw=805,804,804,804 err=5,4,4,4 mean=804 min=804 max=805 bound=ok
+ANALOG ramp i=5 dac=904 exp=904 raw=908,909,908,908 err=4,5,4,4 mean=908 min=908 max=909 bound=ok
+ANALOG ramp i=6 dac=1008 exp=1008 raw=1011,1012,1012,1012 err=3,4,4,4 mean=1012 min=1011 max=1012 bound=ok
+ANALOG ramp i=7 dac=1112 exp=1112 raw=1116,1116,1116,1116 err=4,4,4,4 mean=1116 min=1116 max=1116 bound=ok
+ANALOG ramp i=8 dac=1216 exp=1216 raw=1220,1219,1220,1219 err=4,3,4,3 mean=1220 min=1219 max=1220 bound=ok
+ANALOG ramp i=9 dac=1320 exp=1320 raw=1324,1323,1323,1323 err=4,3,3,3 mean=1323 min=1323 max=1324 bound=ok
+ANALOG ramp i=10 dac=1424 exp=1424 raw=1427,1427,1426,1427 err=3,3,2,3 mean=1427 min=1426 max=1427 bound=ok
+ANALOG ramp i=11 dac=1528 exp=1528 raw=1530,1530,1531,1530 err=2,2,3,2 mean=1530 min=1530 max=1531 bound=ok
+ANALOG ramp i=12 dac=1632 exp=1632 raw=1635,1634,1634,1634 err=3,2,2,2 mean=1634 min=1634 max=1635 bound=ok
+ANALOG ramp i=13 dac=1736 exp=1736 raw=1738,1738,1737,1738 err=2,2,1,2 mean=1738 min=1737 max=1738 bound=ok
+ANALOG ramp i=14 dac=1840 exp=1840 raw=1843,1843,1842,1843 err=3,3,2,3 mean=1843 min=1842 max=1843 bound=ok
+ANALOG ramp i=15 dac=1944 exp=1944 raw=1946,1946,1946,1946 err=2,2,2,2 mean=1946 min=1946 max=1946 bound=ok
+ANALOG ramp i=16 dac=2048 exp=2048 raw=2050,2049,2050,2050 err=2,1,2,2 mean=2050 min=2049 max=2050 bound=ok
+ANALOG ramp i=17 dac=2152 exp=2152 raw=2153,2153,2153,2153 err=1,1,1,1 mean=2153 min=2153 max=2153 bound=ok
+ANALOG ramp i=18 dac=2256 exp=2256 raw=2256,2258,2257,2257 err=0,2,1,1 mean=2257 min=2256 max=2258 bound=ok
+ANALOG ramp i=19 dac=2360 exp=2360 raw=2361,2361,2361,2361 err=1,1,1,1 mean=2361 min=2361 max=2361 bound=ok
+ANALOG ramp i=20 dac=2464 exp=2464 raw=2464,2464,2465,2465 err=0,0,1,1 mean=2465 min=2464 max=2465 bound=ok
+ANALOG ramp i=21 dac=2568 exp=2568 raw=2568,2568,2569,2569 err=0,0,1,1 mean=2569 min=2568 max=2569 bound=ok
+ANALOG ramp i=22 dac=2672 exp=2672 raw=2672,2672,2672,2672 err=0,0,0,0 mean=2672 min=2672 max=2672 bound=ok
+ANALOG ramp i=23 dac=2776 exp=2776 raw=2776,2776,2775,2776 err=0,0,-1,0 mean=2776 min=2775 max=2776 bound=ok
+ANALOG ramp i=24 dac=2880 exp=2880 raw=2879,2879,2880,2879 err=-1,-1,0,-1 mean=2879 min=2879 max=2880 bound=ok
+ANALOG ramp i=25 dac=2984 exp=2984 raw=2983,2983,2983,2983 err=-1,-1,-1,-1 mean=2983 min=2983 max=2983 bound=ok
+ANALOG ramp i=26 dac=3088 exp=3088 raw=3086,3086,3086,3086 err=-2,-2,-2,-2 mean=3086 min=3086 max=3086 bound=ok
+ANALOG ramp i=27 dac=3192 exp=3192 raw=3191,3190,3191,3189 err=-1,-2,-1,-3 mean=3190 min=3189 max=3191 bound=ok
+ANALOG ramp i=28 dac=3296 exp=3296 raw=3294,3295,3295,3295 err=-2,-1,-1,-1 mean=3295 min=3294 max=3295 bound=ok
+ANALOG ramp i=29 dac=3400 exp=3400 raw=3398,3397,3398,3398 err=-2,-3,-2,-2 mean=3398 min=3397 max=3398 bound=ok
+ANALOG ramp i=30 dac=3504 exp=3504 raw=3502,3501,3502,3502 err=-2,-3,-2,-2 mean=3502 min=3501 max=3502 bound=ok
+ANALOG ramp i=31 dac=3608 exp=3608 raw=3606,3606,3605,3606 err=-2,-2,-3,-2 mean=3606 min=3605 max=3606 bound=ok
+ANALOG ramp i=32 dac=3712 exp=3712 raw=3709,3709,3709,3710 err=-3,-3,-3,-2 mean=3709 min=3709 max=3710 bound=ok
+ANALOG ramp min=389 max=3710 first=390 last=3709 non_increasing=0
+ANALOG PASS
+ACK analog

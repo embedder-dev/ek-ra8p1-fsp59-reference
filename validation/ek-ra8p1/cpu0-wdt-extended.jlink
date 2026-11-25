@@ -1,0 +1,21 @@
+ExitOnError 1
+IsHalted
+r
+h
+IsHalted
+mem32 0xE000EDF0 1
+mem16 0x4000F064 1
+SaveBin validation/ek-ra8p1/evidence/wdt-extended-scratch-before.bin 0x0207F800 0x800
+mem32 0x02C9F040 2
+mem32 0x02C9F0C0 2
+mem32 0x02C9F120 2
+exec SetFlashDLNoRMWThreshold = 0xFFFFFFFF
+LoadFile validation/ek-ra8p1/evidence/cpu0-wdt-extended-safe.srec 0 noreset
+SaveBin validation/ek-ra8p1/evidence/wdt-extended-scratch-after.bin 0x0207F800 0x800
+mem32 0x02C9F040 2
+mem32 0x02C9F0C0 2
+mem32 0x02C9F120 2
+r
+IsHalted
+g
+q

@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "summary": "Read WDT0 preflight state; did not arm",
+  "data": {
+    "connection": {
+      "ok": true,
+      "server_type": "jlink",
+      "server_state": "running",
+      "client_state": "connected",
+      "server_ownership": "implicit"
+    },
+    "ofs0": "0xffffffff",
+    "dbgstopcr": "0x00000007",
+    "dhcsr": "0x00130003",
+    "rstsr1": "0x00000004",
+    "cpu1actcsr": "0x0000",
+    "register_start": true,
+    "ocd_wdt0_masked": true,
+    "debug_enabled": true,
+    "wdt0_reset_flag": false
+  }
+}

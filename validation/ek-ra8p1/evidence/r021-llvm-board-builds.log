@@ -1,0 +1,34 @@
+e2: starting e2 studio worker (lane 0)
+e2: create r021_llvm_cpu0 still running (10 s)
+ok project create r021_llvm_cpu0 (19.0 s)
+created r021_llvm_cpu0 at <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu0
+location: <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu0 (--location <e2-state>/sandbox/board-cKsbwV/projects is a parent folder)
+verified: yes — <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu0/Debug/r021_llvm_cpu0.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r021_llvm_cpu0/Debug/r021_llvm_cpu0.elf 616356 B 17:33:37, .srec 24484 B 17:33:37, .map 73043 B 17:33:37, .sbd 5462 B 17:33:38
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m85), core CM85, fsp 5.9.0, toolchain LLVM 21.1.1 (clang_arm), rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU0 (r021_llvm_cpu0 Debug_Flat.launch), no preceding project
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits), toolchain LLVM Embedded Toolchain for Arm 21.1.1 (family given, version default)
+content generated in 5.9 s (no separate generate needed)
+build: full: ok, 0 errors, 0 warnings (1s.416ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-state>/sandbox/board-cKsbwV/e2home/state/fcb1a53a/logs/1795570414840-r021_llvm_cpu0-full.log
+packs: FSP 5.9.0 126 packs, origin unknown (no stock archive registered: embedder e2 packs stock add <FSP_Packs zip>)
+ok project create r021_llvm_cpu1 (7.0 s)
+created r021_llvm_cpu1 at <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu1
+location: <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu1 (--location <e2-state>/sandbox/board-cKsbwV/projects is a parent folder)
+verified: yes — <e2-state>/sandbox/board-cKsbwV/projects/r021_llvm_cpu1/Debug/r021_llvm_cpu1.elf (0 errors, 0 warnings, relinked now, Debug)
+artifacts (stat from disk): r021_llvm_cpu1/Debug/r021_llvm_cpu1.elf 459584 B 17:33:45, .srec 6692 B 17:33:45, .map 61651 B 17:33:45, .sbd 5606 B 17:33:46
+read back from configuration.xml/.cproject/.launch: board board.ra8p1ek (EK-RA8P1), device R7KA8P1KFLCAC (cortex-m33), core CM33, fsp 5.9.0, toolchain LLVM 21.1.1 (clang_arm), rtos No RTOS, debugger SEGGERJLINKARM target R7KA8P1KF_CPU1 (r021_llvm_cpu1 Debug_Attach.launch), preceding r021_llvm_cpu0 (.sbd fresh)
+chosen: template "Bare Metal - Minimal" (default; applied: src/hal_entry.c generated; e2 does not record template names), project type FLAT (default), debugger J-Link ARM (default for Renesas kits), toolchain LLVM Embedded Toolchain for Arm 21.1.1 (family given, version default)
+preceding r021_llvm_cpu0: verified yes 7 s ago (0 errors), .sbd fresh
+r021_llvm_cpu0: artifacts (stat from disk): r021_llvm_cpu0/Debug/r021_llvm_cpu0.elf 616356 B 17:33:37, .srec 24484 B 17:33:37, .map 73043 B 17:33:37, .sbd 5462 B 17:33:38
+content generated in 3.5 s (no separate generate needed)
+build: full: ok, 0 errors, 0 warnings (899ms)
+build: configuration.xml: unchanged
+build: e2 bookkeeping, safe to ignore: new: .settings/org.eclipse.cdt.managedbuilder.core.prefs; rewritten with identical content: .api_xml, .cproject, .secure_azone, .secure_rzone
+build: log: <e2-state>/sandbox/board-cKsbwV/e2home/state/fcb1a53a/logs/1795570423209-r021_llvm_cpu1-full.log
+packs: FSP 5.9.0 126 packs, origin unknown (no stock archive registered: embedder e2 packs stock add <FSP_Packs zip>)
+ok problems …box/board-cKsbwV/projects/r021_llvm_cpu0 (346 ms)
+configurator problems: 0 (build already verified)
+ok problems …box/board-cKsbwV/projects/r021_llvm_cpu1 (309 ms)
+configurator problems: 0 (build already verified)

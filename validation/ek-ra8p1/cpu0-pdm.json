@@ -1,0 +1,33 @@
+{
+  "modules": [
+    {
+      "id": "module.driver.pdm_on_pdm",
+      "name": "g_bench_pdm",
+      "properties": {
+        "module.driver.pdm.channel": "2",
+        "module.driver.pdm.physical_input": "2",
+        "module.driver.pdm.input": "module.driver.pdm.input.rising",
+        "module.driver.pdm.sample_format": "module.driver.pdm.sample_format.0",
+        "module.driver.pdm.clock_div": "module.driver.pdm.clock_div.1",
+        "module.driver.pdm.sinc_order": "module.driver.pdm.sinc_order.4",
+        "module.driver.pdm.fifo_threshold": "module.driver.pdm.fifo_threshold.3",
+        "module.driver.pdm.microphone_delay_us": "35000",
+        "module.driver.pdm.error_enable": "module.driver.pdm.error_enable.none",
+        "module.driver.pdm.p_callback": "bench_pdm_callback",
+        "module.driver.pdm.ipl": "board.icu.common.irq.priority12"
+      }
+    }
+  ],
+  "pins": [
+    {
+      "component": "p812",
+      "configs": {"p812.gpio_mode": "p812.gpio_mode.gpio_mode_peripheral"},
+      "connections": {"p812": "p812.pdm2.pdmclk2"}
+    },
+    {
+      "component": "p502",
+      "configs": {"p502.gpio_mode": "p502.gpio_mode.gpio_mode_peripheral"},
+      "connections": {"p502": "p502.pdm2.pdmdat2"}
+    }
+  ]
+}
